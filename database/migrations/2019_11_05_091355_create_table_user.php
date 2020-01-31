@@ -13,44 +13,23 @@ class CreateTableUser extends Migration
      */
     public function up()
     {
-        Schema::create('User', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
+                
+                $table->bigIncrements('id');
+                $table->string('uuid');
+                $table->string('username');
+                $table->string('phone_number');
+                $table->string('email');
+                $table->timestamp('email_verified_at')->nullable();
+                $table->string('password');
+                $table->enum('role',['EMPLOYER','EMPLOYEE']);
+                $table->morphs('profilable');
+                $table->rememberToken();
+                $table->timestamps();
 
-            $table->increments('id')
-                    ->unique()
-                    ->integer();
+                $table->unique(['uuid','username','email']);
+                $table->index(['username','phone_number','email']);
 
-            $table->string('uuid')
-                    ->unique();
-            
-            $table->string('clientId');
-
-            $table->string('clientSecret');
-
-            $table->string('emailAddress')
-                    ->nullable();
-
-            $table->string('phoneNumber')
-                    ->nullable();
-
-            $table->integer('roleId')
-                    ->nullable();
-
-            $table->boolean('isConfirmed')
-                    ->default(false);
-
-            $table->integer('createdBy');
-
-            $table->integer('updatedBy')
-                    ->nullable();
-
-            $table->dateTime('createdAt')
-                    ->default(DB::raw('CURRENT_TIMESTAMP'));
-
-            $table->dateTime('updatedAt')
-                    ->default(DB::raw('CURRENT_TIMESTAMP'));
-
-            $table->integer('type')
-                    ->nullable();
         });
     }
 

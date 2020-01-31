@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('pages.login');
+    return view('home.index');
 });
 
 /* AuthenticationController */
-
+Route::get('/signup','AuthenticationController@showSignUpForm');
+Route::get('/login','AuthenticationController@showLoginForm');
 Route::post('/login', 'AuthenticationController@validateLogin');
 Route::post('/signup', 'AuthenticationController@signUp');
 

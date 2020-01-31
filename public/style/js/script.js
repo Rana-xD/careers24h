@@ -58,24 +58,24 @@ $(document).on('ready',function(){
     });
 
     /* Signin Popup */
-    $('.signin-popup').on('click', function(){
-        $('.signin-popup-box').fadeIn('fast');
-        $('html').addClass('no-scroll');
-    });
-    $('.close-popup').on('click', function(){
-        $('.signin-popup-box').fadeOut('fast');
-        $('html').removeClass('no-scroll');
-    });
+    // $('.signin-popup').on('click', function(){
+    //     $('.signin-popup-box').fadeIn('fast');
+    //     $('html').addClass('no-scroll');
+    // });
+    // $('.close-popup').on('click', function(){
+    //     $('.signin-popup-box').fadeOut('fast');
+    //     $('html').removeClass('no-scroll');
+    // });
 
     /* Signup Popup */
-    $('.signup-popup').on('click', function(){
-        $('.signup-popup-box').fadeIn('fast');
-        $('html').addClass('no-scroll');
-    });
-    $('.close-popup').on('click', function(){
-        $('.signup-popup-box').fadeOut('fast');
-        $('html').removeClass('no-scroll');
-    });
+    // $('.signup-popup').on('click', function(){
+    //     $('.signup-popup-box').fadeIn('fast');
+    //     $('html').addClass('no-scroll');
+    // });
+    // $('.close-popup').on('click', function(){
+    //     $('.signup-popup-box').fadeOut('fast');
+    //     $('html').removeClass('no-scroll');
+    // });
 
     /*** QUICK POST SHARE ***/
     $('.select-user > span').on('click', function (){
