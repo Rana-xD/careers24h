@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Jobhunt</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<meta name="author" content="CreativeLayers">
-
-	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('style/css/bootstrap-grid.css') }}" />
-	<link rel="stylesheet" href="{{ asset('style/css/icons.css') }}">
-	<link rel="stylesheet" href="{{ asset('style/css/animate.min.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('style/css/style.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('style/css/responsive.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('style/css/chosen.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('style/css/colors/colors.css') }}" />
-	<link rel="stylesheet" type="text/css" 	href="{{ asset('style/css/bootstrap.css') }}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	
+	@include('partials.header')
 </head>
 <body>
 
@@ -40,27 +24,52 @@
 								<form action="/signup" method="POST">
 									@csrf
 									<div class="cfield">
-										<input type="text" placeholder="Username" name="username" />
+										<input type="text" placeholder="Username" name="username" value="{{ old('username') }}"/>
 										<i class="la la-user"></i>
 									</div>
+									@if($errors->has('email'))
+											<span>
+												{{ $errors->first('username') }}
+											</span>
+									@endif			
 									<div class="cfield">
-										<input type="password" placeholder="password" name="password"/>
+										<input type="password" placeholder="password" name="password" value="{{ old('password') }}"/>
 										<i class="la la-key"></i>
 									</div>
+									@if($errors->has('password'))
+										<span>
+											{{ $errors->first('password') }}
+										</span>
+									@endif
 									<div class="cfield">
-										<input type="text" placeholder="Email" name="email"/>
+										<input type="text" placeholder="Email" name="email" value="{{ old('email') }}"/>
 										<i class="la la-envelope-o"></i>
 									</div>
+									@if($errors->has('email'))
+										<span>
+											{{ $errors->first('email') }}
+										</span>
+									@endif
 									<div class="cfield">
-										<input type="text" placeholder="Phone Number" name="phonenumber"/>
+										<input type="text" placeholder="Phone Number" name="phone_number" value="{{ old('phonenumber') }}"/>
 										<i class="la la-phone"></i>
 									</div>
+									@if($errors->has('phone_number'))
+										<span>
+											{{ $errors->first('phone_number') }}
+										</span>
+									@endif
 									<div class="dropdown-field">
 										<select data-placeholder="Please Select Account Type" class="chosen" name="role">
-											<option>Company</option>
-											<option>Job Seeker</option>
+											<option value="COMPANY">Company</option>
+											<option value="JOBSEEKER">Job Seeker</option>
 										</select>
 									</div>
+									@if($errors->has('role'))
+										<span>
+											{{ $errors->first('role') }}
+										</span>
+									@endif
 									<button type="submit">Signup</button>
 								</form>
 								<div class="extra-login">
@@ -78,17 +87,7 @@
 		</div>
 	</section>
 </div>
-<script src="{{ asset('/style/js/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/modernizr.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/script.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/wow.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/slick.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/parallax.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/select-chosen.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
-<script src="{{ asset("/style/js/maps2.js") }}" type="text/javascript"></script>
+@include('partials.footer_script')
 
 </body>
 </html>

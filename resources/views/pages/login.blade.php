@@ -2,11 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Login</title>
-	@include('header.header')
+	@include('partials.header')
 </head>
 <body>
 		<div class="theme-layout" id="scrollup">
@@ -17,15 +13,16 @@
 								<div class="col-lg-12">
 									<div class="account-popup-area signin-popup-box static">
 										<div class="account-popup">
-											<span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
+											<h3>Login</h3>
+											<h4>Welcom Back!</h4>
 												<form action="{{ url('/login') }}" method="post">
-												{{ csrf_field() }}
+												@csrf
 												<div class="cfield">
-													<input type="text" placeholder="Username" name="username"/>
+													<input type="email" placeholder="Email" name="email" required/>
 													<i class="la la-user"></i>
 												</div>
 												<div class="cfield">
-													<input type="password" placeholder="********" name="password"/>
+													<input type="password" placeholder="password" name="password" required/>
 													<i class="la la-key"></i>
 												</div>
 												<p class="remember-label">
@@ -131,18 +128,7 @@
 					</div>
 				</div>
 			</div><!-- SIGNUP POPUP -->
-			<!--JavaScript -->
-			<script src="{{ asset('/style/js/jquery.min.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/modernizr.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/script.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/bootstrap.min.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/wow.min.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/slick.min.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/parallax.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/select-chosen.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('/style/js/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
-			<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
-			<script src="{{ asset('/style/js/maps2.js') }}" type="text/javascript"></script>
+			@include('partials.footer_script');
 </body>
 </html>
 

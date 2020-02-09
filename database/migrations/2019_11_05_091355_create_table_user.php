@@ -22,8 +22,7 @@ class CreateTableUser extends Migration
                 $table->string('email');
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
-                $table->enum('role',['EMPLOYER','EMPLOYEE']);
-                $table->morphs('profilable');
+                $table->enum('role',['COMPANY','JOBSEEKER']);
                 $table->rememberToken();
                 $table->timestamps();
 
