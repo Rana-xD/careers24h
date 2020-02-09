@@ -22,23 +22,29 @@ Route::post('/login', 'AuthenticationController@login');
 Route::post('/signup', 'AuthenticationController@signUp');
 Route::get('/logout','AuthenticationController@logout');
 
+
+Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
+    Route::get('/profile','CompanyDashboardController@showProfile');
+    Route::get('/change-password','CompanyDashboardController@showChangePassword');
+    Route::get('/job-alert','CompanyDashboardController@showJobAlert');
+    Route::get('/manage-jobs','CompanyDashboardController@showManageJob');
+    Route::get('/packages','CompanyDashboardController@showPackage');
+    Route::get('/job','CompanyDashboardController@showJobForm');
+    Route::get('/resume','CompanyDashboardController@showResume');
+    Route::get('/transaction','CompanyDashboardController@showTransaction');
+});
 /*   CompanyDashboad   */
-Route::get('/profile','CompanyDashboardController@showProfile');
-Route::get('/change-password','CompanyDashboardController@showChangePassword');
-Route::get('/job-alert','CompanyDashboardController@showJobAlert');
-Route::get('/manage-jobs','CompanyDashboardController@showManageJob');
-Route::get('/packages','CompanyDashboardController@showPackage');
-Route::get('/job','CompanyDashboardController@showJobForm');
-Route::get('/resume','CompanyDashboardController@showResume');
-Route::get('/transaction','CompanyDashboardController@showTransaction');
 
 /*   JobSeekerDashboad   */
-Route::get('/my-profile','JobSeekerDashboardController@showProfile');
-Route::get('/applied-job','JobSeekerDashboardController@showAppliedJob');
-Route::get('/password','JobSeekerDashboardController@showChangePassoword');
-Route::get('/cover-letter','JobSeekerDashboardController@showCoverLetter');
-Route::get('/job-notify','JobSeekerDashboardController@showJobNotify');
-Route::get('/resume','JobSeekerDashboardController@showResume');
-Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
+Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
+    Route::get('/profile','JobSeekerDashboardController@showProfile');
+    Route::get('/applied-job','JobSeekerDashboardController@showAppliedJob');
+    Route::get('/password','JobSeekerDashboardController@showChangePassoword');
+    Route::get('/cover-letter','JobSeekerDashboardController@showCoverLetter');
+    Route::get('/job-alert','JobSeekerDashboardController@showJobNotify');
+    Route::get('/resume','JobSeekerDashboardController@showResume');
+    Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
+});
+
 
 

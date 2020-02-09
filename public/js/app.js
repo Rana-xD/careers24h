@@ -19269,14 +19269,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/assets/sass/app.scss":
+/*!****************************************!*\
+  !*** ./resources/assets/sass/app.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!******************************************!*\
-  !*** multi ./resources/assets/js/app.js ***!
-  \******************************************/
+/*!***************************************************************************!*\
+  !*** multi ./resources/assets/js/app.js ./resources/assets/sass/app.scss ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/js/app.js */"./resources/assets/js/app.js");
+__webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

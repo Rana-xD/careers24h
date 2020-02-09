@@ -303,20 +303,7 @@
 	</footer>
 
 </div>
-
-<script src="{{ asset("/style/js/jquery.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/modernizr.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/script.js")}}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/bootstrap.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/wow.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/slick.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/parallax.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/select-chosen.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/jquery.scrollbar.min.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/tag.js") }}" type="text/javascript"></script>
-<script src="{{ asset("/style/js/maps3.js")}}" type="text/javascript"></script>
-<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
-
+@include('partials.footer_script')
 </body>
 </html>
 

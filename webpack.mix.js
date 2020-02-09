@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'js')
+   .js('resources/assets/js/libraries.js','js')
    .babel('resources/assets/js/bootstrap-datepicker.js','public/js/bootstrap-datepicker.js')
    .babel('resources/assets/js/bootstrap.js','public/js/bootstrap.js')
    .babel('resources/assets/js/bootstrap.min.js','public/js/bootstrap.min.js')
@@ -32,6 +33,7 @@ mix.js('resources/assets/js/app.js', 'js')
    .babel('resources/assets/js/tag.js','public/js/tag.js')
    .babel('resources/assets/js/wow.min.js','public/js/wow.min.js')
    .babel('resources/assets/js/script.js','public/js/script.js')
+   .sass('resources/assets/sass/app.scss','css')
    .styles('resources/assets/css/colors/colors.css','public/css/colors/colors.css')
    .styles('resources/assets/css/animate.min.css','public/css/animate.min.css')
    .styles('resources/assets/css/bootstrap-datepicker.css','public/css/bootstrap-datepicker.css')
@@ -40,5 +42,20 @@ mix.js('resources/assets/js/app.js', 'js')
    .styles('resources/assets/css/chosen.css','public/css/chosen.css')
    .styles('resources/assets/css/icons.css','public/css/icons.css')
    .styles('resources/assets/css/responsive.css','public/css/responsive.css')
-   .styles('resources/assets/css/style.css','public/css/style.css');
+   .styles('resources/assets/css/style.css','public/css/style.css')
+   .babel([
+      'resources/assets/js/main/utils.js',
+      'resources/assets/js/main/main.js',
+   ],'public/js/combined.js')
+   .babel([
+      'resources/assets/js/main/auth/company/company_broadcast.js',
+      'resources/assets/js/main/auth/company/company.js'
+   ],'public/js/auth_company.js')
+   .babel([
+      'resources/assets/js/main/auth/jobseeker/jobseeker_broadcast.js',
+      'resources/assets/js/main/auth/jobseeker/jobseeker.js'
+   ],'public/js/auth_jobseeker.js')
+   .browserSync({
+		proxy: 'http://localhost:8000/'
+	});
    

@@ -228,19 +228,7 @@
 	</footer>
 
 </div>
-
-
-<script src="{{ asset('/style/js/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/modernizr.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/script.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/wow.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/slick.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/parallax.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/select-chosen.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/style/js/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
-
-
+@include('partials.footer_script')
 </body>
 </html>
 
