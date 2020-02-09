@@ -32,6 +32,9 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/job','CompanyDashboardController@showJobForm');
     Route::get('/resume','CompanyDashboardController@showResume');
     Route::get('/transaction','CompanyDashboardController@showTransaction');
+
+
+    Route::post('/update-password','CompanyDashboardController@updatePassword');
 });
 /*   CompanyDashboad   */
 
@@ -44,6 +47,8 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
     Route::get('/job-alert','JobSeekerDashboardController@showJobNotify');
     Route::get('/resume','JobSeekerDashboardController@showResume');
     Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
+
+    Route::post('/update-password','JobSeekerDashboardController@updatePassword');
 });
 
 

@@ -13,7 +13,7 @@ class CreateEmployeeProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_profiles', function (Blueprint $table) {
+        Schema::create('jobseeker_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('user_profile');

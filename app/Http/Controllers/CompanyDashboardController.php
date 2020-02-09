@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class CompanyDashboardController extends Controller
 {
@@ -40,5 +43,35 @@ class CompanyDashboardController extends Controller
         return view('company.dashboard.Transaction');
     }
 
+    public function updatePassword(Request $request){
+
+        $old_password = $request->old_password;
+        $new_password = $request->new_password;
+        $confirm_password = $request->confirm_password;
+
+        if(!Hash::check($old_password,Auth::user()->password)){
+            return response()->json([
+                'code' => 505,
+                'message' => "Your old password is incorrect!!"
+            ]);
+        }
+
+        if($new_password != $confirm_password){
+            return response()->json([
+                'code' => 505,
+                'message' => "Your confirm password does not match!!"
+            ]);
+        }
+        $user = User::find(Auth::user()->id);
+        $user->password = Hash::make($new_password);
+        $user->save();
+        return response()->json([
+            'code' => 200,
+            'message' => "You have updated the password"
+        ]);
+        
+    }
+
+    
 
 }

@@ -20,21 +20,21 @@
 					 		<div class="manage-jobs-sec">
 					 			<h3>Change Password</h3>
 						 		<div class="change-password">
-						 			<form id="companyUpdatePassword">
+						 			<form id="companyUpdatePassword" action="/company/update-password" method="POST">
 										 @csrf
 						 				<div class="row">
 						 					<div class="col-lg-6">
 						 						<span class="pf-title">Old Password</span>
 						 						<div class="pf-field">
-						 							<input type="password" name="old_pasword"/>
+						 							<input type="password" name="old_password" required/>
 						 						</div>
 						 						<span class="pf-title">New Password</span>
 						 						<div class="pf-field">
-						 							<input type="password" name="new_pasword"/>
+						 							<input type="password" name="new_password" required/>
 						 						</div>
 						 						<span class="pf-title">Confirm Password</span>
 						 						<div class="pf-field">
-						 							<input type="password" name="confirm_pasword"/>
+						 							<input type="password" name="confirm_password" required/>
 						 						</div>
 						 						<button type="submit">Update</button>
 						 					</div>
@@ -60,7 +60,7 @@
 </body>
 <script>
 	jQuery(document).ready(function($){
-		
+		$('#companyUpdatePassword').on('submit',CAREER24H.company.changePassword);
 	});
 </script>
 </html>
