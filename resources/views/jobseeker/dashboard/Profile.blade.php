@@ -46,7 +46,7 @@
 										 <div class="col-lg-4">
 											<span class="pf-title">Gender</span>
 											<div class="pf-field">
-												<select data-placeholder="Allow In Search" class="chosen" name="gender" id="gender">
+											<select data-placeholder="Allow In Search" class="chosen" name="gender" id="gender" value="{{ $jobseeker_profile->gender }}">
 													<option value="MALE">MALE</option>
 													<option value="FEMALE">FEMALE</option>
 													<option value="OTHER">OTHER</option>
@@ -62,7 +62,8 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Industry</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Allow In Search" class="chosen" name="industry" id="industry" value="{{ $jobseeker_profile->industry }}">
+											 <select data-placeholder="Please Select Industry" class="chosen" name="industry" id="industry" value="{{ $jobseeker_profile->industry }}">
+													<option value=""></option>
 													@foreach ($industry as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
 													 @endforeach
@@ -72,7 +73,8 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Education Levels</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Specialism" class="chosen" name="education_level" id="education_level" value="{{ $jobseeker_profile->education_level }}>
+												 <select data-placeholder="Please Select Education Level" class="chosen" name="education_level" id="education_level" value="{{ $jobseeker_profile->education_level }}">
+													<option value=""></option>
 													 @foreach ($education_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
 													 @endforeach
@@ -83,7 +85,8 @@
 					 						<span class="pf-title">Career Levels</span>					 						
 					 						<div class="pf-field">
 						 						<div class="pf-field">
-						 							<select data-placeholder="Please Select Specialism" class="chosen" name="career_level" id="career_level" value="{{ $jobseeker_profile->career_level }}>
+													 <select data-placeholder="Please Select Career Level" class="chosen" name="career_level" id="career_level" value="{{ $jobseeker_profile->career_level }}">
+														<option value=""></option>
 														@foreach ($career_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
 													 @endforeach
@@ -161,7 +164,8 @@
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">City</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select Specialism" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}">
+											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}">
+													<option value=""></option>
 													@foreach ($city as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
 													 @endforeach

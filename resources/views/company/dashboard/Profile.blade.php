@@ -38,22 +38,23 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-										<div class="col-lg-6">
+										<div class="col-lg-5">
 											<span class="pf-title">Company Name</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="Company Name" name="name" id="name" value="{{ $company_profile->name }}"/>
 					 						</div>
 										</div>
-					 					<div class="col-lg-3">
+					 					<div class="col-lg-2">
 					 						<span class="pf-title">Since</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="1991" name="start_year" id="start_year" value="{{ $company_profile->start_year }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
+					 					<div class="col-lg-5">
 											<span class="pf-title">Team Size</span>
 											<div class="pf-field">
-											<select data-placeholder="Please Select Specialism" class="chosen" name="team_size" id="team_size" value="{{ $company_profile->team_size }}">
+											<select data-placeholder="Please Select Options" class="chosen" name="team_size" id="team_size" value="{{ $company_profile->team_size }}">
+												   <option value=""></option>
 												   @foreach ($team_size as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
 												   @endforeach
@@ -142,7 +143,8 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">City</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select Specialism" class="chosen" name="city" id="city" value="{{ $company_profile->city }}"> 
+											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city" value="{{ $company_profile->city }}">
+													<option value=""></option> 
 													@foreach ($city as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
 												   @endforeach
