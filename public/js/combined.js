@@ -26,7 +26,7 @@ if (!CAREER24H.utils) CAREER24H.utils = {};
   };
 
   func.deactivateSpinner = function () {
-    $('.spinner').removeClass('active');
+    $('.spinner').removeClass('active animated bounce infinite');
     $('.spinner-wrapper').removeClass('active');
     $('body').removeClass('spinner-loading');
   };
@@ -34,7 +34,7 @@ if (!CAREER24H.utils) CAREER24H.utils = {};
   func.activateSpinner = function () {
     $('body').addClass('spinner-loading');
     $('.spinner-wrapper').addClass('active');
-    $('.spinner').addClass('active');
+    $('.spinner').addClass('active animated bounce infinite');
   };
 })(jQuery);
 

@@ -4,13 +4,6 @@
 	@include('partials.header')
 </head>
 <body>
-	<div class="spinner-wrapper">
-		<div class="spinner">
-		  	<div class="bounce1"></div>
-		  	<div class="bounce2"></div>
-		  	<div class="bounce3"></div>
-		</div>
-	</div>
 <div class="theme-layout" id="scrollup">
 	
 	@include('partials.navbar')
@@ -175,7 +168,7 @@
 <script>
 	jQuery(document).ready(function($){
 		let social_media = '<?php echo $company_profile->social_media ?>' ? JSON.parse('<?php echo $company_profile->social_media ?>') : '';
-		let info = '<?php echo $company_profile->info ?>';
+		let info = `<?php echo $company_profile->info ?>`;
 
 		CAREER24H.company.loadData(social_media,info)
 		$('#openFileInput').on('click',()=>{
