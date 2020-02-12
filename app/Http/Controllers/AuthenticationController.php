@@ -10,6 +10,8 @@ use \App\Utils\Utils;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\signUpRequest;
 use App\Models\User;
+use App\Models\CompanyProfile;
+use App\Models\JobseekerProfile;
 
 
 class AuthenticationController extends Controller
@@ -23,7 +25,19 @@ class AuthenticationController extends Controller
         $validated = $request->validated();
         $validated['password'] = Hash::make($validated['password']);
         $validated['uuid'] = Str::random(8);
-        User::create($validated);
+        $user = User::create($validated);
+        if($user->role == "COMPANY"){
+            $company_profile = new CompanyProfile;
+            $company_profile->user_id = $user->id;
+            $company_profile->uuid =  Str::random(8);
+            $company_profile->save();
+        }else{
+            $company_profile = new JobseekerProfile;
+            $company_profile->user_id = $user->id;
+            $company_profile->uuid =  Str::random(8);
+            $company_profile->save();
+        }
+
         return "DONE";
     }
 

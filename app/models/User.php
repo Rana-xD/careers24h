@@ -40,6 +40,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $default_user_profile = 'https://careers24h.s3-ap-southeast-1.amazonaws.com/default_user.png';
+
     public function isCompany(){
         return $this->role === self::COMPANY;
     }
@@ -48,6 +50,16 @@ class User extends Authenticatable
         return $this->role === self::JOBSEEKER;
     }
 
-    
+    public function companyProfile(){
+        return $this->hasOne('App\Models\CompanyProfile');
+    }
+
+    public function jobseekerProfile(){
+        return $this->hasOne('App\Models\JobseekerProfile');
+    }
+
+    public function defaultUserProfile(){
+        return $this->default_user_profile;
+    }
 
 }

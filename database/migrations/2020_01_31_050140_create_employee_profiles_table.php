@@ -16,21 +16,27 @@ class CreateEmployeeProfilesTable extends Migration
         Schema::create('jobseeker_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('user_profile');
-            $table->enum('gender',['MALE','FEMALE','OTHER'])->index();
-            $table->text('education');
-            $table->text('work_experience');
-            $table->text('language');
-            $table->string('career_level')->index();
-            $table->text('qualification');
-            $table->text('about');
-            $table->text('cover_letter');
-            $table->string('first_name');
-            $table->string('middle_name')->nullable();
-            $table->string('last_name');
-            $table->string('date_of_birth');
-            $table->boolean('is_private');
-            $table->string('industry')->index();
+            $table->string('uuid');
+            $table->string('user_profile')->default('https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_profile.png');
+            $table->string('full_name')->nullable();
+            $table->string('age')->nullable();
+            $table->enum('gender',['MALE','FEMALE','OTHER'])->index()->nullable();
+            $table->text('experience')->nullable();
+            $table->string('career_level')->index()->nullable();
+            $table->string('education_level')->index()->nullable();
+            $table->string('industry')->index()->nullable();
+            $table->text('about')->nullable();
+            $table->text('skillset')->nullable();
+            $table->text('social_media')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('city')->nullable();
+            $table->text('cover_letter')->nullable();
+            $table->text('education')->nullable();
+            $table->text('work_experience')->nullable();
+            $table->text('language')->nullable();
+            $table->boolean('is_private')->default(false);
+            
             $table->timestamps();
 
             $table->foreign('user_id')

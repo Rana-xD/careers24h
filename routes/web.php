@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /* AuthenticationController */
 Route::get('/signup','AuthenticationController@showSignUpForm');
-Route::get('/login','AuthenticationController@showLoginForm');
+Route::get('/login','AuthenticationController@showLoginForm')->name('login');
 Route::post('/login', 'AuthenticationController@login');
 Route::post('/signup', 'AuthenticationController@signUp');
 Route::get('/logout','AuthenticationController@logout');
@@ -35,6 +35,7 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
 
 
     Route::post('/update-password','CompanyDashboardController@updatePassword');
+    Route::post('/update-profile','CompanyDashboardController@updateProfile');
 });
 /*   CompanyDashboad   */
 
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
     Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
 
     Route::post('/update-password','JobSeekerDashboardController@updatePassword');
+    Route::post('/update-profile','JobSeekerDashboardController@updateProfile');
 });
 
 

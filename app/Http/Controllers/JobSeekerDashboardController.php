@@ -5,12 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Models\JobseekerProfile;
 
 class JobSeekerDashboardController extends Controller
 {
+
+    public $defual_profile = 'https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_profile.png';
+
     public function showProfile(){
-        return view('jobseeker.dashboard.Profile');
+        
+        $jobseeker = Auth::user()->JobseekerProfile;
+
+        $education_level = $jobseeker->getEducationLevel();
+        $career_level = $jobseeker->getCareerLevel();
+        $city = $jobseeker->getCity();
+        $industry = $jobseeker->getIndustries();
+        
+        return view('jobseeker.dashboard.Profile',[
+            'education_level' => $education_level,
+            'career_level' => $career_level,
+            'city' => $city,
+            'industry' => $industry,
+            'jobseeker_profile' => $jobseeker
+        ]);
     }
 
     public function showAppliedJob(){
@@ -58,6 +78,35 @@ class JobSeekerDashboardController extends Controller
         $user = User::find(Auth::user()->id);
         $user->password = Hash::make($new_password);
         $user->save();
+        return response()->json([
+            'code' => 200,
+            'message' => "You have updated the password"
+        ]);
+    }
+
+    public function updateProfile(Request $request){
+
+        $data = $request->except(['_token','file']);
+        if($request->hasFile('file')){
+            $rules = array('file' => 'file|image|mimes:jpeg,png,webp,svg|max:1000');
+            $validator = Validator::make( $request->file(), $rules);
+            if($validator->fails()){
+                return response()->json([
+                    'code' => 505,
+                    'message' => json_encode($validator->getMessageBag()->toArray())
+                ]);
+            }
+            if(Auth::user()->jobseekerProfile->user_profile != $this->defual_profile){
+                $path = 'jobseekerProfile/'.basename(Auth::user()->jobseekerProfile->user_profile);
+                if(Storage::disk('s3')->exists($path)){
+                    Storage::disk('s3')->delete($path);
+                }
+            }
+            $path = Storage::disk('s3')->put('jobseekerProfile', $request->file('file'));
+            $url = Storage::disk('s3')->url($path);
+            $data['user_profile'] = $url;
+        }
+        Auth::user()->jobseekerProfile()->update($data);
         return response()->json([
             'code' => 200,
             'message' => "You have updated the password"

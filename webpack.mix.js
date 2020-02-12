@@ -44,6 +44,7 @@ mix.js('resources/assets/js/app.js', 'js')
    .styles('resources/assets/css/responsive.css','public/css/responsive.css')
    .styles('resources/assets/css/style.css','public/css/style.css')
    .babel([
+      'resources/assets/js/main/constant.js',
       'resources/assets/js/main/utils.js',
       'resources/assets/js/main/main.js',
    ],'public/js/combined.js')
