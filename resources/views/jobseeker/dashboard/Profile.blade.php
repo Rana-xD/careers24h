@@ -184,9 +184,6 @@
 			</div>
 		</div>
 	</section>
-
-	@include('partials.footer')
-
 </div>
 
 <div class="profile-sidebar">
@@ -226,11 +223,6 @@
 		$('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
 		$('#jobseekerProfileUpdate').on('click',CAREER24H.jobseeker.updateJobseekerProfile);
 		CAREER24H.jobseeker.loadData(social_media);
-		
-
-
-		
-		
 	});
 </script>
 </html>

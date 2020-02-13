@@ -51,6 +51,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
 
     Route::post('/update-password','JobSeekerDashboardController@updatePassword');
     Route::post('/update-profile','JobSeekerDashboardController@updateProfile');
+    Route::post('/update-cover-letter','JobSeekerDashboardController@updateCoverLetter');
 });
 
 

@@ -113,7 +113,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
                 formData.append('file',file);
             }
 
-
+        CAREER24H.utils.activateSpinner();
         $.ajax({
             url: '/jobseeker/update-profile',
             type: "POST", 
@@ -122,13 +122,13 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             processData: false,
             success: function(res){
                 if(res.code == 200){
-                    // CAREER24H.utils.deactivateSpinner()
+                    CAREER24H.utils.deactivateSpinner();
                     location.reload();
                     // console.log(res.message);
                     // swal.fire(res.message);
                 }
                 else if(res.code == 505){
-                    // CAREER24H.utils.deactivateSpinner()
+                    CAREER24H.utils.deactivateSpinner();
                     let message = JSON.parse(res.message);
                     swal.fire({
                         icon: 'warning',
@@ -153,4 +153,44 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         if(arguments[0].twitter) $('#twitter').val(arguments[0].twitter);
         if(arguments[0].linkedin) $('#linkedin').val(arguments[0].linkedin);
      }
+
+    func.updateCoverLetter = function(){
+        let coverLetter = $('#coverLetter').val()
+        token = $("input[name='_token']").val();
+        
+        let formData = new FormData();
+        formData.append('_token', token);
+        formData.append('cover_letter', coverLetter);
+        CAREER24H.utils.activateSpinner();
+        $.ajax({
+            url: '/jobseeker/update-cover-letter',
+            type: "POST", 
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(res){
+                if(res.code == 200){
+                    CAREER24H.utils.deactivateSpinner()
+                    location.reload();
+        
+                }
+                else if(res.code == 505){
+                    CAREER24H.utils.deactivateSpinner();
+                    let message = JSON.parse(res.message);
+                    swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: message.file,
+                        timer: 2500,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                      })
+                }
+            },
+            error: function(error){
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Something weird occured, please reload the page.');
+            } 
+          });
+
+    }
 })(jQuery);

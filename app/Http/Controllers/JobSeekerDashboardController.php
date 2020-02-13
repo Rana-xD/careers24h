@@ -38,7 +38,10 @@ class JobSeekerDashboardController extends Controller
     }
 
     public function showCoverLetter(){
-        return view('jobseeker.dashboard.CVCoverLetter');
+        $coverLetter = Auth::user()->JobseekerProfile->pluck('cover_letter');
+        return view('jobseeker.dashboard.CVCoverLetter',[
+            'coverLetter' => $coverLetter[0]
+        ]);
     }
 
     public function showJobNotify(){
@@ -106,6 +109,15 @@ class JobSeekerDashboardController extends Controller
             $url = Storage::disk('s3')->url($path);
             $data['user_profile'] = $url;
         }
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => "You have updated the password"
+        ]);
+    }
+
+    public function updateCoverLetter(Request $request){
+        $data = $request->except('_token');
         Auth::user()->jobseekerProfile()->update($data);
         return response()->json([
             'code' => 200,

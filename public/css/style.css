@@ -11748,6 +11748,21 @@ footer.ft .scrollup {
   .spinner-wrapper .spinner.active {
     display: block;
   }
+  
+  .spinner-wrapper .spinner.active > div {
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  
+  .spinner-wrapper .spinner.active .bounce1 {
+    -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+  }
+  
+  .spinner-wrapper .spinner.active .bounce2 {
+    -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+  }
 
   .spinner-loading {
     overflow: hidden !important;
