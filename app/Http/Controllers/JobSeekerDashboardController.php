@@ -112,7 +112,7 @@ class JobSeekerDashboardController extends Controller
         Auth::user()->jobseekerProfile()->update($data);
         return response()->json([
             'code' => 200,
-            'message' => "You have updated the password"
+            'message' => "You have updated the profile"
         ]);
     }
 

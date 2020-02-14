@@ -6,4 +6,5 @@ if(!CAREER24H.constant) CAREER24H.constant = {};
     var constant = CAREER24H.constant;
 
     constant.isCompanyLogoChange = false;
+
 })(jQuery);

@@ -6,13 +6,13 @@ if(!CAREER24H.utils) CAREER24H.utils = {};
     var func = CAREER24H.utils;
 
     func.handleFormSubmitionError = function(formEle, error, defaultMessage) {
-		CAREER24H.utils.deactivateSpinner()
 		swal.fire({
 			title: 'Oop!',
 			icon: 'error',
 			text: error.responseJSON && error.responseJSON.message ? error.responseJSON.message : defaultMessage,
-			button: false,
-			className: 'custom-swal'
+			timer: 3000,
+            showCancelButton: false,
+            showConfirmButton: false
 		});
 	}
 

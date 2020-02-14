@@ -45,7 +45,7 @@ class CompanyDashboardController extends Controller
     }
 
     public function showJobForm(){
-        return view('company.dashboard.PostNew');
+        return view('company.dashboard.NewJob');
     }
 
     public function showResume(){

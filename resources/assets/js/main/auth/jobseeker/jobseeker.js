@@ -9,50 +9,36 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         self = $(e.target);
         actionUrl = $(self).attr('action');
         formData = new FormData(self.get(0));
-        
-        $.ajax({
-            url: actionUrl,
-            type: "POST", 
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(res){
-                if(res.code == 200){
+        CAREER24H.utils.activateSpinner();
+        let promise = CAREER24H.main.formSubmitPromise(actionUrl,formData)
+            promise.then((response)=>{
+                if(response.code===200){
                     self[0].reset();
                     swal.fire({
                         icon: 'success',
                         title: 'Done',
-                        text: res.message,
+                        text: response.message,
                         timer: 2500,
                         showCancelButton: false,
                         showConfirmButton: false
                     })
                 }
-                else if(res.code == 505){
-                    swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: res.message,
-                        timer: 2500,
-                        showCancelButton: false,
-                        showConfirmButton: false
-                      })
-                }
                 else{
                     swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: "Something went wrong",
+                        text: response.message,
                         timer: 2500,
                         showCancelButton: false,
                         showConfirmButton: false
                       })
-                }
-            },
-            error: function(error){
-                CAREER24H.utils.handleFormSubmitionError(self, error, 'Something weird occured, please reload the page.');
-            } 
-          });   
+                }   
+
+            }, function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            }).catch(function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
     }
 
     func.chooseProfilePicture = function(e){
@@ -112,38 +98,31 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
                 let file = fileInput[0];
                 formData.append('file',file);
             }
-
+        let url = '/jobseeker/update-profile';
         CAREER24H.utils.activateSpinner();
-        $.ajax({
-            url: '/jobseeker/update-profile',
-            type: "POST", 
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(res){
-                if(res.code == 200){
+        let promise = CAREER24H.main.formSubmitPromise(url,formData);
+            promise.then((response)=>{
+                if(response.code == 200){
                     CAREER24H.utils.deactivateSpinner();
                     location.reload();
                     // console.log(res.message);
                     // swal.fire(res.message);
                 }
-                else if(res.code == 505){
-                    CAREER24H.utils.deactivateSpinner();
-                    let message = JSON.parse(res.message);
+                else{
                     swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: message.file,
+                        text: response.message,
                         timer: 2500,
                         showCancelButton: false,
                         showConfirmButton: false
                       })
                 }
-            },
-            error: function(error){
-                CAREER24H.utils.handleFormSubmitionError(self, error, 'Something weird occured, please reload the page.');
-            } 
-          });
+            }, function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            }).catch(function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
     }
 
         
@@ -161,36 +140,28 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         let formData = new FormData();
         formData.append('_token', token);
         formData.append('cover_letter', coverLetter);
+        let url = '/jobseeker/update-cover-letter';
         CAREER24H.utils.activateSpinner();
-        $.ajax({
-            url: '/jobseeker/update-cover-letter',
-            type: "POST", 
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(res){
-                if(res.code == 200){
-                    CAREER24H.utils.deactivateSpinner()
+        let promise = CAREER24H.main.formSubmitPromise(url,formData);
+            promise.then((response)=>{
+                if(response.code == 200){
                     location.reload();
-        
                 }
-                else if(res.code == 505){
-                    CAREER24H.utils.deactivateSpinner();
-                    let message = JSON.parse(res.message);
+                else{
                     swal.fire({
                         icon: 'warning',
                         title: 'Oops...',
-                        text: message.file,
+                        text: response.message,
                         timer: 2500,
                         showCancelButton: false,
                         showConfirmButton: false
                       })
                 }
-            },
-            error: function(error){
-                CAREER24H.utils.handleFormSubmitionError(self, error, 'Something weird occured, please reload the page.');
-            } 
-          });
+            }, function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            }).catch(function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
 
     }
 })(jQuery);

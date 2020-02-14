@@ -29,13 +29,15 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/job-alert','CompanyDashboardController@showJobAlert');
     Route::get('/manage-jobs','CompanyDashboardController@showManageJob');
     Route::get('/packages','CompanyDashboardController@showPackage');
-    Route::get('/job','CompanyDashboardController@showJobForm');
     Route::get('/resume','CompanyDashboardController@showResume');
     Route::get('/transaction','CompanyDashboardController@showTransaction');
 
 
     Route::post('/update-password','CompanyDashboardController@updatePassword');
     Route::post('/update-profile','CompanyDashboardController@updateProfile');
+
+    Route::get('/new-job','JobController@showCreateJobForm');
+    Route::post('/create-job','JobController@CreateJob');
 });
 /*   CompanyDashboad   */
 

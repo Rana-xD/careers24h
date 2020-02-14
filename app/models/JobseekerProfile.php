@@ -33,6 +33,7 @@ class JobseekerProfile extends Model
     protected $career_level = [
         'Undergraduate',
         'Fresh Graduate',
+        'Junior',
         'Senior',
         'Supervisor or Manager',
         'Executive'

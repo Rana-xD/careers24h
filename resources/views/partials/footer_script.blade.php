@@ -8,6 +8,8 @@
 <script src="{{ asset('js/select-chosen.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/libraries.js')  }}"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 {{-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCYc537bQom7ajFpWE5sQaVyz1SQa9_tuY&sensor=true&libraries=places"></script>
 <script src="{{ asset("js/maps2.js") }}" type="text/javascript"></script> --}}
 <script src="{{ asset('js/combined.js')  }}"></script>

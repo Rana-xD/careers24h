@@ -69,4 +69,8 @@ class CompanyProfile extends Model
    public function user(){
     return $this->belongsTo('App\Models\User');
    }
+
+   public function jobs(){
+       return $this->hasMany('App\Models\Job','company_id');
+   }
 }
