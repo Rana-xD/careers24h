@@ -29,7 +29,7 @@
 						 				<tr>
 						 					<td>Title</td>
 						 					<td>Applications</td>
-						 					<td>Created & Expired</td>
+						 					<td>Created & Deadline</td>
 						 					<td>Status</td>
 						 					<td>Action</td>
 						 				</tr>
@@ -47,15 +47,15 @@
 												<span class="applied-field">3+ Applied</span>
 											</td>
 											<td>
-												<span>October 27, 2017</span><br />
-												<span>April 25, 2011</span>
+												<span>{{  date("M d , Y", strtotime($job->created_at)) }}</span><br />
+												<span>{{  date("M d , Y", strtotime($job->deadline))}}</span>
 											</td>
 											<td>
 											<span class="status {{ $job->is_active ? 'active' : '' }}">{{ $job->is_active ? 'Active' : 'Inactive'  }}</span>
 											</td>
 											<td>
 												<ul class="action_job">
-													<li><span>View Job</span><a href="" title=""><i class="la la-eye"></i></a></li>
+													<li><span>View Job</span><a href="/company/preview-job/{{ $job->uuid }}" title=""><i class="la la-eye"></i></a></li>
 													<li><span>Edit</span><a href="/company/edit-job/{{ $job->uuid }}" title=""><i class="la la-pencil"></i></a></li>
 													<li ><span>Delete</span><a title="" class="jobDelete" data-id="{{ $job->uuid }}"><i class="la la-trash-o" data-id="{{ $job->uuid }}"></i></a></li>
 												</ul>

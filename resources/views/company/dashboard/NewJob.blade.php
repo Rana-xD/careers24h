@@ -35,7 +35,8 @@
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">Job Description</span>
 					 						<div class="pf-field">
-					 							<textarea id="description"></textarea>
+												 <textarea id="description"></textarea>
+												 {{-- <div id="description"></div> --}}
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
@@ -183,8 +184,8 @@
 @include('partials.footer_script')
 
 <!-- Include Date Range Picker -->
-<link rel="stylesheet" type="text/css" href="{{ asset("css/bootstrap-datepicker.css") }}" />
-<script src="{{ asset("js/bootstrap-datepicker.js") }}" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-jO7D3fIsAq+jB8Xt3NI5vBf3k4tvtHwzp8ISLQG4UWU=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 <script>
 	jQuery(document).ready(function($){
 		$(function(){

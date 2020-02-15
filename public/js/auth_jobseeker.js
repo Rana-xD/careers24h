@@ -153,7 +153,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.updateCoverLetter = function () {
-    var coverLetter = $('#coverLetter').val();
+    var coverLetter = $('#coverLetter').summernote('code');
     token = $("input[name='_token']").val();
     var formData = new FormData();
     formData.append('_token', token);
@@ -180,4 +180,14 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
     });
   };
+
+  func.initializeSummernote = function () {
+    $('#coverLetter').summernote({
+      toolbar: [['style', ['style']], ['font', ['bold', 'underline', 'clear']], ['para', ['ul', 'ol', 'paragraph']]]
+    });
+  };
+
+  $(document).ready(function ($) {
+    CAREER24H.jobseeker.initializeSummernote();
+  });
 })(jQuery);

@@ -42,6 +42,7 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::post('/update-job','JobController@updateJob');
 
     Route::get('/delete-job','JobController@deleteJob');
+    Route::get('/preview-job/{uuid}','JobController@showJobPreview');
 });
 /*   CompanyDashboad   */
 

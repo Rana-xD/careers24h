@@ -79,4 +79,12 @@ class JobController extends Controller
             'message' => "Successfully delete job"
         ]);
     }
+
+    public function showJobPreview($uuid){
+        $job = Job::where('uuid',$uuid)->firstOrFail();
+        return view('company.dashboard.JobPreview',[
+            'job' => $job
+        ]);
+    }
+
 }

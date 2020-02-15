@@ -1575,6 +1575,13 @@ input[type=number] {
 .fill.tp {
     background: #26ae61;
 }
+.fill.vl {
+    background: #eeea18;
+}
+.fill.it{
+    background: #ee9c18;
+}
+
 .job-is.ft,
 .job-list-modern .job-is.ft{
     color: #8b91dd;
@@ -1595,6 +1602,19 @@ input[type=number] {
     color: #26ae61;
     border-color: #26ae61;
 }
+
+.job-is.vl,
+.job-list-modern .job-is.vl{
+    color: #eeea18;
+    border-color: #eeea18;
+}
+
+.job-is.it,
+.job-list-modern .job-is.it{
+    color: #ee9c18;
+    border-color: #ee9c18;
+}
+
 .job-listing:hover {
     border-left-color: #8b91dd;
     

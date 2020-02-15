@@ -154,4 +154,29 @@ class Job extends Model
     public function getCity(){
         return $this->city;
     }
+
+    public function getJobTypeCSSClass(){
+        switch($this->working_term){
+            case 'Full Time':
+                return 'ft';
+            break;
+            case 'Part Time':
+                return 'pt';
+            break;
+            case 'Internship':
+                return 'it';
+            break;
+            case 'Freelance':
+                return 'fl';
+            break;
+            case 'Tempoaray':
+                return 'tp';
+            break;
+            case 'Volunteer':
+                return 'vl';
+            break;
+            default:
+                return 'ft';
+        }
+    }
 }

@@ -59,7 +59,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
         let name = $("#name").val(),
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
-        info = $('#info').val(),
+        info = $('#info').summernote('code'),
         facebook= $('#facebook').val(),
         instagram = $('#instagram').val(),
         twitter = $('#twitter').val(),
@@ -131,7 +131,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
         if(arguments[0].instagram) $('#instagram').val(arguments[0].instagram);
         if(arguments[0].twitter) $('#twitter').val(arguments[0].twitter);
         if(arguments[0].linkedin) $('#linkedin').val(arguments[0].linkedin);
-        if(arguments[1]) $('#info').val(arguments[1]);
+        if(arguments[1]) $('#info').summernote('code',arguments[1]);
         if(arguments[2]){
             $('#city').val(arguments[2]);
             $('#city').trigger("chosen:updated");
@@ -149,7 +149,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
 
     func.createJob = function(e){
         let jobTitle = $('#job_title').val(),
-            description = $('#description').val(),
+            description = $('#description').summernote('code'),
             jobType = $('#job_type').val(),
             category = $('#category').val(),
             qualification = $('#qualification').val(),
@@ -162,9 +162,9 @@ if(!CAREER24H.company) CAREER24H.company = {};
             gender =  specificGener ? $('#gender').val() : '',
             deadline = $('#deadline').val(),
             city = $('#city').val(),
-            responsibility = $('#responsibility').val(),
-            requiredSkill = $('#required_skill').val(),
-            benefit = $('#benefit').val(),
+            responsibility = $('#responsibility').summernote('code'),
+            requiredSkill = $('#required_skill').summernote('code'),
+            benefit = $('#benefit').summernote('code'),
             token = $("input[name='_token']").val();
 
             formData = new FormData();
@@ -187,6 +187,9 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('benefit',benefit);
             formData.append('city',city);
 
+            // for (var pair of formData.entries()) {
+            //     console.log(pair[0]+ ', ' + pair[1]); 
+            // }
             let url = '/company/create-job';
             CAREER24H.utils.activateSpinner();
             let promise = CAREER24H.main.formSubmitPromise(url,formData);
@@ -236,10 +239,10 @@ if(!CAREER24H.company) CAREER24H.company = {};
             $('#city').val(arguments[4]);
             $('#city').trigger("chosen:updated");
         }
-        if(arguments[5]) $('#description').val(arguments[5]);
-        if(arguments[6]) $('#responsibility').val(arguments[6]);
-        if(arguments[7]) $('#required_skill').val(arguments[7]);
-        if(arguments[8]) $('#benefit').val(arguments[8]);
+        if(arguments[5]) $('#description').summernote('code', arguments[5]);
+        if(arguments[6]) $('#responsibility').summernote('code', arguments[6]);
+        if(arguments[7]) $('#required_skill').summernote('code', arguments[7]);
+        if(arguments[8]) $('#benefit').summernote('code', arguments[8]);
 
         if(!parseInt(arguments[9])){
             $('#negotiable').prop('checked', false);
@@ -263,7 +266,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
     func.updateJob = function(){
         let jobTitle = $('#job_title').val()
             isActive = $('#isActive')[0].checked ? 1 : 0,
-            description = $('#description').val(),
+            description = $('#description').summernote('code'),
             jobType = $('#job_type').val(),
             category = $('#category').val(),
             qualification = $('#qualification').val(),
@@ -276,9 +279,9 @@ if(!CAREER24H.company) CAREER24H.company = {};
             gender =  specificGener ? $('#gender').val() : '',
             deadline = $('#deadline').val(),
             city = $('#city').val(),
-            responsibility = $('#responsibility').val(),
-            requiredSkill = $('#required_skill').val(),
-            benefit = $('#benefit').val(),
+            responsibility = $('#responsibility').summernote('code'),
+            requiredSkill = $('#required_skill').summernote('code'),
+            benefit = $('#benefit').summernote('code'),
             token = $("input[name='_token']").val()
             id = $("#jobID").val();
 
@@ -376,4 +379,51 @@ if(!CAREER24H.company) CAREER24H.company = {};
             }
           })
     }
+
+    func.initializeSummernoteforJob = function () {
+        $('#description').summernote({
+        	toolbar: [
+          		['style', ['style']],
+				  ['font', ['bold', 'underline', 'clear']],
+				  ['para', ['ul', 'ol', 'paragraph']],
+        	]
+        });
+        
+        $('#responsibility').summernote({
+        	toolbar: [
+          		['style', ['style']],
+				  ['font', ['bold', 'underline', 'clear']],
+				  ['para', ['ul', 'ol', 'paragraph']],
+        	]
+        });
+        
+        $('#required_skill').summernote({
+        	toolbar: [
+          		['style', ['style']],
+				  ['font', ['bold', 'underline', 'clear']],
+				  ['para', ['ul', 'ol', 'paragraph']],
+        	]
+        });
+        
+        $('#benefit').summernote({
+        	toolbar: [
+          		['style', ['style']],
+				  ['font', ['bold', 'underline', 'clear']],
+				  ['para', ['ul', 'ol', 'paragraph']],
+        	]
+        });
+        
+        $('#info').summernote({
+        	toolbar: [
+          		['style', ['style']],
+				  ['font', ['bold', 'underline', 'clear']],
+				  ['para', ['ul', 'ol', 'paragraph']],
+        	]
+		});
+        
+    }
+
+    $(document).ready(function ($) {
+        CAREER24H.company.initializeSummernoteforJob();
+    });
 })(jQuery);
