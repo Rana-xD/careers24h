@@ -39,50 +39,6 @@ if(!CAREER24H.company) CAREER24H.company = {};
             }).catch(function (error) {
                 CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
             });
-        // $.ajax({
-        //     url: actionUrl,
-        //     type: "POST", 
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false,
-        //     success: function(res){
-        //         if(res.code == 200){
-        //             self[0].reset();
-        //             swal.fire({
-        //                 icon: 'success',
-        //                 title: 'Done',
-        //                 text: res.message,
-        //                 timer: 2500,
-        //                 showCancelButton: false,
-        //                 showConfirmButton: false
-        //             })
-        //         }
-        //         else if(res.code == 505){
-        //             swal.fire({
-        //                 icon: 'warning',
-        //                 title: 'Oops...',
-        //                 text: res.message,
-        //                 timer: 2500,
-        //                 showCancelButton: false,
-        //                 showConfirmButton: false
-        //               })
-        //         }
-        //         else{
-        //             swal.fire({
-        //                 icon: 'warning',
-        //                 title: 'Oops...',
-        //                 text: "Something went wrong",
-        //                 timer: 2500,
-        //                 showCancelButton: false,
-        //                 showConfirmButton: false
-        //               })
-        //         }
-        //     },
-        //     error: function(error){
-        //         CAREER24H.utils.handleFormSubmitionError(self, error, 'Something weird occured, please reload the page.');
-        //     } 
-        //   });
-        
     }
 
     func.chooseCompanyLogo = function(e){
@@ -252,5 +208,167 @@ if(!CAREER24H.company) CAREER24H.company = {};
                 CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
             });
         
+    }
+
+    func.loadDataForEditForm = function(){
+        if (arguments[0]){
+            $('#job_type').val(arguments[0]);
+            $('#job_type').trigger("chosen:updated");
+        } 
+        if (arguments[1]) {
+            $('#category').val(arguments[1]);
+            $('#category').trigger("chosen:updated");
+        }  
+        if (arguments[2]) {
+            $('#qualification').val(arguments[2]);
+            $('#qualification').trigger("chosen:updated");
+        }
+        if (arguments[3]) {
+            $('#career_level').val(arguments[3]);
+            $('#career_level').trigger("chosen:updated");
+        }
+        if (arguments[4]) {
+            $('#city').val(arguments[4]);
+            $('#city').trigger("chosen:updated");
+        }
+        if(arguments[5]) $('#description').val(arguments[5]);
+        if(arguments[6]) $('#responsibility').val(arguments[6]);
+        if(arguments[7]) $('#required_skill').val(arguments[7]);
+        if(arguments[8]) $('#benefit').val(arguments[8]);
+
+        if(!parseInt(arguments[9])){
+            $('#negotiable').prop('checked', false);
+            $('#negotiable').bootstrapToggle('off');
+        }
+
+        if(parseInt(arguments[10])){
+            $('#specificGender').prop('checked', true);
+            $('#specificGender').bootstrapToggle('on');
+            $('.gender').css("display","block");
+            $('.gender').val(arguments[11]);
+            $('.gender').trigger("chosen:updated");
+        }
+
+        if(!parseInt(arguments[12])){
+            $('#isActive').prop('checked', false);
+            $('#isActive').bootstrapToggle('off')
+        }
+    }
+
+    func.updateJob = function(){
+        let jobTitle = $('#job_title').val()
+            isActive = $('#isActive')[0].checked ? 1 : 0,
+            description = $('#description').val(),
+            jobType = $('#job_type').val(),
+            category = $('#category').val(),
+            qualification = $('#qualification').val(),
+            career_level = $('#career_level').val(),
+            yearsOfExperience = $('#years_of_experience').val(),
+            pax = $('#pax').val(),
+            offerSalary = $('#offer_salary').val(),
+            isNegotiable = $('#negotiable')[0].checked ? 1 : 0,
+            specificGener = $('#specificGender')[0].checked ? 1 : 0,
+            gender =  specificGener ? $('#gender').val() : '',
+            deadline = $('#deadline').val(),
+            city = $('#city').val(),
+            responsibility = $('#responsibility').val(),
+            requiredSkill = $('#required_skill').val(),
+            benefit = $('#benefit').val(),
+            token = $("input[name='_token']").val()
+            id = $("#jobID").val();
+
+            formData = new FormData();
+            formData.append('_token',token);
+            formData.append('job_title',jobTitle);
+            formData.append('is_active',isActive);
+            formData.append('description',description);
+            formData.append('category',category);
+            formData.append('working_term',jobType);
+            formData.append('qualification',qualification);
+            formData.append('career_level',career_level);
+            formData.append('years_of_experience',yearsOfExperience);
+            formData.append('pax',pax);
+            formData.append('offer_salary',offerSalary);
+            formData.append('is_negotiable',isNegotiable);
+            formData.append('is_specific_gender',specificGener);
+            formData.append('gender',gender);
+            formData.append('deadline',deadline);
+            formData.append('responsibility',responsibility);
+            formData.append('required_skill',requiredSkill);
+            formData.append('benefit',benefit);
+            formData.append('city',city);
+            formData.append('id',id);
+
+            // for (var pair of formData.entries()) {
+            //     console.log(pair[0]+ ', ' + pair[1]); 
+            // }
+
+            let url = '/company/update-job';
+            CAREER24H.utils.activateSpinner();
+            let promise = CAREER24H.main.formSubmitPromise(url,formData);
+            promise.then((response)=>{
+                if (response.code == 200) {
+                    swal.fire({
+                        title: 'Success',
+                        icon: 'success',
+                        text: response.message ? response.message : 'Profile successfully updated.',
+                    }).then(()=>{
+                        location.reload();
+                    });
+                } else {
+                    swal.fire({
+                        title: 'Warning',
+                        icon: 'warning',
+                        text: response.message ? response.message : 'Unexpected error occured, please reload page.',
+                        button: false
+                    })
+                }
+            }, function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            }).catch(function (error) {
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
+    }
+
+    func.deleteJob = function(e){
+        let self = e.target;
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+              let uuid = $(self).attr("data-id");
+              formData = {
+                  "uuid" : uuid
+              };
+              $.ajax({
+                url: '/company/delete-job',
+                type: "GET", 
+                data: formData,
+                contentType: false,
+                processData: true,
+                success: function(response){
+                     if(response.code == 200){
+                        let list = $(self).parents('.job-list');
+                        $(list).remove();
+                        swal.fire(
+                         'Deleted!',
+                         'Job has been deleted.',
+                         'success'
+                        )
+                     }
+                },
+                error: function(err){
+                    CAREER24H.utils.handleFormSubmitionError(self, _error, 'Something weird occured, please reload the page.');
+                } 
+              });
+            
+            }
+          })
     }
 })(jQuery);

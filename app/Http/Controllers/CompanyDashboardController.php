@@ -37,7 +37,10 @@ class CompanyDashboardController extends Controller
     }
 
     public function showManageJob(){
-        return view('company.dashboard.ManageJob');
+        $jobs = Auth::user()->CompanyProfile->jobs;
+        return view('company.dashboard.ManageJob',[
+            'jobs' => $jobs
+        ]);
     }
 
     public function showPackage(){
