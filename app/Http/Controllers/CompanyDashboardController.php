@@ -15,15 +15,19 @@ class CompanyDashboardController extends Controller
     
     public $default_logo = "https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_logo.jpg";
 
+    public function __construct()
+    {
+        $this->team_size = config('global.team_size');
+        $this->city = config('global.city');
+    }
+
     public function showProfile(){
 
         $company = Auth::user()->CompanyProfile;
-        $city = $company->getCity();
-        $team_size = $company->getTeamSize();
         
         return view('company.dashboard.Profile',[
-            'city' => $city,
-            'team_size' => $team_size,
+            'city' => $this->city,
+            'team_size' => $this->team_size,
             'company_profile' => $company
         ]);
     }

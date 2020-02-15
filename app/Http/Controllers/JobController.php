@@ -13,19 +13,25 @@ use App\Models\Job;
 
 class JobController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->job_types = config('global.job_type');
+        $this->categories = config('global.categories');
+        $this->qualification = config('global.education_level');
+        $this->career_level = config('global.career_level');
+        $this->city = config('global.city');
+    }
+
     public function showCreateJobForm(){
-        $job = new Job();
-        $job_types = $job->getJobType();
-        $categories = $job->getCategories();
-        $qualification = $job->getEducationLevel();
-        $career_level = $job->getCareerLevel();
-        $city = $job->getCity();
+        
+        
         return view('company.dashboard.NewJob',[
-            'job_types' => $job_types,
-            'categories' => $categories,
-            'qualification' => $qualification,
-            'career_level' => $career_level,
-            'city' => $city
+            'job_types' => $this->job_types,
+            'categories' => $this->categories,
+            'qualification' => $this->qualification,
+            'career_level' => $this->career_level,
+            'city' => $this->city
         ]);
     }
 
@@ -42,20 +48,14 @@ class JobController extends Controller
     }
 
     public function showEditJobForm($uuid){
-        $job = new Job();
-        $job_types = $job->getJobType();
-        $categories = $job->getCategories();
-        $qualification = $job->getEducationLevel();
-        $career_level = $job->getCareerLevel();
-        $city = $job->getCity();
         $job = Job::where('uuid',$uuid)->firstOrFail();
         return view('company.dashboard.EditJob',[
             'job' => $job,
-            'job_types' => $job_types,
-            'categories' => $categories,
-            'qualification' => $qualification,
-            'career_level' => $career_level,
-            'city' => $city
+            'job_types' => $this->job_types,
+            'categories' => $this->categories,
+            'qualification' => $this->qualification,
+            'career_level' => $this->career_level,
+            'city' => $this->city
         ]);
     }
 

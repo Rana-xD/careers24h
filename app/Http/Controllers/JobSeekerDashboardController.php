@@ -15,20 +15,28 @@ class JobSeekerDashboardController extends Controller
 
     public $defual_profile = 'https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_profile.png';
 
+    public function __construct()
+    {
+        $this->industry = config('global.categories');
+        $this->education_level = config('global.education_level');
+        $this->career_level = config('global.career_level');
+        $this->city = config('global.city');
+    }
+
     public function showProfile(){
         
         $jobseeker = Auth::user()->JobseekerProfile;
 
-        $education_level = $jobseeker->getEducationLevel();
-        $career_level = $jobseeker->getCareerLevel();
-        $city = $jobseeker->getCity();
-        $industry = $jobseeker->getIndustries();
+        $education_level = config('global.education_level');
+        $career_level = config('global.career_level');
+        $city = config('global.city');
+        $industry = config('global.industry');
         
         return view('jobseeker.dashboard.Profile',[
-            'education_level' => $education_level,
-            'career_level' => $career_level,
-            'city' => $city,
-            'industry' => $industry,
+            'education_level' => $this->education_level,
+            'career_level' => $this->career_level,
+            'city' => $this->city,
+            'industry' => $this->industry,
             'jobseeker_profile' => $jobseeker
         ]);
     }
