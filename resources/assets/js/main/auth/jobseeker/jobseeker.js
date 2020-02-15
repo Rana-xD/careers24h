@@ -126,11 +126,31 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     }
 
         
-    func.loadData = function(){
+    func.loadDataForJobseekerProfile = function(){
         if(arguments[0].facebook) $('#facebook').val(arguments[0].facebook);
         if(arguments[0].instagram) $('#instagram').val(arguments[0].instagram);
         if(arguments[0].twitter) $('#twitter').val(arguments[0].twitter);
         if(arguments[0].linkedin) $('#linkedin').val(arguments[0].linkedin);
+        if(arguments[1]) {
+            $('#industry').val(arguments[1]);
+            $('#industry').trigger("chosen:updated");
+        }
+        if(arguments[2]) {
+            $('#education_level').val(arguments[2]);
+            $('#education_level').trigger("chosen:updated");
+        }
+        if(arguments[3]) {
+            $('#career_level').val(arguments[3]);
+            $('#career_level').trigger("chosen:updated");
+        }
+        if(arguments[4]) {
+            $('#gender').val(arguments[4]);
+            $('#gender').trigger("chosen:updated");
+        }
+        if(arguments[5]) {
+            $('#city').val(arguments[5]);
+            $('#city').trigger("chosen:updated");
+        }
      }
 
     func.updateCoverLetter = function(){

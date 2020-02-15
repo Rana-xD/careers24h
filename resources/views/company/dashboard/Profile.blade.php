@@ -136,7 +136,7 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">City</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city" value="{{ $company_profile->city }}">
+											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
 													<option value=""></option> 
 													@foreach ($city as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -169,8 +169,9 @@
 	jQuery(document).ready(function($){
 		let social_media = '<?php echo $company_profile->social_media ?>' ? JSON.parse('<?php echo $company_profile->social_media ?>') : '';
 		let info = `<?php echo $company_profile->info ?>`;
+		let city = '<?php echo $company_profile->city ?>'
 
-		CAREER24H.company.loadData(social_media,info)
+		CAREER24H.company.loadDataForCompanyProfile(social_media,info,city)
 		$('#openFileInput').on('click',()=>{
 			$('#CompanyLogo').click();
 		})

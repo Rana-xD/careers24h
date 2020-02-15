@@ -216,13 +216,18 @@
 <script>
 	jQuery(document).ready(function($){
 		let social_media = '<?php echo $jobseeker_profile->social_media ?>' ? JSON.parse('<?php echo $jobseeker_profile->social_media ?>') : '';
+		let industry = '<?php echo $jobseeker_profile->industry ?>';
+		let educationLevel = '<?php echo $jobseeker_profile->education_level ?>';
+		let careerLevel = '<?php echo $jobseeker_profile->career_level ?>';
+		let gender = '<?php echo $jobseeker_profile->gender ?>';
+		let city = '<?php echo $jobseeker_profile->city ?>';
 		$('#openFileInput').on('click',()=>{
 			$('#JobseekerImage').click();
 		})
 
 		$('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
 		$('#jobseekerProfileUpdate').on('click',CAREER24H.jobseeker.updateJobseekerProfile);
-		CAREER24H.jobseeker.loadData(social_media);
+		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city);
 	});
 </script>
 </html>

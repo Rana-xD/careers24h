@@ -126,12 +126,17 @@ if(!CAREER24H.company) CAREER24H.company = {};
             });
     }
 
-    func.loadData = function(){
+    func.loadDataForCompanyProfile = function(){
         if(arguments[0].facebook) $('#facebook').val(arguments[0].facebook);
         if(arguments[0].instagram) $('#instagram').val(arguments[0].instagram);
         if(arguments[0].twitter) $('#twitter').val(arguments[0].twitter);
         if(arguments[0].linkedin) $('#linkedin').val(arguments[0].linkedin);
         if(arguments[1]) $('#info').val(arguments[1]);
+        if(arguments[2]){
+            $('#city').val(arguments[2]);
+            $('#city').trigger("chosen:updated");
+        } 
+
     }
     func.toggleSpecificGender = function(e){
         self = e.target;
