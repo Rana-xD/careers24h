@@ -27,6 +27,7 @@ class CreateEmployeeProfilesTable extends Migration
             $table->string('industry')->index()->nullable();
             $table->text('about')->nullable();
             $table->text('skillset')->nullable();
+            $table->text('achievement')->nullable();
             $table->text('social_media')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('email')->nullable();

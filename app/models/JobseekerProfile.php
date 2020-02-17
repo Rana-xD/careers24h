@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class JobseekerProfile extends Model
 {
     
-
+    protected $casts = [
+        'education' => 'array',
+        'skillset' => 'array',
+        'achievement' => 'array',
+        'work_experience' => 'array'
+    ];
     protected $fillable = [
         'user_profile',
         'full_name',
@@ -20,7 +25,11 @@ class JobseekerProfile extends Model
         'social_media',
         'phone_number',
         'email',
-        'city'
+        'city',
+        'education',
+        'skillset',
+        'achievement',
+        'work_experience'
     ];
 
     public function user(){

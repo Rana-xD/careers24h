@@ -16,157 +16,137 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<div class="border-title"><h3>Education</h3><a class="cancel" href="#" title=""><i class="la la-close"></i> Cancel</a></div>
+					 			<div class="border-title"><h3>Education</h3></div>
 						 		<div class="resumeadd-form">
 						 			<div class="row">
 						 				<div class="col-lg-12">
 					 						<span class="pf-title">Title</span>
 					 						<div class="pf-field">
-					 							<input placeholder="Tooms.." type="text">
+					 							<input placeholder="Tooms.." type="text" name="eduction_title" id="eduction_title">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">From Date</span>
 					 						<div class="pf-field">
-					 							<input placeholder="06.11.2007" type="text" class="datepicker">
+					 							<input placeholder="06.11.2007" type="text" class="datepicker" name="education_from_date" id="education_from_date"> 
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">To Date</span>
 					 						<div class="pf-field">
-					 							<input placeholder="06.11.2012" type="text" class="datepicker">
+					 							<input placeholder="06.11.2012" type="text" class="datepicker" name="education_to_date" id="education_to_date">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						<span class="pf-title">Institute</span>
+					 						<span class="pf-title">School Name</span>
 					 						<div class="pf-field">
-					 							<input type="text">
+					 							<input type="text" name="education_school_name" id="education_school_name">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">Description</span>
 					 						<div class="pf-field">
-					 							<textarea></textarea>
+					 							<textarea name="education_description" id="education_description"></textarea>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						 <button type="submit">Save</button>
+					 						 <button type="button" id="educationSubmit">Save</button>
 					 					</div>
 						 			</div>
 						 		</div>
-						 		<div class="border-title"><h3>Work Experience</h3><a class="cancel" href="#" title=""><i class="la la-close"></i> Cancel</a></div>
+						 		<div class="border-title"><h3>Work Experience</h3></div>
 						 		<div class="resumeadd-form">
 						 			<div class="row">
 						 				<div class="col-lg-12">
 					 						<span class="pf-title">Title</span>
 					 						<div class="pf-field">
-					 							<input placeholder="Tooms.." type="text">
+					 							<input placeholder="Tooms.." type="text" name="work_title" id="work_title">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-5">
 					 						<span class="pf-title">From Date</span>
 					 						<div class="pf-field">
-					 							<input placeholder="06.11.2007" type="text" class="datepicker">
+					 							<input placeholder="06.11.2007" type="text" class="datepicker" name="work_from_date" id="work_from_date">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-5">
-					 						<span class="pf-title">To Date</span>
-					 						<div class="pf-field">
-					 							<input placeholder="06.11.2012" type="text" class="datepicker">
+					 						<span class="pf-title work-to-date-div">To Date</span>
+					 						<div class="pf-field work-to-date-div">
+					 							<input placeholder="06.11.2012" type="text" class="datepicker" name="work_to_date" id="work_to_date">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-2">
-					 						<p class="remember-label">
-												<input type="checkbox" name="cb" id="fgfg"><label for="fgfg">Present</label>
-											</p>
+											<span class="pf-title">Now</span>
+					 						<div>
+											   <input type="checkbox" id="work_present" data-toggle="toggle" data-size="normal" data-onstyle="primary" data-offstyle="danger">
+											</div>
 					 					</div>
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">Company</span>
 					 						<div class="pf-field">
-					 							<input type="text">
+					 							<input type="text" name="work_company" id="work_company">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">Description</span>
 					 						<div class="pf-field">
-					 							<textarea></textarea>
+					 							<textarea name="work_description" id="work_description"></textarea>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						 <button type="submit">Save</button>
+					 						 <button type="button" id="workSubmit">Save</button>
 					 					</div>
 						 			</div>
 						 		</div>
-						 		<div class="border-title"><h3>Portfolio</h3><a class="cancel" href="#" title=""><i class="la la-close"></i> Cancel</a></div>
-						 		<div class="resumeadd-form">
-						 			<div class="row">
-						 				<div class="col-lg-12">
-					 						<p>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</p>
-					 					</div>
-					 					<div class="col-lg-12">
-					 						<div class="upload-portfolio">
-					 							<div class="uploadbox">
-					 								<label for="file-upload" class="custom-file-upload">
-													    <i class="la la-cloud-upload"></i> <span>Upload Image</span>
-													</label>
-													<input id="file-upload" type="file" style="display: none;" />
-					 							</div>
-					 							<div class="uploadfield">
-							 						<span class="pf-title">Title</span>
-							 						<div class="pf-field">
-							 							<input placeholder="Tooms.." type="text">
-							 						</div>
-							 					</div>
-							 					<div class="uploadbutton">
-							 						<button type="submit">Save</button>
-							 					</div>
-					 						</div>
-					 					</div>
-						 			</div>
-						 		</div>
-						 		<div class="border-title"><h3>Professional Skills</h3><a class="cancel" href="#" title=""><i class="la la-close"></i> Cancel</a></div>
+						 		<div class="border-title"><h3>Professional Skills</h3></div>
 						 		<div class="resumeadd-form">
 						 			<div class="row align-items-end">
 						 				<div class="col-lg-7">
 					 						<span class="pf-title">Skill Heading</span>
 					 						<div class="pf-field">
-					 							<input placeholder="" type="text">
+					 							<input placeholder="" type="text" id="skill_name" name="skill_name">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
 					 						<span class="pf-title">Percentage</span>
 					 						<div class="pf-field">
-					 							<input placeholder="" type="text">
+					 							<input placeholder="" type="number" id="skill_percentage" name="skill_percentage">
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-2">
-					 						 <button type="submit">Save</button>
+					 						 <button type="button" id="skillSubmit">Save</button>
 					 					</div>
 						 			</div>
 						 		</div>
-						 		<div class="border-title"><h3>Awards</h3><a class="cancel" href="#" title=""><i class="la la-close"></i> Cancel</a></div>
+						 		<div class="border-title"><h3>Achievement</h3></div>
 						 		<div class="resumeadd-form">
 						 			<div class="row">
-						 				<div class="col-lg-6">
-					 						<span class="pf-title">06.11.2007</span>
-					 						<div class="pf-field">
-					 							<input placeholder="" type="text">
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">06.11.2012</span>
-					 						<div class="pf-field">
-					 							<input placeholder="" type="text">
-					 						</div>
-					 					</div>
+										<div class="col-lg-12">
+											<span class="pf-title">Title</span>
+											<div class="pf-field">
+												<input type="text" name="achievement_title" id="achievement_title">
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<span class="pf-title">From Date</span>
+											<div class="pf-field">
+												<input placeholder="06.11.2007" type="text" class="datepicker" name="achievement_from_date" id="achievement_from_date">
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<span class="pf-title">To Date</span>
+											<div class="pf-field">
+												<input placeholder="06.11.2012" type="text" class="datepicker" name="achievement_to_date" id="achievement_to_date">
+											</div>
+										</div>
 					 					<div class="col-lg-12">
 					 						<span class="pf-title">Description</span>
 					 						<div class="pf-field">
-					 							<textarea></textarea>
+					 							<textarea name="achievement_description" id="achievement_description"></textarea>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						 <button type="submit">Save</button>
+					 						 <button type="button" id="achievementSubmit">Save</button>
 					 					</div>
 						 			</div>
 						 		</div>
@@ -177,8 +157,6 @@
 			</div>
 		</div>
 	</section>
-
-	@include('partials.footer')
 
 </div>
 
@@ -322,14 +300,31 @@
 @include('partials.footer_script')
 
 <!-- Include Date Range Picker -->
-<link rel="stylesheet" type="text/css" href="{{ asset("/style/css/bootstrap-datepicker.css") }}" />
-<script src="{{ asset("/style/js/bootstrap-datepicker.js") }}" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-jO7D3fIsAq+jB8Xt3NI5vBf3k4tvtHwzp8ISLQG4UWU=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 <script>
+	jQuery(document).ready(function($){
 		$(function(){
 			$('.datepicker').datepicker({
 			    format: 'mm-dd-yyyy'
 			});
 		});
+		$('#work_present').on('change',(e)=>{
+			let self = e.target;
+			if(self.checked){
+				$('.work-to-date-div').css('display','none');
+				CAREER24H.constant.isWorkToDateIsPresent = true;
+				return;
+			}
+			CAREER24H.constant.isWorkToDateIsPresent = false;
+			$('.work-to-date-div').css('display','block');
+		})
+
+		$('#educationSubmit').on('click',CAREER24H.jobseeker.handleNewEducationSubmit)
+		$('#workSubmit').on('click',CAREER24H.jobseeker.handleNewWorkSubmit)
+		$('#skillSubmit').on('click',CAREER24H.jobseeker.handleNewSkillSubmit)
+		$('#achievementSubmit').on('click',CAREER24H.jobseeker.handleNewAchievementSubmit)
+	});
 </script>
 
 </body>

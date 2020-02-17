@@ -5,6 +5,7 @@ if (!CAREER24H.constant) CAREER24H.constant = {};
 (function ($) {
   var constant = CAREER24H.constant;
   constant.isCompanyLogoChange = false;
+  constant.isWorkToDateIsPresent = false;
 })(jQuery);
 
 var CAREER24H;
@@ -51,6 +52,36 @@ if (!CAREER24H.main) CAREER24H.main = {};
         url: url,
         type: 'POST',
         processData: false,
+        contentType: false,
+        data: formData,
+        success: function success(response) {
+          resolve(response);
+        },
+        error: function (_error) {
+          function error(_x) {
+            return _error.apply(this, arguments);
+          }
+
+          error.toString = function () {
+            return _error.toString();
+          };
+
+          return error;
+        }(function (error) {
+          reject(error);
+        })
+      }).always(function () {
+        CAREER24H.utils.deactivateSpinner();
+      });
+    });
+  };
+
+  func.getRequestPromise = function (url, formData) {
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        url: url,
+        type: 'GET',
+        processData: true,
         contentType: false,
         data: formData,
         success: function success(response) {

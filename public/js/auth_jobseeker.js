@@ -187,6 +187,131 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     });
   };
 
+  func.handleNewEducationSubmit = function (e) {
+    var title = $('#eduction_title').val(),
+        fromDate = $('#education_from_date').val(),
+        toDate = $('#education_to_date').val(),
+        schoolName = $('#education_school_name').val(),
+        description = $('#education_description').val();
+    var data = {
+      'title': title,
+      'from': fromDate,
+      'to': toDate,
+      'school': schoolName,
+      'description': description
+    };
+    var formData = {
+      'education': data
+    };
+    var url = '/jobseeker/add-education';
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          title: 'Success',
+          icon: 'success',
+          text: response.message ? response.message : 'Profile successfully updated.'
+        });
+      }
+    }, function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    }); // console.log(data);
+  };
+
+  func.handleNewWorkSubmit = function (e) {
+    var title = $('#work_title').val(),
+        fromDate = $('#work_from_date').val(),
+        toDate = $('#work_present')[0].checked ? 'Now' : $('#work_to_date').val(),
+        companyName = $('#work_company').val(),
+        description = $('#work_description').val();
+    var data = {
+      'title': title,
+      'from': fromDate,
+      'to': toDate,
+      'company': companyName,
+      'description': description
+    };
+    var formData = {
+      'work_experience': data
+    };
+    var url = '/jobseeker/add-work-experience';
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          title: 'Success',
+          icon: 'success',
+          text: response.message ? response.message : 'Profile successfully updated.'
+        });
+      }
+    }, function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.handleNewSkillSubmit = function (e) {
+    var skillName = $('#skill_name').val(),
+        percentage = $('#skill_percentage').val();
+    var data = {
+      'skill': skillName,
+      'percentage': percentage
+    };
+    var formData = {
+      'skillset': data
+    };
+    var url = '/jobseeker/add-skillset';
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          title: 'Success',
+          icon: 'success',
+          text: response.message ? response.message : 'Profile successfully updated.'
+        });
+      }
+    }, function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.handleNewAchievementSubmit = function (e) {
+    var title = $('#achievement_title').val(),
+        fromDate = $('#achievement_from_date').val(),
+        toDate = $('#achievement_to_date').val(),
+        description = $('#achievement_description').val();
+    var data = {
+      'title': title,
+      'from': fromDate,
+      'to': toDate,
+      'description': description
+    };
+    var formData = {
+      'achievement': data
+    };
+    var url = '/jobseeker/add-achievement';
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          title: 'Success',
+          icon: 'success',
+          text: response.message ? response.message : 'Profile successfully updated.'
+        });
+      }
+    }, function (error) {
+      console.log(error);
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
   $(document).ready(function ($) {
     CAREER24H.jobseeker.initializeSummernote();
   });

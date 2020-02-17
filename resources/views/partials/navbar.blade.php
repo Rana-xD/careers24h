@@ -160,7 +160,8 @@
 					<span><img src="http://placehold.it/50x50" alt="" /> {{  Auth::user()->username }} <i class="la la-angle-down"></i></span>
 					<ul>
 						<li><a href="/jobseeker/profile" title=""><i class="la la-file-text"></i>My Profile</a></li>
-						<li><a href="/jobseeker/resume" title=""><i class="la la-briefcase"></i>My Resume</a></li>
+                        <li><a href="/jobseeker/resume" title=""><i class="la la-briefcase"></i>My Resume</a></li>
+                        <li><a href="/jobseeker/add-resume" title=""><i class="la la-briefcase"></i>Add Resume</a></li>
 						<li><a href="/jobseeker/shortlist" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
 						<li><a href="/jobseeker/applied-job" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
 					    <li><a href="/jobseeker/job-notify" title=""><i class="la la-user"></i>Job Alerts</a></li>

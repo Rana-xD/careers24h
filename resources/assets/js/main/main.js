@@ -33,4 +33,35 @@ if(!CAREER24H.main) CAREER24H.main = {};
             });
         });
     };
+
+    func.getRequestPromise = function (url, formData) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                processData: true,
+                contentType: false,
+                data: formData,
+                success: function success(response) {
+                    resolve(response);
+                },
+                error: function (_error) {
+                    function error(_x) {
+                        return _error.apply(this, arguments);
+                    }
+
+                    error.toString = function () {
+                        return _error.toString();
+                    };
+
+                    return error;
+                }(function (error) {
+                    reject(error);
+                })
+            }).always(function () {
+                CAREER24H.utils.deactivateSpinner();
+            });
+        });
+    };
+
 })(jQuery);

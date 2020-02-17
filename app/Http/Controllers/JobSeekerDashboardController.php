@@ -57,9 +57,20 @@ class JobSeekerDashboardController extends Controller
     }
 
     public function showResume(){
-        return view('jobseeker.dashboard.Resume');
+        $educations = Auth::user()->jobseekerProfile->education;
+        $work_experience = Auth::user()->jobseekerProfile->work_experience;
+        $skillset = Auth::user()->jobseekerProfile->skillset;
+        $achievement = Auth::user()->jobseekerProfile->achievement;
+        return view('jobseeker.dashboard.Resume',[
+            'educations' => $educations,
+            'work_experience' => $work_experience,
+            'skillset' => $skillset,
+            'achievement' => $achievement
+        ]);
     }
-
+    public function showAddResumeForm(){
+        return view('jobseeker.dashboard.AddNewResume');
+    }
     public function showShortlist(){
         return view('jobseeker.dashboard.Shortlist');
     }
@@ -130,6 +141,95 @@ class JobSeekerDashboardController extends Controller
         return response()->json([
             'code' => 200,
             'message' => "You have updated the password"
+        ]);
+    }
+
+    public function addEducation(Request $request){
+        $data = $request->all();
+        if(empty(Auth::user()->jobseekerProfile->education)){
+            $education = array();
+            array_push($education,$data['education']);
+            $data['education'] = $education;
+            Auth::user()->jobseekerProfile()->update($data);
+            return response()->json([
+                'code' => 200,
+                'message' => 'Successfully add education'
+            ]);
+        }
+        $education = Auth::user()->jobseekerProfile->education;
+        array_push($education,$data['education']);
+        $data['education'] = $education;
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully add education'
+        ]);
+        
+    }
+
+    public function addWorkExperience(Request $request){
+        $data = $request->all();
+        if(empty(Auth::user()->jobseekerProfile->work_experience)){
+            $work_experience = array();
+            array_push($work_experience,$data['work_experience']);
+            $data['work_experience'] = $work_experience;
+            Auth::user()->jobseekerProfile()->update($data);
+            return response()->json([
+                'code' => 200,
+                'message' => 'Successfully add work experience'
+            ]);
+        }
+        $work_experience = Auth::user()->jobseekerProfile->work_experience;
+        array_push($work_experience,$data['work_experience']);
+        $data['work_experience'] = $work_experience;
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully add work experience'
+        ]);
+    }
+
+    public function addSkillset(Request $request){
+        $data = $request->all();
+        if(empty(Auth::user()->jobseekerProfile->skillset)){
+            $skillset = array();
+            array_push($skillset,$data['skillset']);
+            $data['skillset'] = $skillset;
+            Auth::user()->jobseekerProfile()->update($data);
+            return response()->json([
+                'code' => 200,
+                'message' => 'Successfully add skillset'
+            ]);
+        }
+        $skillset = Auth::user()->jobseekerProfile->skillset;
+        array_push($skillset,$data['skillset']);
+        $data['skillset'] = $skillset;
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully add skillset'
+        ]);
+    }
+
+    public function addAchievement(Request $request){
+        $data = $request->all();
+        if(empty(Auth::user()->jobseekerProfile->achievement)){
+            $achievement = array();
+            array_push($achievement,$data['achievement']);
+            $data['achievement'] = $achievement;
+            Auth::user()->jobseekerProfile()->update($data);
+            return response()->json([
+                'code' => 200,
+                'message' => 'Successfully add achievement'
+            ]);
+        }
+        $achievement = Auth::user()->jobseekerProfile->achievement;
+        array_push($achievement,$data['achievement']);
+        $data['achievement'] = $achievement;
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully add achievement'
         ]);
     }
 }

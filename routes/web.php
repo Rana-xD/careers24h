@@ -55,10 +55,16 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
     Route::get('/job-alert','JobSeekerDashboardController@showJobNotify');
     Route::get('/resume','JobSeekerDashboardController@showResume');
     Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
+    Route::get('/add-resume','JobSeekerDashboardController@showAddResumeForm');
 
     Route::post('/update-password','JobSeekerDashboardController@updatePassword');
     Route::post('/update-profile','JobSeekerDashboardController@updateProfile');
     Route::post('/update-cover-letter','JobSeekerDashboardController@updateCoverLetter');
+
+    Route::get('/add-education','JobSeekerDashboardController@addEducation');
+    Route::get('/add-work-experience','JobSeekerDashboardController@addWorkExperience');
+    Route::get('/add-skillset','JobSeekerDashboardController@addSkillset');
+    Route::get('/add-achievement','JobSeekerDashboardController@addAchievement');
 });
 
 
