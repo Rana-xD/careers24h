@@ -459,6 +459,55 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
           }) 
     }
 
+    func.showEditEducationModal = function(e){
+        let self = e.target;
+        let div = $(self).parents('.edu-history');
+    
+    
+        $('#eduction_title_edit').val($(div).find('.title').text());
+        $('#education_from_date_edit').val($(div).find('.fromDate').val());
+        $('#education_to_date_edit').val($(div).find('.toDate').val());
+        $('#education_school_name_edit').val($(div).find('.school_name').text());
+        $('#education_description_edit').val($(div).find('.description').text());
+        $('#educationIndex').val($(div).find('.editEducation').attr('data-index'));
+        $('#editEducationModal').modal('show');
+    }
+
+    func.handleEditEducationSubmit = function(){
+        let title = $('#eduction_title_edit').val(),
+            fromDate = $('#education_from_date_edit').val(),
+            toDate = $('#education_to_date_edit').val(),
+            schoolName = $('#education_school_name_edit').val(),
+            description = $('#education_description_edit').val(),
+            index = $('#educationIndex').val();
+
+        let data = {
+            'title' : title,
+            'from' :  fromDate,
+            'to' : toDate,
+            'school' : schoolName,
+            'description' : description,
+        };
+
+        let formData = {
+            'education' : data,
+            'index' : index
+        }
+        url = '/jobseeker/update-education'
+        CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        $('#editEducationModal').modal('hide');
+                        location.reload();
+                    }
+                }, function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+    }
+
     $(document).ready(function ($) {
         CAREER24H.jobseeker.initializeSummernote();
     });

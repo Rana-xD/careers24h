@@ -325,12 +325,12 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       confirmButtonText: 'Yes, delete it!'
     }).then(function (result) {
       if (result.value) {
-        var url = '/jobseeker/delete-education';
+        var _url = '/jobseeker/delete-education';
         var _formData = {
           'index': index
         };
         CAREER24H.utils.activateSpinner();
-        var promise = CAREER24H.main.getRequestPromise(url, _formData);
+        var promise = CAREER24H.main.getRequestPromise(_url, _formData);
         promise.then(function (response) {
           if (response.code == 200) {
             location.reload();
@@ -358,12 +358,12 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       confirmButtonText: 'Yes, delete it!'
     }).then(function (result) {
       if (result.value) {
-        var url = '/jobseeker/delete-work-experiece';
+        var _url2 = '/jobseeker/delete-work-experiece';
         var _formData2 = {
           'index': index
         };
         CAREER24H.utils.activateSpinner();
-        var promise = CAREER24H.main.getRequestPromise(url, _formData2);
+        var promise = CAREER24H.main.getRequestPromise(_url2, _formData2);
         promise.then(function (response) {
           if (response.code == 200) {
             location.reload();
@@ -391,12 +391,12 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       confirmButtonText: 'Yes, delete it!'
     }).then(function (result) {
       if (result.value) {
-        var url = '/jobseeker/delete-skillset';
+        var _url3 = '/jobseeker/delete-skillset';
         var _formData3 = {
           'index': index
         };
         CAREER24H.utils.activateSpinner();
-        var promise = CAREER24H.main.getRequestPromise(url, _formData3);
+        var promise = CAREER24H.main.getRequestPromise(_url3, _formData3);
         promise.then(function (response) {
           if (response.code == 200) {
             location.reload();
@@ -424,12 +424,12 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       confirmButtonText: 'Yes, delete it!'
     }).then(function (result) {
       if (result.value) {
-        var url = '/jobseeker/delete-achievement';
+        var _url4 = '/jobseeker/delete-achievement';
         var _formData4 = {
           'index': index
         };
         CAREER24H.utils.activateSpinner();
-        var promise = CAREER24H.main.getRequestPromise(url, _formData4);
+        var promise = CAREER24H.main.getRequestPromise(_url4, _formData4);
         promise.then(function (response) {
           if (response.code == 200) {
             location.reload();
@@ -441,6 +441,51 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
           CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
         });
       }
+    });
+  };
+
+  func.showEditEducationModal = function (e) {
+    var self = e.target;
+    var div = $(self).parents('.edu-history');
+    $('#eduction_title_edit').val($(div).find('.title').text());
+    $('#education_from_date_edit').val($(div).find('.fromDate').val());
+    $('#education_to_date_edit').val($(div).find('.toDate').val());
+    $('#education_school_name_edit').val($(div).find('.school_name').text());
+    $('#education_description_edit').val($(div).find('.description').text());
+    $('#educationIndex').val($(div).find('.editEducation').attr('data-index'));
+    $('#editEducationModal').modal('show');
+  };
+
+  func.handleEditEducationSubmit = function () {
+    var title = $('#eduction_title_edit').val(),
+        fromDate = $('#education_from_date_edit').val(),
+        toDate = $('#education_to_date_edit').val(),
+        schoolName = $('#education_school_name_edit').val(),
+        description = $('#education_description_edit').val(),
+        index = $('#educationIndex').val();
+    var data = {
+      'title': title,
+      'from': fromDate,
+      'to': toDate,
+      'school': schoolName,
+      'description': description
+    };
+    var formData = {
+      'education': data,
+      'index': index
+    };
+    url = '/jobseeker/update-education';
+    CAREER24H.utils.activateSpinner();
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        $('#editEducationModal').modal('hide');
+        location.reload();
+      }
+    }, function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
     });
   };
 

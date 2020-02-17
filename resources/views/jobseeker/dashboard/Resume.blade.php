@@ -21,15 +21,17 @@
 									@if (!empty($educations))
 									 @foreach ($educations as $index => $item)
 									 <div class="edu-history">
+										 <input type="hidden" name="formDate" class="fromDate" value="{{ $item['from'] }}">
+										 <input type="hidden" name="toDate" class="toDate" value="{{ $item['to'] }}">
 										<i class="la la-graduation-cap"></i>
 										<div class="edu-hisinfo">
-											<h3>{{  $item['title'] }}</h3>
+											<h3 class="title">{{  $item['title'] }}</h3>
 											<i>{{ date("Y", strtotime($item['from'])) }} - {{ date("Y", strtotime($item['to'])) }}</i>
-											<span>{{ $item['school'] }}</span>
-											<p>{{ $item['description'] }}</p>
+											<span class="school_name">{{ $item['school'] }}</span>
+											<p class="description">{{ $item['description'] }}</p>
 										</div>
 										<ul class="action_job">
-											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+											<li><span>Edit</span><a class="editEducation" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
 											<li><span>Delete</span><a class="removeEducation" data-index="{{ $index + 1 }}"><i class="la la-trash-o" ></i></a></li>
 										</ul>
 									</div>
@@ -125,128 +127,77 @@
 	</div>
 </div><!-- Profile Sidebar -->
 
-<div class="view-resumesec">
-	<div class="view-resumes">
-		<span class="close-resume-popup"><i class="la la-close"></i></span>
-		<h3>13 Times Viewed By 8 Companies.</h3>
-		<div class="job-listing wtabs">
-			<div class="job-title-sec">
-				<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-				<h3><a href="#" title="">Web Designer / Developer</a></h3>
-				<span>Massimo Artemisis</span>
-				<div class="job-lctn">Sacramento, California</div>
+<!-- Education Modal -->
+<div class="modal fade" id="editEducationModal" tabindex="-1" role="dialog" aria-labelledby="editEducationModal" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="editEducationModal">Edit Education</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<div class="container-fluid">
+				<input type="hidden" name="educationIndex" id="educationIndex">
+				<div class="row">
+					<div class="col-lg-12">
+						<span class="pf-title">Title</span>
+						<div class="pf-field">
+							<input placeholder="Tooms.." type="text" name="eduction_title_edit" id="eduction_title_edit">
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<span class="pf-title">From Date</span>
+						<div class="pf-field">
+							<input placeholder="06.11.2007" type="text" class="datepicker" name="education_from_date_edit" id="education_from_date_edit"> 
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<span class="pf-title">To Date</span>
+						<div class="pf-field">
+							<input placeholder="06.11.2012" type="text" class="datepicker" name="education_to_date_edit" id="education_to_date_edit">
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<span class="pf-title">School Name</span>
+						<div class="pf-field">
+							<input type="text" name="education_school_name_edit" id="education_school_name_edit">
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<span class="pf-title">Description</span>
+						<div class="pf-field">
+							<textarea name="education_description" id="education_description_edit"></textarea>
+						</div>
+					</div>
+				</div>
 			</div>
-			<span class="date-resume">11.02.2017</span>
-		</div><!-- Job -->
-		<div class="job-listing wtabs">
-			<div class="job-title-sec">
-				<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-				<h3><a href="#" title="">C Developer (Senior) C .Net</a></h3>
-				<span>Massimo Artemisis</span>
-				<div class="job-lctn"><i class="la la-map-marker"></i>Sacramento, California</div>
-			</div>
-			<span class="date-resume">11.02.2017</span>
-		</div><!-- Job -->
-		<div class="job-listing wtabs">
-			<div class="job-title-sec">
-				<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-				<h3><a href="#" title="">Web Designer / Developer</a></h3>
-				<span>Massimo Artemisis</span>
-				<div class="job-lctn">Sacramento, California</div>
-			</div>
-			<span class="date-resume">11.02.2017</span>
-		</div><!-- Job -->
-		<div class="job-listing wtabs">
-			<div class="job-title-sec">
-				<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-				<h3><a href="#" title="">Web Designer / Developer</a></h3>
-				<span>Massimo Artemisis</span>
-				<div class="job-lctn">Sacramento, California</div>
-			</div>
-			<span class="date-resume">11.02.2017</span>
-		</div><!-- Job -->
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  <button type="button" id="updateEducation" class="btn btn-primary">Save changes</button>
+		</div>
+	  </div>
 	</div>
-</div>
-
-<div class="follow-companiesec">
-	<div class="follow-companies">
-		<span class="close-follow-company"><i class="la la-close"></i></span>
-		<h3>Follow Companies.</h3>
-		<ul id="scrollbar">
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">Web Designer / Developer</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">Tix Dog</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">StarHealth</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">Altes Bank</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">StarHealth</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-			<li>
-				<div class="job-listing wtabs">
-					<div class="job-title-sec">
-						<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
-						<h3><a href="#" title="">Altes Bank</a></h3>
-						<div class="job-lctn">Sacramento, California</div>
-					</div>
-					<a href="#" title="" class="go-unfollow">Unfollow</a>
-				</div><!-- Job -->	
-			</li>
-		</ul>		
-	</div>
-</div>
-
+  </div>
 @include('partials.footer_script')
 
 </body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-jO7D3fIsAq+jB8Xt3NI5vBf3k4tvtHwzp8ISLQG4UWU=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 <script>
 	jQuery(document).ready(function($){
-
+		$('.datepicker').datepicker({
+			    format: 'mm-dd-yyyy'
+		});
 		$('.removeEducation').on('click',CAREER24H.jobseeker.deleteEducation);
 		$('.removeWorkExperience').on('click',CAREER24H.jobseeker.deleteWorkExperience);
 		$('.removeSkillset').on('click',CAREER24H.jobseeker.deleteSkillset);
 		$('.removeAchievement').on('click',CAREER24H.jobseeker.removeAchievement);
+
+		$('.editEducation').on('click',CAREER24H.jobseeker.showEditEducationModal);
+		$('#updateEducation').on('click',CAREER24H.jobseeker.handleEditEducationSubmit);
 	});
 
 	

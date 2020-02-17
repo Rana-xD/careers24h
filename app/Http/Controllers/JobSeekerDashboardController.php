@@ -283,5 +283,19 @@ class JobSeekerDashboardController extends Controller
             'message' => 'Successfully delete achievement'
         ]);
     }
+
+    public function updateEducation(Request $request){
+        $index = $request->index;
+        $update_education = array($request->education);
+        $education = Auth::user()->jobseekerProfile->education;
+        array_splice($education,$index,1,$update_education);
+        $data['education'] = $education;
+
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => $education
+        ]);
+    }
 }
 

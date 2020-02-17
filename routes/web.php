@@ -69,6 +69,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
     Route::get('/delete-work-experiece','JobSeekerDashboardController@deleteWorkExperience');
     Route::get('/delete-skillset','JobSeekerDashboardController@deleteSkillset');
     Route::get('/delete-achievement','JobSeekerDashboardController@deleteAchievement');
+    Route::get('/update-education','JobSeekerDashboardController@updateEducation');
 });
 
 
