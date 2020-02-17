@@ -232,5 +232,56 @@ class JobSeekerDashboardController extends Controller
             'message' => 'Successfully add achievement'
         ]);
     }
+
+    public function deleteEducation(Request $request){
+        $index = $request->index;
+        $education = array_slice(Auth::user()->jobseekerProfile->education,$index);
+        $data['education'] = $education;
+
+        Auth::user()->jobseekerProfile()->update($data);
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully delete education'
+        ]);
+    }
+
+    public function deleteWorkExperience(Request $request){
+        $index = $request->index;
+        $work_experience = array_slice(Auth::user()->jobseekerProfile->work_experience,$index);
+        $data['work_experience'] = $work_experience;
+
+        Auth::user()->jobseekerProfile()->update($data);
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully delete work experience'
+        ]);
+    }
+
+    public function deleteSkillset(Request $request){
+        $index = $request->index;
+        $skillset = array_slice(Auth::user()->jobseekerProfile->skillset,$index);
+        $data['skillset'] = $skillset;
+
+        Auth::user()->jobseekerProfile()->update($data);
+
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully delete skillset'
+        ]);
+    }
+
+    public function deleteAchievement(Request $request){
+        $index = $request->index;
+        $achievement = array_slice(Auth::user()->jobseekerProfile->achievement,$index);
+        $data['achievement'] = $achievement;
+
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully delete achievement'
+        ]);
+    }
 }
 

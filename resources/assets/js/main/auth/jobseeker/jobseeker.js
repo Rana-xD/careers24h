@@ -327,6 +327,138 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             });
     }
 
+    func.deleteEducation = function(e){
+        let self = e.target;
+        let index = $(self).hasClass('removeEducation') ? $(self).attr("data-index") : $(self).parents('.removeEducation').attr("data-index");
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                let url = '/jobseeker/delete-education'
+                let formData = {
+                    'index' : index
+                };
+                CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        location.reload();
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+            }
+          }) 
+    }
+
+    func.deleteWorkExperience = function(e){
+        let self = e.target;
+        let index = $(self).hasClass('removeWorkExperience') ? $(self).attr("data-index") : $(self).parents('.removeWorkExperience').attr("data-index");
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                let url = '/jobseeker/delete-work-experiece'
+                let formData = {
+                    'index' : index
+                };
+                CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        location.reload();
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+            }
+          }) 
+    }
+
+    func.deleteSkillset = function(e){
+        let self = e.target;
+        let index = $(self).hasClass('removeSkillset') ? $(self).attr("data-index") : $(self).parents('.removeSkillset').attr("data-index");
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                let url = '/jobseeker/delete-skillset'
+                let formData = {
+                    'index' : index
+                };
+                CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        location.reload();
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+            }
+          }) 
+    }
+
+    func.removeAchievement = function(e){
+        let self = e.target;
+        let index = $(self).hasClass('removeAchievement') ? $(self).attr("data-index") : $(self).parents('.removeAchievement').attr("data-index");
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                let url = '/jobseeker/delete-achievement'
+                let formData = {
+                    'index' : index
+                };
+                CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        location.reload();
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+            }
+          }) 
+    }
+
     $(document).ready(function ($) {
         CAREER24H.jobseeker.initializeSummernote();
     });

@@ -19,7 +19,7 @@
 					 			<div class="border-title"><h3>Education</h3></div>
 						 		<div class="edu-history-sec">
 									@if (!empty($educations))
-									 @foreach ($educations as $item)
+									 @foreach ($educations as $index => $item)
 									 <div class="edu-history">
 										<i class="la la-graduation-cap"></i>
 										<div class="edu-hisinfo">
@@ -30,7 +30,7 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeEducation" data-index="{{ $index + 1 }}"><i class="la la-trash-o" ></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
@@ -39,7 +39,7 @@
 		 						<div class="border-title"><h3>Work Experience</h3></div>
 						 		<div class="edu-history-sec">
 									@if (!empty($work_experience))
-									 @foreach ($work_experience as $item)
+									 @foreach ($work_experience as $index => $item)
 									 <div class="edu-history style2">
 										<i></i>
 										<div class="edu-hisinfo">
@@ -49,7 +49,7 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeWorkExperience" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
@@ -58,13 +58,13 @@
 		 						<div class="border-title"><h3>Professional Skills</h3></div>
 		 						<div class="progress-sec">
 									@if (!empty($skillset))
-									 @foreach ($skillset as $item)
+									 @foreach ($skillset as $index => $item)
 									 <div class="progress-sec with-edit">
 									 	<span>{{ $item['skill'] }}</span>
 										<div class="progressbar"> <div class="progress" style="width: {{ $item['percentage'] }}%;"><span>{{ $item['percentage'] }}%</span></div> </div>
 										<ul class="action_job">
 											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeSkillset" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 										</div>
 									 @endforeach
@@ -73,7 +73,7 @@
 		 						<div class="border-title"><h3>Achievement</h3></div>
 		 						<div class="edu-history-sec">
 									 @if (!empty($achievement))
-									 @foreach ($achievement as $item)
+									 @foreach ($achievement as $index => $item)
 									 <div class="edu-history style2">
 										<i></i>
 										<div class="edu-hisinfo">
@@ -83,7 +83,7 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeAchievement" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
@@ -240,5 +240,16 @@
 @include('partials.footer_script')
 
 </body>
+<script>
+	jQuery(document).ready(function($){
+
+		$('.removeEducation').on('click',CAREER24H.jobseeker.deleteEducation);
+		$('.removeWorkExperience').on('click',CAREER24H.jobseeker.deleteWorkExperience);
+		$('.removeSkillset').on('click',CAREER24H.jobseeker.deleteSkillset);
+		$('.removeAchievement').on('click',CAREER24H.jobseeker.removeAchievement);
+	});
+
+	
+</script>
 </html>
 
