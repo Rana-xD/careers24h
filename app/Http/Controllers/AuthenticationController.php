@@ -37,8 +37,8 @@ class AuthenticationController extends Controller
             $company_profile->uuid =  Str::random(8);
             $company_profile->save();
         }
-
-        return "DONE";
+        Auth::login($user);
+        return redirect('/');
     }
 
     public function showloginForm(Request $request){
