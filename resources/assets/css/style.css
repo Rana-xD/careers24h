@@ -8419,6 +8419,7 @@ header.gradient{
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     border-radius: 8px;
+    overflow: visible;
 
 }
 .progress span {

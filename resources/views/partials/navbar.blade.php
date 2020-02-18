@@ -20,10 +20,10 @@
     </div>
     <div class="responsive-opensec">
         <div class="btn-extars">
-            <a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+            {{-- <a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a> --}}
             <ul class="account-btns">
-                <li class="signup-popup"><a title=""><i class="la la-key"></i> Sign Up</a></li>
-                <li class="signin-popup"><a title=""><i class="la la-external-link-square"></i> Login</a></li>
+                <li class="signup-popup"><a href="/signup" title=""><i class="la la-key"></i> Sign Up</a></li>
+                <li class="signin-popup"><a href="/login" title=""><i class="la la-external-link-square"></i> Login</a></li>
             </ul>
         </div><!-- Btn Extras -->
         <form class="res-search">
@@ -32,7 +32,7 @@
         </form>
         <div class="responsivemenu">
             <ul>
-                    <li class="menu-item-has-children">
+                    {{-- <li class="menu-item-has-children">
                         <a href="#" title="">Home</a>
                         <ul>
                             <li><a href="{{ url("/homepage1") }}" title="">Home Layout 1</a></li>
@@ -127,7 +127,7 @@
                             <li><a href="register.html" title="">Register</a></li>
                             <li><a href="terms_and_condition.html" title="">Terms & Condition</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
         </div>
     </div>
@@ -179,7 +179,7 @@
             </div><!-- Btn Extras -->
             <nav>
                 <ul>
-                    <li class="menu-item-has-children">
+                    {{-- <li class="menu-item-has-children">
                         <a href="#" title="">Home</a>
                         <ul>
                             <li><a href="{{ url("/homepage1") }}" title="">Home Layout 1</a></li>
@@ -274,7 +274,7 @@
                             <li><a href="register.html" title="">Register</a></li>
                             <li><a href="terms_and_condition.html" title="">Terms & Condition</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
             </nav><!-- Menus -->
         </div>
