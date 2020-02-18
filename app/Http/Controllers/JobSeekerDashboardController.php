@@ -294,7 +294,49 @@ class JobSeekerDashboardController extends Controller
         Auth::user()->jobseekerProfile()->update($data);
         return response()->json([
             'code' => 200,
-            'message' => $education
+            'message' => 'Successfully update education'
+        ]);
+    }
+
+    public function updateWorkExperience(Request $request){
+        $index = $request->index;
+        $update_work_experience = array($request->work_experience);
+        $work_experience = Auth::user()->jobseekerProfile->work_experience;
+        array_splice($work_experience,$index,1,$update_work_experience);
+        $data['work_experience'] = $work_experience;
+
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully update work experience'
+        ]);
+    }
+
+    public function updateSkillset(Request $request){
+        $index = $request->index;
+        $update_skillset = array($request->skillset);
+        $skillset = Auth::user()->jobseekerProfile->skillset;
+        array_splice($skillset,$index,1,$update_skillset);
+        $data['skillset'] = $skillset;
+
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully update skillset'
+        ]);
+    }
+
+    public function updateAchievement(Request $request){
+        $index = $request->index;
+        $update_achievement = array($request->achievement);
+        $achievement = Auth::user()->jobseekerProfile->achievement;
+        array_splice($achievement,$index,1,$update_achievement);
+        $data['achievement'] = $achievement;
+
+        Auth::user()->jobseekerProfile()->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully update achievement'
         ]);
     }
 }

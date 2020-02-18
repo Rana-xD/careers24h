@@ -482,10 +482,10 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             index = $('#educationIndex').val();
 
         let data = {
-            'title' : title,
+            'title' : title.trim(),
             'from' :  fromDate,
             'to' : toDate,
-            'school' : schoolName,
+            'school' : schoolName.trim(),
             'description' : description,
         };
 
@@ -506,6 +506,143 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
                 }).catch(function (error) {
                     CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
                 });
+    }
+
+    func.showEditWorkExperienceModal = function(e){
+        let self = e.target;
+        let div = $(self).parents('.edu-history');
+        $('#work_title_edit').val($(div).find('.title').clone().children().remove().end().text());
+        $('#work_from_date_edit').val($(div).find('.fromDate').val());
+        $('#work_company_edit').val($(div).find('.company').text());
+        $('#work_description_edit').val($(div).find('.description').text());
+        $('#workExperienceIndex').val($(div).find('.editWorkExperience').attr('data-index'));
+        if($(div).find('.toDate').val() === 'Now'){
+            $('#work_present_edit').prop('checked',true);
+            $('#work_present_edit').bootstrapToggle('on');
+            $('.edit-work-to-date-div').css('display','none');
+        }else{
+            $('#work_to_date_edit').val($(div).find('.toDate').val());
+        }
+        
+        $('#editWorkExperienceModal').modal('show');
+    }
+
+    func.handleEditWorkExperienceSubmit = function(e){
+        let title = $('#work_title_edit').val(),
+            fromDate = $('#work_from_date_edit').val(),
+            toDate =  $('#work_present_edit')[0].checked ? 'Now' : $('#work_to_date_edit').val(),
+            companyName = $('#work_company_edit').val(),
+            description = $('#work_description_edit').val(),
+            index = $('#workExperienceIndex').val();
+
+            let data = {
+                'title' : title.trim(),
+                'from' :  fromDate,
+                'to' : toDate,
+                'company' : companyName.trim(),
+                'description' : description
+            };
+            let formData = {
+                'work_experience' : data,
+                'index' : index
+            };
+            url = '/jobseeker/update-work-experience'
+            CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        $('#editWorkExperienceModal').modal('hide');
+                        location.reload();
+                    }
+                }, function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+    }
+
+    func.showEditSkillsetModal = function(e){
+        let self = e.target;
+        let div = $(self).parents('.progress-sec');
+        $('#skill_name_edit').val($(div).find('.skill').text());
+        $('#skill_percentage_edit').val($(div).find('.percentage').val());
+        $('#skillsetIndex').val($(div).find('.editSkillset').attr('data-index'));
+        $('#editSkillsetModal').modal('show');
+    }
+
+    func.handleEditSkillsetSubmit = function(){
+        let skillName = $('#skill_name_edit').val(),
+            percentage = $('#skill_percentage_edit').val(),
+            index = $('#skillsetIndex').val();
+
+        let data = {
+            'skill' : skillName.trim(),
+            'percentage' : percentage
+        }
+
+        let formData = {
+            'skillset' : data,
+            'index' : index
+        };
+        url = '/jobseeker/update-skillset'
+            CAREER24H.utils.activateSpinner();
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        $('#editSkillsetModal').modal('hide');
+                        location.reload();
+                    }
+                }, function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
+    }
+
+    func.showEditAchievementModal = function(e){
+        let self = e.target;
+        let div = $(self).parents('.edu-history');
+        
+        $('#achievement_title_edit').val($(div).find('.title').text());
+        $('#achievement_from_date_edit').val($(div).find('.fromDate').val());
+        $('#achievement_to_date_edit').val($(div).find('.toDate').val());
+        $('#achievement_description_edit').val($(div).find('.description').text());
+        $('#achievementIndex').val($(div).find('.editAchievement').attr('data-index'));
+        $('#editAchievementModal').modal('show');
+    }
+
+    func.handleEditAchievementSubmit = function(e){
+        let title = $('#achievement_title_edit').val(),
+            fromDate = $('#achievement_from_date_edit').val(),
+            toDate = $('#achievement_to_date_edit').val(),
+            description = $('#achievement_description_edit').val(),
+            index = $('#achievementIndex').val();
+
+
+        let data = {
+            'title' : title,
+            'from' :  fromDate,
+            'to' : toDate,
+            'description' : description
+        }
+        let formData = {
+            'achievement' : data,
+            'index' : index
+        }
+        
+        let url = '/jobseeker/update-achievement'
+            let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        $('#editAchievementModal').modal('hide');
+                        location.reload();
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
     }
 
     $(document).ready(function ($) {

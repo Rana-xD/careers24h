@@ -43,14 +43,16 @@
 									@if (!empty($work_experience))
 									 @foreach ($work_experience as $index => $item)
 									 <div class="edu-history style2">
+										<input type="hidden" name="formDate" class="fromDate" value="{{ $item['from'] }}">
+										<input type="hidden" name="toDate" class="toDate" value="{{ $item['to'] }}">
 										<i></i>
 										<div class="edu-hisinfo">
-											<h3>{{ $item['title'] }} <span>{{ $item['company'] }}</span></h3>
+											<h3 class="title">{{ $item['title'] }} <span class="company">{{ $item['company'] }}</span></h3>
 											<i>{{ date("Y", strtotime($item['from'])) }} - {{  $item['to'] === 'Now' ? 'Now' : date("Y", strtotime($item['to'])) }}</i>
-										   <p>{{ $item['description'] }}</p>
+										   	<p class="description">{{ $item['description'] }}</p>
 										</div>
 										<ul class="action_job">
-											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+											<li><span>Edit</span><a class="editWorkExperience" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
 											<li><span>Delete</span><a class="removeWorkExperience" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
@@ -62,10 +64,11 @@
 									@if (!empty($skillset))
 									 @foreach ($skillset as $index => $item)
 									 <div class="progress-sec with-edit">
-									 	<span>{{ $item['skill'] }}</span>
+									 	<input type="hidden" name="percentage" class="percentage" value="{{ $item['percentage']  }}">
+									 	<span class="skill">{{ $item['skill'] }}</span>
 										<div class="progressbar"> <div class="progress" style="width: {{ $item['percentage'] }}%;"><span>{{ $item['percentage'] }}%</span></div> </div>
 										<ul class="action_job">
-											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+											<li><span>Edit</span><a class="editSkillset" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
 											<li><span>Delete</span><a class="removeSkillset" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 										</div>
@@ -77,14 +80,16 @@
 									 @if (!empty($achievement))
 									 @foreach ($achievement as $index => $item)
 									 <div class="edu-history style2">
+										<input type="hidden" name="formDate" class="fromDate" value="{{ $item['from'] }}">
+										<input type="hidden" name="toDate" class="toDate" value="{{ $item['to'] }}">
 										<i></i>
 										<div class="edu-hisinfo">
-											<h3>{{ $item['title'] }}</h3>
+											<h3 class="title">{{ $item['title'] }}</h3>
 											<i>{{ date("Y", strtotime($item['from'])) }} - {{ date("Y", strtotime($item['to'])) }}</i>
-											<p>{{ $item['description'] }}</p>
+											<p class="description">{{ $item['description'] }}</p>
 										</div>
 										<ul class="action_job">
-											<li><span>Edit</span><a href="#" title=""><i class="la la-pencil"></i></a></li>
+											<li><span>Edit</span><a class="editAchievement" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
 											<li><span>Delete</span><a class="removeAchievement" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
@@ -127,60 +132,7 @@
 	</div>
 </div><!-- Profile Sidebar -->
 
-<!-- Education Modal -->
-<div class="modal fade" id="editEducationModal" tabindex="-1" role="dialog" aria-labelledby="editEducationModal" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="editEducationModal">Edit Education</h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-				<input type="hidden" name="educationIndex" id="educationIndex">
-				<div class="row">
-					<div class="col-lg-12">
-						<span class="pf-title">Title</span>
-						<div class="pf-field">
-							<input placeholder="Tooms.." type="text" name="eduction_title_edit" id="eduction_title_edit">
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<span class="pf-title">From Date</span>
-						<div class="pf-field">
-							<input placeholder="06.11.2007" type="text" class="datepicker" name="education_from_date_edit" id="education_from_date_edit"> 
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<span class="pf-title">To Date</span>
-						<div class="pf-field">
-							<input placeholder="06.11.2012" type="text" class="datepicker" name="education_to_date_edit" id="education_to_date_edit">
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<span class="pf-title">School Name</span>
-						<div class="pf-field">
-							<input type="text" name="education_school_name_edit" id="education_school_name_edit">
-						</div>
-					</div>
-					<div class="col-lg-12">
-						<span class="pf-title">Description</span>
-						<div class="pf-field">
-							<textarea name="education_description" id="education_description_edit"></textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" id="updateEducation" class="btn btn-primary">Save changes</button>
-		</div>
-	  </div>
-	</div>
-  </div>
+@include('layouts.resume_edit_modal')
 @include('partials.footer_script')
 
 </body>
@@ -191,6 +143,15 @@
 		$('.datepicker').datepicker({
 			    format: 'mm-dd-yyyy'
 		});
+		$('#work_present_edit').on('change',(e)=>{
+			let self = e.target;
+			if(self.checked){
+				$('.edit-work-to-date-div').css('display','none');
+				return;
+			}
+			$('.edit-work-to-date-div').css('display','block');
+		})
+
 		$('.removeEducation').on('click',CAREER24H.jobseeker.deleteEducation);
 		$('.removeWorkExperience').on('click',CAREER24H.jobseeker.deleteWorkExperience);
 		$('.removeSkillset').on('click',CAREER24H.jobseeker.deleteSkillset);
@@ -198,6 +159,13 @@
 
 		$('.editEducation').on('click',CAREER24H.jobseeker.showEditEducationModal);
 		$('#updateEducation').on('click',CAREER24H.jobseeker.handleEditEducationSubmit);
+		$('.editWorkExperience').on('click',CAREER24H.jobseeker.showEditWorkExperienceModal);
+		$('#updateWorkExperience').on('click',CAREER24H.jobseeker.handleEditWorkExperienceSubmit);
+		$('.editSkillset').on('click',CAREER24H.jobseeker.showEditSkillsetModal);
+		$('#updateSkillset').on('click',CAREER24H.jobseeker.handleEditSkillsetSubmit);
+		$('.editAchievement').on('click',CAREER24H.jobseeker.showEditAchievementModal);
+		$('#updateAchievement').on('click',CAREER24H.jobseeker.handleEditAchievementSubmit);
+		
 	});
 
 	
