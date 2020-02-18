@@ -10,9 +10,6 @@ if(!CAREER24H.utils) CAREER24H.utils = {};
 			title: 'Oop!',
 			icon: 'error',
 			text: error.responseJSON && error.responseJSON.message ? error.responseJSON.message : defaultMessage,
-			timer: 3000,
-            showCancelButton: false,
-            showConfirmButton: false
 		});
 	}
 
