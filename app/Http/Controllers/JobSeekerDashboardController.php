@@ -235,7 +235,8 @@ class JobSeekerDashboardController extends Controller
 
     public function deleteEducation(Request $request){
         $index = $request->index;
-        $education = array_slice(Auth::user()->jobseekerProfile->education,$index);
+        $education = Auth::user()->jobseekerProfile->education; 
+        array_splice($education,$index,1);
         $data['education'] = $education;
 
         Auth::user()->jobseekerProfile()->update($data);
@@ -248,7 +249,8 @@ class JobSeekerDashboardController extends Controller
 
     public function deleteWorkExperience(Request $request){
         $index = $request->index;
-        $work_experience = array_slice(Auth::user()->jobseekerProfile->work_experience,$index);
+        $work_experience = Auth::user()->jobseekerProfile->work_experience;
+        array_splice($work_experience,$index,1);
         $data['work_experience'] = $work_experience;
 
         Auth::user()->jobseekerProfile()->update($data);
@@ -261,20 +263,22 @@ class JobSeekerDashboardController extends Controller
 
     public function deleteSkillset(Request $request){
         $index = $request->index;
-        $skillset = array_slice(Auth::user()->jobseekerProfile->skillset,$index);
+        $skillset = Auth::user()->jobseekerProfile->skillset;
+        array_splice($skillset,$index,1);
         $data['skillset'] = $skillset;
-
+        
         Auth::user()->jobseekerProfile()->update($data);
 
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully delete skillset'
+            'message' => $skillset
         ]);
     }
 
     public function deleteAchievement(Request $request){
         $index = $request->index;
-        $achievement = array_slice(Auth::user()->jobseekerProfile->achievement,$index);
+        $achievement = Auth::user()->jobseekerProfile->achievement;
+        array_splice($achievement,$index,1);
         $data['achievement'] = $achievement;
 
         Auth::user()->jobseekerProfile()->update($data);

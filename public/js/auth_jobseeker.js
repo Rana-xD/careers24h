@@ -203,15 +203,13 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     var formData = {
       'education': data
     };
+    CAREER24H.utils.activateSpinner();
     var url = '/jobseeker/add-education';
     var promise = CAREER24H.main.getRequestPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        swal.fire({
-          title: 'Success',
-          icon: 'success',
-          text: response.message ? response.message : 'Profile successfully updated.'
-        });
+        $('#addEducationModal').modal('hide');
+        location.reload();
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -236,15 +234,13 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     var formData = {
       'work_experience': data
     };
+    CAREER24H.utils.activateSpinner();
     var url = '/jobseeker/add-work-experience';
     var promise = CAREER24H.main.getRequestPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        swal.fire({
-          title: 'Success',
-          icon: 'success',
-          text: response.message ? response.message : 'Profile successfully updated.'
-        });
+        $('#addWorkExperienceModal').modal('hide');
+        location.reload();
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -263,15 +259,13 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     var formData = {
       'skillset': data
     };
+    CAREER24H.utils.activateSpinner();
     var url = '/jobseeker/add-skillset';
     var promise = CAREER24H.main.getRequestPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        swal.fire({
-          title: 'Success',
-          icon: 'success',
-          text: response.message ? response.message : 'Profile successfully updated.'
-        });
+        $('#addSkillsetModal').modal('hide');
+        location.reload();
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -294,15 +288,13 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     var formData = {
       'achievement': data
     };
+    CAREER24H.utils.activateSpinner();
     var url = '/jobseeker/add-achievement';
     var promise = CAREER24H.main.getRequestPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        swal.fire({
-          title: 'Success',
-          icon: 'success',
-          text: response.message ? response.message : 'Profile successfully updated.'
-        });
+        $('#addAchievementModal').modal('hide');
+        location.reload();
       }
     }, function (error) {
       console.log(error);
@@ -394,7 +386,8 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         var _url3 = '/jobseeker/delete-skillset';
         var _formData3 = {
           'index': index
-        };
+        }; // console.log(formData);
+
         CAREER24H.utils.activateSpinner();
         var promise = CAREER24H.main.getRequestPromise(_url3, _formData3);
         promise.then(function (response) {
@@ -544,7 +537,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
 
   func.showEditSkillsetModal = function (e) {
     var self = e.target;
-    var div = $(self).parents('.progress-sec');
+    var div = $(self).parents('.with-edit');
     $('#skill_name_edit').val($(div).find('.skill').text());
     $('#skill_percentage_edit').val($(div).find('.percentage').val());
     $('#skillsetIndex').val($(div).find('.editSkillset').attr('data-index'));
@@ -618,6 +611,40 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     })["catch"](function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
     });
+  };
+
+  func.showAddEducationModal = function (e) {
+    $('#eduction_title').val('');
+    $('#education_from_date').val('');
+    $('#education_to_date').val('');
+    $('#education_school_name').val('');
+    $('#education_description').val('');
+    $('#addEducationModal').modal('show');
+  };
+
+  func.showAddWorkExperienceModal = function (e) {
+    $('#work_title').val('');
+    $('#work_from_date').val('');
+    $('#work_to_date').val('');
+    $('#work_company').val('');
+    $('#work_description').val('');
+    $('#work_present').prop('checked', false);
+    $('#work_present').bootstrapToggle('off');
+    $('#addWorkExperienceModal').modal('show');
+  };
+
+  func.showAddSkillsetModal = function (e) {
+    $('#skill_name').val('');
+    $('#skill_percentage').val('');
+    $('#addSkillsetModal').modal('show');
+  };
+
+  func.showAddAchievementModal = function (e) {
+    $('#achievement_title').val('');
+    $('#achievement_from_date').val('');
+    $('#achievement_to_date').val('');
+    $('#achievement_description').val('');
+    $('#addAchievementModal').modal('show');
   };
 
   $(document).ready(function ($) {

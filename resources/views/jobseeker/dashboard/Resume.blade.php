@@ -16,7 +16,7 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<div class="border-title"><h3>Education</h3></div>
+					 			<div class="border-title"><h3>Education</h3><a id="createEducation"><i class="la la-plus"></i> Add Educations</a></div>
 						 		<div class="edu-history-sec">
 									@if (!empty($educations))
 									 @foreach ($educations as $index => $item)
@@ -32,13 +32,13 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a class="editEducation" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a class="removeEducation" data-index="{{ $index + 1 }}"><i class="la la-trash-o" ></i></a></li>
+											<li><span>Delete</span><a class="removeEducation" data-index="{{ $index }}"><i class="la la-trash-o" ></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
 									 @endif
 		 						</div>
-		 						<div class="border-title"><h3>Work Experience</h3></div>
+		 						<div class="border-title"><h3>Work Experience</h3><a id="createWorkExperience"><i class="la la-plus"></i> Add Work Experience</a></div>
 						 		<div class="edu-history-sec">
 									@if (!empty($work_experience))
 									 @foreach ($work_experience as $index => $item)
@@ -53,13 +53,13 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a class="editWorkExperience" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a class="removeWorkExperience" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeWorkExperience" data-index="{{ $index }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
 									 @endif
 		 						</div>
-		 						<div class="border-title"><h3>Professional Skills</h3></div>
+		 						<div class="border-title"><h3>Professional Skills</h3><a id="createSkillset"><i class="la la-plus"></i> Add Skills</a></div>
 		 						<div class="progress-sec">
 									@if (!empty($skillset))
 									 @foreach ($skillset as $index => $item)
@@ -69,13 +69,13 @@
 										<div class="progressbar"> <div class="progress" style="width: {{ $item['percentage'] }}%;"><span>{{ $item['percentage'] }}%</span></div> </div>
 										<ul class="action_job">
 											<li><span>Edit</span><a class="editSkillset" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a class="removeSkillset" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeSkillset" data-index="{{ $index }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 										</div>
 									 @endforeach
 									 @endif
 		 						</div>
-		 						<div class="border-title"><h3>Achievement</h3></div>
+		 						<div class="border-title"><h3>Achievement</h3><a id="createAchievement"><i class="la la-plus"></i> Add Achievement</a></div>
 		 						<div class="edu-history-sec">
 									 @if (!empty($achievement))
 									 @foreach ($achievement as $index => $item)
@@ -90,7 +90,7 @@
 										</div>
 										<ul class="action_job">
 											<li><span>Edit</span><a class="editAchievement" data-index="{{ $index }}"><i class="la la-pencil"></i></a></li>
-											<li><span>Delete</span><a class="removeAchievement" data-index="{{ $index + 1 }}"><i class="la la-trash-o"></i></a></li>
+											<li><span>Delete</span><a class="removeAchievement" data-index="{{ $index }}"><i class="la la-trash-o"></i></a></li>
 										</ul>
 									</div>
 									 @endforeach
@@ -132,6 +132,7 @@
 	</div>
 </div><!-- Profile Sidebar -->
 
+@include('layouts.resume_add_modal')
 @include('layouts.resume_edit_modal')
 @include('partials.footer_script')
 
@@ -151,6 +152,16 @@
 			}
 			$('.edit-work-to-date-div').css('display','block');
 		})
+
+		$('#createEducation').on('click',CAREER24H.jobseeker.showAddEducationModal);
+		$('#createWorkExperience').on('click',CAREER24H.jobseeker.showAddWorkExperienceModal);
+		$('#createSkillset').on('click',CAREER24H.jobseeker.showAddSkillsetModal);
+		$('#createAchievement').on('click',CAREER24H.jobseeker.showAddAchievementModal);
+
+		$('#addEducation').on('click',CAREER24H.jobseeker.handleNewEducationSubmit)
+		$('#addWorkExperience').on('click',CAREER24H.jobseeker.handleNewWorkSubmit)
+		$('#addSkillset').on('click',CAREER24H.jobseeker.handleNewSkillSubmit)
+		$('#addAchievement').on('click',CAREER24H.jobseeker.handleNewAchievementSubmit)
 
 		$('.removeEducation').on('click',CAREER24H.jobseeker.deleteEducation);
 		$('.removeWorkExperience').on('click',CAREER24H.jobseeker.deleteWorkExperience);
