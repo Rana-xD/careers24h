@@ -26,7 +26,7 @@
 										<i class="la la-graduation-cap"></i>
 										<div class="edu-hisinfo">
 											<h3 class="title">{{  $item['title'] }}</h3>
-											<i>{{ date("Y", strtotime($item['from'])) }} - {{ date("Y", strtotime($item['to'])) }}</i>
+											<i>{{ DateTime::createFromFormat('m-d-Y', $item['from'])->format('M-Y') }} - {{ DateTime::createFromFormat('m-d-Y', $item['to'])->format('M-Y') }}</i>
 											<span class="school_name">{{ $item['school'] }}</span>
 											<p class="description">{{ $item['description'] }}</p>
 										</div>
@@ -48,7 +48,7 @@
 										<i></i>
 										<div class="edu-hisinfo">
 											<h3 class="title">{{ $item['title'] }} <span class="company">{{ $item['company'] }}</span></h3>
-											<i>{{ date("Y", strtotime($item['from'])) }} - {{  $item['to'] === 'Now' ? 'Now' : date("Y", strtotime($item['to'])) }}</i>
+											<i>{{ DateTime::createFromFormat('m-d-Y', $item['from'])->format('M-Y') }} - {{  $item['to'] === 'Now' ? 'Now' : DateTime::createFromFormat('m-d-Y', $item['to'])->format('M-Y') }}</i>
 										   	<p class="description">{{ $item['description'] }}</p>
 										</div>
 										<ul class="action_job">
@@ -85,7 +85,7 @@
 										<i></i>
 										<div class="edu-hisinfo">
 											<h3 class="title">{{ $item['title'] }}</h3>
-											<i>{{ date("Y", strtotime($item['from'])) }} - {{ date("Y", strtotime($item['to'])) }}</i>
+											<i>{{ DateTime::createFromFormat('m-d-Y', $item['from'])->format('M-Y') }} - {{ DateTime::createFromFormat('m-d-Y', $item['to'])->format('M-Y') }}</i>
 											<p class="description">{{ $item['description'] }}</p>
 										</div>
 										<ul class="action_job">
