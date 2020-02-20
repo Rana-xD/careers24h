@@ -20,7 +20,9 @@ class CompanyProfile extends Model
         'categories',
         'phone_number',
         'info',
-        'city'
+        'city',
+        'user_id',
+        'uuid'
     ];
 
    public function user(){

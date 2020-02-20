@@ -78,15 +78,15 @@
 						</div>
 					</div>
 					<div class="col-lg-5">
-						<span class="pf-title edit-work-to-date-div">To Date</span>
-						<div class="pf-field edit-work-to-date-div">
+						<span class="pf-title work-to-date-div">To Date</span>
+						<div class="pf-field work-to-date-div">
 							<input placeholder="06.11.2012" type="text" class="datepicker" name="work_to_date" id="work_to_date">
 						</div>
 					</div>
 					<div class="col-lg-2">
 					   <span class="pf-title">Now</span>
 						<div>
-						  <input type="checkbox" id="work_present" data-toggle="toggle" data-size="normal" data-onstyle="primary" data-offstyle="danger">
+						  <input type="checkbox" id="work_present" data-toggle="toggle" data-size="normal" data-on=" " data-off=" " data-onstyle="primary" data-offstyle="danger">
 					   </div>
 					</div>
 					<div class="col-lg-12">

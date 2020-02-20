@@ -29,7 +29,9 @@ class JobseekerProfile extends Model
         'education',
         'skillset',
         'achievement',
-        'work_experience'
+        'work_experience',
+        'user_id',
+        'uuid'
     ];
 
     public function user(){

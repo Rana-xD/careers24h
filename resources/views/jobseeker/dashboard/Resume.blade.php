@@ -153,6 +153,15 @@
 			$('.edit-work-to-date-div').css('display','block');
 		})
 
+		$('#work_present').on('change',(e)=>{
+			let self = e.target;
+			if(self.checked){
+				$('.work-to-date-div').css('display','none');
+				return;
+			}
+			$('.work-to-date-div').css('display','block');
+		})
+
 		$('#createEducation').on('click',CAREER24H.jobseeker.showAddEducationModal);
 		$('#createWorkExperience').on('click',CAREER24H.jobseeker.showAddWorkExperienceModal);
 		$('#createSkillset').on('click',CAREER24H.jobseeker.showAddSkillsetModal);

@@ -21,7 +21,9 @@ Route::get('/login','AuthenticationController@showLoginForm')->name('login');
 Route::post('/login', 'AuthenticationController@login');
 Route::post('/signup', 'AuthenticationController@signUp');
 Route::get('/logout','AuthenticationController@logout');
-
+Route::get('/profile','AuthenticationController@showProfile');
+Route::get('/signup_without_profile','AuthenticationController@signupWithoutProfile');
+Route::post('/signup_with_profile','AuthenticationController@signupWithProfile');
 
 Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');

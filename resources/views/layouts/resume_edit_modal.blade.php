@@ -88,7 +88,7 @@
 					<div class="col-lg-2">
 					   <span class="pf-title">Now</span>
 						<div>
-						  <input type="checkbox" id="work_present_edit" data-toggle="toggle" data-size="normal" data-onstyle="primary" data-offstyle="danger">
+						  <input type="checkbox" id="work_present_edit" data-toggle="toggle" data-size="normal" data-on=" " data-off=" " data-onstyle="primary" data-offstyle="danger">
 					   </div>
 					</div>
 					<div class="col-lg-12">
