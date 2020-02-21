@@ -16,6 +16,9 @@
 											<h3>Login</h3>
 											<h4>Welcom Back!</h4>
 												<form action="{{ url('/login') }}" method="post">
+													@if (session('message'))
+														<p style="color: red">Incorrect Email or Password</p>
+													@endif
 												@csrf
 												<div class="cfield">
 													<input type="email" placeholder="Email" name="email" required/>

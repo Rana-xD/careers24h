@@ -41,7 +41,7 @@ class AuthenticationController extends Controller
             // Authentication passed...
             return redirect('/');
         }
-        return "NOT";
+        return back()->with('message','Incorrect Credentials ');
     }
 
     public function logout(Request $request){
