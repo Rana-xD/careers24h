@@ -26,7 +26,7 @@
 													<i class="la la-key"></i>
 												</div>
 												<p class="remember-label">
-													<input type="checkbox" name="cb" id="cb1"><label for="cb1">Remember me</label>
+													<input type="checkbox" name="cb" id="cb1"><label class="labels" for="cb1">Remember me</label>
 												</p>
 												<a href="#" title="">Forgot Password?</a>
 												<button type="submit">Login</button>

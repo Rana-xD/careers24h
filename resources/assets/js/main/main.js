@@ -237,9 +237,6 @@ if(!CAREER24H.main) CAREER24H.main = {};
                 let file = fileInput[0];
                 formData.append('file',file);
             }
-        for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
         url = '/signup_with_profile'
         let promise = CAREER24H.main.formSubmitPromise(url,formData);
             promise.then((response)=>{

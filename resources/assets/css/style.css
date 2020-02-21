@@ -483,7 +483,6 @@ label::after {
 }
 label::before {
   border: 2px solid #e6e7ef;
-  
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -491,6 +490,17 @@ label::before {
   border-radius: 3px;
 
 }
+
+.labels::before {
+    border: 2px solid #e6e7ef;
+  content: " ";
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
 /* Checkbox */
 input[type="checkbox"] + label::after {
   content: "\2714";

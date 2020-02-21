@@ -16,9 +16,9 @@
 					<div class="col-lg-12">
 						<div class="main-featured-sec style3">
 							<ul class="main-slider-sec style3 text-arrows">
-								<li><img src="http://placehold.it/1920x675" alt="" /></li>
-								<li><img src="http://placehold.it/1920x675" alt="" /></li>
-								<li><img src="http://placehold.it/1920x675" alt="" /></li>
+								<li><img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/imageSlider/Webp.net-compress-image.jpg" alt=""/></li>
+								<li><img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/imageSlider/Webp.net-compress-image-2.jpg" alt="" /></li>
+								<li><img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/imageSlider/Webp.net-compress-image-3.jpg" alt="" /></li>
 							</ul>
 							<div class="job-search-sec style3">
 								<div class="job-search style2">
