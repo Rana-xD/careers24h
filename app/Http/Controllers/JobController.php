@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Job;
+use App\Models\JobUser;
 
 class JobController extends Controller
 {
@@ -91,6 +92,38 @@ class JobController extends Controller
         $job = Job::where('uuid',$uuid)->firstOrFail();
         return view('Job.JobSingle',[
             'job' => $job
+        ]);
+    }
+
+    public function applyJob(Request $request){
+        $jobId = $request->jobId;
+
+        if(Auth::check()){
+            if(Auth::user()->isJobseeker()){
+                if(count(Auth::user()->applyJob->where('id',$jobId)) == 0){
+                    $data['user_id'] = Auth::id();
+                    $data['job_id'] = $jobId;
+                    $data['status'] = 'Pending';
+                    JobUser::create($data);
+                    return response()->json([
+                        'code' => 200,
+                        'message' => "You successfully apply for this job"
+                    ]);
+                }
+                return response()->json([
+                    'code' => 501,
+                    'message' => "You already apply that job"
+                ]);
+            }
+            return response()->json([
+                'code' => 501,
+                'message' => "You can't apply job with company account"
+            ]);
+            
+        }
+        return response()->json([
+            'code' => 500,
+            'message' => "Unauthentication"
         ]);
     }
 

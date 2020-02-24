@@ -36,6 +36,8 @@ class CreateJobsTable extends Migration
             $table->string('city');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('company_profiles')->onDelete('cascade');
         });
     }
 

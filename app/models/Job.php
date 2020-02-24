@@ -85,4 +85,11 @@ class Job extends Model
     public function recentJob(){
         return $this->companyProfile->jobs->where('id','!=',$this->id)->where('is_active',1)->take(5)->sortByDesc('created_at');
    }
+
+   public function applicants(){
+        return $this->belongsToMany('App\Models\User','job_user','job_id','user_id')
+                    ->as('applicants')
+                    ->withPivot('status', 'meeting_date')
+                    ->withTimestamps();
+    }
 }

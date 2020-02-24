@@ -1,3 +1,5 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var CAREER24H;
 if (!CAREER24H) CAREER24H = {};
 if (!CAREER24H.constant) CAREER24H.constant = {};
@@ -272,6 +274,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
       formData.append('file', file);
     }
 
+    CAREER24H.utils.activateSpinner();
     url = '/signup_with_profile';
     var promise = CAREER24H.main.formSubmitPromise(url, formData);
     promise.then(function (response) {
@@ -290,6 +293,55 @@ if (!CAREER24H.main) CAREER24H.main = {};
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.handleApplyJob = function (e) {
+    var id = $('#jobId').val();
+    formData = {
+      'jobId': id
+    };
+    CAREER24H.utils.activateSpinner();
+    var url = '/apply-job';
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          title: 'Done!',
+          icon: 'success',
+          text: response.message
+        });
+      } else if (response.code == 500) {
+        swal.fire(_defineProperty({
+          title: '<strong>You can\'t apply for job</strong>',
+          icon: 'info',
+          html: 'You have to login first',
+          showCloseButton: true,
+          showCancelButton: true,
+          cancelButtonColor: '#32cd32',
+          focusConfirm: false,
+          confirmButtonText: ' Login',
+          confirmButtonAriaLabel: 'Thumbs up, great!',
+          cancelButtonText: 'I don\'t have account'
+        }, "confirmButtonAriaLabel", 'Thumbs up, great!')).then(function (result) {
+          if (result.value) {
+            location.replace('/login');
+          } else if (result.dismiss === swal.DismissReason.cancel) {
+            location.replace('/signup');
+          }
+        });
+      } else if (response.code == 501) {
+        swal.fire({
+          title: 'Oop!',
+          icon: 'warning',
+          text: response.message
+        });
+      }
+    }, function (error) {
+      console.log(error);
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
     })["catch"](function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
     });

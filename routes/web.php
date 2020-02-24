@@ -30,6 +30,7 @@ Route::post('/signup_with_profile','AuthenticationController@signupWithProfile')
 
 /* JobController */
 Route::get('/job/{uuid}','JobController@showSingleJob');
+Route::get('/apply-job','JobController@applyJob');
 
 Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');

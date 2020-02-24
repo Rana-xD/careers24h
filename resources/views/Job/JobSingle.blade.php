@@ -31,6 +31,7 @@
 				 	<div class="col-lg-8 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
+							 	<input type="hidden" name="jobId" id="jobId" value="{{ $job->id }}">
 							 	<div class="job-title2"><h3>{{ $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ $job->working_term }}</span></div>
 				 				<ul class="tags-jobs">
 									 <li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
@@ -101,7 +102,7 @@
 							 		<p><i class="la la-envelope-o"></i> {{ $job->companyWebsite() }}</p>
 								@endif
 			 				</div>
-			 				<a href="#" title="" class="apply-job-linkedin"><i class="la la-paper-plane"></i>Apply for job</a>
+			 				<a id="applyJob" class="apply-job-linkedin"><i class="la la-paper-plane"></i>Apply for job</a>
 			 				<a href="#" title="" class="viewall-jobs">View all Jobs</a>
 			 			</div><!-- Job Head -->
 				 	</div>
@@ -117,5 +118,10 @@
 @include('partials.footer_script')
 
 </body>
+<script>
+	jQuery(document).ready(function($){
+		$('#applyJob').on('click',CAREER24H.main.handleApplyJob);
+	});
+</script>
 </html>
 
