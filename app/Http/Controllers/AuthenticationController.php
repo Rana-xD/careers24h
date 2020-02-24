@@ -131,7 +131,7 @@ class AuthenticationController extends Controller
         }
         Auth::login($user);
         session()->forget('user');
-        $url = env('APP_URL');
+        $url ='/';
         return response()->json([
             'code' => 200,
             'message' => 'Successfully create user',
