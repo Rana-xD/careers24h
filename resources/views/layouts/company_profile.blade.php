@@ -147,7 +147,7 @@
 					 						</div>
                                      </div>
                                      <div class="col-lg-12">
-                                        <button type="button" id="skipProfile">Skip</button>
+                                        {{-- <button type="button" id="skipProfile">Skip</button> --}}
                                         <button type="button" style="margin-right: 30px;" id="createCompanyProfile">Create</button>
                                     </div>
 					 			</form>

@@ -79,7 +79,7 @@ class AuthenticationController extends Controller
             $company_profile->save();
         }
         Auth::login($user);
-        $url = env('APP_URL','localhost');
+        $url = env('APP_URL');
         return response()->json([
             'code' => 200,
             'message' => 'Successfully create user',
@@ -131,7 +131,7 @@ class AuthenticationController extends Controller
         }
         Auth::login($user);
         session()->forget('user');
-        $url = env('APP_URL','localhost');
+        $url = env('APP_URL');
         return response()->json([
             'code' => 200,
             'message' => 'Successfully create user',

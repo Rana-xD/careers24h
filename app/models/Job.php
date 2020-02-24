@@ -32,6 +32,11 @@ class Job extends Model
 
     ];
 
+
+    public function companyProfile(){
+        return $this->belongsTo('App\Models\CompanyProfile','company_id');
+    }
+
     public function getJobTypeCSSClass(){
         switch($this->working_term){
             case 'Full Time':
@@ -56,4 +61,28 @@ class Job extends Model
                 return 'ft';
         }
     }
+
+    public function companyName(){
+        return $this->companyProfile->name;
+    }
+
+    public function companyAddress(){
+        return $this->companyProfile->address;
+    }
+
+    public function companyWebsite(){
+        return $this->companyProfile->website;
+    }
+
+    public function companyPhoneNumber(){
+        return $this->companyProfile->phone_number;
+    }
+
+    public function companyEmail(){
+        return $this->companyProfile->email;
+    }
+
+    public function recentJob(){
+        return $this->companyProfile->jobs->where('id','!=',$this->id)->where('is_active',1)->take(5)->sortByDesc('created_at');
+   }
 }

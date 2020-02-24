@@ -87,4 +87,11 @@ class JobController extends Controller
         ]);
     }
 
+    public function showSingleJob($uuid){
+        $job = Job::where('uuid',$uuid)->firstOrFail();
+        return view('Job.JobSingle',[
+            'job' => $job
+        ]);
+    }
+
 }

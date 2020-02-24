@@ -39,7 +39,7 @@
 										 <tr class="job-list">
 											<td>
 												<div class="table-list-title">
-													<h3><a href="#" title="">{{ $job->job_title }}</a></h3>
+													<h3><a href="/company/preview-job/{{ $job->uuid }}">{{ $job->job_title }}</a></h3>
 													<span><i class="la la-map-marker"></i>{{ $job->city }}, Cambodia</span>
 												</div>
 											</td>

@@ -17,10 +17,11 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
-                             <div class="job-title2"><h3>Senior Web Designer</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{$job->working_term}}</span></div>
+							 <div class="job-title2"><h3>{{  $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{$job->working_term}}</span></div>
 				 				<ul class="tags-jobs">
-				 					<li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
-				 					<li><i class="la la-calendar-o"></i> Post Date: {{  date("M d , Y", strtotime($job->created_at)) }}</li>
+									<li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
+									<li><i class="la la-money"></i> Monthly Salary : <span>{{ $job->offer_salary }}</span></li>
+									<li><i class="la la-calendar-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
 				 				</ul>
 				 			</div><!-- Job Head -->
 				 			<div class="job-details">
@@ -36,7 +37,7 @@
 				 			<div class="job-overview">
 					 			<h3>Job Overview</h3>
 					 			<ul>
-					 				<li><i class="la la-money"></i><h3>Offerd Salary</h3><span>{{ $job->offer_salary }}</span></li>
+									<li><i class="la la-users"></i><h3>Number of Position</h3><span>{{ $job->pax }}</span></li>
                                  <li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{ $job->is_specific_gender ? $job->gender : 'Both'  }}</span></li>
                                  <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{{ $job->career_level  }}</span></li>
                                  <li><i class="la la-puzzle-piece"></i><h3>Category</h3><span>{{ $job->category }}</span></li>

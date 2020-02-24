@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Job;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('Home.index');
+    $jobs = Job::all();
+    return view('Home.home',[
+        'jobs' => $jobs
+    ]);
 });
 
 /* AuthenticationController */
@@ -24,6 +27,9 @@ Route::get('/logout','AuthenticationController@logout');
 Route::get('/profile','AuthenticationController@showProfile');
 Route::get('/signup_without_profile','AuthenticationController@signupWithoutProfile');
 Route::post('/signup_with_profile','AuthenticationController@signupWithProfile');
+
+/* JobController */
+Route::get('/job/{uuid}','JobController@showSingleJob');
 
 Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');
