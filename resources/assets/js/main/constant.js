@@ -7,5 +7,6 @@ if(!CAREER24H.constant) CAREER24H.constant = {};
 
     constant.isCompanyLogoChange = false;
     constant.isWorkToDateIsPresent = false;
+    constant.videoDuration = null;
 
 })(jQuery);

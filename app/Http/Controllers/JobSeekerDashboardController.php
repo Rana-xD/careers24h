@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\JobseekerProfile;
+use App\Models\Video;
+use FFMpeg;
 
 class JobSeekerDashboardController extends Controller
 {
@@ -47,8 +49,10 @@ class JobSeekerDashboardController extends Controller
 
     public function showCoverLetter(){
         $coverLetter = Auth::user()->JobseekerProfile->pluck('cover_letter');
+        $videoCV = Auth::user()->JobseekerProfile->video;
         return view('jobseeker.dashboard.CVCoverLetter',[
-            'coverLetter' => $coverLetter[0]
+            'coverLetter' => $coverLetter[0],
+            'videoCV' => $videoCV
         ]);
     }
 
@@ -342,6 +346,62 @@ class JobSeekerDashboardController extends Controller
             'code' => 200,
             'message' => 'Successfully update achievement'
         ]);
+    }
+
+    public function uploadVideoCV(Request $request){
+        if($request->hasFile('file')){
+
+            $validator = Validator::make($request->file(), [
+            'file' => 'mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi,,video/qt | max:30000', 
+            ]);
+            if($validator->fails()){
+             return response()->json([
+                    'code' => 505,
+                    'message' => json_encode($validator->getMessageBag()->toArray())
+                ]);
+            }
+
+            $ffprobe = FFMpeg\FFProbe::create();
+            $duration = $ffprobe
+                ->format($request->file('file')->getRealPath()) // extracts file information
+                ->get('duration');
+            if(round($duration) > 180){
+                return response()->json([
+                    'code' => 505,
+                    'message' => 'Your video length is longer than 3 minutes'
+                ]);
+            }
+
+            if(!empty(Auth::user()->jobseekerProfile->video)){
+                $path = 'videoCV/'.basename(Auth::user()->jobseekerProfile->video->url);
+                if(Storage::disk('s3')->exists($path)){
+                    Storage::disk('s3')->delete($path);
+                }
+                $path = Storage::disk('s3')->put('videoCV', $request->file('file'));
+                $url = Storage::disk('s3')->url($path);
+                $data['url'] = $url;
+                Auth::user()->jobseekerProfile->video()->update($data);
+                return response()->json([
+                    'code' => 200,
+                    'message' => 'Successfully upload video'
+                ]);
+            }
+            $path = Storage::disk('s3')->put('videoCV', $request->file('file'));
+            $url = Storage::disk('s3')->url($path);
+
+            $data['url'] = $url;
+            Auth::user()->jobseekerProfile->video()->create($data);
+        
+            return response()->json([
+                'code' => 200,
+                'message' => 'Successfully upload video'
+            ]);
+        }
+        return response()->json([
+            'code' => 505,
+            'message' => "No file"
+        ]);
+        
     }
 }
 

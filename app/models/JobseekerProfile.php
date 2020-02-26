@@ -37,4 +37,8 @@ class JobseekerProfile extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+
+    public function video(){
+        return $this->hasOne('App\Models\Video','jobseeker_id');
+    }
 }

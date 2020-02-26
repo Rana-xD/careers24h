@@ -101,7 +101,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         CAREER24H.utils.deactivateSpinner();
-        location.reload(); // console.log(res.message);
+        location.reload(true); // console.log(res.message);
         // swal.fire(res.message);
       } else {
         swal.fire({
@@ -163,7 +163,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     var promise = CAREER24H.main.formSubmitPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        location.reload();
+        location.reload(true);
       } else {
         swal.fire({
           icon: 'warning',
@@ -209,7 +209,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#addEducationModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -240,7 +240,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#addWorkExperienceModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -265,7 +265,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#addSkillsetModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
@@ -294,7 +294,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#addAchievementModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       console.log(error);
@@ -325,7 +325,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         var promise = CAREER24H.main.getRequestPromise(_url, _formData);
         promise.then(function (response) {
           if (response.code == 200) {
-            location.reload();
+            location.reload(true);
           }
         }, function (error) {
           console.log(error);
@@ -358,7 +358,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         var promise = CAREER24H.main.getRequestPromise(_url2, _formData2);
         promise.then(function (response) {
           if (response.code == 200) {
-            location.reload();
+            location.reload(true);
           }
         }, function (error) {
           console.log(error);
@@ -392,7 +392,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         var promise = CAREER24H.main.getRequestPromise(_url3, _formData3);
         promise.then(function (response) {
           if (response.code == 200) {
-            location.reload();
+            location.reload(true);
           }
         }, function (error) {
           console.log(error);
@@ -425,7 +425,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         var promise = CAREER24H.main.getRequestPromise(_url4, _formData4);
         promise.then(function (response) {
           if (response.code == 200) {
-            location.reload();
+            location.reload(true);
           }
         }, function (error) {
           console.log(error);
@@ -473,7 +473,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#editEducationModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
@@ -526,7 +526,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#editWorkExperienceModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
@@ -562,7 +562,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#editSkillsetModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
@@ -603,7 +603,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     promise.then(function (response) {
       if (response.code == 200) {
         $('#editAchievementModal').modal('hide');
-        location.reload();
+        location.reload(true);
       }
     }, function (error) {
       console.log(error);
@@ -645,6 +645,71 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     $('#achievement_to_date').val('');
     $('#achievement_description').val('');
     $('#addAchievementModal').modal('show');
+  };
+
+  func.handleVideoInput = function (e) {
+    var self = e.target;
+
+    if (self.files && self.files[0]) {
+      if ($('.video-content').find('#videoThumnail').length) {
+        var video = "<video controls width=\"100%\" height=\"600px\" id=\"\"></video>";
+        $('.video-content').find('#videoThumnail').remove();
+        $('.video-content').append(video);
+        var fileURL = URL.createObjectURL(self.files[0]);
+        $('video').attr('src', fileURL);
+        return;
+      }
+
+      var fileURL = URL.createObjectURL(self.files[0]);
+      $('video').attr('src', fileURL);
+    }
+  };
+
+  func.handleVideoUpload = function (e) {
+    var fileInput = $('#videoCV').prop('files');
+
+    if (fileInput[0]) {
+      var file = fileInput[0];
+
+      var _formData5 = new FormData();
+
+      _formData5.append('file', file);
+
+      _formData5.append('_token', $("input[name='_token']").val());
+
+      var _url5 = '/jobseeker/upload-videocv';
+      CAREER24H.utils.activateSpinner();
+      var promise = CAREER24H.main.formSubmitPromise(_url5, _formData5);
+      promise.then(function (response) {
+        if (response.code == 200) {
+          swal.fire({
+            icon: 'success',
+            title: 'Done!',
+            text: response.message,
+            timer: 2500,
+            showCancelButton: false,
+            showConfirmButton: false
+          }).then(function () {
+            location.reload(true);
+          });
+        } else {
+          swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: response.message,
+            timer: 2500,
+            showCancelButton: false,
+            showConfirmButton: false
+          });
+        }
+      }, function (error) {
+        console.log(error);
+        CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+      })["catch"](function (error) {
+        CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+      });
+    } // swal.fire("HELLO");
+
   };
 
   $(document).ready(function ($) {

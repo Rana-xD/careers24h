@@ -8,6 +8,7 @@ if (!CAREER24H.constant) CAREER24H.constant = {};
   var constant = CAREER24H.constant;
   constant.isCompanyLogoChange = false;
   constant.isWorkToDateIsPresent = false;
+  constant.videoDuration = null;
 })(jQuery);
 
 var CAREER24H;
@@ -214,7 +215,6 @@ if (!CAREER24H.main) CAREER24H.main = {};
     var promise = CAREER24H.main.formSubmitPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        // location.reload();
         location.replace(response.url);
       } else {
         var message = JSON.parse(res.message);

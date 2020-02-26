@@ -16,10 +16,10 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>CV & Cover Letter</h3>
+					 			<h3>Cover Letter & Video CV</h3>
 						 		<div class="contact-edit">
 						 			<form>
-										 @csrf
+										 {{-- @csrf --}}
 						 				<div class="row">
 						 					{{-- <div class="col-lg-6">
 						 						<span class="pf-title">Select Your CV</span>
@@ -31,7 +31,8 @@
 						 						</div>
 						 					</div> --}}
 						 					<div class="col-lg-12">
-						 						<span class="pf-title">Cover Letter</span>
+												 {{-- <span class="pf-title">Cover Letter</span> --}}
+												 <h3>Cover Letter</h3>
 						 						<div class="pf-field">
 						 							<textarea id="coverLetter"></textarea>
 						 						</div>
@@ -40,9 +41,36 @@
 						 						<button type="button" id ="updateCoverLetter">Update</button>
 						 					</div>
 						 				</div>
-						 			</form>
-						 		</div>
-					 		</div>
+									 </form>
+									 
+								 </div>
+								 
+							 	</div>
+							 	<div class="contact-edit">
+								<form>
+									@csrf
+									<div class="row">
+										<div class="col-lg-12">
+											<h3>Video CV</h3>
+										</div>
+										<div class="col-lg-12">
+											<span class="pf-title" style="color:red">** Maximum Video Length: 3 minutes</span>
+										</div>
+										<div class="col-lg-12 video-content">
+											<input type="file" accept="video/*" style="display:none" id="videoCV"/>
+											@if (!empty($videoCV))
+												<video controls width="100%" height="600px" src="{{ $videoCV->url }}"></video>
+											@else
+											<img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid" alt="" id="videoThumnail" width="100%" height="600px"/>
+											@endif
+										</div>
+										<div class="col-lg-12">
+											<button type="button" id ="uploadVideo">Upload</button>
+											<button type="button" id ="browseVideo" style="margin-right:30px">Browse Files</button>
+										</div>
+									</div>
+								</form>
+							 </div>
 					 	</div>
 					</div>
 				 </div>
@@ -85,7 +113,12 @@
 			let coverLetter = `<?php echo $coverLetter ?>`
 			if(coverLetter) $('#coverLetter').summernote('code',coverLetter)
 			$('#updateCoverLetter').on('click',CAREER24H.jobseeker.updateCoverLetter);
+			$('#browseVideo').on('click',()=>{
+				$('#videoCV').click();
+			})
 
+			$('#videoCV').on('change',CAREER24H.jobseeker.handleVideoInput);
+			$('#uploadVideo').on('click',CAREER24H.jobseeker.handleVideoUpload);
 	});
 </script>
 </html>

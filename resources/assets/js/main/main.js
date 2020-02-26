@@ -175,7 +175,6 @@ if(!CAREER24H.main) CAREER24H.main = {};
         let promise = CAREER24H.main.formSubmitPromise(url,formData);
             promise.then((response)=>{
                 if(response.code==200){
-                    // location.reload();
                     location.replace(response.url);
                 }
                 else{

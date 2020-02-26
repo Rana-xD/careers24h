@@ -100,7 +100,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
     var promise = CAREER24H.main.formSubmitPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {
-        location.reload();
+        location.reload(true);
       } else {
         var message = JSON.parse(res.message);
         swal.fire({
@@ -194,7 +194,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
           icon: 'success',
           text: response.message ? response.message : 'Profile successfully updated.'
         }).then(function () {
-          location.reload();
+          location.reload(true);
         });
       } else {
         swal.fire({
@@ -299,7 +299,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
           icon: 'success',
           text: response.message ? response.message : 'Profile successfully updated.'
         }).then(function () {
-          location.reload();
+          location.reload(true);
         });
       } else {
         swal.fire({
