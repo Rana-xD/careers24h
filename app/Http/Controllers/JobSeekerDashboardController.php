@@ -362,8 +362,8 @@ class JobSeekerDashboardController extends Controller
             }
 
             $ffprobe = FFMpeg\FFProbe::create([
-                'ffmpeg.binaries'  => '/usr/bin/ffmpeg',
-                'ffprobe.binaries' => '/usr/bin/ffprobe' 
+                'ffmpeg.binaries'  => env('FFMPEG_BINARIES','/usr/bin/ffmpeg'),
+                'ffprobe.binaries' => env('FFPROBE_BINARIES','/usr/bin/ffprobe') 
             ]);
             $duration = $ffprobe
                 ->format($request->file('file')->getRealPath()) // extracts file information
