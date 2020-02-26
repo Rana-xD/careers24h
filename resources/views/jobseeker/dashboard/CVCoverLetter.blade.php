@@ -54,7 +54,7 @@
 											<h3>Video CV</h3>
 										</div>
 										<div class="col-lg-12">
-											<span class="pf-title" style="color:red">** Maximum Video Length: 3 minutes</span>
+											<span class="pf-title" style="color:red">** Maximum Video Length: 3 minutes & Maximum Video Size: 30MB</span>
 										</div>
 										<div class="col-lg-12 video-content">
 											<input type="file" accept="video/*" style="display:none" id="videoCV"/>

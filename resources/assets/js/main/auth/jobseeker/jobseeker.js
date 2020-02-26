@@ -699,6 +699,17 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         
         let fileInput = $('#videoCV').prop('files');
         if(fileInput[0]){
+                if(fileInput[0].size > 30000000){
+                    swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Your video size is larger than 30 MB',
+                        timer: 2500,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    })
+                    return;
+                }
                 let file = fileInput[0];
                 let formData = new FormData();
                 formData.append('file',file);
@@ -739,7 +750,6 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
                     CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
                 });
         }
-        // swal.fire("HELLO");
     }
 
     $(document).ready(function ($) {
