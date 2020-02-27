@@ -67,6 +67,7 @@
 										<div class="col-lg-12">
 											<button type="button" id ="uploadVideo">Upload</button>
 											<button type="button" id ="browseVideo" style="margin-right:30px">Browse Files</button>
+											<button type="button" id ="videoSample" style="float: left">Sample</button>
 										</div>
 									</div>
 								</form>
@@ -104,7 +105,27 @@
 	</div>
 </div><!-- Profile Sidebar -->
 
+<div class="modal fade" id="sampleVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
 
+	  <!--Content-->
+	  <div class="modal-content">
+
+		<!--Body-->
+		<div class="modal-body mb-0 p-0">
+
+		  <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+			<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vlDzYIIOYmM"
+			  allowfullscreen></iframe>
+		  </div>
+
+		</div>
+
+	  </div>
+	  <!--/.Content-->
+
+	</div>
+  </div>
 @include('partials.footer_script')
 
 </body>
@@ -119,6 +140,10 @@
 
 			$('#videoCV').on('change',CAREER24H.jobseeker.handleVideoInput);
 			$('#uploadVideo').on('click',CAREER24H.jobseeker.handleVideoUpload);
+			$('#videoSample').on('click',()=>{
+				console.log("HELLO");
+				$('#sampleVideo').modal('show');
+			})
 	});
 </script>
 </html>
