@@ -15,4 +15,20 @@ class JobUser extends Model
         'status',
         'meeting_date'
     ];
+
+    public function getCSS(){
+        switch($this->status){
+            case 'Pending':
+                return 'deeppink';
+            break;
+            case 'Reject':
+                return 'Red';
+            break;
+            case 'Accept':
+                return 'limegreen';
+            break;
+            default:
+                return 'deeppink';
+        }
+    }
 }

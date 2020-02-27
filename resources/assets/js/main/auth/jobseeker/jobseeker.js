@@ -752,6 +752,43 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         }
     }
 
+    func.handleDeleteApplyJob = function(e){
+        swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+                let self = e.target;
+                let div = $(self).parents('.action_job');
+                let id = $(div).find('.deleteApplyJob').attr('data-id');
+        
+                let formData = {
+                    'id' : id
+                }
+
+                url = '/jobseeker/delete-apply-job'
+                let promise = CAREER24H.main.getRequestPromise(url,formData)
+                promise.then((response)=>{
+                    if(response.code == 200){
+                        // console.log(response)
+                        location.reload(true);
+                    }
+                }, function (error) {
+                    console.log(error)
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+                }).catch(function (error) {
+                    CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+                });
+            }
+          }) 
+        
+    }
+
     $(document).ready(function ($) {
         CAREER24H.jobseeker.initializeSummernote();
     });

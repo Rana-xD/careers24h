@@ -100,19 +100,37 @@ class JobController extends Controller
 
         if(Auth::check()){
             if(Auth::user()->isJobseeker()){
-                if(count(Auth::user()->applyJob->where('id',$jobId)) == 0){
-                    $data['user_id'] = Auth::id();
-                    $data['job_id'] = $jobId;
-                    $data['status'] = 'Pending';
-                    JobUser::create($data);
+                
+                $gender = Job::find($jobId)->pluck('gender')[0];
+
+                if($gender == null || $gender === Auth::user()->jobseekerProfile->gender ){
+
+                    if(!empty(Auth::user()->jobseekerProfile->education) && !empty(Auth::user()->jobseekerProfile->work_experience)){
+
+                        if(count(Auth::user()->applyJob->where('id',$jobId)) == 0){
+                            
+                                $data['user_id'] = Auth::id();
+                                $data['job_id'] = $jobId;
+                                $data['status'] = 'Pending';
+                                JobUser::create($data);
+                                return response()->json([
+                                'code' => 200,
+                                'message' => "You successfully apply for this job"
+                        ]);
+                    }
                     return response()->json([
-                        'code' => 200,
-                        'message' => "You successfully apply for this job"
+                        'code' => 501,
+                        'message' => "You already apply that job"
                     ]);
                 }
+                    return response()->json([
+                        'code' => 501,
+                        'message' => "You haven't completed resume yet"
+                    ]);
+            }
                 return response()->json([
                     'code' => 501,
-                    'message' => "You already apply that job"
+                    'message' => "Your gender cannot apply for this job"
                 ]);
             }
             return response()->json([

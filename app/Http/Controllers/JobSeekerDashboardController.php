@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\JobseekerProfile;
+use App\Models\JobUser;
 use App\Models\Video;
 use FFMpeg;
 
@@ -44,7 +45,10 @@ class JobSeekerDashboardController extends Controller
     }
 
     public function showAppliedJob(){
-        return view('jobseeker.dashboard.AppliedJob');
+        $applyJobs = Auth::user()->applyJob;
+        return view('jobseeker.dashboard.AppliedJob',[
+            'applyJobs' => $applyJobs
+        ]);
     }
 
     public function showCoverLetter(){
@@ -405,6 +409,15 @@ class JobSeekerDashboardController extends Controller
             'message' => "No file"
         ]);
         
+    }
+
+    public function deleteApplyJob(Request $request){
+        $id = $request->id;
+        JobUser::destroy($id);
+        return response()->json([
+            'code' => 200,
+            'message' => 'Successfully delete apply job'
+        ]);
     }
 }
 

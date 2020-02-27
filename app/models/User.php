@@ -64,8 +64,7 @@ class User extends Authenticatable
 
     public function applyJob(){
         return $this->belongsToMany('App\Models\Job','job_user','user_id','job_id')
-                    ->as('applyJob')
-                    ->withPivot('status', 'meeting_date')
+                    ->withPivot('id','status', 'meeting_date')
                     ->withTimestamps();
     }
 

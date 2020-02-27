@@ -5,7 +5,6 @@
 </head>
 <body>
 
-
 <div class="theme-layout" id="scrollup">
 	@include('partials.navbar')
 	@include('partials.jobseeker_top_content')
@@ -23,95 +22,38 @@
 						 				<tr>
 						 					<td>Applied Job</td>
 						 					<td>Position</td>
-						 					<td>Date</td>
+											 <td>Date</td>
+											 <td>Status</td>
 						 					<td></td>
 						 				</tr>
 						 			</thead>
 						 			<tbody>
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>Massimo Artemisis</i><br />
-						 							<span><i class="la la-map-marker"></i>Sacramento, California</span>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3><a href="#" title="">Web Designer / Developer</a></h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>October 27, 2017</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>StarHealth</i><br />
-						 							<span><i class="la la-map-marker"></i>Rennes, France</span>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3><a href="#" title="">Regional Sales Manager South east Asia</a></h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>October 27, 2017</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>Altes Bank</i><br />
-						 							<span><i class="la la-map-marker"></i>Istanbul, Turkey</span>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3><a href="#" title="">C Developer (Senior) C .Net</a></h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>October 27, 2017</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
-						 				<tr>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<i>MediaLab</i><br />
-						 							<span><i class="la la-map-marker"></i>Ajax, Ontario</span>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<div class="table-list-title">
-						 							<h3><a href="#" title="">Marketing Director</a></h3>
-						 						</div>
-						 					</td>
-						 					<td>
-						 						<span>October 27, 2017</span><br />
-						 					</td>
-						 					<td>
-						 						<ul class="action_job">
-						 							<li><span>Delete</span><a href="#" title=""><i class="la la-trash-o"></i></a></li>
-						 						</ul>
-						 					</td>
-						 				</tr>
+										@foreach ($applyJobs as $job)
+											<tr>
+												<td>
+													<div class="table-list-title">
+														<i>{{$job->companyName()}}</i><br />
+														<span><i class="la la-map-marker"></i>{{ $job->city }}, Phnom Penh</span>
+													</div>
+												</td>
+												<td>
+													<div class="table-list-title">
+														<h3><a href="/job/{{$job->uuid}}" title="">{{ $job->job_title }}</a></h3>
+													</div>
+												</td>
+												<td>
+													<span>{{ date('M d, Y', strtotime($job->pivot->created_at))  }}</span><br />
+												</td>
+												<td>
+													<span style="color: {{ App\Models\JobUser::find($job->pivot->id)->getCSS() }}">Pending</span><br />
+										   		</td>
+												<td>
+													<ul class="action_job">
+														<li><span>Delete</span><a data-id="{{ $job->pivot->id }}" class="deleteApplyJob"><i class="la la-trash-o"></i></a></li>
+													</ul>
+												</td>
+											</tr>
+										@endforeach
 						 			</tbody>
 						 		</table>
 					 		</div>
@@ -121,9 +63,6 @@
 			</div>
 		</div>
 	</section>
-
-	@include('partials.footer')
-
 </div>
 
 <div class="profile-sidebar">
@@ -155,5 +94,10 @@
 
 
 </body>
+<script>
+	jQuery(document).ready(function($){
+		$('.deleteApplyJob').on('click',CAREER24H.jobseeker.handleDeleteApplyJob)
+	});
+</script>
 </html>
 

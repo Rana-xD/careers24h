@@ -82,6 +82,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
     Route::get('/update-work-experience','JobSeekerDashboardController@updateWorkExperience');
     Route::get('/update-skillset','JobSeekerDashboardController@updateSkillset');
     Route::get('/update-achievement','JobSeekerDashboardController@updateAchievement');
+    Route::get('/delete-apply-job','JobSeekerDashboardController@deleteApplyJob');
 
     Route::post('/upload-videocv','JobSeekerDashboardController@uploadVideoCV');
 });
