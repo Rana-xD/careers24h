@@ -21,7 +21,7 @@
 					 			<h3>Manage Jobs</h3>
 					 			<div class="extra-job-info">
 								 <span><i class="la la-clock-o"></i><strong>{{ count($jobs) }}</strong> Job Posted</span>
-						 			<span><i class="la la-file-text"></i><strong>20</strong> Application</span>
+						 			<span><i class="la la-file-text"></i><strong class="application"></strong> Application</span>
 								 <span><i class="la la-users"></i><strong>{{ count($jobs->where('is_active',1)) }}</strong> Active Jobs</span>
 						 		</div>
 						 		<table>
@@ -44,7 +44,7 @@
 												</div>
 											</td>
 											<td>
-												<span class="applied-field">3+ Applied</span>
+												<span class="applied-field" data-no="{{ count($job->applicants) }}">{{ count($job->applicants) }} Applied</span>
 											</td>
 											<td>
 												<span>{{  date("M d , Y", strtotime($job->created_at)) }}</span><br />
@@ -77,7 +77,10 @@
 <script>
 	jQuery(document).ready(function($){
 		$('.jobDelete').on('click',CAREER24H.company.deleteJob);
+		CAREER24H.company.loadTotalApplicants();
+	
 	});
+	
 </script>
 </html>
 

@@ -422,6 +422,14 @@ if(!CAREER24H.company) CAREER24H.company = {};
 		});
         
     }
+    func.loadTotalApplicants = function(e){
+        let applicants = 0
+	    let row = $('tbody').children()
+	    for(let i=0; i<row.length; i++){
+		    applicants += parseInt($(row[i]).find('.applied-field').attr('data-no'));
+	    }
+	    $('.application').text(applicants)
+    }
 
     $(document).ready(function ($) {
         CAREER24H.company.initializeSummernoteforJob();
