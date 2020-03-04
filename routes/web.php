@@ -32,6 +32,9 @@ Route::post('/signup_with_profile','AuthenticationController@signupWithProfile')
 Route::get('/job/{uuid}','JobController@showSingleJob');
 Route::get('/apply-job','JobController@applyJob');
 
+/* Candidate Route*/
+Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
+
 Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');
     Route::get('/change-password','CompanyDashboardController@showChangePassword');
@@ -40,7 +43,12 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/packages','CompanyDashboardController@showPackage');
     Route::get('/resume','CompanyDashboardController@showResume');
     Route::get('/transaction','CompanyDashboardController@showTransaction');
-
+    Route::get('/applicants','CompanyDashboardController@showApplicant');
+    Route::get('/get-cover-letter','CompanyDashboardController@getCoverLetter');
+    Route::get('/get-video-cv','CompanyDashboardController@getVideoCV');
+    Route::get('/get-resume','CompanyDashboardController@getResume');
+    Route::get('/accept-applicant','CompanyDashboardController@acceptApplicant');
+    Route::get('/reject-applicant','CompanyDashboardController@rejectApplicant');
 
     Route::post('/update-password','CompanyDashboardController@updatePassword');
     Route::post('/update-profile','CompanyDashboardController@updateProfile');
@@ -49,9 +57,12 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::post('/create-job','JobController@createJob');
     Route::get('/edit-job/{uuid}','JobController@showEditJobForm');
     Route::post('/update-job','JobController@updateJob');
+    
 
     Route::get('/delete-job','JobController@deleteJob');
     Route::get('/preview-job/{uuid}','JobController@showJobPreview');
+
+    
 });
 /*   CompanyDashboad   */
 

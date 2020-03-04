@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\CompanyProfile;
+use App\Models\JobseekerProfile;
+use App\Models\JobUser;
 
 class CompanyDashboardController extends Controller
 {
@@ -61,6 +63,84 @@ class CompanyDashboardController extends Controller
 
     public function showTransaction(){
         return view('company.dashboard.Transaction');
+    }
+
+    public function showApplicant(){
+        $jobs = Auth::user()->CompanyProfile->jobs;
+        return view('company.dashboard.Applicant',[
+            'jobs' => $jobs
+        ]);
+    }
+
+    public function getCoverLetter(Request $request){
+        $cover_letter = JobseekerProfile::find($request->profileId)->pluck('cover_letter')[0];
+        if(empty($cover_letter)){
+            return response()->json([
+                'code' => 500,
+                'message' => "This applicant does not have Cover Letter",
+            ]);
+        }
+        $html_render = view('layouts.cover_letter_modal',[
+            'cover_letter' => $cover_letter
+        ])->render();
+        return response()->json([
+            'code' => 200,
+            'message' => "Success",
+            'html_render' => $html_render
+        ]);
+    }
+
+    public function getVideoCV(Request $request){
+        if(empty(JobseekerProfile::find($request->profileId)->video)){
+            return response()->json([
+                'code' => 500,
+                'message' => "This applicant does not have Video CV",
+            ]);
+        }
+        $video_cv = JobseekerProfile::find($request->profileId)->video->url;
+        
+        $html_render = view('layouts.video_cv_modal',[
+            'video_cv' => $video_cv
+        ])->render();
+        return response()->json([
+            'code' => 200,
+            'message' => "Success",
+            'html_render' => $html_render
+        ]);
+    }
+
+    public function getResume(Request $request){
+        $resume = JobseekerProfile::find($request->profileId);
+        $html_render = view('layouts.resume_modal',[
+            'applicant' => $resume,
+            'educations' => $resume->education,
+            'work_experience' => $resume->work_experience,
+            'skillset' => $resume->skillset,
+            'achievement' => $resume->achievement
+        ])->render();
+        return response()->json([
+            'code' => 200,
+            'message' => "Success",
+            'html_render' => $html_render
+        ]);
+    }
+
+    public function acceptApplicant(Request $request){
+        $id = $request->id;
+        JobUser::find($id)->update(['status' => 'Accept']);
+        return response()->json([
+            'code' => 200,
+            'message' => "Success"
+        ]);
+    }
+
+    public function rejectApplicant(Request $request){
+        $id = $request->id;
+        JobUser::find($id)->update(['status' => 'Reject']);
+        return response()->json([
+            'code' => 200,
+            'message' => "Success"
+        ]);
     }
 
     public function updatePassword(Request $request){

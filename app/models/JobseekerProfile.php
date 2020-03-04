@@ -11,7 +11,7 @@ class JobseekerProfile extends Model
         'education' => 'array',
         'skillset' => 'array',
         'achievement' => 'array',
-        'work_experience' => 'array'
+        'work_experience' => 'array',
     ];
     protected $fillable = [
         'user_profile',

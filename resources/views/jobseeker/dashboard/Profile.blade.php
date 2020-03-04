@@ -125,14 +125,14 @@
 					 						<span class="pf-title">Instagram</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.instagram.com/example" id="instagram" name="instagram"/>
-					 							<i class="fa fa-twitter"></i>
+					 							<i class="fa fa-instagram"></i>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Twitter</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.twitter.com/example" id="twitter" name="twitter"/>
-					 							<i class="la la-google"></i>
+					 							<i class="la la-twitter"></i>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">

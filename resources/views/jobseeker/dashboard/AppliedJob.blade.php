@@ -45,7 +45,7 @@
 													<span>{{ date('M d, Y', strtotime($job->pivot->created_at))  }}</span><br />
 												</td>
 												<td>
-													<span style="color: {{ App\Models\JobUser::find($job->pivot->id)->getCSS() }}">Pending</span><br />
+													<span style="color: {{ App\Models\JobUser::find($job->pivot->id)->getCSS() }}">{{ $job->pivot->status }}</span><br />
 										   		</td>
 												<td>
 													<ul class="action_job">

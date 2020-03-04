@@ -145,7 +145,8 @@
 					<span><img src="http://placehold.it/50x50" alt="" /> {{  Auth::user()->username }} <i class="la la-angle-down"></i></span>
 					<ul>
 						<li><a href="/company/profile" title=""><i class="la la-file-text"></i>Company Profile</a></li>
-						<li><a href="/company/manage-jobs" title=""><i class="la la-briefcase"></i>Manage Jobs</a></li>
+                        <li><a href="/company/manage-jobs" title=""><i class="la la-briefcase"></i>Manage Jobs</a></li>
+                        <li><a href="/company/applicants" title=""><i class="la la-copy"></i>Applicants</a></li>
 						{{-- <li><a href="/company/transaction" title=""><i class="la la-money"></i>Transactions</a></li> --}}
 						{{-- <li><a href="/company/resume" title=""><i class="la la-paper-plane"></i>Resumes</a></li> --}}
 						{{-- <li><a href="/company/packages" title=""><i class="la la-user"></i>Packages</a></li> --}}

@@ -5338,6 +5338,16 @@ aside .widget.border:first-child {
     border-color: #fb236a;
 }
 
+.share-bar  a.share-linkedin {
+    color: #0E76A8;
+    border-color: #0E76A8;
+}
+
+.share-bar  a.share-instagram {
+    color: #DD2A7B;
+    border-color: #DD2A7B;
+}
+
 .share-bar a.share-fb:hover {
     background: #3b5998;
     border-color: #3b5998;
@@ -5353,6 +5363,20 @@ aside .widget.border:first-child {
     border-color: #fb236a;
     color: #ffffff;
 }
+
+.share-bar  a.share-linkedin:hover {
+    background: #0E76A8;
+    border-color: #0E76A8;
+    color: #ffffff;
+}
+
+.share-bar  a.share-instagram:hover {
+    background: #DD2A7B;
+    border-color: #DD2A7B;
+    color: #ffffff;
+}
+
+
 
 .recent-jobs {
     float: left;
@@ -7325,7 +7349,7 @@ aside .widget.border:first-child {
     font-size: 13px;
     color: #8b91dd;
     border: 2px solid #8b91dd;
-    width: 150px;
+    width: 120px;
     height: 40px;
     padding-left: 30px;
     text-align: left;
@@ -7413,6 +7437,28 @@ aside .widget.border:first-child {
     display: table-cell;
     vertical-align: middle;
 }
+
+.action-resume-view{
+    position: relative;
+    float: left;
+}
+
+.action-resume-view > span {
+    float: left;
+    font-family: Open Sans;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fb236a;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.action-resume-view:hover {
+    text-shadow: 0px 0px 30px rgba(0,0,0,0.1);
+}
+
 .del-resume > a {
     float: left;
     font-size: 18px;

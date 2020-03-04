@@ -70,6 +70,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             twitter = $('#twitter').val(),
             linkedin = $('#linkedin').val(),
             phone_number = $('#phone_number').val(),
+            email = $('#email').val(),
             city = $('#city').val(),
             token = $("input[name='_token']").val();
 
@@ -90,6 +91,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             formData.append('education_level',education_level);
             formData.append('career_level',career_level);
             formData.append('social_media',JSON.stringify(social_media));
+            formData.append('email',email);
             formData.append('phone_number',phone_number);
             formData.append('city',city);
 

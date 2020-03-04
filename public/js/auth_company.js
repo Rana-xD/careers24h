@@ -382,6 +382,155 @@ if (!CAREER24H.company) CAREER24H.company = {};
     $('.application').text(applicants);
   };
 
+  func.showCoverLetterModal = function (e) {
+    var self = e.target;
+    var profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+    var url = '/company/get-cover-letter';
+    var formData = {
+      'profileId': profileId
+    };
+    CAREER24H.utils.activateSpinner();
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        var htmlRender = $.parseHTML(response.html_render);
+        $('.modal-contents').html(htmlRender);
+        $('#coverLetterModal').modal('show');
+      } else {
+        swal.fire({
+          title: 'Opps',
+          icon: 'warning',
+          text: response.message,
+          timer: 2500,
+          showCancelButton: false,
+          showConfirmButton: false
+        });
+      }
+    }, function (error) {
+      console.log(error);
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.showVideoCVModal = function (e) {
+    var self = e.target;
+    var profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+    var url = '/company/get-video-cv';
+    var formData = {
+      'profileId': profileId
+    };
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        var htmlRender = $.parseHTML(response.html_render);
+        $('.modal-contents').html(htmlRender);
+        $('#videoCVModal').modal('show');
+      } else {
+        swal.fire({
+          title: 'Opps',
+          icon: 'warning',
+          text: response.message,
+          timer: 2500,
+          showCancelButton: false,
+          showConfirmButton: false
+        });
+      }
+    }, function (error) {
+      console.log(error);
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.showResumeModal = function (e) {
+    var self = e.target;
+    var profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+    var url = '/company/get-resume';
+    var formData = {
+      'profileId': profileId
+    };
+    var promise = CAREER24H.main.getRequestPromise(url, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        var htmlRender = $.parseHTML(response.html_render);
+        $('.modal-contents').html(htmlRender);
+        $('#resumeModal').modal('show');
+      }
+    }, function (error) {
+      console.log(error);
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.handleAcceptApplicant = function (e) {
+    var self = e.target;
+    swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then(function (result) {
+      if (result.value) {
+        var _id = $(self).parents('.emply-resume-list').find('.pivot-id').val();
+
+        formData = {
+          "id": _id
+        };
+        var url = '/company/accept-applicant';
+        var promise = CAREER24H.main.getRequestPromise(url, formData);
+        promise.then(function (response) {
+          if (response.code == 200) {
+            location.reload(true);
+          }
+        }, function (error) {
+          console.log(error);
+          CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+        })["catch"](function (error) {
+          CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+        });
+      }
+    });
+  };
+
+  func.handleRejectApplicant = function (e) {
+    var self = e.target;
+    swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then(function (result) {
+      if (result.value) {
+        var _id2 = $(self).parents('.emply-resume-list').find('.pivot-id').val();
+
+        formData = {
+          "id": _id2
+        };
+        var url = '/company/reject-applicant';
+        var promise = CAREER24H.main.getRequestPromise(url, formData);
+        promise.then(function (response) {
+          if (response.code == 200) {
+            location.reload(true);
+          }
+        }, function (error) {
+          console.log(error);
+          CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+        })["catch"](function (error) {
+          CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+        });
+      }
+    });
+  };
+
   $(document).ready(function ($) {
     CAREER24H.company.initializeSummernoteforJob();
   });
