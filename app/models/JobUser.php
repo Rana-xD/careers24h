@@ -13,7 +13,9 @@ class JobUser extends Model
         'user_id',
         'job_id',
         'status',
-        'meeting_date'
+        'interview_date',
+        'is_online',
+        'room_name'
     ];
 
     public function getCSS(){

@@ -30,7 +30,14 @@
 										</div>
 										<div class="emply-resume-info">
 												<h3><a href="/candidate/profile/{{$applicant->jobseekerProfile->uuid}}" target="_blank">{{ $applicant->jobseekerProfile->full_name }}</a></h3>
-											   <p style="color: {{ App\Models\JobUser::find($applicant->pivot->id)->getCSS() }}">{{ $applicant->pivot->status}}</p>
+												   <p style="color: {{ App\Models\JobUser::find($applicant->pivot->id)->getCSS() }}">{{ $applicant->pivot->status}}</p>
+												   @if (!empty($applicant->pivot->interview_date))
+												   <p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
+												   @endif
+												   @if (!empty($applicant->pivot->is_online))
+												  <p style="color: #fb236a"><a href="/interview_room/{{$applicant->pivot->room_name}}" target="_blank">Join Room</a></p>
+												   @endif
+												   
 										</div>
 										<div class="action-resume">
 										   <div class="action-resume-view">
@@ -53,7 +60,9 @@
 												<ul>
 													<li><a class="accept-applicant">Accept</a></li>
 													<li><a class="reject-applicant">Reject</a></li>
-													<li><a href="#" title="">Linked-in Profile</a></li>
+													@if ($applicant->pivot->status === 'Accept')
+														<li><a class="interview-date">Interview Date</a></li>
+													@endif
 												</ul>
 											</div>
 										</div>
@@ -70,22 +79,26 @@
 		</div>
 	</section>
 </div>
-
-
-
-
 @include('partials.footer_script')
-<div class="modal-contents">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha256-yMjaV542P+q1RnH6XByCPDfUFhmOafWbeLPmqKh11zo=" crossorigin="anonymous" />
 
+<div class="modal-contents">	
 </div>
+@include('layouts.interview_date_modal')
 </body>
 <script>
 	jQuery(document).ready(function($){
+		CAREER24H.company.initializeDateTimePicker();
 		$('.cover__letter').on('click',CAREER24H.company.showCoverLetterModal);
 		$('.video__CV').on('click',CAREER24H.company.showVideoCVModal);
 		$('.resume__CV').on('click',CAREER24H.company.showResumeModal);
 		$('.accept-applicant').on('click',CAREER24H.company.handleAcceptApplicant);
 		$('.reject-applicant').on('click',CAREER24H.company.handleRejectApplicant);
+		$('.interview-date').on('click',CAREER24H.company.handleInterviewDate);
+		$('#setInterviewDate').on('click',CAREER24H.company.handleSetInterviewDate);
+		
 	});
 </script>
 </html>

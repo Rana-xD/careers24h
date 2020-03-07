@@ -35,6 +35,9 @@ Route::get('/apply-job','JobController@applyJob');
 /* Candidate Route*/
 Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
 
+/*  InterviewRoom  */
+Route::get('/interview_room/{room_name}','InterviewRoomController@joinRoom')->middleware('auth');
+
 Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');
     Route::get('/change-password','CompanyDashboardController@showChangePassword');
@@ -49,6 +52,7 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/get-resume','CompanyDashboardController@getResume');
     Route::get('/accept-applicant','CompanyDashboardController@acceptApplicant');
     Route::get('/reject-applicant','CompanyDashboardController@rejectApplicant');
+    Route::get('/set-interview-date','CompanyDashboardController@setInterviewDate');
 
     Route::post('/update-password','CompanyDashboardController@updatePassword');
     Route::post('/update-profile','CompanyDashboardController@updateProfile');

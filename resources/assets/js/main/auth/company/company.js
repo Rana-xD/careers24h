@@ -582,7 +582,66 @@ if(!CAREER24H.company) CAREER24H.company = {};
         })
     }
 
+    func.handleInterviewDate = function(e){
+        let self = e.target;
+        let id = $(self).parents('.emply-resume-list').find('.pivot-id').val();
+        $('#pivot-id-modal').val(id);
+        $('#interviewdateModal').modal('show');
+    }
+
+    func.handleSetInterviewDate = function(e){
+        let interviewDate = $('#datepicker_date').val(),
+            isOnline = $('#online-interview')[0].checked ? 1 : 0,
+            pivotId = $('#pivot-id-modal').val();
+
+        let formData = {
+            'id' : pivotId,
+            'is_online' : isOnline,
+            'interview_date' : interviewDate
+        }
+
+        let url = '/company/set-interview-date';
+        let promise = CAREER24H.main.getRequestPromise(url,formData)
+          promise.then((response)=>{
+              if(response.code == 200){
+                  location.reload(true); 
+              }
+        }, function (error) {
+            console.log(error)
+            CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+        }).catch(function (error) {
+            CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+        });
+
+    }
+
+    func.initializeDateTimePicker = function(e){
+        $('#datetimepicker').datetimepicker({
+			icons:
+            {
+                up: 'fa fa-angle-up',
+				down: 'fa fa-angle-down',
+				next: 'fa fa-angle-right',
+            	previous: 'fa fa-angle-left'
+			},
+			widgetPositioning: {
+            	horizontal: 'right',
+            	vertical: 'auto'
+        	},
+				inline: true,
+				sideBySide: true,
+				locale: 'kh'
+			});
+
+			$('#datetimepicker').on('dp.change', function(event) {
+    			var formatted_date = event.date.format('MM/DD/YYYY h:mm A');
+				$('#datepicker_date').val(formatted_date);
+  			});
+    }
+
     $(document).ready(function ($) {
         CAREER24H.company.initializeSummernoteforJob();
+        
+        
     });
 })(jQuery);

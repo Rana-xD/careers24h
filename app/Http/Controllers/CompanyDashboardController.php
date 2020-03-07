@@ -7,20 +7,32 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\CompanyProfile;
 use App\Models\JobseekerProfile;
 use App\Models\JobUser;
+use Twilio\Rest\Client;
+use Twilio\Jwt\AccessToken;
+use Twilio\Jwt\Grants\VideoGrant;
 
 class CompanyDashboardController extends Controller
 {
-    
+    protected $sid;
+    protected $token;
+    protected $key;
+    protected $secret;   
+
     public $default_logo = "https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_logo.jpg";
 
     public function __construct()
     {
         $this->team_size = config('global.team_size');
         $this->city = config('global.city');
+        $this->sid = config('services.twilio.sid');
+        $this->token = config('services.twilio.token');
+        $this->key = config('services.twilio.key');
+        $this->secret = config('services.twilio.secret');
     }
 
     public function showProfile(){
@@ -127,7 +139,7 @@ class CompanyDashboardController extends Controller
 
     public function acceptApplicant(Request $request){
         $id = $request->id;
-        JobUser::find($id)->update(['status' => 'Accept']);
+        JobUser::find($id)->update(['status' => 'Accept','interview_date' => null, 'is_online' => 0, 'room_name' => null]);
         return response()->json([
             'code' => 200,
             'message' => "Success"
@@ -136,13 +148,37 @@ class CompanyDashboardController extends Controller
 
     public function rejectApplicant(Request $request){
         $id = $request->id;
-        JobUser::find($id)->update(['status' => 'Reject']);
+        JobUser::find($id)->update(['status' => 'Reject','interview_date' => null, 'is_online' => 0, 'room_name' => null]);
         return response()->json([
             'code' => 200,
             'message' => "Success"
         ]);
     }
 
+    public function setInterviewDate(Request $request){
+        $data = $request->except('id');
+        if($data['is_online']){
+            $room_name = Str::random(8);
+            $client = new Client($this->sid, $this->token);
+            $exists = $client->video->rooms->read([ 'uniqueName' => $room_name]);
+            
+            if (empty($exists)) {
+                $client->video->rooms->create([
+                    'uniqueName' => $room_name,
+                    'type' => 'group',
+                    'recordParticipantsOnConnect' => false
+                ]);
+                $data['room_name'] = $room_name;
+             }
+            
+        }
+        JobUser::find($request->id)->update($data);
+        return response()->json([
+            'code' => 200,
+            'message' => "Success",
+            'data' => $data
+        ]);
+    }
     public function updatePassword(Request $request){
 
         $old_password = $request->old_password;

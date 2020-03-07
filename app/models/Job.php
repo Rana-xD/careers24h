@@ -88,7 +88,8 @@ class Job extends Model
 
    public function applicants(){
         return $this->belongsToMany('App\Models\User','job_user','job_id','user_id')
-                    ->withPivot('id','status', 'meeting_date')
-                    ->withTimestamps();
+                    ->withPivot('id','status', 'interview_date','is_online','room_name')
+                    ->withTimestamps()
+                    ->orderBy('job_user.status');
     }
 }
