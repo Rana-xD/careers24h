@@ -47,6 +47,7 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
     Route::get('/resume','CompanyDashboardController@showResume');
     Route::get('/transaction','CompanyDashboardController@showTransaction');
     Route::get('/applicants','CompanyDashboardController@showApplicant');
+    Route::get('/interview-room','CompanyDashboardController@showInterviewRoom');
     Route::get('/get-cover-letter','CompanyDashboardController@getCoverLetter');
     Route::get('/get-video-cv','CompanyDashboardController@getVideoCV');
     Route::get('/get-resume','CompanyDashboardController@getResume');

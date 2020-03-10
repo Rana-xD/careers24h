@@ -1518,17 +1518,24 @@ input[type=number] {
 }
 .job-title-sec h3 {
     display: table;
-    font-size: 18px;
+    font-size: 20px;
     color: #232323;
     margin: 0;
         margin-bottom: 0px;
     margin-bottom: 7px;
     margin-top: 3px;
 }
+.job-title-sec p {
+    font-size: 15px;
+    text-align: center;
+    color: limegreen;
+    margin: 0;
+    margin-bottom: 0px;
+}
 .job-title-sec span {
     float: left;
     font-family: Open Sans;
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 1px;
 }
 .job-lctn {
@@ -6084,7 +6091,7 @@ aside .widget.border:first-child {
     right: 0;
     top: 0;
     color: #8b91dd;
-    font-size: 13px;
+    font-size: 15px;
 }
 .emply-list-info > h3 {
     float: left;
@@ -6341,13 +6348,13 @@ aside .widget.border:first-child {
     margin-right: 3px;
 }
 .emply-list.box:hover {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
+    -webkit-box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+    -o-box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
 
-    border-color: #8b91dd;
+    border-color: #ffffff;
 }
 .alpha-pag.full a {
     font-size: 13px;
@@ -7291,6 +7298,7 @@ aside .widget.border:first-child {
 .emply-resume-sec {
     float: left;
     width: 100%;
+    margin-bottom: 20px;
 }
 .emply-resume-list {
     float: left;

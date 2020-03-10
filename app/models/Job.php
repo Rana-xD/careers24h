@@ -92,4 +92,20 @@ class Job extends Model
                     ->withTimestamps()
                     ->orderBy('job_user.status');
     }
+   
+  public function onlineInview(){
+    return $this->belongsToMany('App\Models\User','job_user','job_id','user_id')
+                ->withPivot('id','status', 'interview_date','is_online','room_name')
+                ->where('job_user.is_online',1)
+                ->withTimestamps();
+  }
+
+  public function offlineInview(){
+    return $this->belongsToMany('App\Models\User','job_user','job_id','user_id')
+                ->withPivot('id','status', 'interview_date','is_online','room_name')
+                ->where('job_user.is_online',0)
+                ->where('job_user.status','Accept')
+                ->where('job_user.interview_date','!=',null)
+                ->withTimestamps();
+  }
 }

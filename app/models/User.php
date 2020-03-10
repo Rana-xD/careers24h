@@ -69,4 +69,6 @@ class User extends Authenticatable
                     ->orderBy('job_user.status');
     }
 
+    
+
 }

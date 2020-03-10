@@ -84,6 +84,13 @@ class CompanyDashboardController extends Controller
         ]);
     }
 
+    public function showInterviewRoom(){
+        $jobs = Auth::user()->CompanyProfile->jobs;
+        return view('company.dashboard.InterviewRoom',[
+            'jobs' => $jobs
+        ]);
+    }
+
     public function getCoverLetter(Request $request){
         $cover_letter = JobseekerProfile::find($request->profileId)->pluck('cover_letter')[0];
         if(empty($cover_letter)){

@@ -33,4 +33,8 @@ class JobUser extends Model
                 return 'deeppink';
         }
     }
+
+    public function job(){
+        return $this->belongsTo('App\Models\Job','job_id');
+    }
 }

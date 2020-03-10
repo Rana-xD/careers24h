@@ -22,7 +22,7 @@
 								 <div class="emply-resume-sec">
 									<h3>{{ $job->job_title}}: {{ count($job->applicants) }}</h3>
 									@foreach ($job->applicants as $applicant)
-									<div class="emply-resume-list">
+									<div class="emply-resume-list cv__Info">
 										<input type="hidden" name="" class="applicant-id" value="{{ $applicant->jobseekerProfile->id }}">
 										<input type="hidden" name="" class="pivot-id" value="{{ $applicant->pivot->id }}">
 										<div class="emply-resume-thumb">
@@ -34,9 +34,10 @@
 												   @if (!empty($applicant->pivot->interview_date))
 												   <p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
 												   @endif
-												   @if (!empty($applicant->pivot->is_online))
+												   {{-- @if (!empty($applicant->pivot->is_online))
 												  <p style="color: #fb236a"><a href="/interview_room/{{$applicant->pivot->room_name}}" target="_blank">Join Room</a></p>
-												   @endif
+												   @endif --}}
+												   <p style="color: #fb236a">{{ $applicant->pivot->is_online ? 'Online' : 'Offline'  }}</p>
 												   
 										</div>
 										<div class="action-resume">

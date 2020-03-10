@@ -467,7 +467,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
 
     func.showVideoCVModal = function(e){
         let self = e.target;
-        let profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+        let profileId = $(self).parents('.cv__Info').find('.applicant-id').val();
         let url = '/company/get-video-cv';
         let formData = {
             'profileId' : profileId
@@ -498,7 +498,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
 
     func.showResumeModal = function(e){
         let self = e.target;
-        let profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+        let profileId = $(self).parents('.cv__Info').find('.applicant-id').val();
         let url = '/company/get-resume';
         let formData = {
             'profileId' : profileId
