@@ -22,8 +22,9 @@
 						 				<tr>
 						 					<td>Applied Job</td>
 						 					<td>Position</td>
-											 <td>Date</td>
 											 <td>Status</td>
+											 <td>Interview Date</td>
+											 <td>Type</td>
 						 					<td></td>
 						 				</tr>
 						 			</thead>
@@ -42,11 +43,24 @@
 													</div>
 												</td>
 												<td>
-													<span>{{ date('M d, Y', strtotime($job->pivot->created_at))  }}</span><br />
+													<div class="table-list-title">
+														<h3 style="color: {{ App\Models\JobUser::find($job->pivot->id)->getCSS() }}">{{ $job->pivot->status }}</h3>
+													</div>
 												</td>
 												<td>
-													<span style="color: {{ App\Models\JobUser::find($job->pivot->id)->getCSS() }}">{{ $job->pivot->status }}</span><br />
-										   		</td>
+													<div class="table-list-title">
+														@if (!empty($job->pivot->interview_date))
+															<h3>{{ $job->pivot->interview_date }}</h3>
+														@endif
+													</div>
+												</td>   
+												<td>
+													<div class="table-list-title">
+														@if (!empty($job->pivot->interview_date))
+															<h3 style="font-weight: bold; color: #778beb">{{ $job->pivot->is_online ? 'Online' : 'Offline' }}</h3>
+														@endif
+													</div>
+										   		</td>    
 												<td>
 													<ul class="action_job">
 														<li><span>Delete</span><a data-id="{{ $job->pivot->id }}" class="deleteApplyJob"><i class="la la-trash-o"></i></a></li>

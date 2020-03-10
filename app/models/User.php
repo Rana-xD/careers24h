@@ -69,6 +69,12 @@ class User extends Authenticatable
                     ->orderBy('job_user.status');
     }
 
-    
+    public function onlineInterview(){
+        return $this->belongsToMany('App\Models\Job','job_user','user_id','job_id')
+                    ->withPivot('id','status', 'interview_date','is_online','room_name')
+                    ->withTimestamps()
+                    ->where('job_user.is_online',1)
+                    ->orderBy('job_user.status');
+    }
 
 }

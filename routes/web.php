@@ -38,7 +38,7 @@ Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
 /*  InterviewRoom  */
 Route::get('/interview_room/{room_name}','InterviewRoomController@joinRoom')->middleware('auth');
 
-Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'company', 'middleware' => ['auth','company']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');
     Route::get('/change-password','CompanyDashboardController@showChangePassword');
     Route::get('/job-alert','CompanyDashboardController@showJobAlert');
@@ -72,9 +72,10 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth']], function() {
 /*   CompanyDashboad   */
 
 /*   JobSeekerDashboad   */
-Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth']], function() {
+Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], function() {
     Route::get('/profile','JobSeekerDashboardController@showProfile');
     Route::get('/applied-job','JobSeekerDashboardController@showAppliedJob');
+    Route::get('/interview-room','JobSeekerDashboardController@showInterviewRoom');
     Route::get('/password','JobSeekerDashboardController@showChangePassoword');
     Route::get('/cover-letter','JobSeekerDashboardController@showCoverLetter');
     Route::get('/job-alert','JobSeekerDashboardController@showJobNotify');

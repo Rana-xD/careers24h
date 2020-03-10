@@ -51,6 +51,12 @@ class JobSeekerDashboardController extends Controller
         ]);
     }
 
+    public function showInterviewRoom(){
+        $interview_jobs = Auth::user()->onlineInterview;
+        return view('jobseeker.dashboard.InterviewRoom',[
+            'interview_jobs' => $interview_jobs
+        ]);
+    }
     public function showCoverLetter(){
         $coverLetter = Auth::user()->JobseekerProfile->pluck('cover_letter');
         $videoCV = Auth::user()->JobseekerProfile->video;
