@@ -40,7 +40,7 @@ Route::get('/interview_room/{room_name}','InterviewRoomController@joinRoom')->mi
 
 Route::group(['prefix' => 'company', 'middleware' => ['auth','company']], function() {
     Route::get('/profile','CompanyDashboardController@showProfile');
-    Route::get('/change-password','CompanyDashboardController@showChangePassword');
+    Route::get('/account-setting','CompanyDashboardController@showAccountSetting');
     Route::get('/job-alert','CompanyDashboardController@showJobAlert');
     Route::get('/manage-jobs','CompanyDashboardController@showManageJob');
     Route::get('/packages','CompanyDashboardController@showPackage');
@@ -56,6 +56,7 @@ Route::group(['prefix' => 'company', 'middleware' => ['auth','company']], functi
     Route::get('/set-interview-date','CompanyDashboardController@setInterviewDate');
 
     Route::post('/update-password','CompanyDashboardController@updatePassword');
+    Route::post('/update-account','CompanyDashboardController@updateAccount');
     Route::post('/update-profile','CompanyDashboardController@updateProfile');
 
     Route::get('/new-job','JobController@showCreateJobForm');
@@ -76,7 +77,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], fu
     Route::get('/profile','JobSeekerDashboardController@showProfile');
     Route::get('/applied-job','JobSeekerDashboardController@showAppliedJob');
     Route::get('/interview-room','JobSeekerDashboardController@showInterviewRoom');
-    Route::get('/password','JobSeekerDashboardController@showChangePassoword');
+    Route::get('/account-setting','JobSeekerDashboardController@showAccountSetting');
     Route::get('/cover-letter','JobSeekerDashboardController@showCoverLetter');
     Route::get('/job-alert','JobSeekerDashboardController@showJobNotify');
     Route::get('/resume','JobSeekerDashboardController@showResume');
@@ -84,6 +85,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], fu
     Route::get('/add-resume','JobSeekerDashboardController@showAddResumeForm');
 
     Route::post('/update-password','JobSeekerDashboardController@updatePassword');
+    Route::post('/update-account','JobSeekerDashboardController@updateAccount');
     Route::post('/update-profile','JobSeekerDashboardController@updateProfile');
     Route::post('/update-cover-letter','JobSeekerDashboardController@updateCoverLetter');
 

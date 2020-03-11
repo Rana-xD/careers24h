@@ -89,8 +89,8 @@ class JobSeekerDashboardController extends Controller
         return view('jobseeker.dashboard.Shortlist');
     }
 
-    public function showChangePassoword(){
-        return view('jobseeker.dashboard.ChangePassword');
+    public function showAccountSetting(){
+        return view('jobseeker.dashboard.AccountSetting');
     }
 
     public function updatePassword(Request $request){
@@ -117,6 +117,47 @@ class JobSeekerDashboardController extends Controller
         return response()->json([
             'code' => 200,
             'message' => "You have updated the password"
+        ]);
+    }
+
+    public function updateAccount(Request $request){
+        $username = $request->username;
+        $email = $request->email;
+        $phone_number = $request->phone_number;
+
+        if($username != Auth::user()->username){
+            $exist = User::where('username',$username)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That username is already taken"
+                ]);
+            }
+        }
+
+        if($email != Auth::user()->email){
+            $exist = User::where('email',$email)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That email is already taken"
+                ]);
+            }
+        }
+
+        if($phone_number != Auth::user()->phone_number){
+            $exist = User::where('phone_number',$phone_number)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That phone number is already taken"
+                ]);
+            }
+        }
+        User::find(Auth::user()->id)->update(['username' => $username, 'email' => $email,'phone_number' => $phone_number]);
+        return response()->json([
+            'code' => 200,
+            'message' => "You have updated the account Info"
         ]);
     }
 

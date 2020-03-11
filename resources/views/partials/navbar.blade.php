@@ -153,7 +153,7 @@
 						{{-- <li><a href="/company/packages" title=""><i class="la la-user"></i>Packages</a></li> --}}
 						<li><a href="/company/new-job" title=""><i class="la la-file-text"></i>Post a New Job</a></li>
 						{{-- <li><a href="/company/job-alert" title=""><i class="la la-flash"></i>Job Alerts</a></li> --}}
-						<li><a href="/company/change-password" title=""><i class="la la-lock"></i>Change Password</a></li>
+						<li><a href="/company/account-setting" title=""><i class="la la-lock"></i>Account Setting</a></li>
 						<li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
 					</ul>
 				</div>
@@ -169,7 +169,7 @@
                         <li><a href="/jobseeker/interview-room" title=""><i class="la la-video-camera"></i>Interview Room</a></li>
 					    {{-- <li><a href="/jobseeker/job-notify" title=""><i class="la la-user"></i>Job Alerts</a></li> --}}
 						<li><a href="/jobseeker/cover-letter" title=""><i class="la la-file-text"></i>Cover Letter & Video CV</a></li>
-						<li><a href="/jobseeker/password" title=""><i class="la la-flash"></i>Change Password</a></li>
+						<li><a href="/jobseeker/account-setting" title=""><i class="la la-lock"></i>Account Setting</a></li>
 						<li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
 					</ul>
 				</div>

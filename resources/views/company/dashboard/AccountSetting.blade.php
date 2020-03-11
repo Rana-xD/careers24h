@@ -17,6 +17,31 @@
 					@include('partials.company_sidebar')
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
+							<div class="manage-jobs-sec">
+								<h3>Account</h3>
+								<div class="change-password">
+									<form id="companyUpdateUserAccount" action="/company/update-account" method="POST">
+										@csrf
+										<div class="row">
+											<div class="col-lg-10">
+												<span class="pf-title">Username</span>
+												<div class="pf-field">
+													<input type="text" name="username" value="{{ Auth::user()->username }}"/>
+												</div>
+												<span class="pf-title">Email</span>
+												<div class="pf-field">
+													<input type="text" name="email" value="{{ Auth::user()->email }}"/>
+												</div>
+												<span class="pf-title">Phone Number</span>
+												<div class="pf-field">
+													<input type="text" name="phone_number" value="{{ Auth::user()->phone_number }}"/>
+												</div>
+												<button type="submit">Update</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 					 		<div class="manage-jobs-sec">
 					 			<h3>Change Password</h3>
 						 		<div class="change-password">
@@ -60,7 +85,8 @@
 </body>
 <script>
 	jQuery(document).ready(function($){
-		$('#companyUpdatePassword').on('submit',CAREER24H.company.changePassword);
+		$('#companyUpdatePassword').on('submit',CAREER24H.company.handleChangePassword);
+		$('#companyUpdateUserAccount').on('submit',CAREER24H.company.handleUpdateUserAccount);
 	});
 </script>
 </html>

@@ -11,7 +11,7 @@
                {{-- <li><a href="/company/packages" title=""><i class="la la-user"></i>Packages</a></li> --}}
                <li><a href="/company/new-job" title=""><i class="la la-file-text"></i>Post a New Job</a></li>
                {{-- <li><a href="/company/job-alert" title=""><i class="la la-flash"></i>Job Alerts</a></li> --}}
-               <li><a href="/company/change-password" title=""><i class="la la-lock"></i>Change Password</a></li>
+               <li><a href="/company/account-setting" title=""><i class="la la-lock"></i>Account Setting</a></li>
                <li><a href="/logout" title=""><i class="la la-unlink"></i>Logout</a></li>
             </ul>
         </div>

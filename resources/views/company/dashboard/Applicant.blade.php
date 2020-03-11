@@ -32,11 +32,8 @@
 												<h3><a href="/candidate/profile/{{$applicant->jobseekerProfile->uuid}}" target="_blank">{{ $applicant->jobseekerProfile->full_name }}</a></h3>
 												   <p style="color: {{ App\Models\JobUser::find($applicant->pivot->id)->getCSS() }}">{{ $applicant->pivot->status}}</p>
 												   @if (!empty($applicant->pivot->interview_date))
-												   <p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
+												   		<p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
 												   @endif
-												   {{-- @if (!empty($applicant->pivot->is_online))
-												  <p style="color: #fb236a"><a href="/interview_room/{{$applicant->pivot->room_name}}" target="_blank">Join Room</a></p>
-												   @endif --}}
 												   <p style="color: #fb236a">{{ $applicant->pivot->is_online ? 'Online' : 'Offline'  }}</p>
 												   
 										</div>

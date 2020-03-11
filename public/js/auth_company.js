@@ -5,7 +5,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
 (function ($) {
   var func = CAREER24H.company;
 
-  func.changePassword = function (e) {
+  func.handleChangePassword = function (e) {
     e.preventDefault();
     self = $(e.target);
     actionUrl = $(self).attr('action');
@@ -21,6 +21,41 @@ if (!CAREER24H.company) CAREER24H.company = {};
           timer: 2500,
           showCancelButton: false,
           showConfirmButton: false
+        });
+      } else {
+        swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: response.message,
+          timer: 2500,
+          showCancelButton: false,
+          showConfirmButton: false
+        });
+      }
+    }, function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    })["catch"](function (error) {
+      CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    });
+  };
+
+  func.handleUpdateUserAccount = function (e) {
+    e.preventDefault();
+    self = $(e.target);
+    actionUrl = $(self).attr('action');
+    formData = new FormData(self.get(0));
+    var promise = CAREER24H.main.formSubmitPromise(actionUrl, formData);
+    promise.then(function (response) {
+      if (response.code == 200) {
+        swal.fire({
+          icon: 'success',
+          title: 'Done',
+          text: response.message,
+          timer: 2500,
+          showCancelButton: false,
+          showConfirmButton: false
+        }).then(function (data) {
+          location.reload(true);
         });
       } else {
         swal.fire({
@@ -548,6 +583,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
       'interview_date': interviewDate
     };
     var url = '/company/set-interview-date';
+    CAREER24H.utils.activateSpinner();
     var promise = CAREER24H.main.getRequestPromise(url, formData);
     promise.then(function (response) {
       if (response.code == 200) {

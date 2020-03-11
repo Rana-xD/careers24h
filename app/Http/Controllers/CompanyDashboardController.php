@@ -46,8 +46,8 @@ class CompanyDashboardController extends Controller
         ]);
     }
 
-    public function showChangePassword(){
-        return view('company.dashboard.ChangePassword');
+    public function showAccountSetting(){
+        return view('company.dashboard.AccountSetting');
     }
 
     public function showJobAlert(){
@@ -164,7 +164,8 @@ class CompanyDashboardController extends Controller
 
     public function setInterviewDate(Request $request){
         $data = $request->except('id');
-        if($data['is_online']){
+        $room = JobUser::find($request->id);
+        if($data['is_online'] && empty($room->room_name)){
             $room_name = Str::random(8);
             $client = new Client($this->sid, $this->token);
             $exists = $client->video->rooms->read([ 'uniqueName' => $room_name]);
@@ -178,12 +179,13 @@ class CompanyDashboardController extends Controller
                 $data['room_name'] = $room_name;
              }
             
+            
         }
         JobUser::find($request->id)->update($data);
         return response()->json([
             'code' => 200,
             'message' => "Success",
-            'data' => $data
+            'data' => $room
         ]);
     }
     public function updatePassword(Request $request){
@@ -213,6 +215,47 @@ class CompanyDashboardController extends Controller
             'message' => "You have updated the password"
         ]);
         
+    }
+
+    public function updateAccount(Request $request){
+        $username = $request->username;
+        $email = $request->email;
+        $phone_number = $request->phone_number;
+
+        if($username != Auth::user()->username){
+            $exist = User::where('username',$username)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That username is already taken"
+                ]);
+            }
+        }
+
+        if($email != Auth::user()->email){
+            $exist = User::where('email',$email)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That email is already taken"
+                ]);
+            }
+        }
+
+        if($phone_number != Auth::user()->phone_number){
+            $exist = User::where('phone_number',$phone_number)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That phone number is already taken"
+                ]);
+            }
+        }
+        User::find(Auth::user()->id)->update(['username' => $username, 'email' => $email,'phone_number' => $phone_number]);
+        return response()->json([
+            'code' => 200,
+            'message' => "You have updated the account Info"
+        ]);
     }
 
     public function updateProfile(Request $request){
