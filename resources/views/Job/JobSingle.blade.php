@@ -104,7 +104,7 @@
 								@endif
 			 				</div>
 			 				<a id="applyJob" class="apply-job-linkedin"><i class="la la-paper-plane"></i>Apply for job</a>
-			 				<a href="#" title="" class="viewall-jobs">View all Jobs</a>
+							<a href="/job/company/{{$job->companyProfile->uuid}}" title="" class="viewall-jobs">View all Jobs</a>
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>

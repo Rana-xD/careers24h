@@ -1586,6 +1586,8 @@ input[type=number] {
     margin: 9px 0;
     text-align: center;
 }
+
+
 .ft.fill {
     background: #8b91dd;
 }
@@ -1637,6 +1639,7 @@ input[type=number] {
     color: #ee9c18;
     border-color: #ee9c18;
 }
+
 
 .job-listing:hover {
     border-left-color: #8b91dd;

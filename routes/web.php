@@ -12,7 +12,7 @@ use App\Models\Job;
 */
 
 Route::get('/', function () {
-    $jobs = Job::all();
+    $jobs = Job::where('is_active',1)->get();
     return view('Home.home',[
         'jobs' => $jobs
     ]);
@@ -32,6 +32,7 @@ Route::post('/signup_with_profile','AuthenticationController@signupWithProfile')
 Route::get('/jobs','JobController@showJobs');
 Route::get('/jobs/filter','JobController@filterJob');
 Route::get('/job/{uuid}','JobController@showSingleJob');
+Route::get('/job/company/{uuid}','JobController@showAllCompanyJob');
 Route::get('/apply-job','JobController@applyJob');
 
 /* Candidate Route*/

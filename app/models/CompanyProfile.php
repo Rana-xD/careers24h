@@ -33,5 +33,9 @@ class CompanyProfile extends Model
        return $this->hasMany('App\Models\Job','company_id');
    }
 
+   public function activeJobs(){
+    return $this->hasMany('App\Models\Job','company_id')->where('is_active',1);
+   }
+
    
 }

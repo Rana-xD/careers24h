@@ -63,6 +63,31 @@ class Job extends Model
         }
     }
 
+    public function getColorCode(){
+        switch($this->working_term){
+            case 'Full Time':
+                return '#8b91dd';
+            break;
+            case 'Part Time':
+                return '#7dc246';
+            break;
+            case 'Internship':
+                return '#ee9c18';
+            break;
+            case 'Freelance':
+                return '#fb236a';
+            break;
+            case 'Temporary':
+                return '#2c3e50';
+            break;
+            case 'Volunteer':
+                return '#8e44ad';
+            break;
+            default:
+                return '#8b91dd';
+        }
+    }
+
 
     public function companyName(){
         return $this->companyProfile->name;

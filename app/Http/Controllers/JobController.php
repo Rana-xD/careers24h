@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Job;
 use App\Models\JobUser;
+use App\Models\CompanyProfile;
 
 class JobController extends Controller
 {
@@ -128,6 +129,12 @@ class JobController extends Controller
         $job = Job::where('uuid',$uuid)->firstOrFail();
         return view('Job.JobSingle',[
             'job' => $job
+        ]);
+    }
+    public function showAllCompanyJob($uuid){
+        $jobs = CompanyProfile::where('uuid',$uuid)->get()[0]->activeJobs;
+        return view('Job.JobListCompany',[
+            'jobs' => $jobs
         ]);
     }
 
