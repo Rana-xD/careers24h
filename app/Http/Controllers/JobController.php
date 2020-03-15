@@ -132,7 +132,11 @@ class JobController extends Controller
         ]);
     }
     public function showAllCompanyJob($uuid){
-        $jobs = CompanyProfile::where('uuid',$uuid)->get()[0]->activeJobs;
+        $company = CompanyProfile::where('uuid',$uuid)->get();
+        if(count($company) == 0){
+            abort (404);
+        }
+        $jobs = $company[0]->activeJobs;
         return view('Job.JobListCompany',[
             'jobs' => $jobs
         ]);
