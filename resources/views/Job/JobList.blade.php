@@ -160,9 +160,6 @@
 
 </div>
 
-
-filterJob
-
 @include('partials.footer_script')
 
 </body>
