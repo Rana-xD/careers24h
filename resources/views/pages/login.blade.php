@@ -21,7 +21,7 @@
 													@endif
 												@csrf
 												<div class="cfield">
-													<input type="email" placeholder="Email" name="email" required/>
+													<input type="text" placeholder="Email or Username" name="login" required/>
 													<i class="la la-user"></i>
 												</div>
 												<div class="cfield">
@@ -29,7 +29,7 @@
 													<i class="la la-key"></i>
 												</div>
 												<p class="remember-label">
-													<input type="checkbox" name="cb" id="cb1"><label class="labels" for="cb1">Remember me</label>
+													<input type="checkbox" name="remember" id="cb1"><label class="labels" for="cb1">Remember me</label>
 												</p>
 												<a href="#" title="">Forgot Password?</a>
 												<button type="submit">Login</button>

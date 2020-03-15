@@ -51,7 +51,7 @@ class Job extends Model
             case 'Freelance':
                 return 'fl';
             break;
-            case 'Tempoaray':
+            case 'Temporary':
                 return 'tp';
             break;
             case 'Volunteer':
@@ -65,7 +65,9 @@ class Job extends Model
     public function companyName(){
         return $this->companyProfile->name;
     }
-
+    public function companyLogo(){
+        return $this->companyProfile->company_logo;
+    }
     public function companyAddress(){
         return $this->companyProfile->address;
     }

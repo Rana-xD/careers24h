@@ -321,4 +321,51 @@ if(!CAREER24H.main) CAREER24H.main = {};
             });
     }
 
+
+    func.handleFillerJob = function(e){
+        let filter = '/jobs/filter?'
+        
+        let jobTitle = $('#job_title').val();
+        let city = $('.chosen-city').val();
+        let jobType = $("input[name='job_type[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let categories = $("input[name='categories[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let careerLevel = $("input[name='career_level[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let educationLevel = $("input[name='qualification[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let gender = $('input[name="gender"]:checked').val();
+        
+        if(jobTitle != ''){
+            filter = `${filter}job_title=${jobTitle}&`;
+        }
+        if(city !=''){
+            filter = `${filter}city=${city}&`;
+        }
+        if(jobType.length > 0){
+            filter = `${filter}job_type=${jobType}&`;
+        }
+        if(categories.length > 0){
+            filter = `${filter}categories=${categories}&`;
+        }
+        if(careerLevel.length > 0){
+            filter = `${filter}career_level=${careerLevel}&`;
+        }
+        if(gender != undefined){
+            filter = `${filter}gender=${gender}&`;
+        }
+        if(educationLevel.length > 0){
+            filter = `${filter}qualification=${educationLevel}&`;
+        }
+
+        
+        window.location = filter.replace(/ /g, '%20');
+        // swal.fire(filter);
+    }
+
 })(jQuery);

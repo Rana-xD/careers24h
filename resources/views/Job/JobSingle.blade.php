@@ -77,6 +77,7 @@
 										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $item->city }}, Cambodia</div>
 									   </div>
 									   <div class="job-style-bx">
+											<span>{{$job->offer_salary}}</span>
 									   		<span class="job-is {{ $item->getJobTypeCSSClass() }} ">{{ $item->working_term }}</span>
 										   <i>{{ $item->created_at->diffForHumans() }}</i>
 									   </div>

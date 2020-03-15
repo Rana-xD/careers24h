@@ -29,6 +29,8 @@ Route::get('/signup_without_profile','AuthenticationController@signupWithoutProf
 Route::post('/signup_with_profile','AuthenticationController@signupWithProfile');
 
 /* JobController */
+Route::get('/jobs','JobController@showJobs');
+Route::get('/jobs/filter','JobController@filterJob');
 Route::get('/job/{uuid}','JobController@showSingleJob');
 Route::get('/apply-job','JobController@applyJob');
 

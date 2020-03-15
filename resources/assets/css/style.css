@@ -1506,6 +1506,12 @@ input[type=number] {
     vertical-align: middle;
     width: 60%;
 }
+
+.job-title-sec-home {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 .c-logo {
     float: left;
     width: 130px;
@@ -1590,10 +1596,10 @@ input[type=number] {
     background: #fb236a;
 }
 .fill.tp {
-    background: #26ae61;
+    background: #2c3e50;
 }
 .fill.vl {
-    background: #eeea18;
+    background: #8e44ad;
 }
 .fill.it{
     background: #ee9c18;
@@ -1616,14 +1622,14 @@ input[type=number] {
 }
 .job-is.tp,
 .job-list-modern .job-is.tp{
-    color: #26ae61;
-    border-color: #26ae61;
+    color: #2c3e50;
+    border-color: #2c3e50;
 }
 
 .job-is.vl,
 .job-list-modern .job-is.vl{
-    color: #eeea18;
-    border-color: #eeea18;
+    color: #8e44ad;
+    border-color: #8e44ad;
 }
 
 .job-is.it,
@@ -3758,6 +3764,15 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
     right: 0px;
     bottom: 0;
     padding: 15px;
+}
+.job-style-bx > span {
+    color: #e74c3c;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.salary {
+    color: #e74c3c;
+    font-weight: bold;
 }
 .job-style-bx .fav-job {
     font-size: 20px;
@@ -11866,7 +11881,9 @@ footer.ft .scrollup {
   .spinner-loading {
     overflow: hidden !important;
   }
-
+  .hidden {
+    display: none;
+  }
 
 /* Cross Browser Compatibility */
 header,

@@ -36,9 +36,13 @@ class AuthenticationController extends Controller
     }
 
     public function login(Request $request){
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        
+        $remember = $request->remember;
+        
+        if (Auth::attempt(['username' => $request->login,'password' => $request->password],$remember)) {
             // Authentication passed...
+            return redirect('/');
+        }elseif (Auth::attempt(['email' => $request->login,'password' => $request->password],$remember)){
             return redirect('/');
         }
         return back()->with('message','Incorrect Credentials ');

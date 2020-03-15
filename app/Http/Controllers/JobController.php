@@ -23,7 +23,43 @@ class JobController extends Controller
         $this->career_level = config('global.career_level');
         $this->city = config('global.city');
     }
+    public function showJobs(Job $job){
+        $jobs = $job->where('is_active',1)->orderBy('created_at','desc')->paginate(15);
+        return view('Job.JobList',[
+            'jobs' => $jobs
+        ]);
+    }
 
+    public function filterJob(Request $request, Job $job){
+        $job = $job->newQuery();
+        if($request->has('job_title')){
+            $job->where('job_title', $request->input('job_title'));
+        }
+        if($request->has('city')){
+            $job->where('city', $request->input('city'));
+        }
+        if($request->has('job_type')){
+            $job->whereIn('working_term', explode(',', $request->input('job_type')));
+        }
+        if($request->has('categories')){
+            $job->whereIn('category', explode(',', $request->input('categories')));
+        }
+        if($request->has('career_level')){
+            $job->whereIn('career_level', explode(',', $request->input('career_level')));
+        }
+        if($request->has('gender') && $request->input('gender') != 'Both'){
+            $job->where('gender', $request->input('gender'));
+        }
+        if($request->has('qualification')){
+            $job->whereIn('qualification', explode(',', $request->input('qualification')));
+        }
+
+        $jobs = $job->where('is_active',1)->orderBy('created_at','desc')->paginate(15);
+        return view('Job.JobList',[
+            'jobs' => $jobs
+        ]);
+
+    }
     public function showCreateJobForm(){
         
         

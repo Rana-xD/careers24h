@@ -134,7 +134,7 @@
 					 						<div class="pf-field">
 											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
 													<option value=""></option> 
-													@foreach (config('global.team_size') as $item)
+													@foreach (config('global.city') as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
 												   @endforeach
 												</select>

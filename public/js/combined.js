@@ -348,4 +348,53 @@ if (!CAREER24H.main) CAREER24H.main = {};
       CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
     });
   };
+
+  func.handleFillerJob = function (e) {
+    var filter = '/jobs/filter?';
+    var jobTitle = $('#job_title').val();
+    var city = $('.chosen-city').val();
+    var jobType = $("input[name='job_type[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var categories = $("input[name='categories[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var careerLevel = $("input[name='career_level[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var educationLevel = $("input[name='qualification[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var gender = $('input[name="gender"]:checked').val();
+
+    if (jobTitle != '') {
+      filter = "".concat(filter, "job_title=").concat(jobTitle, "&");
+    }
+
+    if (city != '') {
+      filter = "".concat(filter, "city=").concat(city, "&");
+    }
+
+    if (jobType.length > 0) {
+      filter = "".concat(filter, "job_type=").concat(jobType, "&");
+    }
+
+    if (categories.length > 0) {
+      filter = "".concat(filter, "categories=").concat(categories, "&");
+    }
+
+    if (careerLevel.length > 0) {
+      filter = "".concat(filter, "career_level=").concat(careerLevel, "&");
+    }
+
+    if (gender != undefined) {
+      filter = "".concat(filter, "gender=").concat(gender, "&");
+    }
+
+    if (educationLevel.length > 0) {
+      filter = "".concat(filter, "qualification=").concat(educationLevel, "&");
+    }
+
+    window.location = filter.replace(/ /g, '%20'); // swal.fire(filter);
+  };
 })(jQuery);

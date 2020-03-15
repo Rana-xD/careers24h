@@ -196,7 +196,9 @@
 											<h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title  }}</a></h3>
 											<span>{{ $job->companyProfile->name }}</span>
 										</div>
+										{{-- <span class="job-lctn">{{$job->offer_salary}}</span> --}}
 										<span class="job-lctn"><i class="la la-map-marker"></i>{{ $job->city }}, Cambodia</span>
+										<span class="job-lctn salary">{{ $job->offer_salary }}</span>
 										<span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ $job->working_term }}</span>
 									</div><!-- Job -->
 							</div>
