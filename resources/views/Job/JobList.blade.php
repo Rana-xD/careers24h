@@ -63,9 +63,12 @@
 				 		<div class="widget border">
 				 			<h3 class="sb-title open">Job Type</h3>
 				 			<div class="type_widget">
-								@foreach (config('global.job_type') as $item)
-									<p class="flchek"><input type="checkbox" name="job_type[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{$item}}</label></p>
-								@endforeach
+								<p class="ftchek"><input type="checkbox" name="job_type[]" id="Full Time" value="Full Time"><label class="labels" for="Full Time">Full Time</label></p>
+								<p class="ptchek"><input type="checkbox" name="job_type[]" id="Part Time" value="Part Time"><label class="labels" for="Part Time">Part Time</label></p>
+								<p class="itchek"><input type="checkbox" name="job_type[]" id="Internship" value="Internship"><label class="labels" for="Internship">Internship</label></p>
+								<p class="flchek"><input type="checkbox" name="job_type[]" id="Freelance" value="Freelance"><label class="labels" for="Freelance">Freelance</label></p>
+								<p class="tpchek"><input type="checkbox" name="job_type[]" id="Temporary" value="Temporary"><label class="labels" for="Temporary">Temporary</label></p>
+								<p class="vlchek"><input type="checkbox" name="job_type[]" id="Volunteer" value="Volunteer"><label class="labels" for="Volunteer">Volunteer</label></p>	
 				 			</div>
 				 		</div>
 				 		<div class="widget border">

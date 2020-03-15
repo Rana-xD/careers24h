@@ -4766,23 +4766,23 @@ aside .widget:first-child {
 .type_widget p label {
     padding-left: 31px;
 }
-.flchek label::before {
-    border-color: #fb236a !important;
-}
 .ftchek label::before {
     border-color: #8b91dd !important;
-}
-.ischek label::before {
-    border-color: #f831e3 !important;
 }
 .ptchek label::before {
     border-color: #7dc246 !important;
 }
-.tpchek label::before {
-    border-color: #26ae61 !important;
+.flchek label::before {
+    border-color: #fb236a !important;
 }
-.vtchek label::before {
-    border-color: #18f0f8 !important;
+.tpchek label::before {
+    border-color: #2c3e50 !important;
+}
+.vlchek label::before {
+    border-color: #8e44ad !important;
+}
+.itchek label::before {
+    border-color: #ee9c18 !important;
 }
 .sb-title::after {
     position: absolute;

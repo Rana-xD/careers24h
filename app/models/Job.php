@@ -32,6 +32,7 @@ class Job extends Model
 
     ];
 
+    
 
     public function companyProfile(){
         return $this->belongsTo('App\Models\CompanyProfile','company_id');
@@ -61,6 +62,7 @@ class Job extends Model
                 return 'ft';
         }
     }
+
 
     public function companyName(){
         return $this->companyProfile->name;
