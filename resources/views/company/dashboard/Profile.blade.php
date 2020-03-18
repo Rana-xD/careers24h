@@ -133,7 +133,7 @@
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website" value="{{ $company_profile->website }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">City</span>
 					 						<div class="pf-field">
 											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
@@ -143,8 +143,19 @@
 												   @endforeach
 												</select>
 					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
+										 </div>
+										 <div class="col-lg-4">
+											<span class="pf-title">Industry</span>
+											<div class="pf-field">
+											<select data-placeholder="Please Select Your Industry" class="chosen" name="industry" id="industry">
+												   <option value=""></option> 
+												   @foreach ($industry as $item)
+													   <option value="{{ $item }}">{{ $item }}</option>
+												  @endforeach
+											   </select>
+											</div>
+										</div>
+					 					<div class="col-lg-5">
 					 						<span class="pf-title">Address</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address" value="{{ $company_profile->address }}"/>
@@ -169,9 +180,10 @@
 	jQuery(document).ready(function($){
 		let social_media = '<?php echo $company_profile->social_media ?>' ? JSON.parse('<?php echo $company_profile->social_media ?>') : '';
 		let info = `<?php echo $company_profile->info ?>`;
-		let city = '<?php echo $company_profile->city ?>'
-
-		CAREER24H.company.loadDataForCompanyProfile(social_media,info,city)
+		let city = '<?php echo $company_profile->city ?>';
+		let industry = '<?php echo $company_profile->industry ?>';
+		let team_size = '<?php echo $company_profile->team_size ?>';
+		CAREER24H.company.loadDataForCompanyProfile(social_media,info,city,industry,team_size);
 		$('#openFileInput').on('click',()=>{
 			$('#CompanyLogo').click();
 		})

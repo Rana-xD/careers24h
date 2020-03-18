@@ -37,7 +37,7 @@
                     
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#" title="">Company</a>
+                    <a href="/company" title="">Company</a>
                     
                 </li>
                 <li class="menu-item-has-children">
@@ -102,7 +102,7 @@
                         
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#" title="">Company</a>
+                        <a href="/company" title="">Company</a>
                         
                     </li>
                     <li class="menu-item-has-children">

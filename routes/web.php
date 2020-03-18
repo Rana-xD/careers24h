@@ -38,6 +38,8 @@ Route::get('/apply-job','JobController@applyJob');
 /* Candidate Route*/
 Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
 
+
+
 /*  InterviewRoom  */
 Route::get('/interview_room/{room_name}','InterviewRoomController@joinRoom')->middleware('auth');
 
@@ -111,3 +113,7 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], fu
 
 
 
+/* Company Route*/
+Route::get('/company','CompanyController@showAllCompany');
+Route::get('/company/filter','CompanyController@filterCompany');
+Route::get('/company/{uuid}','CompanyController@showSingleCompany');

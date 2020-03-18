@@ -133,6 +133,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
         email = $('#email').val(),
         website = $('#website').val(),
         city = $('#city').val(),
+        industry = $('#industry').val(),
         address = $('#address').val(),
         token = $("input[name='_token']").val();
 
@@ -158,6 +159,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
         formData.append('email',email);
         formData.append('website',website)
         formData.append('city',city);
+        formData.append('industry',industry);
         formData.append('address',address);
 
 
@@ -322,7 +324,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
     }
 
 
-    func.handleFillerJob = function(e){
+    func.handleFilterJob = function(e){
         let filter = '/jobs/filter?'
         
         let jobTitle = $('#job_title').val();
@@ -366,6 +368,40 @@ if(!CAREER24H.main) CAREER24H.main = {};
         
         window.location = filter.replace(/ /g, '%20');
         // swal.fire(filter);
+    }
+
+    func.handleFilterCompany = function(e){
+        let filter = '/company/filter?';
+        let companyName = $('#company_name').val();
+
+        if(companyName != ''){
+            filter = `${filter}company_name=${companyName}&`;
+        }
+        let city = $("input[name='city[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+
+        let industry = $("input[name='industry[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+
+        let teamSize = $("input[name='team_size[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+
+        if(city.length > 0){
+            filter = `${filter}city=${city}&`;
+        }
+
+        if(industry.length > 0){
+            filter = `${filter}industry=${industry}&`;
+        }
+
+        if(teamSize.length > 0){
+            filter = `${filter}team_size=${teamSize}&`;
+        }
+
+        window.location = filter.replace(/ /g, '%20');
     }
 
 })(jQuery);

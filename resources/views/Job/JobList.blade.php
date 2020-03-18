@@ -147,7 +147,9 @@
 								@endforeach
 							</div>
 							<div class="pagination">
-								{{ $jobs->links() }}
+								<ul>
+									{{ $jobs->links() }}
+								</ul>
 							</div><!-- Pagination -->
 						 </div>
 					 </div>
@@ -165,7 +167,7 @@
 </body>
 	<script>
 		jQuery(document).ready(function($){
-			$('#filterJob').on('click',CAREER24H.main.handleFillerJob);
+			$('#filterJob').on('click',CAREER24H.main.handleFilterJob);
 		});
 	</script>
 </html>

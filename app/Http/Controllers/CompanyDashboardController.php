@@ -29,6 +29,7 @@ class CompanyDashboardController extends Controller
     {
         $this->team_size = config('global.team_size');
         $this->city = config('global.city');
+        $this->industry = config('global.industry');
         $this->sid = config('services.twilio.sid');
         $this->token = config('services.twilio.token');
         $this->key = config('services.twilio.key');
@@ -42,6 +43,7 @@ class CompanyDashboardController extends Controller
         return view('company.dashboard.Profile',[
             'city' => $this->city,
             'team_size' => $this->team_size,
+            'industry' => $this->industry,
             'company_profile' => $company
         ]);
     }

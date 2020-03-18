@@ -105,6 +105,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
         email = $('#email').val(),
         website = $('#website').val(),
         city = $('#city').val(),
+        industry = $('#industry').val(),
         address = $('#address').val(),
         token = $("input[name='_token']").val();
 
@@ -128,8 +129,9 @@ if(!CAREER24H.company) CAREER24H.company = {};
         formData.append('social_media',social_media);
         formData.append('phone_number',phoneNumber);
         formData.append('email',email);
-        formData.append('website',website)
+        formData.append('website',website);
         formData.append('city',city);
+        formData.append('industry',industry);
         formData.append('address',address);
 
 
@@ -172,6 +174,14 @@ if(!CAREER24H.company) CAREER24H.company = {};
         if(arguments[2]){
             $('#city').val(arguments[2]);
             $('#city').trigger("chosen:updated");
+        }
+        if(arguments[3]){
+            $('#industry').val(arguments[3]);
+            $('#industry').trigger("chosen:updated");
+        } 
+        if(arguments[4]){
+            $('#team_size').val(arguments[4]);
+            $('#team_size').trigger("chosen:updated");
         } 
 
     }

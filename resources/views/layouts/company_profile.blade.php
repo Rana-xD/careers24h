@@ -129,7 +129,7 @@
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">City</span>
 					 						<div class="pf-field">
 											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
@@ -139,8 +139,19 @@
 												   @endforeach
 												</select>
 					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
+										 </div>
+										 <div class="col-lg-4">
+											<span class="pf-title">Industry</span>
+											<div class="pf-field">
+											<select data-placeholder="Please Select Your Industry" class="chosen" name="industry" id="industry">
+												   <option value=""></option> 
+												   @foreach (config('global.industry') as $item)
+													   <option value="{{ $item }}">{{ $item }}</option>
+												  @endforeach
+											   </select>
+											</div>
+										</div>
+					 					<div class="col-lg-5">
 					 						<span class="pf-title">Address</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address"/>

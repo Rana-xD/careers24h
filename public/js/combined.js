@@ -179,6 +179,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
         email = $('#email').val(),
         website = $('#website').val(),
         city = $('#city').val(),
+        industry = $('#industry').val(),
         address = $('#address').val(),
         token = $("input[name='_token']").val();
     var social_media = {
@@ -199,6 +200,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
     formData.append('email', email);
     formData.append('website', website);
     formData.append('city', city);
+    formData.append('industry', industry);
     formData.append('address', address);
     var fileInput = $('#CompanyLogo').prop('files');
 
@@ -349,7 +351,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
     });
   };
 
-  func.handleFillerJob = function (e) {
+  func.handleFilterJob = function (e) {
     var filter = '/jobs/filter?';
     var jobTitle = $('#job_title').val();
     var city = $('.chosen-city').val();
@@ -396,5 +398,38 @@ if (!CAREER24H.main) CAREER24H.main = {};
     }
 
     window.location = filter.replace(/ /g, '%20'); // swal.fire(filter);
+  };
+
+  func.handleFilterCompany = function (e) {
+    var filter = '/company/filter?';
+    var companyName = $('#company_name').val();
+
+    if (companyName != '') {
+      filter = "".concat(filter, "company_name=").concat(companyName, "&");
+    }
+
+    var city = $("input[name='city[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var industry = $("input[name='industry[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+    var teamSize = $("input[name='team_size[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
+
+    if (city.length > 0) {
+      filter = "".concat(filter, "city=").concat(city, "&");
+    }
+
+    if (industry.length > 0) {
+      filter = "".concat(filter, "industry=").concat(industry, "&");
+    }
+
+    if (teamSize.length > 0) {
+      filter = "".concat(filter, "team_size=").concat(teamSize, "&");
+    }
+
+    window.location = filter.replace(/ /g, '%20');
   };
 })(jQuery);

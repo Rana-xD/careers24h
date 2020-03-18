@@ -22,7 +22,8 @@ class CompanyProfile extends Model
         'info',
         'city',
         'user_id',
-        'uuid'
+        'uuid',
+        'industry'
     ];
 
    public function user(){
