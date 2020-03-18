@@ -148,13 +148,13 @@
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">Phone Number</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number"/>
+											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{$phone_number}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">Email</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email"/>
+											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{$email}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">

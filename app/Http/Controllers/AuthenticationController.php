@@ -60,7 +60,9 @@ class AuthenticationController extends Controller
             $profile = $user['role'] === 'COMPANY' ?  'https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_logo.jpg' : 'https://careers24h.s3-ap-southeast-1.amazonaws.com/defaul_profile.png';
             return view('pages.Profile',[
                 'profile' => $profile,
-                'role' => $user['role']
+                'role' => $user['role'],
+                'phone_number' => $user['phone_number'],
+                'email' => $user['email']
             ]);
         }
         return redirect('/signup');

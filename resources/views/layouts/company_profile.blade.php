@@ -114,13 +114,13 @@
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">Phone Number</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="093456101" name="phone_number" id="phone_number"/>
+											 <input type="text" placeholder="093456101" name="phone_number" id="phone_number" value="{{$phone_number}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">Email</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" name="email" id="email"/>
+											 <input type="text" placeholder="demo@jobhunt.com" name="email" id="email" value="{{$email}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
