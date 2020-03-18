@@ -34,7 +34,10 @@
 												   @if (!empty($applicant->pivot->interview_date))
 												   		<p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
 												   @endif
-												   <p style="color: #fb236a">{{ $applicant->pivot->is_online ? 'Online' : 'Offline'  }}</p>
+												   @if (!empty($applicant->pivot->interview_date))
+												   		<p style="color: #fb236a">{{ $applicant->pivot->is_online ? 'Online' : 'Offline'  }}</p>
+												   @endif
+												  
 												   
 										</div>
 										<div class="action-resume">
