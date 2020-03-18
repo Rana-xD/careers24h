@@ -432,4 +432,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
 
     window.location = filter.replace(/ /g, '%20');
   };
+
+  func.handleOpenSocailMediaLinkInNewTab = function (e) {
+    var self = e.target;
+    var url = $(self).attr('data-id');
+    window.open('https://' + url);
+  };
 })(jQuery);

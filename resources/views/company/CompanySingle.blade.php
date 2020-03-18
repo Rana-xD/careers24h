@@ -51,16 +51,16 @@
 				 					<div class="col-lg-2">
 				 						<div class="share-bar">
 											@if ($social_media->linkedin)
-												<a href="{{ $social_media->linkedin }}" title="" target="_blank" class="share-linkedin"><i class="la la-linkedin"></i></a>
+										 		<a class="share-linkedin social-media" data-id="{{$social_media->linkedin}}"><i class="la la-linkedin" data-id="{{$social_media->linkedin}}"></i></a>
 											@endif
 											@if ($social_media->facebook)
-												<a href="{{ $social_media->facebook }}" title="" target="_blank" class="share-fb"><i class="fa fa-facebook"></i></a>
+												<a class="share-fb social-media" data-id="{{$social_media->facebook}}"><i class="fa fa-facebook" data-id="{{$social_media->facebook}}"></i></a>
 											@endif
 											@if ($social_media->twitter)
-												<a href="{{ $social_media->twitter }}" title="" target="_blank" class="share-twitter"><i class="fa fa-twitter"></i></a>
+												<a class="share-twitter social-media" data-id="{{ $social_media->twitter }}"><i class="fa fa-twitter" data-id="{{ $social_media->twitter }}"></i></a>
 											@endif
 											@if ($social_media->instagram)
-												<a href="{{ $social_media->instagram }}" title="" target="_blank" class="share-instagram"><i class="fa fa-instagram"></i></a>
+												<a class="share-instagram social-media" data-id="{{ $social_media->instagram }}"><i class="fa fa-instagram" data-id="{{ $social_media->instagram }}"></i></a>
 											@endif
 							 			</div>
 								 		<div class="emply-btns">
@@ -128,5 +128,10 @@
 @include('partials.footer_script')
 
 </body>
+<script>
+	jQuery(document).ready(function($){
+		$('.social-media').on('click',CAREER24H.main.handleOpenSocailMediaLinkInNewTab);
+	});
+</script>
 </html>
 
