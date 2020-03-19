@@ -22,4 +22,38 @@ class JobSeekerController extends Controller
                 'social_media' => $social_media
             ]);
     }
+
+    public function showAllJobseekerInfo(JobseekerProfile $jobseekers){
+        $jobseekers = $jobseekers->orderBy('created_at','desc')->paginate(15);
+        return view('jobseeker.CandidateList',[
+            'jobseekers' => $jobseekers
+        ]);
+    }
+
+    public function filterJobseeker(Request $request, JobseekerProfile $jobseekers){
+        $jobseekers = $jobseekers->newQuery();
+        if($request->has('candidate_name')){
+            $jobseekers->where('full_name', $request->input('candidate_name'));
+        }
+        if($request->has('city')){
+            $jobseekers->whereIn('city', explode(',', $request->input('city')));
+        }
+        if($request->has('career_level')){
+            $jobseekers->whereIn('career_level', explode(',', $request->input('career_level')));
+        }
+        if($request->has('gender') && $request->input('gender') != 'Both'){
+            $jobseekers->where('gender', $request->input('gender'));
+        }
+        if($request->has('qualification')){
+            $jobseekers->whereIn('qualification', explode(',', $request->input('qualification')));
+        }
+        if($request->has('industry')){
+            $jobseekers->whereIn('industry', explode(',', $request->input('industry')));
+        }
+        $jobseekers = $jobseekers->orderBy('created_at','desc')->paginate(15);
+        return view('jobseeker.CandidateList',[
+            'jobseekers' => $jobseekers
+        ]);
+
+    }
 }

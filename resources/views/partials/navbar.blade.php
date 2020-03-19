@@ -41,7 +41,7 @@
                     
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#" title="">Candidates</a>
+                    <a href="/candidates" title="">Candidates</a>
                 </li>
             </ul>
         </div>
@@ -106,7 +106,7 @@
                         
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#" title="">Candidates</a>
+                        <a href="/candidates" title="">Candidates</a>
                     </li>
                 </ul>
             </nav><!-- Menus -->

@@ -35,8 +35,7 @@ Route::get('/job/{uuid}','JobController@showSingleJob');
 Route::get('/job/company/{uuid}','JobController@showAllCompanyJob');
 Route::get('/apply-job','JobController@applyJob');
 
-/* Candidate Route*/
-Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
+
 
 
 
@@ -117,3 +116,8 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], fu
 Route::get('/company','CompanyController@showAllCompany');
 Route::get('/company/filter','CompanyController@filterCompany');
 Route::get('/company/{uuid}','CompanyController@showSingleCompany');
+
+/* Candidate Route*/
+Route::get('/candidates','JobSeekerController@showAllJobseekerInfo');
+Route::get('/candidates/filter','JobSeekerController@filterJobseeker');
+Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');

@@ -404,6 +404,50 @@ if(!CAREER24H.main) CAREER24H.main = {};
         window.location = filter.replace(/ /g, '%20');
     }
 
+    func.handleFilterCandidate = function(e){
+        let filter = '/candidates/filter?';
+        let candiateName = $('#candidate_name').val();
+
+        if(candiateName != ''){
+            filter = `${filter}candidate_name=${candiateName}&`;
+        }
+        let industry = $("input[name='industry[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let careerLevel = $("input[name='career_level[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let educationLevel = $("input[name='qualification[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+        let gender = $('input[name="gender"]:checked').val();
+        let city = $("input[name='city[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
+
+        if(careerLevel.length > 0){
+            filter = `${filter}career_level=${careerLevel}&`;
+        }
+        if(gender != undefined){
+            filter = `${filter}gender=${gender}&`;
+        }
+        if(educationLevel.length > 0){
+            filter = `${filter}qualification=${educationLevel}&`;
+        }
+        if(city.length > 0){
+            filter = `${filter}city=${city}&`;
+        }
+        if(industry.length > 0){
+            filter = `${filter}industry=${industry}&`;
+        }
+
+        // console.log(filter);
+        window.location = filter.replace(/ /g, '%20');
+
+
+
+    }
+
     func.handleOpenSocailMediaLinkInNewTab = function(e){
         let self = e.target;
         let url = $(self).attr('data-id');
