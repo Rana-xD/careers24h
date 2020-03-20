@@ -87,6 +87,8 @@ Route::group(['prefix' => 'jobseeker', 'middleware' => ['auth','jobseeker']], fu
     Route::get('/resume','JobSeekerDashboardController@showResume');
     Route::get('/shortlist','JobSeekerDashboardController@showShortlist');
     Route::get('/add-resume','JobSeekerDashboardController@showAddResumeForm');
+    Route::get('/template/list','JobSeekerDashboardController@showAllTemplates');
+    Route::get('/template/{id}','JobSeekerDashboardController@showTemplatesDetails');
 
     Route::post('/update-password','JobSeekerDashboardController@updatePassword');
     Route::post('/update-account','JobSeekerDashboardController@updateAccount');

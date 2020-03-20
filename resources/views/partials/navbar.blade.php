@@ -79,6 +79,8 @@
 						<li><a href="/jobseeker/profile" title=""><i class="la la-file-text"></i>My Profile</a></li>
                         <li><a href="/jobseeker/resume" title=""><i class="la la-briefcase"></i>My Resume</a></li>
                         {{-- <li><a href="/jobseeker/add-resume" title=""><i class="la la-briefcase"></i>Add Resume</a></li> --}}
+                        <li><a href="/jobseeker/template/list" title=""><i class="la la-briefcase"></i>CV Templates</a></li>
+                        <li><a href="/jobseeker/add-resume" title=""><i class="la la-briefcase"></i>Add Resume</a></li>
 						<li><a href="/jobseeker/shortlist" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
                         <li><a href="/jobseeker/applied-job" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
                         <li><a href="/jobseeker/interview-room" title=""><i class="la la-video-camera"></i>Interview Room</a></li>

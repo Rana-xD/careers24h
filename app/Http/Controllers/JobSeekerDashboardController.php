@@ -12,6 +12,7 @@ use App\Models\JobseekerProfile;
 use App\Models\JobUser;
 use App\Models\Video;
 use FFMpeg;
+use App\Models\Templates;
 
 class JobSeekerDashboardController extends Controller
 {
@@ -464,6 +465,42 @@ class JobSeekerDashboardController extends Controller
         return response()->json([
             'code' => 200,
             'message' => 'Successfully delete apply job'
+        ]);
+    }
+
+    public function showTemplatesDetails($id, Request $request)
+    {
+        $userId = Auth::user()->id;
+        $existingTemplate = Templates::find($id);
+        $existingJobSeeker = JobseekerProfile::where("user_id", $userId)->first();
+        if (empty($existingJobSeeker)) {
+            return back()->with('message','Pleased Add More informations ');
+        }
+        if (empty($existingJobSeeker->skillset)) {
+            return back()->with('message','Pleased Add more information with skill set');
+        }
+        $existingTemplate = "$existingTemplate->templateDir";
+        return view($existingTemplate, [
+            "fullName" => $existingJobSeeker->full_name,
+            "gender" => $existingJobSeeker->gender,
+            "age" => $existingJobSeeker->age,
+            "educationLevel" => $existingJobSeeker->education_level,
+            "phoneNumber" => $existingJobSeeker->phone_number,
+            "email" => $existingJobSeeker->email,
+            "skillset" => $existingJobSeeker->skillset,
+            "summary" => $existingJobSeeker->cover_letter,
+            "education" => $existingJobSeeker->education,
+            "workExperience" => $existingJobSeeker->work_experience,
+            "achievement" => $existingJobSeeker->achievement,
+            "profileImageUrl" => $existingJobSeeker->user_profile,
+        ]);
+    }
+
+    public function showAllTemplates(Request $request)
+    {
+        $existingTemplates = Templates::all();
+        return view("Templates.CardTemplate", [
+            "templates" => $existingTemplates
         ]);
     }
 }
