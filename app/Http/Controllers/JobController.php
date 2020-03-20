@@ -34,7 +34,7 @@ class JobController extends Controller
     public function filterJob(Request $request, Job $job){
         $job = $job->newQuery();
         if($request->has('job_title')){
-            $job->where('job_title', $request->input('job_title'));
+            $job->whereRaw("MATCH (job_title) AGAINST ( ? IN BOOLEAN MODE)",$request->input('job_title'));
         }
         if($request->has('city')){
             $job->where('city', $request->input('city'));

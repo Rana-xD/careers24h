@@ -33,7 +33,7 @@ class JobSeekerController extends Controller
     public function filterJobseeker(Request $request, JobseekerProfile $jobseekers){
         $jobseekers = $jobseekers->newQuery();
         if($request->has('candidate_name')){
-            $jobseekers->where('full_name', $request->input('candidate_name'));
+            $jobseekers->whereRaw("MATCH (full_name) AGAINST ( ? IN BOOLEAN MODE)",$request->input('candidate_name'));
         }
         if($request->has('city')){
             $jobseekers->whereIn('city', explode(',', $request->input('city')));

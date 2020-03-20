@@ -30,7 +30,7 @@ class CompanyController extends Controller
     public function filterCompany(Request $request, CompanyProfile $companies){
         $companies = $companies->newQuery();
         if($request->has('company_name')){
-            $companies->where('name', $request->input('company_name'));
+            $companies->whereRaw("MATCH (name) AGAINST ( ? IN BOOLEAN MODE)",$request->input('company_name'));
         }
         if($request->has('city')){
             $companies->whereIn('city', explode(',', $request->input('city')));
