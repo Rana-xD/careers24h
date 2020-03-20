@@ -27,6 +27,10 @@ Route::get('/logout','AuthenticationController@logout');
 Route::get('/profile','AuthenticationController@showProfile');
 Route::get('/signup_without_profile','AuthenticationController@signupWithoutProfile');
 Route::post('/signup_with_profile','AuthenticationController@signupWithProfile');
+Route::get('/reset-password','AuthenticationController@resetPasswordByEmail');
+Route::post('/validate','AuthenticationController@validateEmail');
+Route::get('password/reset', 'AuthenticationController@showResetForm')->name('password.reset');
+Route::post('/reset-password/submit', 'AuthenticationController@submitResetPassword');
 
 /* JobController */
 Route::get('/jobs','JobController@showJobs');

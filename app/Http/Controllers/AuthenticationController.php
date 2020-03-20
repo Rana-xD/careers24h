@@ -144,4 +144,39 @@ class AuthenticationController extends Controller
             'url' => $url
         ]);
     }
+
+    public function resetPasswordByEmail()
+    {
+        return view("pages.ResetPassword");
+    }
+
+    public function validateEmail(Request $request)
+    {
+        $user = User::where('email', request()->input('emailAddress'))->first();
+        if (empty($user)) {
+            return redirect('/reset-password')->with('message', 'Email Does not existed');
+        }
+        $token = Str::random(8);
+        $user->sendPasswordResetNotification($token);
+        return redirect('/login')->with('message', 'Email Send Successfully');
+    }
+
+    public function showResetForm(Request $request)
+    {
+        return view("pages.ShowResetPasswordForm", [ "email" => $request->email ]);
+    }
+
+    public function submitResetPassword(Request $request)
+    {
+        $new_password = $request->new_password;
+        $confirm_password = $request->confirm_password;
+        $email = $request;
+        if($new_password != $confirm_password){
+            return redirect()->back()->with('message', 'Your confirm password does not match!!');
+        }
+        $user = User::where('email', $request->email)->first();
+        $user->password = Hash::make($new_password);
+        $user->save();
+        return redirect('/login')->with('message', 'Password Update Successfully');
+    }
 }
