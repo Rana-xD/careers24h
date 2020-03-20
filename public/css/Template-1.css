@@ -1,0 +1,136 @@
+.body {
+  background: white;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+page[size="A4"][layout="landscape"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+page[size="A3"] {
+  width: 29.7cm;
+  height: 42cm;
+}
+page[size="A3"][layout="landscape"] {
+  width: 42cm;
+  height: 29.7cm;  
+}
+page[size="A5"] {
+  width: 14.8cm;
+  height: 21cm;
+}
+page[size="A5"][layout="landscape"] {
+  width: 21cm;
+  height: 14.8cm;  
+}
+@media print {
+  .body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+.left {
+float: left;
+width: 290px;
+border: 1px solid grey;
+padding: 10px;
+box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+background-color: #25446f;
+color: white;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.left .name {
+float: left;
+width: 300px;
+padding: 0px;
+margin-left: 1px;
+}
+.left .title {
+float: left;
+width: 250px;
+padding: 0px;
+margin-left: 30px;
+margin-top: -5px;
+margin-bottom: 30px;
+font-size: 15px;
+}
+.left .subTitle {
+float: left;
+width: 220px;
+padding: 0px;
+margin-left: 30px;
+margin-top: -12px;
+font-size: 15px;
+margin-bottom: 15px;
+}
+
+.center {
+margin-left: 300px;
+margin-top: -200px;
+text-align: center;
+width: 500px;
+padding-top: 10px;
+color: grey;
+font-size: 15px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* resize images */
+.left img {
+  border-radius: 50%;
+  width: 70%;
+  height: auto;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.separator {
+display: flex;
+align-items: right;
+text-align: center;
+color: grey;
+font-size: 15px;
+}
+.separator::before, .separator::after {
+content: '';
+flex: 1;
+border-bottom: 1px solid grey;
+}
+.separator::before {
+margin-right: .25em;
+}
+.separator::after {
+margin-left: .25em;
+}
+.leftSide {
+display: flex;
+align-items: right;
+text-align: left;
+font-size: 15px;
+margin-top: 30px;
+color: grey;
+}
+table {
+text-align: center;
+color: grey;
+font-size: 15px;
+border-collapse: collapse;
+}
+table td {
+padding-top: 30px;
+
+}
+table .sideRight {
+text-align: left;
+padding-left: 50px;
+}

@@ -17,7 +17,7 @@
 											<h4>Welcom Back!</h4>
 												<form action="{{ url('/login') }}" method="post">
 													@if (session('message'))
-														<p style="color: red">Incorrect Email or Password</p>
+														<p style="color: red">{{ session('message') }}</p>
 													@endif
 												@csrf
 												<div class="cfield">
@@ -31,7 +31,7 @@
 												<p class="remember-label">
 													<input type="checkbox" name="remember" id="cb1"><label class="labels" for="cb1">Remember me</label>
 												</p>
-												<a href="#" title="">Forgot Password?</a>
+												<a href="/reset-password" title="">Forgot Password?</a>
 												<button type="submit">Login</button>
 											</form>
 											{{-- <div class="extra-login">
