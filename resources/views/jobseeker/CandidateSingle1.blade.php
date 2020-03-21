@@ -143,7 +143,8 @@
 							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{{ $candidate->career_level }}</span></li>
 										 	<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{ $candidate->industry }}</span></li>
 							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>{{ $candidate->experience }} Years</span></li>
-							 				<li><i class="la la-line-chart "></i><h3>Education</h3><span>{{ $candidate->education_level }}</span></li>
+											 <li><i class="la la-line-chart "></i><h3>Education</h3><span>{{ $candidate->education_level }}</span></li>
+											 <li><i class="la la-eye"></i><h3>Views </h3><span>{{$candidate->view_count}}</span></li>
 							 			</ul>
 							 		</div><!-- Job Overview -->
 						 		</div>

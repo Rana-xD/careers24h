@@ -15,10 +15,11 @@ class JobSeekerController extends Controller
 {
 
     public function showJobseekerInfo($uuid){
-            $candidate = JobseekerProfile::where('uuid',$uuid)->get();
-            $social_media = json_decode($candidate[0]->social_media);
+            $candidate = JobseekerProfile::where('uuid',$uuid)->firstOrFail();
+            $candidate->increment('view_count');
+            $social_media = json_decode($candidate->social_media);
             return view('jobseeker.CandidateSingle1',[
-                'candidate' => $candidate[0],
+                'candidate' => $candidate,
                 'social_media' => $social_media
             ]);
     }

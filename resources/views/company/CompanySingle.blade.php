@@ -39,12 +39,12 @@
 										 	<div class="job-thumb"> <img src="{{ $company->company_logo }}" width="120" height="95" alt="" /></div>
 							 				<div class="job-single-info3">
 							 					<h3>{{ $company->name }}</h3>
-							 					<span><i class="la la-map-marker"></i>{{ $company->city }}, Cambodia</span>
+							 					{{-- <span><i class="la la-map-marker"></i>{{ $company->city }}, Cambodia</span>
 							 					<ul class="tags-jobs">
 												 	<li><i class="la la-file-text"></i> Job: {{ count($company->activeJobs) }}</li>
-								 					{{-- <li><i class="la la-calendar-o"></i> Post Date: July 29, 2017</li>
-								 					<li><i class="la la-eye"></i> Views 5683</li> --}}
-								 				</ul>
+								 					<li><i class="la la-calendar-o"></i> Post Date: July 29, 2017</li>
+								 					<li><i class="la la-eye"></i> Views {{$company->view_count}}</li> 
+								 				</ul> --}}
 							 				</div>
 							 			</div><!-- Job Head -->
 				 					</div>
@@ -103,12 +103,12 @@
 							 			<div class="job-overview">
 								 			<h3>Company Information</h3>
 								 			<ul>
-								 				{{-- <li><i class="la la-eye"></i><h3>Viewed </h3><span>164</span></li> --}}
 												 <li><i class="la la-file-text"></i><h3>Posted Jobs</h3><span>{{count($company->activeJobs)}}</span></li>
 											 	<li><i class="la la-map"></i><h3>Locations</h3><span>{{$company->city}}, Cambodia</span></li>
 											 	<li><i class="la la-bars"></i><h3>Industry</h3><span>{{$company->industry}}</span></li>
 								 				<li><i class="la la-clock-o"></i><h3>Since</h3><span>{{$company->start_year}}</span></li>
-								 				<li><i class="la la-users"></i><h3>Team Size</h3><span>{{$company->team_size}}</span></li>
+												 <li><i class="la la-users"></i><h3>Team Size</h3><span>{{$company->team_size}}</span></li>
+												 <li><i class="la la-eye"></i><h3>Views </h3><span>{{$company->view_count}}</span></li>
 								 			</ul>
 								 		</div><!-- Job Overview -->
 							 		</div>

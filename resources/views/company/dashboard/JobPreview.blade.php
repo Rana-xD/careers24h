@@ -22,6 +22,7 @@
 									<li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
 									<li><i class="la la-money"></i> Monthly Salary : <span>{{ $job->offer_salary }}</span></li>
 									<li><i class="la la-calendar-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
+									<li><i class="la la-eye"></i> Views: {{$job->view_count}}</li> 
 				 				</ul>
 				 			</div><!-- Job Head -->
 				 			<div class="job-details">

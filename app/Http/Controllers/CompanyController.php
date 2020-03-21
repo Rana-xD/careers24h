@@ -15,14 +15,12 @@ class CompanyController extends Controller
     }
 
     public function showSingleCompany($uuid){
-        $company = CompanyProfile::where('uuid',$uuid)->get();
-        if(!count($company)){
-            abort (404);
-        }
-       $social_media = json_decode($company[0]->social_media);
-
+        $company = CompanyProfile::where('uuid',$uuid)->firstOrFail();
+        $company->increment('view_count');
+        $social_media = json_decode($company->social_media);
+        
         return view('company.CompanySingle',[
-            'company' =>  $company[0],
+            'company' =>  $company,
             'social_media' => $social_media
         ]);
     }

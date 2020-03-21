@@ -127,6 +127,7 @@ class JobController extends Controller
 
     public function showSingleJob($uuid){
         $job = Job::where('uuid',$uuid)->firstOrFail();
+        $job->increment('view_count');
         return view('Job.JobSingle',[
             'job' => $job
         ]);
