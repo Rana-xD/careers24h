@@ -223,14 +223,14 @@ $(document).on('ready', function () {
       $(".cand-extralink").removeClass("stick");
       $(".cand-extralink").addClass("");
     }
-  });
-  $(".responsivemenu .menu-item-has-children > a").on("click", function () {
-    $(this).parent().siblings().children("ul").slideUp();
-    $(this).parent().siblings().removeClass("active");
-    $(this).parent().children("ul").slideToggle();
-    $(this).parent().toggleClass("active");
-    return false;
-  });
+  }); // $(".responsivemenu .menu-item-has-children > a").on("click",function(){
+  //     $(this).parent().siblings().children("ul").slideUp();
+  //     $(this).parent().siblings().removeClass("active");
+  //     $(this).parent().children("ul").slideToggle();
+  //     $(this).parent().toggleClass("active");
+  //     return false;
+  // });
+
   $('.res-openmenu').on('click', function () {
     $('.responsive-header').addClass('active');
     $('.responsive-opensec').slideDown();
