@@ -73,7 +73,7 @@
 								<div class="job-listings-sec no-border">
 								   <div class="job-listing wtabs">
 									   <div class="job-title-sec">
-										   <div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
+										   <div class="c-logo"> <img src="{{$item->companyProfile->company_logo}}" width="98" height="51" alt="" /> </div>
 									   	   <h3><a href="/job/{{ $item->uuid }}" title="">{{ $item->job_title }}</a></h3>
 										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $item->city }}, Cambodia</div>
 									   </div>
@@ -90,9 +90,9 @@
 				 	</div>
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-			 				<div class="job-thumb"> <img src="http://placehold.it/124x124" alt="" /> </div>
+						 	<div class="job-thumb"> <a href="/company/{{$job->companyProfile->uuid}}"><img src="{{ $job->companyProfile->company_logo  }}"  width="124" height="128" alt="" /></a> </div>
 			 				<div class="job-head-info">
-							 	<h4>{{ $job->companyName()  }}</h4>
+							 	<h4><a href="/company/{{$job->companyProfile->uuid}}">{{ $job->companyName()  }}</a></h4>
 			 					<span>{{ $job->companyAddress() }}</span>
 							 	@if ($job->companyWebsite())
 									<p><i class="la la-unlink"></i> {{ $job->companyWebsite() }}</p> 

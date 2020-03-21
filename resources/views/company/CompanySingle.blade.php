@@ -36,15 +36,14 @@
 				 				<div class="row">
 				 					<div class="col-lg-10">
 				 						<div class="job-single-head3 emplye">
-										 	<div class="job-thumb"> <img src="{{ $company->company_logo }}" width="120" height="95" alt="" /></div>
+										 	<div class="job-thumb"> <img src="{{ $company->company_logo }}" width="124" height="128" alt="" /></div>
 							 				<div class="job-single-info3">
 							 					<h3>{{ $company->name }}</h3>
-							 					{{-- <span><i class="la la-map-marker"></i>{{ $company->city }}, Cambodia</span>
+							 					<span><i class="la la-link"></i>{{ $company->website }}</span>
 							 					<ul class="tags-jobs">
-												 	<li><i class="la la-file-text"></i> Job: {{ count($company->activeJobs) }}</li>
-								 					<li><i class="la la-calendar-o"></i> Post Date: July 29, 2017</li>
-								 					<li><i class="la la-eye"></i> Views {{$company->view_count}}</li> 
-								 				</ul> --}}
+												 	<li><i class="la la-phone"></i>{{ $company->phone_number }}</li>
+								 					<li><i class="la la-envelope-o"></i>{{ $company->email }}</li>
+								 				</ul>
 							 				</div>
 							 			</div><!-- Job Head -->
 				 					</div>
