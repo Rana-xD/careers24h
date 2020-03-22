@@ -1,7 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/cropper.min.js": "/js/cropper.min.js",
     "/js/libraries.js": "/js/libraries.js",
     "/js/bootstrap-datepicker.js": "/js/bootstrap-datepicker.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
@@ -32,7 +31,6 @@
     "/css/icons.css": "/css/icons.css",
     "/css/responsive.css": "/css/responsive.css",
     "/css/style.css": "/css/style.css",
-    "/css/cropper.min.css": "/css/cropper.min.css",
     "/js/combined.js": "/js/combined.js",
     "/js/auth_company.js": "/js/auth_company.js",
     "/js/auth_jobseeker.js": "/js/auth_jobseeker.js"

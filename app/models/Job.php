@@ -28,11 +28,12 @@ class Job extends Model
             'required_skill',
             'benefit',
             'city',
-            'is_active'
+            'is_active',
+            'work_day',
+            'work_time'
 
     ];
 
-    
 
     public function companyProfile(){
         return $this->belongsTo('App\Models\CompanyProfile','company_id');

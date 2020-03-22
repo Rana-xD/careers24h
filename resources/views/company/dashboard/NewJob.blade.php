@@ -125,7 +125,7 @@
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Application Deadline Date</span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="01-11-2020" class="form-control datepicker" name="deadline" id="deadline"/>
+					 							<input type="text" class="datepicker" name="deadline" id="deadline"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
@@ -134,11 +134,60 @@
 					 							<select data-placeholder="Please Select Options" class="chosen" name="city" id="city">
 													<option value=""></option>
 													@foreach ($city as $item)
-												 		<option value="{{ $item }}">{{ $item }}</option>
+														<option value="{{$item}}">{{$item}}</option>
 													@endforeach
 												</select>
 					 						</div>
-					 					</div> 
+										 </div> 
+										<div class="col-lg-3">
+											<span class="pf-title">Workday</span>
+												<div class="pf-field">
+												<select data-placeholder="From" class="chosen" name="work_day_from" id="work_day_from">
+													<option value=""></option>
+													<option value="Mon">Monday</option>
+													<option value="Tue">Tuesday</option>
+													<option value="Wed">Wednesday</option>
+													<option value="Thu">Thursday</option>
+													<option value="Fri">Friday</option>
+													<option value="Sat">Saturday</option>
+													<option value="Sun">Sunday</option>
+												</select>
+												
+												</div>	
+												
+										</div>
+										<div class="col-lg-3">
+											<span class="pf-title" style="text-indent: 100%;white-space: nowrap;overflow: hidden;">Workday </span>
+												<div class="pf-field">
+												<select data-placeholder="To" class="chosen" name="work_day_to" id="work_day_to">
+													<option value=""></option>
+													<option value="Mon">Monday</option>
+													<option value="Tue">Tuesday</option>
+													<option value="Wed">Wednesday</option>
+													<option value="Thu">Thursday</option>
+													<option value="Fri">Friday</option>
+													<option value="Sat">Saturday</option>
+													<option value="Sun">Sunday</option>
+												</select>
+												</div>	
+											
+										</div>
+										<div class="col-lg-3">
+											<span class="pf-title">Work Time</span>
+											<div class="pf-field">
+												<div class="pf-field">
+													<input type="text" placeholder="From" name="work_time_from" id="work_time_from"/>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-3">
+											<span class="pf-title" style="text-indent: 100%;white-space: nowrap;overflow: hidden;">Work Time</span>
+											<div class="pf-field">
+												<div class="pf-field">
+													<input type="text" placeholder="To" name="work_time_to" id="work_time_to"/>
+												</div>
+											</div>
+										</div>
 					 				</div>
 					 			</form>
 					 		</div>
@@ -186,13 +235,35 @@
 <!-- Include Date Range Picker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" integrity="sha256-jO7D3fIsAq+jB8Xt3NI5vBf3k4tvtHwzp8ISLQG4UWU=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" integrity="sha256-5YmaxAwMjIpMrVlK84Y/+NjCpKnFYa8bWWBbUHSBGfU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" integrity="sha256-yMjaV542P+q1RnH6XByCPDfUFhmOafWbeLPmqKh11zo=" crossorigin="anonymous" />
 <script>
 	jQuery(document).ready(function($){
-		$(function(){
+
+			CAREER24H.company.loadDefaultDataForWorkDayAndWorkTime();
+
 			$('.datepicker').datepicker({
-			    format: 'dd-mm-yyyy'
+				format: 'dd-mm-yyyy',
+				startDate: 'today'
 			});
-		});
+			$('#work_time_from').datetimepicker({
+				icons: {
+        			up: 'fa fa-angle-up',
+        			down: 'fa fa-angle-down',
+      			},	
+				format: 'LT',
+				locale: 'kh'
+			});
+			$('#work_time_to').datetimepicker({
+				icons: {
+        			up: 'fa fa-angle-up',
+        			down: 'fa fa-angle-down',
+      			},	
+				format: 'LT',
+				locale: 'kh'
+            });
+		
 		$('#specificGender').on('change',CAREER24H.company.toggleSpecificGender);
 		$('#createJob').on('click',CAREER24H.company.createJob);
 	});
