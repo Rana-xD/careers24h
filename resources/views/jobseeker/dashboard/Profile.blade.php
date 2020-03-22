@@ -31,7 +31,7 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-					 					<div class="col-lg-5">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">Full Name</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="Ali TUFAN" name="full_name" id="full_name" value="{{ $jobseeker_profile->full_name }}"/>
@@ -43,14 +43,19 @@
 											 <input type="text" placeholder="21" name="age" id="age" value="{{  $jobseeker_profile->age }}"/>
 					 						</div>
 										 </div>
-										 <div class="col-lg-4">
+										 <div class="col-lg-3">
 											<span class="pf-title">Gender</span>
 											<div class="pf-field">
 											<select data-placeholder="Allow In Search" class="chosen" name="gender" id="gender" value="{{ $jobseeker_profile->gender }}">
 													<option value="MALE">MALE</option>
 													<option value="FEMALE">FEMALE</option>
-													<option value="OTHER">OTHER</option>
 												</select>
+											</div>
+										</div>
+										<div class="col-lg-2">
+											<span class="pf-title">Visibility</span>
+											<div>
+											   <input type="checkbox" checked id="isPrivate" data-toggle="toggle" data-size="normal" data-on="Public" data-off="Private" data-onstyle="primary" data-offstyle="danger">
 											</div>
 										</div>
 					 					<div class="col-lg-6">
@@ -221,13 +226,14 @@
 		let careerLevel = '<?php echo $jobseeker_profile->career_level ?>';
 		let gender = '<?php echo $jobseeker_profile->gender ?>';
 		let city = '<?php echo $jobseeker_profile->city ?>';
+		let isPrivate = '<?php echo $jobseeker_profile->is_private ?>';
 		$('#openFileInput').on('click',()=>{
 			$('#JobseekerImage').click();
 		})
 
 		$('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
 		$('#jobseekerProfileUpdate').on('click',CAREER24H.jobseeker.updateJobseekerProfile);
-		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city);
+		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city,isPrivate);
 	});
 </script>
 </html>

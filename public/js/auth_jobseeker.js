@@ -105,6 +105,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         phone_number = $('#phone_number').val(),
         email = $('#email').val(),
         city = $('#city').val(),
+        isPrivate = $('#isPrivate')[0].checked ? 0 : 1,
         token = $("input[name='_token']").val();
     var social_media = {
       "facebook": facebook,
@@ -125,6 +126,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     formData.append('email', email);
     formData.append('phone_number', phone_number);
     formData.append('city', city);
+    formData.append('is_private', isPrivate);
     var fileInput = $('#JobseekerImage').prop('files');
 
     if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
@@ -186,6 +188,11 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     if (arguments[5]) {
       $('#city').val(arguments[5]);
       $('#city').trigger("chosen:updated");
+    }
+
+    if (parseInt(arguments[6])) {
+      $('#isPrivate').prop('checked', false);
+      $('#isPrivate').bootstrapToggle('off');
     }
   };
 
