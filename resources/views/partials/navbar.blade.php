@@ -8,7 +8,7 @@
 </div>
 <div class="responsive-header">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="index.html" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+        <div class="res-logo"><a href="/" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
         <div class="menu-resaction">
             <div class="res-openmenu">
                 <img src="images/icon.png" alt="" /> @lang('navbar.menu')
