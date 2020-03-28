@@ -40,7 +40,7 @@
                     <a href="/candidates" title="">@lang('navbar.candidate')</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="#" title=""><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
+                    <a><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
                     <ul style="width:85px">
                         <li><a href="/locale/en" title=""><img src="{{ asset('/images/united-states-of-america-flag.png') }}" width="35" height="23"/></a></li>
                         <li><a href="/locale/kh" title=""><img src="{{ asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a></li>
