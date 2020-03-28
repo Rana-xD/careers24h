@@ -3,7 +3,7 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="addEducationModal">Add Education</h5>
+		  <h5 class="modal-title" id="addEducationModal">@lang('my_resume.add_education')</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -12,31 +12,31 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
-						<span class="pf-title">Title</span>
+						<span class="pf-title">@lang('my_resume.title')</span>
 						<div class="pf-field">
 							<input placeholder="Tooms.." type="text" name="eduction_title" id="eduction_title">
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<span class="pf-title">From Date</span>
+						<span class="pf-title">@lang('my_resume.from_date')</span>
 						<div class="pf-field">
 							<input placeholder="06.11.2007" type="text" class="datepicker" name="education_from_date" id="education_from_date"> 
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<span class="pf-title">To Date</span>
+						<span class="pf-title">@lang('my_resume.to_date')</span>
 						<div class="pf-field">
 							<input placeholder="06.11.2012" type="text" class="datepicker" name="education_to_date" id="education_to_date">
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<span class="pf-title">School Name</span>
+						<span class="pf-title">@lang('my_resume.school_name')</span>
 						<div class="pf-field">
 							<input type="text" name="education_school_name" id="education_school_name">
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<span class="pf-title">Description</span>
+						<span class="pf-title">@lang('my_resume.description')</span>
 						<div class="pf-field">
 							<textarea name="education_description" id="education_description"></textarea>
 						</div>
@@ -45,8 +45,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" id="addEducation" class="btn btn-primary">Add</button>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('my_resume.close')</button>
+		  <button type="button" id="addEducation" class="btn btn-primary">@lang('my_resume.add')</button>
 		</div>
 	  </div>
 	</div>
@@ -57,7 +57,7 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="addWorkExperienceModal">Add Work Experience</h5>
+		  <h5 class="modal-title" id="addWorkExperienceModal">@lang('my_resume.add_work_experience')</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -66,37 +66,37 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
-						<span class="pf-title">Title</span>
+						<span class="pf-title">@lang('my_resume.title')</span>
 						<div class="pf-field">
 							<input placeholder="Tooms.." type="text" name="work_title" id="work_title">
 						</div>
 					</div>
 					<div class="col-lg-5">
-						<span class="pf-title">From Date</span>
+						<span class="pf-title">@lang('my_resume.from_date')</span>
 						<div class="pf-field">
 							<input placeholder="06.11.2007" type="text" class="datepicker" name="work_from_date" id="work_from_date">
 						</div>
 					</div>
 					<div class="col-lg-5">
-						<span class="pf-title work-to-date-div">To Date</span>
+						<span class="pf-title work-to-date-div">@lang('my_resume.to_date')</span>
 						<div class="pf-field work-to-date-div">
 							<input placeholder="06.11.2012" type="text" class="datepicker" name="work_to_date" id="work_to_date">
 						</div>
 					</div>
 					<div class="col-lg-2">
-					   <span class="pf-title">Now</span>
+					   <span class="pf-title">@lang('my_resume.now')</span>
 						<div>
 						  <input type="checkbox" id="work_present" data-toggle="toggle" data-size="normal" data-on=" " data-off=" " data-onstyle="primary" data-offstyle="danger">
 					   </div>
 					</div>
 					<div class="col-lg-12">
-						<span class="pf-title">Company</span>
+						<span class="pf-title">@lang('my_resume.company')</span>
 						<div class="pf-field">
 							<input type="text" name="work_company" id="work_company">
 						</div>
 					</div>
 					<div class="col-lg-12">
-						<span class="pf-title">Description</span>
+						<span class="pf-title">@lang('my_resume.description')</span>
 						<div class="pf-field">
 							<textarea name="work_description" id="work_description"></textarea>
 						</div>
@@ -105,8 +105,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" id="addWorkExperience" class="btn btn-primary">Add</button>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('my_resume.close')</button>
+		  <button type="button" id="addWorkExperience" class="btn btn-primary">@lang('my_resume.add')</button>
 		</div>
 	  </div>
 	</div>
@@ -117,7 +117,7 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="addSkillsetModal">Add Skillset</h5>
+		  <h5 class="modal-title" id="addSkillsetModal">@lang('my_resume.add_professional_skill')</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -126,13 +126,13 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-8">
-                        <span class="pf-title">Skill Heading</span>
+                        <span class="pf-title">@lang('my_resume.skill_heading')</span>
                         <div class="pf-field">
                             <input placeholder="" type="text" id="skill_name" name="skill_name">
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <span class="pf-title">Percentage</span>
+                        <span class="pf-title">@lang('my_resume.percentage')</span>
                         <div class="pf-field">
                             <input placeholder="" type="number" id="skill_percentage" name="skill_percentage">
                         </div>
@@ -141,8 +141,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" id="addSkillset" class="btn btn-primary">Add</button>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('my_resume.close')</button>
+		  <button type="button" id="addSkillset" class="btn btn-primary">@lang('my_resume.add')</button>
 		</div>
 	  </div>
 	</div>
@@ -153,7 +153,7 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title" id="addAchievementModal">Add Achievement</h5>
+		  <h5 class="modal-title" id="addAchievementModal">@lang('my_resume.add_achievement')</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -162,25 +162,25 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
-                        <span class="pf-title">Title</span>
+                        <span class="pf-title">@lang('my_resume.title')</span>
                         <div class="pf-field">
                             <input type="text" name="achievement_title" id="achievement_title">
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <span class="pf-title">From Date</span>
+                        <span class="pf-title">@lang('my_resume.from_date')</span>
                         <div class="pf-field">
                             <input placeholder="06.11.2007" type="text" class="datepicker" name="achievement_from_date" id="achievement_from_date">
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <span class="pf-title">To Date</span>
+                        <span class="pf-title">@lang('my_resume.to_date')</span>
                         <div class="pf-field">
                             <input placeholder="06.11.2012" type="text" class="datepicker" name="achievement_to_date" id="achievement_to_date">
                         </div>
                     </div>
                      <div class="col-lg-12">
-                         <span class="pf-title">Description</span>
+                         <span class="pf-title">@lang('my_resume.description')</span>
                          <div class="pf-field">
                              <textarea name="achievement_description" id="achievement_description"></textarea>
                          </div>
@@ -189,8 +189,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		  <button type="button" id="addAchievement" class="btn btn-primary">Add</button>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('my_resume.close')</button>
+		  <button type="button" id="addAchievement" class="btn btn-primary">@lang('my_resume.add')</button>
 		</div>
 	  </div>
 	</div>

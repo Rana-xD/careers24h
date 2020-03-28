@@ -127,3 +127,10 @@ Route::get('/company/{uuid}','CompanyController@showSingleCompany');
 Route::get('/candidates','JobSeekerController@showAllJobseekerInfo');
 Route::get('/candidates/filter','JobSeekerController@filterJobseeker');
 Route::get('/candidate/profile/{uuid}','JobSeekerController@showJobseekerInfo');
+
+
+/* Set Localization*/
+Route::get('locale/{locale}',function($locale){
+    session(['locale' => $locale]);
+    return redirect()->back();
+});

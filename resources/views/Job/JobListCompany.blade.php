@@ -37,7 +37,7 @@
 				 	<div class="col-lg-12">
 				 		
 				 		<div class="filterbar">
-				 			<h5>{{count($jobs)}} Jobs & Vacancies</h5>
+				 			<h5>{{count($jobs)}} @lang('job.job_vacancy')</h5>
 				 		</div>
 				 		<div class="job-grid-sec">
 							<div class="row">
@@ -48,9 +48,9 @@
 											<div class="c-logo"> <img src="{{$job->companyLogo()}}" alt="" width="235" height="115"/> </div>
 											<h3><a href="/job/{{ $job->uuid }}" title="">{{$job->job_title}}</a></h3>
 											<span>{{ $job->offer_salary }}</span>
-											<span  style="float: right;color: {{$job->getColorCode()}}">{{ $job->working_term }}</span>
+											<span  style="float: right;color: {{$job->getColorCode()}}">{{ __('job_type.'.$job->working_term) }}</span>
 										</div>
-										<span class="job-lctn">{{ $job->city }}, Cambodia</span>
+										<span class="job-lctn">{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
 									</div><!-- JOB Grid -->
 								</div>
 								@endforeach

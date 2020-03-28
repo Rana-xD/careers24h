@@ -73,11 +73,11 @@
 							 	<div class="row">
 							 		<div class="col-lg-8 column">		
 							 			<div class="job-details">
-										 	<h3>About {{$company->name}}</h3>
+										 	<h3>@lang('company.about') {{$company->name}}</h3>
 							 				{!! $company->info  !!}
 							 			</div>
 								 		<div class="recent-jobs">
-							 				<h3>Jobs from {{$company->name}}</h3>
+							 				<h3>@lang('company.job_from') {{$company->name}}</h3>
 							 				<div class="job-list-modern">
 											 	<div class="job-listings-sec no-border">
 													 @foreach ($company->activeJobs as $job)
@@ -85,11 +85,11 @@
 															<div class="job-title-sec">
 																<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
 																   <h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title }}</a></h3>
-																<div class="job-lctn"><i class="la la-map-marker"></i>{{ $job->city }}, Cambodia</div>
+																<div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</div>
 															</div>
 															<div class="job-style-bx">
 																 	<span>{{$job->offer_salary}}</span>
-																	<span class="job-is {{ $job->getJobTypeCSSClass() }} ">{{ $job->working_term }}</span>
+																	<span class="job-is {{ $job->getJobTypeCSSClass() }} ">{{ __('job_type.'.$job->working_term) }}</span>
 																	<i>{{ $job->created_at->diffForHumans() }}</i>
 															</div>
 														</div>
@@ -100,14 +100,14 @@
 							 		</div>
 							 		<div class="col-lg-4 column">
 							 			<div class="job-overview">
-								 			<h3>Company Information</h3>
+								 			<h3>@lang('company.company_information')</h3>
 								 			<ul>
-												 <li><i class="la la-file-text"></i><h3>Posted Jobs</h3><span>{{count($company->activeJobs)}}</span></li>
-											 	<li><i class="la la-map"></i><h3>Locations</h3><span>{{$company->city}}, Cambodia</span></li>
-											 	<li><i class="la la-bars"></i><h3>Industry</h3><span>{{$company->industry}}</span></li>
-								 				<li><i class="la la-clock-o"></i><h3>Since</h3><span>{{$company->start_year}}</span></li>
-												 <li><i class="la la-users"></i><h3>Team Size</h3><span>{{$company->team_size}}</span></li>
-												 <li><i class="la la-eye"></i><h3>Views </h3><span>{{$company->view_count}}</span></li>
+												 <li><i class="la la-file-text"></i><h3>@lang('company.post_job')</h3><span>{{count($company->activeJobs)}}</span></li>
+											 	<li><i class="la la-map"></i><h3>@lang('company.location')</h3><span>{{__('city.'.$company->city)}}, @lang('city.Cambodia')</span></li>
+											 	<li><i class="la la-bars"></i><h3>@lang('company.industry')</h3><span>{{$company->industry}}</span></li>
+								 				<li><i class="la la-clock-o"></i><h3>@lang('company.since')</h3><span>{{$company->start_year}}</span></li>
+												 <li><i class="la la-users"></i><h3>@lang('company.team_size')</h3><span>{{$company->team_size}}</span></li>
+												 <li><i class="la la-eye"></i><h3>@lang('company.view')</h3><span>{{$company->view_count}}</span></li>
 								 			</ul>
 								 		</div><!-- Job Overview -->
 							 		</div>

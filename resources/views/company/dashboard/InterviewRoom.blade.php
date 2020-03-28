@@ -18,7 +18,7 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 							<div class="emply-resume-sec">
-								<h3>Online</h3>
+								<h3>@lang('interview_room.online')</h3>
                             <div class="job-grid-sec">
                                 <div class="row">
 									@foreach ($jobs as $job)
@@ -31,11 +31,11 @@
 													<h3 style="text-align: center">{{ $item->jobSeekerProfile->full_name }}</h3>
 													<p style="color: #232323">{{ App\Models\JobUser::find($item->pivot->id)->job->job_title }}</p>
 													<p>{{ $item->pivot->interview_date }}</p>
-													<span><a class="resume__CV">Resume</a></span>
-													<span style="float: right"><a class="video__CV">Video CV</a></span>
+													<span><a class="resume__CV">@lang('interview_room.resume')</a></span>
+													<span style="float: right"><a class="video__CV">@lang('interview_room.video_cv')</a></span>
 													
 												</div>
-												<a  href="/interview_room/{{$item->pivot->room_name}}" target="_blank">Join Room</a>
+												<a  href="/interview_room/{{$item->pivot->room_name}}" target="_blank">@lang('interview_room.join_room')</a>
 											</div><!-- JOB Grid -->
 										</div>
 										@endforeach
@@ -48,7 +48,7 @@
 							</div>
 
 							<div class="emply-resume-sec">
-								<h3>Offline</h3>
+								<h3>@lang('interview_room.offline')</h3>
                             <div class="job-grid-sec">
                                 <div class="row">
 									@foreach ($jobs as $job)
@@ -61,8 +61,8 @@
 													<h3 style="text-align: center">{{ $item->jobSeekerProfile->full_name }}</h3>
 													<p style="color: #232323">{{ App\Models\JobUser::find($item->pivot->id)->job->job_title }}</p>
 													<p>{{ $item->pivot->interview_date }}</p>
-													<span><a class="resume__CV">Resume</a></span>
-													<span style="float: right"><a class="video__CV">Video CV</a></span>
+													<span><a class="resume__CV">@lang('interview_room.resume')</a></span>
+													<span style="float: right"><a class="video__CV">@lang('interview_room.video_cv')</a></span>
 												</div>
 											</div><!-- JOB Grid -->
 										</div>

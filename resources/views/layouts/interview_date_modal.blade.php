@@ -2,7 +2,7 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title w-100 text-center" id="interviewdateModal">Interview Date</h5>
+		  <h5 class="modal-title w-100 text-center" id="interviewdateModal">@lang('applicant.interview_date')</h5>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
@@ -16,7 +16,7 @@
                         <input type="hidden" id="datepicker_date" name="datepicker_date">
                     </div>
                     <div class="col-lg-12">
-                        <span class="pf-title">Online Interview</span>
+                        <span class="pf-title">@lang('applicant.online_interview')</span>
 						<div>
 						  <input type="checkbox" id="online-interview" data-toggle="toggle" data-size="normal" data-on=" " data-off=" " data-onstyle="primary" data-offstyle="danger">
 					   </div>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" id="setInterviewDate" class="btn btn-primary">Add</button>
+            <button type="button" id="setInterviewDate" class="btn btn-primary">@lang('applicant.add')</button>
           </div>
 	  </div>
 	</div>

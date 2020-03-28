@@ -31,7 +31,8 @@ class JobseekerProfile extends Model
         'achievement',
         'work_experience',
         'user_id',
-        'uuid'
+        'uuid',
+        'is_private'
     ];
 
     public function user(){

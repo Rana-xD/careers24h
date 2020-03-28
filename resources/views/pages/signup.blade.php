@@ -15,8 +15,7 @@
 					<div class="col-lg-12">
 						<div class="account-popup-area signup-popup-box static">
 							<div class="account-popup">
-								<h3>Sign Up</h3>
-								<span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
+								<h3>@lang('signup.sign_up')</h3>
 								{{-- <div class="select-user">
 									<span>Company</span>
 									<span>Job Seeker</span>
@@ -24,7 +23,7 @@
 								<form action="/signup" method="POST">
 									@csrf
 									<div class="cfield">
-										<input type="text" placeholder="Username" name="username" value="{{ old('username') }}"/>
+										<input type="text" placeholder="@lang('signup.username')" name="username" value="{{ old('username') }}"/>
 										<i class="la la-user"></i>
 									</div>
 									@if($errors->has('email'))
@@ -33,7 +32,7 @@
 											</span>
 									@endif			
 									<div class="cfield">
-										<input type="password" placeholder="password" name="password" value="{{ old('password') }}"/>
+										<input type="password" placeholder="@lang('signup.password')" name="password" value="{{ old('password') }}"/>
 										<i class="la la-key"></i>
 									</div>
 									@if($errors->has('password'))
@@ -42,7 +41,7 @@
 										</span>
 									@endif
 									<div class="cfield">
-										<input type="text" placeholder="Email" name="email" value="{{ old('email') }}"/>
+										<input type="text" placeholder="@lang('signup.email')" name="email" value="{{ old('email') }}"/>
 										<i class="la la-envelope-o"></i>
 									</div>
 									@if($errors->has('email'))
@@ -51,7 +50,7 @@
 										</span>
 									@endif
 									<div class="cfield">
-										<input type="text" placeholder="Phone Number" name="phone_number" value="{{ old('phonenumber') }}"/>
+										<input type="text" placeholder="@lang('signup.phone_number')" name="phone_number" value="{{ old('phonenumber') }}"/>
 										<i class="la la-phone"></i>
 									</div>
 									@if($errors->has('phone_number'))
@@ -61,8 +60,8 @@
 									@endif
 									<div class="dropdown-field">
 										<select data-placeholder="Please Select Account Type" class="chosen" name="role">
-											<option value="COMPANY">Company</option>
-											<option value="JOBSEEKER">Job Seeker</option>
+											<option value="COMPANY">@lang('signup.company')</option>
+											<option value="JOBSEEKER">@lang('signup.jobseeker')</option>
 										</select>
 									</div>
 									@if($errors->has('role'))
@@ -70,7 +69,7 @@
 											{{ $errors->first('role') }}
 										</span>
 									@endif
-									<button type="submit">Signup</button>
+									<button type="submit">@lang('signup.sign_up')</button>
 								</form>
 								{{-- <div class="extra-login">
 									<span>Or</span>

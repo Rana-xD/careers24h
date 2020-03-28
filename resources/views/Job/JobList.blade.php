@@ -21,21 +21,21 @@
 						<div class="inner-header wform">
 							<div class="job-search-sec">
 								<div class="job-search">
-									<h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
+									<h4>@lang('job.explore')</h4>
 									<form>
 										<div class="row">
 											<div class="col-lg-7">
 												<div class="job-field">
-													<input type="text" placeholder="Job title" name="job_title" id="job_title"/>
+													<input type="text" placeholder="@lang('job.job_title')" name="job_title" id="job_title"/>
 													<i class="la la-keyboard-o"></i>
 												</div>
 											</div>
 											<div class="col-lg-4">
 												<div class="job-field">
-													<select data-placeholder="City, province" class="chosen-city">
+													<select data-placeholder="@lang('job.city')" class="chosen-city">
 														<option value=""></option>
 														@foreach (config('global.city') as $item)
-															<option value="{{$item}}">{{$item}}</option>
+															<option value="{{$item}}">{{__('city.'.$item)}}</option>
 														@endforeach
 													</select>
 													<i class="la la-map-marker"></i>
@@ -61,18 +61,18 @@
 				 <div class="row no-gape">
 				 	<aside class="col-lg-3 column">
 				 		<div class="widget border">
-				 			<h3 class="sb-title open">Job Type</h3>
+				 			<h3 class="sb-title open">@lang('job.job_type')</h3>
 				 			<div class="type_widget">
-								<p class="ftchek"><input type="checkbox" name="job_type[]" id="Full Time" value="Full Time"><label class="labels" for="Full Time">Full Time</label></p>
-								<p class="ptchek"><input type="checkbox" name="job_type[]" id="Part Time" value="Part Time"><label class="labels" for="Part Time">Part Time</label></p>
-								<p class="itchek"><input type="checkbox" name="job_type[]" id="Internship" value="Internship"><label class="labels" for="Internship">Internship</label></p>
-								<p class="flchek"><input type="checkbox" name="job_type[]" id="Freelance" value="Freelance"><label class="labels" for="Freelance">Freelance</label></p>
-								<p class="tpchek"><input type="checkbox" name="job_type[]" id="Temporary" value="Temporary"><label class="labels" for="Temporary">Temporary</label></p>
-								<p class="vlchek"><input type="checkbox" name="job_type[]" id="Volunteer" value="Volunteer"><label class="labels" for="Volunteer">Volunteer</label></p>	
+								<p class="ftchek"><input type="checkbox" name="job_type[]" id="Full Time" value="Full Time"><label class="labels" for="Full Time">@lang('job_type.Full Time')</label></p>
+								<p class="ptchek"><input type="checkbox" name="job_type[]" id="Part Time" value="Part Time"><label class="labels" for="Part Time">@lang('job_type.Part Time')</label></p>
+								<p class="itchek"><input type="checkbox" name="job_type[]" id="Internship" value="Internship"><label class="labels" for="Internship">@lang('job_type.Internship')</label></p>
+								<p class="flchek"><input type="checkbox" name="job_type[]" id="Freelance" value="Freelance"><label class="labels" for="Freelance">@lang('job_type.Freelance')</label></p>
+								<p class="tpchek"><input type="checkbox" name="job_type[]" id="Temporary" value="Temporary"><label class="labels" for="Temporary">@lang('job_type.Temporary')</label></p>
+								<p class="vlchek"><input type="checkbox" name="job_type[]" id="Volunteer" value="Volunteer"><label class="labels" for="Volunteer">@lang('job_type.Volunteer')</label></p>	
 				 			</div>
 				 		</div>
 				 		<div class="widget border">
-				 			<h3 class="sb-title open">Specialism</h3>
+				 			<h3 class="sb-title open">@lang('job.category')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox scrollbar">
 									@foreach (config('global.categories') as $item)
@@ -82,7 +82,7 @@
 				 			</div>
 				 		</div>
 				 		<div class="widget border">
-				 			<h3 class="sb-title closed">Career Level</h3>
+				 			<h3 class="sb-title closed">@lang('job.career_level')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
 									@foreach (config('global.career_level') as $item)
@@ -92,7 +92,7 @@
 				 			</div>
 				 		</div>
 				 		<div class="widget border">
-				 			<h3 class="sb-title closed">Gender</h3>
+				 			<h3 class="sb-title closed">@lang('job.gender')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
 									<input type="radio" name="gender" class="gender" id="Male" value="Male"><label class="labels" for="Male">Male</label><br />
@@ -102,7 +102,7 @@
 				 			</div>
 				 		</div>
 				 		<div class="widget border">
-				 			<h3 class="sb-title closed">Qualification</h3>
+				 			<h3 class="sb-title closed">@lang('job.qualification')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
 									 @foreach (config('global.education_level') as $item)
@@ -124,7 +124,7 @@
 										<option>Most Recent</option>
 									</select> --}}
 					 			</div>
-					 			<h5>{{count($jobs)}} Jobs & Vacancies</h5>
+					 			<h5>{{count($jobs)}} @lang('job.job_vacancy')</h5>
 					 		</div>
 						 </div><!-- MOdern Job LIst -->
 						 <div class="job-list-modern">
@@ -135,11 +135,11 @@
 										<div class="c-logo"> <img src="{{ $job->companyLogo() }}" alt=""  width="98" height="55"/> </div>
 										<h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title}}</a></h3>
 										<span>{{$job->companyName()}}</span>
-										<div class="job-lctn"><i class="la la-map-marker"></i>{{$job->city}}, Phnom Penh</div>
+										<div class="job-lctn"><i class="la la-map-marker"></i>{{__('city.'.$job->city)}}, @lang('city.Cambodia')</div>
 									</div>
 									<div class="job-style-bx">
 										<span>{{$job->offer_salary}}</span>
-										<span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ $job->working_term }}</span>
+										<span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span>
 										<i>{{ $job->created_at->diffForHumans() }}</i>
 							
 									</div>

@@ -212,6 +212,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
             email = $('#email').val(),
             phone_number = $('#phone_number').val(),
             city = $('#city').val(),
+            isPrivate = $('#isPrivate')[0].checked ? 0 : 1,
             token = $("input[name='_token']").val();
 
 
@@ -234,12 +235,18 @@ if(!CAREER24H.main) CAREER24H.main = {};
             formData.append('email',email);
             formData.append('phone_number',phone_number);
             formData.append('city',city);
+            formData.append('is_private',isPrivate);
 
             let fileInput = $('#JobseekerImage').prop('files');
             if(fileInput[0] && CAREER24H.constant.isCompanyLogoChange){
                 let file = fileInput[0];
                 formData.append('file',file);
             }
+
+            for (var pair of formData.entries()) {
+                console.log(pair[0]+ ', ' + pair[1]); 
+            }
+
         CAREER24H.utils.activateSpinner();
         url = '/signup_with_profile'
         let promise = CAREER24H.main.formSubmitPromise(url,formData);

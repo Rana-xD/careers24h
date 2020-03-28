@@ -32,37 +32,37 @@
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
 							 	<input type="hidden" name="jobId" id="jobId" value="{{ $job->id }}">
-							 	<div class="job-title2"><h3>{{ $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ $job->working_term }}</span></div>
+							 	<div class="job-title2"><h3>{{ $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span></div>
 				 				<ul class="tags-jobs">
-									 <li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
-									 <li><i class="la la-money"></i> Monthly Salary : <span>{{ $job->offer_salary }}</span></li>
-									 <li><i class="la la-calendar-times-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
-									 <li><i class="la la-eye"></i> Views: {{$job->view_count}}</li> 
+									 <li><i class="la la-map-marker"></i> {{ __('city.'.$job->city) }}, @lang('city.Cambodia')</li>
+									 <li><i class="la la-money"></i> @lang('job.offer_salary') : <span>{{ $job->offer_salary }}</span></li>
+									 <li><i class="la la-calendar-times-o"></i> @lang('job.deadline'): {{ date('M d, Y', strtotime($job->deadline))  }}</li>
+									 <li><i class="la la-eye"></i> @lang('job.view'): {{$job->view_count}}</li> 
 								</ul>
 								<ul class="tags-jobs">
-									<li><i class="la la-calendar"></i> Working Date: <span>{{ $work_day->from }}-{{ $work_day->to }}</span></li>
-									<li><i class="la la-dashboard"></i> Working Time: <span>{{ $work_time->from }} - {{ $work_time->to }}</span></li>
+									<li><i class="la la-calendar"></i> @lang('job.work_day'): <span>{{ $work_day->from }}-{{ $work_day->to }}</span></li>
+									<li><i class="la la-dashboard"></i> @lang('job.work_time'): <span>{{ $work_time->from }} - {{ $work_time->to }}</span></li>
 				 				</ul>
 							 </div><!-- Job Head -->
 							 <div class="job-overview">
 								<h3>Job Overview</h3>
 								<ul>
-									<li><i class="la la-users"></i><h3>Number of Position</h3><span>{{ $job->pax }}</span></li>
-									<li><i class="la la-mars-double"></i><h3>Gender</h3><span>{{ $job->is_specific_gender ? $job->gender : 'Both' }}</span></li>
-									<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{{ $job->career_level }}</span></li>
-									<li><i class="la la-puzzle-piece"></i><h3>Category</h3><span>{{ $job->category }}</span></li>
-									<li><i class="la la-shield"></i><h3>Experience</h3><span>{{ $job->years_of_experience }} Years</span></li>
-								<li><i class="la la-line-chart "></i><h3>Qualification</h3><span>{{ $job->qualification  }}</span></li>
+									<li><i class="la la-users"></i><h3>@lang('job.pax')</h3><span>{{ $job->pax }}</span></li>
+									<li><i class="la la-mars-double"></i><h3>@lang('job.gender')</h3><span>{{ $job->is_specific_gender ? $job->gender : 'Both' }}</span></li>
+									<li><i class="la la-thumb-tack"></i><h3>@lang('job.career_level')</h3><span>{{ $job->career_level }}</span></li>
+									<li><i class="la la-puzzle-piece"></i><h3>@lang('job.category')</h3><span>{{ $job->category }}</span></li>
+									<li><i class="la la-shield"></i><h3>@lang('job.experience')</h3><span>{{ $job->years_of_experience }} Years</span></li>
+								<li><i class="la la-line-chart "></i><h3>@lang('job.qualification')</h3><span>{{ $job->qualification  }}</span></li>
 								</ul>
 							</div>
 				 			<div class="job-details">
-				 				<h3>Job Description</h3>
+				 				<h3>@lang('job.job_description')</h3>
 				 					{!! $job->description !!}
-				 				<h3>Responsibity</h3>
+				 				<h3>@lang('job.responsibility')</h3>
 									{!! $job->responsibility  !!}
-								 <h3>Required Skill</h3>
+								 <h3>@lang('job.required_skill')</h3>
 								 	{!! $job->required_skill  !!}
-								 <h3>Benefit</h3>
+								 <h3>@lang('job.benefit')</h3>
 				 					{!! $job->benefit  !!}
 				 			</div>
 				 			<!-- Job Overview -->
@@ -71,7 +71,7 @@
 				 			</div>
 						 </div>
 						 <div class="recent-jobs">
-							<h3>Recent Jobs</h3>
+							<h3>@lang('job.recent_job')</h3>
 							@foreach ($job->recentJob() as $item)
 							<div class="job-list-modern">
 								<div class="job-listings-sec no-border">
@@ -79,11 +79,11 @@
 									   <div class="job-title-sec">
 										   <div class="c-logo"> <img src="{{$item->companyProfile->company_logo}}" width="98" height="51" alt="" /> </div>
 									   	   <h3><a href="/job/{{ $item->uuid }}" title="">{{ $item->job_title }}</a></h3>
-										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ $item->city }}, Cambodia</div>
+										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$item->city) }}, @lang('city.Cambodia')</div>
 									   </div>
 									   <div class="job-style-bx">
 											<span>{{$item->offer_salary}}</span>
-									   		<span class="job-is {{ $item->getJobTypeCSSClass() }} ">{{ $item->working_term }}</span>
+									   		<span class="job-is {{ $item->getJobTypeCSSClass() }} ">{{ __('job_type.'.$item->working_term) }}</span>
 										   <i>{{ $item->created_at->diffForHumans() }}</i>
 									   </div>
 								   </div><!-- Job -->
@@ -108,8 +108,8 @@
 							 		<p><i class="la la-envelope-o"></i> {{ $job->companyWebsite() }}</p>
 								@endif
 			 				</div>
-			 				<a id="applyJob" class="apply-job-linkedin"><i class="la la-paper-plane"></i>Apply for job</a>
-							<a href="/job/company/{{$job->companyProfile->uuid}}" title="" class="viewall-jobs">View all Jobs</a>
+			 				<a id="applyJob" class="apply-job-linkedin"><i class="la la-paper-plane"></i>@lang('job.apply')</a>
+							<a href="/job/company/{{$job->companyProfile->uuid}}" title="" class="viewall-jobs">@lang('job.view_all_job')</a>
 			 			</div><!-- Job Head -->
 				 	</div>
 				</div>

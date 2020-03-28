@@ -30,39 +30,39 @@
 										</div>
 										<div class="emply-resume-info">
 												<h3><a href="/candidate/profile/{{$applicant->jobseekerProfile->uuid}}" target="_blank">{{ $applicant->jobseekerProfile->full_name }}</a></h3>
-												   <p style="color: {{ App\Models\JobUser::find($applicant->pivot->id)->getCSS() }}">{{ $applicant->pivot->status}}</p>
+												   <p style="color: {{ App\Models\JobUser::find($applicant->pivot->id)->getCSS() }}">{{ __('applicant.'.$applicant->pivot->status)}}</p>
 												   @if (!empty($applicant->pivot->interview_date))
 												   		<p style="color: #2980b9">{{ $applicant->pivot->interview_date}}</p>
 												   @endif
 												   @if (!empty($applicant->pivot->interview_date))
-												   		<p style="color: #fb236a">{{ $applicant->pivot->is_online ? 'Online' : 'Offline'  }}</p>
+												   		<p style="color: #fb236a">{{ $applicant->pivot->is_online ? __('applicant.online') : __('applicant.offline')  }}</p>
 												   @endif
 												  
 												   
 										</div>
 										<div class="action-resume">
 										   <div class="action-resume-view">
-											   <span><a class="cover__letter">Cover Letter</a></span>
+											   <span><a class="cover__letter">@lang('applicant.cover_letter')</a></span>
 										   </div>
 									   </div>
 									   <div class="action-resume">
 										   <div class="action-resume-view">
-											   <span><a class="video__CV">Video CV</a></span>
+											   <span><a class="video__CV">@lang('applicant.video_cv')</a></span>
 										   </div>
 									   </div>
 									   <div class="action-resume">
 										   <div class="action-resume-view">
-											   <span><a class="resume__CV">View CV</a></span>
+											   <span><a class="resume__CV">@lang('applicant.view_cv')</a></span>
 										   </div>
 									   </div>
 										<div class="action-resume" style="padding-right: 10px;">
 											<div class="action-center">
-												<span>Action <i class="la la-angle-down"></i></span>
+												<span>@lang('applicant.action') <i class="la la-angle-down"></i></span>
 												<ul>
-													<li><a class="accept-applicant">Accept</a></li>
-													<li><a class="reject-applicant">Reject</a></li>
+													<li><a class="accept-applicant">@lang('applicant.Accept')</a></li>
+													<li><a class="reject-applicant">@lang('applicant.Reject')</a></li>
 													@if ($applicant->pivot->status === 'Accept')
-														<li><a class="interview-date">Interview Date</a></li>
+														<li><a class="interview-date">@lang('applicant.set_interview_date')</a></li>
 													@endif
 												</ul>
 											</div>

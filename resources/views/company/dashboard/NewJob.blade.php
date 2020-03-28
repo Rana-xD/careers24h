@@ -20,40 +20,40 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title">
-					 			<h3>Post a New Job</h3>
+					 			<h3>@lang('new_job.post_new_job')</h3>
 					 		</div>
 					 		<div class="profile-form-edit">
 					 			<form>
 									 @csrf
 					 				<div class="row">
 					 					<div class="col-lg-12">
-					 						<span class="pf-title">Job Title</span>
+					 						<span class="pf-title">@lang('new_job.job_title')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Designer" name="job_title" id="job_title" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
-					 						<span class="pf-title">Job Description</span>
+					 						<span class="pf-title">@lang('new_job.job_description')</span>
 					 						<div class="pf-field">
 												 <textarea id="description"></textarea>
 												 {{-- <div id="description"></div> --}}
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Job Type</span>
+					 						<span class="pf-title">@lang('new_job.job_type')</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Job Type" class="chosen" name="job_type" id="job_type">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="job_type" id="job_type">
 													<option value=""></option>
 													@foreach ($job_types as $item)
-												 		<option value="{{ $item }}">{{ $item }}</option>
+												 		<option value="{{ $item }}">{{ __('job_type.'.$item) }}</option>
 													@endforeach
 												</select>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Categories</span>
+					 						<span class="pf-title">@lang('new_job.categories')</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Categories" class="chosen" name="category" id="category">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="category" id="category">
 													<option value=""></option>
 													@foreach ($categories as $item)
 												 		<option value="{{ $item }}">{{ $item }}</option>
@@ -62,9 +62,9 @@
 					 						</div>
 										 </div>
 										 <div class="col-lg-4">
-											<span class="pf-title">Qualification</span>
+											<span class="pf-title">@lang('new_job.qualification')</span>
 											<div class="pf-field">
-												<select data-placeholder="Please Select Options" class="chosen" name="qualification" id="qualification">
+												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="qualification" id="qualification">
 												   <option value=""></option>
 												   @foreach ($qualification as $item)
 															<option value="{{ $item }}">{{ $item }}</option>
@@ -73,9 +73,9 @@
 											</div>
 										</div>
 										<div class="col-lg-4">
-											<span class="pf-title">Career Level</span>
+											<span class="pf-title">@lang('new_job.career_level')</span>
 											<div class="pf-field">
-												<select data-placeholder="Please Select Career Level" class="chosen" name="career_level" id="career_level">
+												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="career_level" id="career_level">
 												   <option value=""></option>
 												   @foreach ($career_level as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -84,63 +84,63 @@
 											</div>
 										</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">Years of Experience</span>
+											<span class="pf-title">@lang('new_job.years_of_experience')</span>
 											<div class="pf-field">
 												<input type="number" name="years_of_experience" id="years_of_experience"/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">Numbers of position</span>
+											<span class="pf-title">@lang('new_job.pax')</span>
 											<div class="pf-field">
 												<input type="number" name="pax" id="pax"/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">Offer Salary</span>
+											<span class="pf-title">@lang('new_job.offer_salary')</span>
 											<div class="pf-field">
 												<input type="text" name="offer_salary" id="offer_salary"/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-2">
-					 						<span class="pf-title">Negotiable</span>
+					 						<span class="pf-title">@lang('new_job.negotiable')</span>
 					 						<div>
-												<input type="checkbox" id="negotiable" checked data-toggle="toggle" data-size="normal" data-on="Yeah" data-off="No" data-onstyle="primary" data-offstyle="danger">
+												<input type="checkbox" id="negotiable" checked data-toggle="toggle" data-size="normal" data-on="@lang('new_job.yeah')" data-off="@lang('new_job.no')" data-onstyle="primary" data-offstyle="danger">
 					 						</div>
 										 </div>
 										 <div class="col-lg-2">
-											<span class="pf-title">Specific gender</span>
+											<span class="pf-title">@lang('new_job.specific_gender')</span>
 											<div>
-											   <input type="checkbox" id="specificGender" data-toggle="toggle" data-size="normal" data-on="Yeah" data-off="No" data-onstyle="primary" data-offstyle="danger">
+											   <input type="checkbox" id="specificGender" data-toggle="toggle" data-size="normal" data-on="@lang('new_job.yeah')" data-off="@lang('new_job.no')" data-onstyle="primary" data-offstyle="danger">
 											</div>
 										</div>
 										<div class="col-lg-4 gender" style="display:none">
-											<span class="pf-title">Gender</span>
+											<span class="pf-title">@lang('new_job.gender')</span>
 											<div class="pf-field">
-												<select data-placeholder="Please Select Gender" class="chosen" id="gender">
-												   <option value="MALE">MALE</option>
-												   <option value="FEMALE">FEMALE</option>
+												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" id="gender">
+												   <option value="MALE">@lang('new_job.male')</option>
+												   <option value="FEMALE">@lang('new_job.female')</option>
 											   </select>
 											</div>
 										</div> 
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Application Deadline Date</span>
+					 						<span class="pf-title">@lang('new_job.deadline')</span>
 					 						<div class="pf-field">
 					 							<input type="text" class="datepicker" name="deadline" id="deadline"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">City</span>
+					 						<span class="pf-title">@lang('new_job.city')</span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="Please Select Options" class="chosen" name="city" id="city">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="city" id="city">
 													<option value=""></option>
 													@foreach ($city as $item)
-														<option value="{{$item}}">{{$item}}</option>
+														<option value="{{$item}}">{{__('city.'.$item)}}</option>
 													@endforeach
 												</select>
 					 						</div>
 										 </div> 
 										<div class="col-lg-3">
-											<span class="pf-title">Workday</span>
+											<span class="pf-title">@lang('new_job.work_day')</span>
 												<div class="pf-field">
 												<select data-placeholder="From" class="chosen" name="work_day_from" id="work_day_from">
 													<option value=""></option>
@@ -173,7 +173,7 @@
 											
 										</div>
 										<div class="col-lg-3">
-											<span class="pf-title">Work Time</span>
+											<span class="pf-title">@lang('new_job.work_time')</span>
 											<div class="pf-field">
 												<div class="pf-field">
 													<input type="text" placeholder="From" name="work_time_from" id="work_time_from"/>
@@ -195,25 +195,25 @@
 					 			<form>
 					 				<div class="row">
 										<div class="col-lg-12">
-											<span class="pf-title">Responsibility</span>
+											<span class="pf-title">@lang('new_job.responsibility')</span>
 											<div class="pf-field">
 												<textarea id="responsibility" name="responsibility"></textarea>
 											</div>
 										</div>
 										<div class="col-lg-12">
-											<span class="pf-title">Required Skill</span>
+											<span class="pf-title">@lang('new_job.required_skill')</span>
 											<div class="pf-field">
 												<textarea id="required_skill" name="required_skill"></textarea>
 											</div>
 										</div>
 										<div class="col-lg-12">
-											<span class="pf-title">Benefits</span>
+											<span class="pf-title">@lang('new_job.benefit')</span>
 											<div class="pf-field">
 												<textarea id="benefit" name="benefit"></textarea>
 											</div>
 										</div>
 					 					<div class="col-lg-12">
-					 						<button id="createJob" type="button">Create</button>
+					 						<button id="createJob" type="button">@lang('new_job.create')</button>
 					 					</div>
 					 				</div>
 					 			</form>

@@ -19,12 +19,12 @@
 						<div class="inner-header wform">
 							<div class="job-search-sec">
 								<div class="job-search">
-									<h4>Explore JobSeekers</h4>
+									<h4>@lang('candidate.explore_candidate')</h4>
 									<form>
 										<div class="row">
 											<div class="col-lg-10">
 												<div class="job-field">
-													<input type="text" placeholder="Candidate Name" name="candidate_name" id="candidate_name"/>
+													<input type="text" placeholder="@lang('candidate.candidate_name')" name="candidate_name" id="candidate_name"/>
 													<i class="la la-keyboard-o"></i>
 												</div>
 											</div>
@@ -48,7 +48,7 @@
 				 <div class="row no-gape">
 				 	<aside class="col-lg-3 column border-right">
 						<div class="widget">
-							<h3 class="sb-title open">Specialism</h3>
+							<h3 class="sb-title open">@lang('candidate.industry')</h3>
 							<div class="specialism_widget">
 								<div class="simple-checkbox scrollbar">
 									@foreach (config('global.industry') as $item)
@@ -58,7 +58,7 @@
 							</div>
 						</div>
 				 		<div class="widget">
-				 			<h3 class="sb-title closed">Career Level</h3>
+				 			<h3 class="sb-title closed">@lang('candidate.career_level')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
 									 @foreach (config('global.career_level') as $item)
@@ -68,7 +68,7 @@
 				 			</div>
 				 		</div>
 				 		<div class="widget">
-				 			<h3 class="sb-title closed">Qualification</h3>
+				 			<h3 class="sb-title closed">@lang('candidate.qualification')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
 									 @foreach (config('global.education_level') as $item)
@@ -78,21 +78,21 @@
 				 			</div>
 				 		</div>
 				 		<div class="widget">
-				 			<h3 class="sb-title closed">Gender</h3>
+				 			<h3 class="sb-title closed">@lang('candidate.gender')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
-									<input type="radio" name="gender" class="gender" id="Male" value="Male"><label class="labels" for="Male">Male</label><br />
-									<input type="radio" name="gender" class="gender" id="Female" value="Female"><label class="labels" for="Female">Female</label><br />
-									<input type="radio" name="gender" class="gender" id="Both" value="Both"><label class="labels" for="Both">Both</label><br />
+									<input type="radio" name="gender" class="gender" id="Male" value="Male"><label class="labels" for="Male">@lang('candidate.male')</label><br />
+									<input type="radio" name="gender" class="gender" id="Female" value="Female"><label class="labels" for="Female">@lang('candidate.female')</label><br />
+									<input type="radio" name="gender" class="gender" id="Both" value="Both"><label class="labels" for="Both">@lang('candidate.both')</label><br />
 				 				</div>
 				 			</div>
 						 </div>
 						 <div class="widget">
-							<h3 class="sb-title closed">City</h3>
+							<h3 class="sb-title closed">@lang('candidate.city')</h3>
 							<div class="specialism_widget">
 								<div class="simple-checkbox">
 									@foreach (config('global.city') as $item)
-										<p><input type="checkbox" name="city[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{$item}}</label></p>
+										<p><input type="checkbox" name="city[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{__('city.'.$item)}}</label></p>
 									@endforeach
 								</div>
 							</div>
@@ -108,7 +108,7 @@
 										</div>
 										<div class="emply-resume-info">
 											<h3><a href="/candidate/profile/{{$jobseeker->uuid}}" title="">{{$jobseeker->full_name}}</a></h3>
-											<p><i class="la la-map-marker"></i>{{$jobseeker->city}} / Cambodia</p>
+											<p><i class="la la-map-marker"></i>{{__('city.'.$jobseeker->city)}} / @lang('city.Cambodia')</p>
 										</div>
 										<div class="shortlists">
 											{{-- <a href="#" title="">Shortlist <i class="la la-plus"></i></a> --}}

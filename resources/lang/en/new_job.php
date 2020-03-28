@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'post_new_job' => 'Post New Job',
+    'job_title' => 'Job Title',
+    'job_description' => 'Job Description',
+    'job_type' => 'Job Type',
+    'categories' => 'Categories',
+    'qualification' => 'Qualification',
+    'career_level' => 'Career Level',
+    'years_of_experience' => 'Years of Experience',
+    'pax' => 'Numbers of position',
+    'offer_salary' => 'Offer Salary',
+    'negotiable' => 'Negotiable',
+    'specific_gender' => 'Specific gender',
+    'deadline' => 'Application Deadline Date',
+    'city' => 'City',
+    'work_day' => 'Work Day',
+    'work_time' => 'Work Time',
+    'responsibility' => 'Responsibility',
+    'required_skill' => 'Required Skill',
+    'benefit' => 'Benefits',
+    'create' => 'Create',
+    'gender' => 'Gender',
+    'male' => 'Male',
+    'female' => ' Female',
+    'yeah' => 'Yeah',
+    'no' => 'No',
+    'please_select_option' => 'Please Select Options',
+    'edit_job' => 'Edit Job',
+    'update' => 'Update'
+];

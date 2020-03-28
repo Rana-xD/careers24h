@@ -13,11 +13,11 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title">
-					 			<h3>Profile</h3>
+					 			<h3>@lang('my_profile.my_profile')</h3>
 					 			<div class="upload-img-bar">
 								 <span class="round"><img src="{{  $profile }}" alt="" id="ProfileImage"/></span>
 					 				<div class="upload-info">
-										 <a id="openFileInput">Browse</a>
+										 <a id="openFileInput">@lang('my_profile.browse')</a>
 										 <input type="file" name="logo" id="JobseekerImage" style="display:none">
 					 					<span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
 					 				</div>
@@ -27,38 +27,43 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-					 					<div class="col-lg-5">
-					 						<span class="pf-title">Full Name</span>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('my_profile.fullname')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="Ali TUFAN" name="full_name" id="full_name"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">Age</span>
+					 						<span class="pf-title">@lang('my_profile.age')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="21" name="age" id="age"/>
 					 						</div>
 										 </div>
-										 <div class="col-lg-4">
-											<span class="pf-title">Gender</span>
+										 <div class="col-lg-3">
+											<span class="pf-title">@lang('my_profile.gender')</span>
 											<div class="pf-field">
 											<select data-placeholder="Allow In Search" class="chosen" name="gender" id="gender">
-													<option value="MALE">MALE</option>
-													<option value="FEMALE">FEMALE</option>
-													<option value="OTHER">OTHER</option>
+													<option value="MALE">@lang('my_profile.male')</option>
+													<option value="FEMALE">@lang('my_profile.female')</option>
 												</select>
 											</div>
 										</div>
+										<div class="col-lg-2">
+											<span class="pf-title">@lang('my_profile.visibility')</span>
+											<div>
+											   <input type="checkbox" checked id="isPrivate" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.public')" data-off="@lang('my_profile.private')" data-onstyle="primary" data-offstyle="danger">
+											</div>
+										</div>
 					 					<div class="col-lg-6">
-											<span class="pf-title">Experience</span>
+											<span class="pf-title">@lang('my_profile.experience')</span>
 											<div class="pf-field">
 											<input type="text" placeholder="2" name="experience" id="experience"/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Industry</span>
+					 						<span class="pf-title">@lang('my_profile.industry')</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select Industry" class="chosen" name="industry" id="industry">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry">
 													<option value=""></option>
 													@foreach (config('global.industry') as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -67,9 +72,9 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Education Levels</span>
+					 						<span class="pf-title">@lang('my_profile.education_level')</span>
 					 						<div class="pf-field">
-												 <select data-placeholder="Please Select Education Level" class="chosen" name="education_level" id="education_level">
+												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level">
 													<option value=""></option>
 													 @foreach (config('global.education_level') as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -78,10 +83,10 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">Career Levels</span>					 						
+					 						<span class="pf-title">@lang('my_profile.career_levels')</span>					 						
 					 						<div class="pf-field">
 						 						<div class="pf-field">
-													 <select data-placeholder="Please Select Career Level" class="chosen" name="career_level" id="career_level">
+													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level">
 														<option value=""></option>
 														@foreach (config('global.career_level') as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -107,7 +112,7 @@
 					 			</form>
 					 		</div>
 					 		<div class="social-edit">
-					 			<h3>Social Edit</h3>
+					 			<h3>@lang('my_profile.social_media')</h3>
 					 			<form>
 					 				<div class="row">
 					 					<div class="col-lg-6">
@@ -142,35 +147,35 @@
 					 			</form>
 					 		</div>
 					 		<div class="contact-edit">
-					 			<h3>Contact</h3>
+					 			<h3>@lang('my_profile.contact')</h3>
 					 			<form>
 					 				<div class="row">
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Phone Number</span>
+					 						<span class="pf-title">@lang('my_profile.phone_number')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{$phone_number}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Email</span>
+					 						<span class="pf-title">@lang('my_profile.email')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{$email}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">City</span>
+					 						<span class="pf-title">@lang('my_profile.city')</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city">
 													<option value=""></option>
 													@foreach (config('global.city') as $item)
-												 			<option value="{{ $item }}">{{ $item }}</option>
+												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
 													 @endforeach
 												</select>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-12">
                                             {{-- <button type="button" id="skipProfile">Skip</button> --}}
-                                            <button type="button" style="margin-right: 30px;" id="createJobseekerProfile">Create</button>
+                                            <button type="button" style="margin-right: 30px;" id="createJobseekerProfile">@lang('my_profile.create')</button>
 					 					</div>
 					 				</div>
 					 			</form>

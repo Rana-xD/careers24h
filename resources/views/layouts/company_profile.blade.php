@@ -13,11 +13,11 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title" id="mp">
-					 			<h3>Profile</h3>
+					 			<h3>@lang('company_profile.company_profile')</h3>
 					 			<div class="upload-img-bar">
 								 <span><img src="{{ $profile }}" alt="" width="160" height="138" id="logoImage"/></span>
 					 				<div class="upload-info">
-										 <a id="openFileInput">Browse</a>
+										 <a id="openFileInput">@lang('company_profile.browse')</a>
 										 <input type="file" name="logo" id="CompanyLogo" style="display:none">
 					 					<span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
 					 				</div>
@@ -28,21 +28,21 @@
 									 @csrf
 					 				<div class="row">
 										<div class="col-lg-5">
-											<span class="pf-title">Company Name</span>
+											<span class="pf-title">@lang('company_profile.company_name')</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="Company Name" name="name" id="name"/>
+											 <input type="text" placeholder="@lang('company_profile.company_name')" name="name" id="name"/>
 					 						</div>
 										</div>
 					 					<div class="col-lg-2">
-					 						<span class="pf-title">Since</span>
+					 						<span class="pf-title">@lang('company_profile.since')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="1991" name="start_year" id="start_year"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-5">
-											<span class="pf-title">Team Size</span>
+											<span class="pf-title">@lang('company_profile.team_size')</span>
 											<div class="pf-field">
-											<select data-placeholder="Please Select Options" class="chosen" name="team_size" id="team_size">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size">
 												   <option value=""></option>
 												   @foreach (config('global.team_size') as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -64,7 +64,7 @@
 											</div>
 					 					</div> --}}
 					 					<div class="col-lg-12">
-					 						<span class="pf-title">Description</span>
+					 						<span class="pf-title">@lang('company_profile.description')</span>
 					 						<div class="pf-field">
 					 							<textarea name="info" id="info"></textarea>
 					 						</div>
@@ -73,7 +73,7 @@
 					 			</form>
 					 		</div>
 					 		<div class="social-edit"  id="sn">
-					 			<h3>Social Edit</h3>
+					 			<h3>@lang('company_profile.social_media')</h3>
 					 			<form>
 					 				<div class="row">
 					 					<div class="col-lg-6">
@@ -108,42 +108,42 @@
 					 			</form>
 					 		</div>
 					 		<div class="contact-edit" id="ci">
-					 			<h3>Contact</h3>
+					 			<h3>@lang('company_profile.contact')</h3>
 					 			<form>
 					 				<div class="row">
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Phone Number</span>
+					 						<span class="pf-title">@lang('company_profile.phone_number')</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="093456101" name="phone_number" id="phone_number" value="{{$phone_number}}"/>
+											 <input type="text" placeholder="@lang('company_profile.phone_number')" name="phone_number" id="phone_number" value="{{$phone_number}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Email</span>
+					 						<span class="pf-title">@lang('company_profile.email')</span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" name="email" id="email" value="{{$email}}"/>
+											 <input type="text" placeholder="@lang('company_profile.email')" name="email" id="email" value="{{$email}}"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">Website</span>
+					 						<span class="pf-title">@lang('company_profile.website')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website"/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">City</span>
+					 						<span class="pf-title">@lang('company_profile.city')</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="Please Select City" class="chosen" name="city" id="city">
+											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city">
 													<option value=""></option> 
 													@foreach (config('global.city') as $item)
-														<option value="{{ $item }}">{{ $item }}</option>
+														<option value="{{ $item }}">{{__('city.'.$item)}}</option>
 												   @endforeach
 												</select>
 					 						</div>
 										 </div>
 										 <div class="col-lg-4">
-											<span class="pf-title">Industry</span>
+											<span class="pf-title">@lang('company_profile.industry')</span>
 											<div class="pf-field">
-											<select data-placeholder="Please Select Your Industry" class="chosen" name="industry" id="industry">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry">
 												   <option value=""></option> 
 												   @foreach (config('global.industry') as $item)
 													   <option value="{{ $item }}">{{ $item }}</option>
@@ -152,14 +152,14 @@
 											</div>
 										</div>
 					 					<div class="col-lg-5">
-					 						<span class="pf-title">Address</span>
+					 						<span class="pf-title">@lang('company_profile.address')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address"/>
 					 						</div>
                                      </div>
                                      <div class="col-lg-12">
                                         {{-- <button type="button" id="skipProfile">Skip</button> --}}
-                                        <button type="button" style="margin-right: 30px;" id="createCompanyProfile">Create</button>
+                                        <button type="button" style="margin-right: 30px;" id="createCompanyProfile">@lang('company_profile.create')</button>
                                     </div>
 					 			</form>
 					 		</div>
