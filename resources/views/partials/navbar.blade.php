@@ -29,6 +29,10 @@
         <div class="responsivemenu">
             <ul>
                 <li>
+                    <a href="/" title="">@lang('navbar.home')</a>
+                    
+                </li>
+                <li>
                     <a href="/jobs" title="">@lang('navbar.job')</a>
                     
                 </li>
@@ -101,6 +105,10 @@
             </div><!-- Btn Extras -->
             <nav>
                 <ul>
+                    <li>
+                        <a href="/" title="">@lang('navbar.home')</a>
+                        
+                    </li>
                     <li>
                         <a href="/jobs" title="">@lang('navbar.job')</a>
                         

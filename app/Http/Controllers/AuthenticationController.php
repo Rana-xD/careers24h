@@ -116,6 +116,7 @@ class AuthenticationController extends Controller
             $data['user_id'] = $user->id;
             $data['uuid'] = Str::random(8);
             CompanyProfile::create($data);
+            $url ='/company/profile';
         }else{
             if($request->hasFile('file')){
                 $rules = array('file' => 'file|image|mimes:jpeg,png,webp,svg|max:1000');
@@ -134,10 +135,10 @@ class AuthenticationController extends Controller
             $data['user_id'] = $user->id;
             $data['uuid'] = Str::random(8);
             JobseekerProfile::create($data);
+            $url ='/jobseeker/profile';
         }
         Auth::login($user);
         session()->forget('user');
-        $url ='/';
         return response()->json([
             'code' => 200,
             'message' => 'Successfully create user',
