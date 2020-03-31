@@ -40,11 +40,11 @@
 												  
 												   
 										</div>
-										<div class="action-resume">
+										{{-- <div class="action-resume">
 										   <div class="action-resume-view">
 											   <span><a class="cover__letter">@lang('applicant.cover_letter')</a></span>
 										   </div>
-									   </div>
+									   </div> --}}
 									   <div class="action-resume">
 										   <div class="action-resume-view">
 											   <span><a class="video__CV">@lang('applicant.video_cv')</a></span>
@@ -92,7 +92,7 @@
 <script>
 	jQuery(document).ready(function($){
 		CAREER24H.company.initializeDateTimePicker();
-		$('.cover__letter').on('click',CAREER24H.company.showCoverLetterModal);
+		// $('.cover__letter').on('click',CAREER24H.company.showCoverLetterModal);
 		$('.video__CV').on('click',CAREER24H.company.showVideoCVModal);
 		$('.resume__CV').on('click',CAREER24H.company.showResumeModal);
 		$('.accept-applicant').on('click',CAREER24H.company.handleAcceptApplicant);

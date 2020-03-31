@@ -93,23 +93,23 @@ class CompanyDashboardController extends Controller
         ]);
     }
 
-    public function getCoverLetter(Request $request){
-        $cover_letter = JobseekerProfile::find($request->profileId)->pluck('cover_letter')[0];
-        if(empty($cover_letter)){
-            return response()->json([
-                'code' => 500,
-                'message' => "This applicant does not have Cover Letter",
-            ]);
-        }
-        $html_render = view('layouts.cover_letter_modal',[
-            'cover_letter' => $cover_letter
-        ])->render();
-        return response()->json([
-            'code' => 200,
-            'message' => "Success",
-            'html_render' => $html_render
-        ]);
-    }
+    // public function getCoverLetter(Request $request){
+    //     $cover_letter = JobseekerProfile::find($request->profileId)->pluck('cover_letter')[0];
+    //     if(empty($cover_letter)){
+    //         return response()->json([
+    //             'code' => 500,
+    //             'message' => "This applicant does not have Cover Letter",
+    //         ]);
+    //     }
+    //     $html_render = view('layouts.cover_letter_modal',[
+    //         'cover_letter' => $cover_letter
+    //     ])->render();
+    //     return response()->json([
+    //         'code' => 200,
+    //         'message' => "Success",
+    //         'html_render' => $html_render
+    //     ]);
+    // }
 
     public function getVideoCV(Request $request){
         if(empty(JobseekerProfile::find($request->profileId)->video)){

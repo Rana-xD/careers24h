@@ -7,7 +7,7 @@ return [
     'shortlisted_job' => 'Shorlisted Job',
     'applied_job' => 'Applied Job',
     'interview_room' => 'Interview Room',
-    'cover_letter' => 'Cover Letter & Video CV',
+    'video_cv' => 'Video CV',
     'account_setting' => 'Account Setting',
     'logout' => 'Logout',
 ];

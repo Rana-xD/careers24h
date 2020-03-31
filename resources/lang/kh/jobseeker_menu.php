@@ -7,7 +7,7 @@ return [
     'shortlisted_job' => 'ការងារដែលត្រូវបានជ្រើសរើស',
     'applied_job' => 'ការងារដែលបានដាក់ពាក្យ',
     'interview_room' => 'បន្ទប់សម្ភាសន៍',
-    'cover_letter' => 'Cover Letter & វីដេអូ CV',
+    'video_cv' => 'វីដេអូ CV',
     'account_setting' => 'ការកំណត់​គណនី',
     'logout' => 'ចាកចេញ',
 ];

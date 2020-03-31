@@ -59,10 +59,9 @@ class JobSeekerDashboardController extends Controller
         ]);
     }
     public function showCoverLetter(){
-        $coverLetter = Auth::user()->JobseekerProfile->pluck('cover_letter');
+        // $coverLetter = Auth::user()->JobseekerProfile->pluck('cover_letter');
         $videoCV = Auth::user()->JobseekerProfile->video;
         return view('jobseeker.dashboard.CVCoverLetter',[
-            'coverLetter' => $coverLetter[0],
             'videoCV' => $videoCV
         ]);
     }

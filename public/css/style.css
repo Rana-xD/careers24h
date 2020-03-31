@@ -7467,6 +7467,7 @@ aside .widget.border:first-child {
 .action-resume-view{
     position: relative;
     float: left;
+    margin-right: 30px;
 }
 
 .action-resume-view > span {

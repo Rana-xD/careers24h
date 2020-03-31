@@ -199,37 +199,37 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
         }
      }
 
-    func.updateCoverLetter = function(){
-        let coverLetter = $('#coverLetter').summernote('code')
-        token = $("input[name='_token']").val();
+    // func.updateCoverLetter = function(){
+    //     let coverLetter = $('#coverLetter').summernote('code')
+    //     token = $("input[name='_token']").val();
         
-        let formData = new FormData();
-        formData.append('_token', token);
-        formData.append('cover_letter', coverLetter);
-        let url = '/jobseeker/update-cover-letter';
-        CAREER24H.utils.activateSpinner();
-        let promise = CAREER24H.main.formSubmitPromise(url,formData);
-            promise.then((response)=>{
-                if(response.code == 200){
-                    location.reload(true);
-                }
-                else{
-                    swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: response.message,
-                        timer: 2500,
-                        showCancelButton: false,
-                        showConfirmButton: false
-                      })
-                }
-            }, function (error) {
-                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
-            }).catch(function (error) {
-                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
-            });
+    //     let formData = new FormData();
+    //     formData.append('_token', token);
+    //     formData.append('cover_letter', coverLetter);
+    //     let url = '/jobseeker/update-cover-letter';
+    //     CAREER24H.utils.activateSpinner();
+    //     let promise = CAREER24H.main.formSubmitPromise(url,formData);
+    //         promise.then((response)=>{
+    //             if(response.code == 200){
+    //                 location.reload(true);
+    //             }
+    //             else{
+    //                 swal.fire({
+    //                     icon: 'warning',
+    //                     title: 'Oops...',
+    //                     text: response.message,
+    //                     timer: 2500,
+    //                     showCancelButton: false,
+    //                     showConfirmButton: false
+    //                   })
+    //             }
+    //         }, function (error) {
+    //             CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    //         }).catch(function (error) {
+    //             CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    //         });
 
-    }
+    // }
 
     func.initializeSummernote = function(){
         $('#coverLetter').summernote({
