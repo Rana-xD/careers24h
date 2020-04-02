@@ -64,13 +64,7 @@
 		  <ul>
 			@foreach ($skillset as $item)
 			  <li>
-				<div class="skill_name">
-					{{ $item['skill'] }}
-				</div>
-				<div class="skill_progress">
-				  <span style="width: {{$item["percentage"]}}%;"></span>
-				</div>
-				<div class="skill_per">{{$item["percentage"]}}%</div>
+				<div class="skill_name">{{ $item['skill'] }} {{$item["percentage"]}}%</div>
 			  </li>
 			@endforeach 
 		  </ul>
