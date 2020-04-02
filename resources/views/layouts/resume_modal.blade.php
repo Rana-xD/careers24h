@@ -15,12 +15,12 @@
                      <p>{{ $applicant->age }} years old, {{ $applicant->gender }}</p>
                      <p><i class="la la-graduation-cap"></i> {{ $applicant->education_level }}, <i class="la la-certificate"></i> {{ $applicant->career_level }}</p>
                      <p><i class="la la-envelope"></i>{{ $applicant->email  }}</p>
-                     <p><i class="la la-map-marker"></i>{{ $applicant->city }} / Cambodia</p>
+                     <p><i class="la la-map-marker"></i>{{ __('city.'.$applicant->city) }} / @lang('city.Cambodia')</p>
                  </div>
                  
              </div>
             <div class="manage-jobs-sec">
-                <div class="border-title"><h3>Education</h3></div>
+                <div class="border-title"><h3>@lang('my_resume.education')</h3></div>
                 <div class="edu-history-sec">
                    @if (!empty($educations))
                     @foreach ($educations as $index => $item)
@@ -36,7 +36,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="border-title"><h3>Work Experience</h3></div>
+                <div class="border-title"><h3>@lang('my_resume.work_experience')</h3></div>
                 <div class="edu-history-sec">
                    @if (!empty($work_experience))
                     @foreach ($work_experience as $index => $item)
@@ -51,7 +51,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="border-title"><h3>Professional Skills</h3></div>
+                <div class="border-title"><h3>@lang('my_resume.professional_skill')</h3></div>
                 <div class="progress-sec">
                    @if (!empty($skillset))
                     @foreach ($skillset as $index => $item)
@@ -62,7 +62,7 @@
                     @endforeach
                     @endif
                 </div>
-                <div class="border-title"><h3>Achievement</h3></div>
+                <div class="border-title"><h3>@lang('my_resume.achievement')</h3></div>
                 <div class="edu-history-sec">
                     @if (!empty($achievement))
                     @foreach ($achievement as $index => $item)

@@ -18,20 +18,20 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Manage Jobs</h3>
+					 			<h3>@lang('manage_job.manage_job')</h3>
 					 			<div class="extra-job-info">
-								 <span><i class="la la-clock-o"></i><strong>{{ count($jobs) }}</strong> Job Posted</span>
-						 			<span><i class="la la-file-text"></i><strong class="application"></strong> Application</span>
-								 <span><i class="la la-users"></i><strong>{{ count($jobs->where('is_active',1)) }}</strong> Active Jobs</span>
+								 <span><i class="la la-clock-o"></i><strong>{{ count($jobs) }}</strong> @lang('manage_job.job_post')</span>
+						 			<span><i class="la la-file-text"></i><strong class="application"></strong> @lang('manage_job.application')</span>
+								 <span><i class="la la-users"></i><strong>{{ count($jobs->where('is_active',1)) }}</strong> @lang('manage_job.active_job')</span>
 						 		</div>
 						 		<table>
 						 			<thead>
 						 				<tr>
-						 					<td>Title</td>
-						 					<td>Applications</td>
-						 					<td>Created & Deadline</td>
-						 					<td>Status</td>
-						 					<td>Action</td>
+						 					<td>@lang('manage_job.title')</td>
+						 					<td>@lang('manage_job.application')</td>
+						 					<td>@lang('manage_job.create_and_deadline')</td>
+						 					<td>@lang('manage_job.status')</td>
+						 					<td>@lang('manage_job.action')</td>
 						 				</tr>
 						 			</thead>
 						 			<tbody>
@@ -40,18 +40,18 @@
 											<td>
 												<div class="table-list-title">
 													<h3><a href="/company/preview-job/{{ $job->uuid }}">{{ $job->job_title }}</a></h3>
-													<span><i class="la la-map-marker"></i>{{ $job->city }}, Cambodia</span>
+													<span><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
 												</div>
 											</td>
 											<td>
-												<span class="applied-field" data-no="{{ count($job->applicants) }}">{{ count($job->applicants) }} Applied</span>
+												<span class="applied-field" data-no="{{ count($job->applicants) }}">{{ count($job->applicants) }} @lang('manage_job.applied')</span>
 											</td>
 											<td>
 												<span>{{  date("M d , Y", strtotime($job->created_at)) }}</span><br />
 												<span>{{  date("M d , Y", strtotime($job->deadline))}}</span>
 											</td>
 											<td>
-											<span class="status {{ $job->is_active ? 'active' : '' }}">{{ $job->is_active ? 'Active' : 'Inactive'  }}</span>
+											<span class="status {{ $job->is_active ? 'active' : '' }}">{{ $job->is_active ? __('manage_job.active') : __('manage_job.inactive')  }}</span>
 											</td>
 											<td>
 												<ul class="action_job">

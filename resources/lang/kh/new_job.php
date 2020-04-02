@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'post_new_job' => 'បង្កើតការងារថ្មី',
+    'job_title' => 'ចំណងជើងការងារ',
+    'job_description' => 'ការពិពណ៌នាការងារ',
+    'job_type' => 'ប្រភេទ​ការងារ',
+    'categories' => 'ជំនាញ',
+    'qualification' => 'កម្រិត​ការ​អប់រំ',
+    'career_level' => 'កំរិតការងារ',
+    'years_of_experience' => 'តំរូវការបទពិសោធន៍​',
+    'pax' => 'ចំនួនជ្រើសរើស',
+    'offer_salary' => 'ផ្តល់ជូនប្រាក់ខែ',
+    'negotiable' => 'អាចចរចារបាន',
+    'specific_gender' => 'កំណត់ភេទ',
+    'deadline' => 'កាលបរិច្ឆេទផុតកំណត់',
+    'city' => 'ទីក្រុងឬខេត្ត',
+    'work_day' => 'ថ្ងៃធ្វើការ',
+    'work_time' => 'ម៉ោង​ធ្វើការ',
+    'responsibility' => 'ទំនួលខុសត្រូវ',
+    'required_skill' => 'ជំនាញដែលត្រូវការ',
+    'benefit' => 'អត្ថប្រយោជន៍',
+    'create' => 'បង្កើត',
+    'gender' => 'ភេទ',
+    'male' => 'ប្រុស',
+    'female' => 'ស្រី',
+    'yeah' => 'ត្រូវហើយ',
+    'no' => 'ទេ',
+    'please_select_option' => 'សូមជ្រើសរើសជំរើស',
+    'edit_job' => 'កែសម្រួលការងារ',
+    'update' => 'ផ្លាស់ប្តូរ'
+];

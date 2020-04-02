@@ -17,11 +17,16 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="job-single-sec">
 				 			<div class="job-single-head2">
-							 <div class="job-title2"><h3>{{  $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{$job->working_term}}</span></div>
+							 <div class="job-title2"><h3>{{  $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span></div>
 				 				<ul class="tags-jobs">
-									<li><i class="la la-map-marker"></i> {{ $job->city }}, Cambodia</li>
+									<li><i class="la la-map-marker"></i> {{ __('city.'.$job->city) }}, @lang('city.Cambodia')</li>
 									<li><i class="la la-money"></i> Monthly Salary : <span>{{ $job->offer_salary }}</span></li>
-									<li><i class="la la-calendar-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
+									<li><i class="la la-calendar-times-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
+									<li><i class="la la-eye"></i> Views: {{$job->view_count}}</li> 
+								 </ul>
+								 <ul class="tags-jobs">
+									<li><i class="la la-calendar"></i> Working Date: <span>{{ $work_day->from }}-{{ $work_day->to }}</span></li>
+									<li><i class="la la-dashboard"></i> Working Time: <span>{{ $work_time->from }} - {{ $work_time->to }}</span></li>
 				 				</ul>
 				 			</div><!-- Job Head -->
 				 			<div class="job-details">

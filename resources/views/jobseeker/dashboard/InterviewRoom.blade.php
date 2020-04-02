@@ -14,7 +14,7 @@
 		<div class="block no-padding">
 			<div class="container">
 				 <div class="row no-gape">
-					@include('partials.company_sidebar')
+					@include('partials.jobseeker_sidebar')
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 							<div class="emply-resume-sec">

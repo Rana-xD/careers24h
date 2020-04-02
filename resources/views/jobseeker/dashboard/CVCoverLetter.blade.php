@@ -16,7 +16,7 @@
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
 					 		<div class="manage-jobs-sec">
-					 			<h3>Cover Letter & Video CV</h3>
+					 			<h3>@lang('cover_letter.cover_letter_video_cv')</h3>
 						 		<div class="contact-edit">
 						 			<form>
 										 {{-- @csrf --}}
@@ -32,13 +32,13 @@
 						 					</div> --}}
 						 					<div class="col-lg-12">
 												 {{-- <span class="pf-title">Cover Letter</span> --}}
-												 <h3>Cover Letter</h3>
+												 <h3>@lang('cover_letter.cover_letter')</h3>
 						 						<div class="pf-field">
 						 							<textarea id="coverLetter"></textarea>
 						 						</div>
 						 					</div>
 						 					<div class="col-lg-12">
-						 						<button type="button" id ="updateCoverLetter">Update</button>
+						 						<button type="button" id ="updateCoverLetter">@lang('cover_letter.update')</button>
 						 					</div>
 						 				</div>
 									 </form>
@@ -51,10 +51,10 @@
 									@csrf
 									<div class="row">
 										<div class="col-lg-12">
-											<h3>Video CV</h3>
+											<h3>@lang('cover_letter.video_cv')</h3>
 										</div>
 										<div class="col-lg-12">
-											<span class="pf-title" style="color:red">** Maximum Video Length: 3 minutes & Maximum Video Size: 30MB</span>
+											<span class="pf-title" style="color:red">** @lang('cover_letter.maximum_video')</span>
 										</div>
 										<div class="col-lg-12 video-content">
 											<input type="file" accept="video/*" style="display:none" id="videoCV"/>
@@ -65,9 +65,9 @@
 											@endif
 										</div>
 										<div class="col-lg-12">
-											<button type="button" id ="uploadVideo">Upload</button>
-											<button type="button" id ="browseVideo" style="margin-right:30px">Browse Files</button>
-											<button type="button" id ="videoSample" style="float: left">Sample</button>
+											<button type="button" id ="uploadVideo">@lang('cover_letter.upload')</button>
+											<button type="button" id ="browseVideo" style="margin-right:30px">@lang('cover_letter.browse')</button>
+											<button type="button" id ="videoSample" style="float: left">@lang('cover_letter.sample')</button>
 										</div>
 									</div>
 								</form>

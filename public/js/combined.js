@@ -251,6 +251,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
         email = $('#email').val(),
         phone_number = $('#phone_number').val(),
         city = $('#city').val(),
+        isPrivate = $('#isPrivate')[0].checked ? 0 : 1,
         token = $("input[name='_token']").val();
     var social_media = {
       "facebook": facebook,
@@ -271,11 +272,36 @@ if (!CAREER24H.main) CAREER24H.main = {};
     formData.append('email', email);
     formData.append('phone_number', phone_number);
     formData.append('city', city);
+    formData.append('is_private', isPrivate);
     var fileInput = $('#JobseekerImage').prop('files');
 
     if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
       var file = fileInput[0];
       formData.append('file', file);
+    }
+
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var pair = _step.value;
+        console.log(pair[0] + ', ' + pair[1]);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
     }
 
     CAREER24H.utils.activateSpinner();

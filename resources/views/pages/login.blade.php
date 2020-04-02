@@ -13,26 +13,26 @@
 								<div class="col-lg-12">
 									<div class="account-popup-area signin-popup-box static">
 										<div class="account-popup">
-											<h3>Login</h3>
-											<h4>Welcom Back!</h4>
-												<form action="{{ url('/login') }}" method="post" class="loginForm">
+											<h3>@lang('login.login_head')</h3>
+											<h4>@lang('login.welcome')</h4>
+												<form action="{{ url('/login') }}" method="post">
 													@if (session('message'))
 														<p style="color: red">{{ session('message') }}</p>
 													@endif
 												@csrf
 												<div class="cfield">
-													<input type="text" placeholder="Email or Username" name="login" class="username" required/>
+													<input type="text" placeholder="@lang('login.email')" name="login" required/>
 													<i class="la la-user"></i>
 												</div>
 												<div class="cfield">
-													<input type="password" placeholder="password" name="password" class="password" required="required" />
+													<input type="password" placeholder="@lang('login.password')" name="password" required/>
 													<i class="la la-key"></i>
 												</div>
 												<p class="remember-label">
-													<input type="checkbox" name="remember" id="cb1"><label class="labels" for="cb1">Remember me</label>
+													<input type="checkbox" name="remember" id="cb1"><label class="labels" for="cb1">@lang('login.remember_me')</label>
 												</p>
-												<a href="/reset-password" title="">Forgot Password?</a>
-												<button type="submit" class="btn-submit">Login</button>
+												<a href="/reset-password" title="">@lang('login.forget_password')</a>
+												<button type="submit">@lang('login.login')</button>
 											</form>
 											{{-- <div class="extra-login">
 												<span>Or</span>

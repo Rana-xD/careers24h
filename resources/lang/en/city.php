@@ -1,0 +1,30 @@
+<?php
+
+return [
+        'Banteay Meanchey' => 'Banteay Meanchey',
+        'Battambang' => 'Battambang',
+        'Kampong Cham' => 'Kampong Cham',
+        'Kampong Chhnang' => 'Kampong Chhnang',
+        'Kampong Speu' => 'Kampong Speu',
+        'Kampong Thom' => 'Kampong Thom',
+        'Kampot' => 'Kampot',
+        'Kandal' => 'Kandal',
+        'Koh Kong' => 'Koh Kong',
+        'Kratié' => 'Kratié',
+        'Mondulkiri' => 'Mondulkiri',
+        'Phnom Penh' => 'Phnom Penh',
+        'Preah Vihear' => 'Preah Vihear',
+        'Prey Veng' => 'Prey Veng',
+        'Pursat' => 'Pursat',
+        'Ratanak Kiri' => 'Ratanak Kiri',
+        'Siem Reap' => 'Siem Reap',
+        'Preah Sihanouk' => 'Preah Sihanouk',
+        'Steung Treng' => 'Steung Treng',
+        'Svay Rieng' => 'Svay Rieng',
+        'Takéo' => 'Takéo',
+        'Oddar Meanchey' => 'Oddar Meanchey',
+        'Kep' => 'Kep',
+        'Pailin' => 'Pailin',
+        'Tboung Khmum' => 'Tboung Khmum',
+        'Cambodia' => 'Cambodia'
+];

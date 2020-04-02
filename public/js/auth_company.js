@@ -190,6 +190,15 @@ if (!CAREER24H.company) CAREER24H.company = {};
     $('.gender').css('display', 'none');
   };
 
+  func.loadDefaultDataForWorkDayAndWorkTime = function () {
+    $('#work_day_from').val('Mon');
+    $('#work_day_from').trigger("chosen:updated");
+    $('#work_day_to').val('Fri');
+    $('#work_day_to').trigger("chosen:updated");
+    $('#work_time_from').val('8:00 AM');
+    $('#work_time_to').val('5:00 PM');
+  };
+
   func.createJob = function (e) {
     var jobTitle = $('#job_title').val(),
         description = $('#description').summernote('code'),
@@ -208,7 +217,19 @@ if (!CAREER24H.company) CAREER24H.company = {};
         responsibility = $('#responsibility').summernote('code'),
         requiredSkill = $('#required_skill').summernote('code'),
         benefit = $('#benefit').summernote('code'),
+        workDayFrom = $('#work_day_from').val(),
+        workDayTo = $('#work_day_to').val(),
+        workTimeFrom = $('#work_time_from').val(),
+        workTimeTo = $('#work_time_to').val(),
         token = $("input[name='_token']").val();
+    var workDay = {
+      'from': workDayFrom,
+      'to': workDayTo
+    };
+    var workTime = {
+      'from': workTimeFrom,
+      'to': workTimeTo
+    };
     formData = new FormData();
     formData.append('_token', token);
     formData.append('job_title', jobTitle);
@@ -227,7 +248,9 @@ if (!CAREER24H.company) CAREER24H.company = {};
     formData.append('responsibility', responsibility);
     formData.append('required_skill', requiredSkill);
     formData.append('benefit', benefit);
-    formData.append('city', city); // for (var pair of formData.entries()) {
+    formData.append('city', city);
+    formData.append('work_day', JSON.stringify(workDay));
+    formData.append('work_time', JSON.stringify(workTime)); // for (var pair of formData.entries()) {
     //     console.log(pair[0]+ ', ' + pair[1]); 
     // }
 
@@ -306,12 +329,32 @@ if (!CAREER24H.company) CAREER24H.company = {};
       $('#isActive').prop('checked', false);
       $('#isActive').bootstrapToggle('off');
     }
+
+    if (arguments[13]) {
+      $('#work_day_from').val(arguments[13].from);
+      $('#work_day_from').trigger("chosen:updated");
+      $('#work_day_to').val(arguments[13].to);
+      $('#work_day_to').trigger("chosen:updated");
+    }
+
+    if (arguments[14]) {
+      $('#work_time_from').val(arguments[14].from);
+      $('#work_time_to').val(arguments[14].to);
+    }
   };
 
   func.updateJob = function () {
     var jobTitle = $('#job_title').val();
-    isActive = $('#isActive')[0].checked ? 1 : 0, description = $('#description').summernote('code'), jobType = $('#job_type').val(), category = $('#category').val(), qualification = $('#qualification').val(), career_level = $('#career_level').val(), yearsOfExperience = $('#years_of_experience').val(), pax = $('#pax').val(), offerSalary = $('#offer_salary').val(), isNegotiable = $('#negotiable')[0].checked ? 1 : 0, specificGener = $('#specificGender')[0].checked ? 1 : 0, gender = specificGener ? $('#gender').val() : '', deadline = $('#deadline').val(), city = $('#city').val(), responsibility = $('#responsibility').summernote('code'), requiredSkill = $('#required_skill').summernote('code'), benefit = $('#benefit').summernote('code'), token = $("input[name='_token']").val();
+    isActive = $('#isActive')[0].checked ? 1 : 0, description = $('#description').summernote('code'), jobType = $('#job_type').val(), category = $('#category').val(), qualification = $('#qualification').val(), career_level = $('#career_level').val(), yearsOfExperience = $('#years_of_experience').val(), pax = $('#pax').val(), offerSalary = $('#offer_salary').val(), isNegotiable = $('#negotiable')[0].checked ? 1 : 0, specificGener = $('#specificGender')[0].checked ? 1 : 0, gender = specificGener ? $('#gender').val() : '', deadline = $('#deadline').val(), city = $('#city').val(), responsibility = $('#responsibility').summernote('code'), requiredSkill = $('#required_skill').summernote('code'), benefit = $('#benefit').summernote('code'), workDayFrom = $('#work_day_from').val(), workDayTo = $('#work_day_to').val(), workTimeFrom = $('#work_time_from').val(), workTimeTo = $('#work_time_to').val(), token = $("input[name='_token']").val();
     id = $("#jobID").val();
+    var workDay = {
+      'from': workDayFrom,
+      'to': workDayTo
+    };
+    var workTime = {
+      'from': workTimeFrom,
+      'to': workTimeTo
+    };
     formData = new FormData();
     formData.append('_token', token);
     formData.append('job_title', jobTitle);
@@ -332,7 +375,9 @@ if (!CAREER24H.company) CAREER24H.company = {};
     formData.append('required_skill', requiredSkill);
     formData.append('benefit', benefit);
     formData.append('city', city);
-    formData.append('id', id); // for (var pair of formData.entries()) {
+    formData.append('id', id);
+    formData.append('work_day', JSON.stringify(workDay));
+    formData.append('work_time', JSON.stringify(workTime)); // for (var pair of formData.entries()) {
     //     console.log(pair[0]+ ', ' + pair[1]); 
     // }
 

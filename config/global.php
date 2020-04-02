@@ -8,6 +8,7 @@ return  [
         'Kampong Speu',
         'Kampong Thom',
         'Kampot',
+        'Kandal',
         'Koh Kong',
         'Kratié',
         'Mondulkiri',

@@ -194,6 +194,15 @@ if(!CAREER24H.company) CAREER24H.company = {};
         $('.gender').css('display','none');
     }
 
+    func.loadDefaultDataForWorkDayAndWorkTime = function(){
+        $('#work_day_from').val('Mon');
+        $('#work_day_from').trigger("chosen:updated");
+        $('#work_day_to').val('Fri');
+        $('#work_day_to').trigger("chosen:updated");
+        $('#work_time_from').val('8:00 AM');
+        $('#work_time_to').val('5:00 PM')
+    }
+    
     func.createJob = function(e){
         let jobTitle = $('#job_title').val(),
             description = $('#description').summernote('code'),
@@ -212,7 +221,21 @@ if(!CAREER24H.company) CAREER24H.company = {};
             responsibility = $('#responsibility').summernote('code'),
             requiredSkill = $('#required_skill').summernote('code'),
             benefit = $('#benefit').summernote('code'),
+            workDayFrom = $('#work_day_from').val(),
+            workDayTo = $('#work_day_to').val(),
+            workTimeFrom = $('#work_time_from').val(),
+            workTimeTo = $('#work_time_to').val(),
             token = $("input[name='_token']").val();
+
+            let workDay = {
+                'from' : workDayFrom,
+                'to' : workDayTo
+            };
+
+            let workTime = {
+                'from' : workTimeFrom,
+                'to' : workTimeTo
+            };
 
             formData = new FormData();
             formData.append('_token',token);
@@ -233,6 +256,8 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('required_skill',requiredSkill);
             formData.append('benefit',benefit);
             formData.append('city',city);
+            formData.append('work_day',JSON.stringify(workDay));
+            formData.append('work_time',JSON.stringify(workTime));
 
             // for (var pair of formData.entries()) {
             //     console.log(pair[0]+ ', ' + pair[1]); 
@@ -308,6 +333,18 @@ if(!CAREER24H.company) CAREER24H.company = {};
             $('#isActive').prop('checked', false);
             $('#isActive').bootstrapToggle('off')
         }
+
+        if (arguments[13]) {
+            $('#work_day_from').val(arguments[13].from);
+            $('#work_day_from').trigger("chosen:updated");
+            $('#work_day_to').val(arguments[13].to);
+            $('#work_day_to').trigger("chosen:updated");
+        }
+
+        if (arguments[14]) {
+            $('#work_time_from').val(arguments[14].from);
+            $('#work_time_to').val(arguments[14].to)
+        }
     }
 
     func.updateJob = function(){
@@ -329,8 +366,22 @@ if(!CAREER24H.company) CAREER24H.company = {};
             responsibility = $('#responsibility').summernote('code'),
             requiredSkill = $('#required_skill').summernote('code'),
             benefit = $('#benefit').summernote('code'),
+            workDayFrom = $('#work_day_from').val(),
+            workDayTo = $('#work_day_to').val(),
+            workTimeFrom = $('#work_time_from').val(),
+            workTimeTo = $('#work_time_to').val(),
             token = $("input[name='_token']").val()
             id = $("#jobID").val();
+
+            let workDay = {
+                'from' : workDayFrom,
+                'to' : workDayTo
+            };
+
+            let workTime = {
+                'from' : workTimeFrom,
+                'to' : workTimeTo
+            };
 
             formData = new FormData();
             formData.append('_token',token);
@@ -353,6 +404,8 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('benefit',benefit);
             formData.append('city',city);
             formData.append('id',id);
+            formData.append('work_day',JSON.stringify(workDay));
+            formData.append('work_time',JSON.stringify(workTime));
 
             // for (var pair of formData.entries()) {
             //     console.log(pair[0]+ ', ' + pair[1]); 

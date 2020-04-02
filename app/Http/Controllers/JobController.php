@@ -120,17 +120,29 @@ class JobController extends Controller
 
     public function showJobPreview($uuid){
         $job = Job::where('uuid',$uuid)->firstOrFail();
+        $work_day = json_decode($job->work_day);
+        $work_time = json_decode($job->work_time);
+        
         return view('company.dashboard.JobPreview',[
-            'job' => $job
+            'job' => $job,
+            'work_day' => $work_day,
+            'work_time' => $work_time
         ]);
     }
 
     public function showSingleJob($uuid){
         $job = Job::where('uuid',$uuid)->firstOrFail();
+        $job->increment('view_count');
+        $work_day = json_decode($job->work_day);
+        $work_time = json_decode($job->work_time);
+
         return view('Job.JobSingle',[
-            'job' => $job
+            'job' => $job,
+            'work_day' => $work_day,
+            'work_time' => $work_time
         ]);
     }
+
     public function showAllCompanyJob($uuid){
         $company = CompanyProfile::where('uuid',$uuid)->get();
         if(count($company) == 0){

@@ -57,28 +57,26 @@
 								 <p>{{ $candidate->age }} years old, {{ $candidate->gender }}</p>
 								 <p><i class="la la-phone"></i>{{ $candidate->phone_number  }}</p>
                      			<p><i class="la la-envelope"></i>{{ $candidate->email  }}</p>
-                     			<p><i class="la la-map-marker"></i>{{ $candidate->city }} / Cambodia</p>
+                     			<p><i class="la la-map-marker"></i>{{ __('city.'.$candidate->city) }} / @lang('city.Cambodia')</p>
 				 			</div>
 				 			<div class="download-cv">
 				 				<a href="#" title="">Download CV <i class="la la-download"></i></a>
 				 			</div>
 				 		</div>
 				 		<ul class="cand-extralink">
-				 			<li><a href="#about" title="">About</a></li>
-				 			<li><a href="#education" title="">Education</a></li>
-				 			<li><a href="#experience" title="">Work Experience</a></li>
-				 			<li><a href="#skills" title="">Professional Skills</a></li>
-				 			<li><a href="#awards" title="">Awards</a></li>
+				 			<li><a href="#education" title="">@lang('candidate.education')</a></li>
+				 			<li><a href="#experience" title="">@lang('candidate.work_experience')</a></li>
+				 			<li><a href="#skills" title="">@lang('candidate.professional_skills')</a></li>
+				 			<li><a href="#awards" title="">@lang('candidate.award')</a></li>
 				 		</ul>
 				 		<div class="cand-details-sec">
 				 			<div class="row">
 				 				<div class="col-lg-9 column">
 				 					<div class="cand-details">
-				 						<h2 id="about">Candidates About</h2>
-				 						<p>Hello my name is Mark William Connor and I’m a Web Designer & Web Developer from Melbourne, Australia. In pharetra orci dignissim, blandit mi semper, ultricies diam. Suspendisse malesuada suscipit nunc non volutpat. Sed porta nulla id orci laoreet tempor non consequat enim. Sed vitae aliquam velit. Aliquam ante erat, blandit at pretium et, accumsan ac est. Integer vehicula rhoncus molestie. Morbi ornare ipsum sed sem condimentum, et pulvinar tortor luctus. Suspendisse condimentum lorem ut elementum aliquam. </p>
-				 						<p>Mauris nec erat ut libero vulputate pulvinar. Aliquam ante erat, blandit at pretium et, accumsan ac est. Integer vehicula rhoncus molestie. Morbi ornare ipsum sed sem condimentum, et pulvinar tortor luctus. Suspendisse condimentum lorem ut elementum aliquam. Mauris nec erat ut libero vulputate pulvinar.</p>
+				 						<h2 id="about">@lang('candidate.cover_letter')</h2>
+				 						{!! $candidate->cover_letter  !!}
 				 						<div class="edu-history-sec" id="education">
-				 							<h2>Education</h2>
+				 							<h2>@lang('candidate.education')</h2>
 				 							@if (!empty($candidate->education))
                     							@foreach ($candidate->education as $index => $item)
                     								<div class="edu-history">
@@ -94,7 +92,7 @@
                     						@endif
 				 						</div>
 				 						<div class="edu-history-sec" id="experience">
-				 							<h2>Work & Experience</h2>
+				 							<h2>@lang('candidate.work_experience')</h2>
 											@if (!empty($candidate->work_experience))
 											 	@foreach ($candidate->work_experience as $index => $item)
 											 		<div class="edu-history style2">
@@ -109,7 +107,7 @@
 											@endif
 				 						</div>
 				 						<div class="progress-sec" id="skills">
-											 <h2>Professional Skills</h2>
+											 <h2>@lang('candidate.professional_skills')</h2>
 											 @if (!empty($candidate->skillset))
 											 @foreach ($candidate->skillset as $index => $item)
 											 <div class="progress-sec with-edit">
@@ -120,7 +118,7 @@
 											 @endif
 				 						</div>
 				 						<div class="edu-history-sec" id="awards">
-				 							<h2>Awards</h2>
+				 							<h2>@lang('candidate.award')</h2>
 											 @if (!empty($candidate->achievement))
 											 @foreach ($candidate->achievement as $index => $item)
 											 <div class="edu-history style2">
@@ -138,12 +136,13 @@
 				 				</div>
 				 				<div class="col-lg-3 column">
 						 			<div class="job-overview">
-							 			<h3>Jobseeker Overview</h3>
+							 			<h3>@lang('candidate.candidate_overview')</h3>
 							 			<ul>
-							 				<li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>{{ $candidate->career_level }}</span></li>
-										 	<li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>{{ $candidate->industry }}</span></li>
-							 				<li><i class="la la-shield"></i><h3>Experience</h3><span>{{ $candidate->experience }} Years</span></li>
-							 				<li><i class="la la-line-chart "></i><h3>Education</h3><span>{{ $candidate->education_level }}</span></li>
+							 				<li><i class="la la-thumb-tack"></i><h3>@lang('candidate.career_level')</h3><span>{{ $candidate->career_level }}</span></li>
+										 	<li><i class="la la-puzzle-piece"></i><h3>@lang('candidate.industry')</h3><span>{{ $candidate->industry }}</span></li>
+							 				<li><i class="la la-shield"></i><h3>@lang('candidate.experience')</h3><span>{{ $candidate->experience }} Years</span></li>
+											 <li><i class="la la-line-chart "></i><h3>@lang('candidate.education_level')</h3><span>{{ $candidate->education_level }}</span></li>
+											 <li><i class="la la-eye"></i><h3>@lang('candidate.view')</h3><span>{{$candidate->view_count}}</span></li>
 							 			</ul>
 							 		</div><!-- Job Overview -->
 						 		</div>
