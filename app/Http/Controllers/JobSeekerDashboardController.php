@@ -206,18 +206,30 @@ class JobSeekerDashboardController extends Controller
             array_push($education,$data['education']);
             $data['education'] = $education;
             Auth::user()->jobseekerProfile()->update($data);
+            $index = 0;
+            $html_render = view('partials.jobseeker_resume.education',[
+                'index' => $index,
+                'item' => $data['education'][0]
+            ])->render();
             return response()->json([
                 'code' => 200,
-                'message' => 'Successfully add education'
+                'message' => 'Successfully add education',
+                'html_render' => $html_render
             ]);
         }
         $education = Auth::user()->jobseekerProfile->education;
         array_push($education,$data['education']);
         $data['education'] = $education;
         Auth::user()->jobseekerProfile()->update($data);
+        $index = $this->getIndex($data['education']);
+        $html_render = view('partials.jobseeker_resume.education',[
+            'index' => $index,
+            'item' => $request->education,
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully add education'
+            'message' => 'Successfully add education',
+            'html_render' => $html_render
         ]);
         
     }
@@ -229,18 +241,30 @@ class JobSeekerDashboardController extends Controller
             array_push($work_experience,$data['work_experience']);
             $data['work_experience'] = $work_experience;
             Auth::user()->jobseekerProfile()->update($data);
+            $index = 0;
+            $html_render = view('partials.jobseeker_resume.work_experience',[
+                'index' => $index,
+                'item' => $data['work_experience'][0]
+            ])->render();
             return response()->json([
                 'code' => 200,
-                'message' => 'Successfully add work experience'
+                'message' => 'Successfully add work experience',
+                'html_render' => $html_render
             ]);
         }
         $work_experience = Auth::user()->jobseekerProfile->work_experience;
         array_push($work_experience,$data['work_experience']);
         $data['work_experience'] = $work_experience;
         Auth::user()->jobseekerProfile()->update($data);
+        $index = $this->getIndex($data['work_experience']);
+        $html_render = view('partials.jobseeker_resume.work_experience',[
+            'index' => $index,
+            'item' => $request->work_experience
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully add work experience'
+            'message' => 'Successfully add work experience',
+            'html_render' => $html_render
         ]);
     }
 
@@ -251,18 +275,30 @@ class JobSeekerDashboardController extends Controller
             array_push($skillset,$data['skillset']);
             $data['skillset'] = $skillset;
             Auth::user()->jobseekerProfile()->update($data);
+            $index = 0;
+            $html_render = view('partials.jobseeker_resume.skill',[
+                        'index' => $index,
+                        'item' => $data['skillset'][0]
+                    ])->render();
             return response()->json([
                 'code' => 200,
-                'message' => 'Successfully add skillset'
+                'message' => 'Successfully add skillset',
+                'html_render' => $html_render
             ]);
         }
         $skillset = Auth::user()->jobseekerProfile->skillset;
         array_push($skillset,$data['skillset']);
         $data['skillset'] = $skillset;
         Auth::user()->jobseekerProfile()->update($data);
+        $index = $this->getIndex($data['skillset']);
+        $html_render = view('partials.jobseeker_resume.skill',[
+            'index' => $index,
+            'item' => $request->skillset
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully add skillset'
+            'message' => 'Successfully add skillset',
+            'html_render' => $html_render 
         ]);
     }
 
@@ -273,18 +309,30 @@ class JobSeekerDashboardController extends Controller
             array_push($achievement,$data['achievement']);
             $data['achievement'] = $achievement;
             Auth::user()->jobseekerProfile()->update($data);
+            $index = 0;
+            $html_render = view('partials.jobseeker_resume.achievement',[
+                        'index' => $index,
+                        'item' => $data['achievement'][0]
+                    ])->render();
             return response()->json([
                 'code' => 200,
-                'message' => 'Successfully add achievement'
+                'message' => 'Successfully add achievement',
+                'html_render' => $html_render
             ]);
         }
         $achievement = Auth::user()->jobseekerProfile->achievement;
         array_push($achievement,$data['achievement']);
         $data['achievement'] = $achievement;
         Auth::user()->jobseekerProfile()->update($data);
+        $index = $this->getIndex($data['achievement']);
+        $html_render = view('partials.jobseeker_resume.achievement',[
+            'index' => $index,
+            'item' => $request->achievement
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully add achievement'
+            'message' => 'Successfully add achievement',
+            'html_render' => $html_render
         ]);
     }
 
@@ -351,9 +399,14 @@ class JobSeekerDashboardController extends Controller
         $data['education'] = $education;
 
         Auth::user()->jobseekerProfile()->update($data);
+        $html_render = view('partials.jobseeker_resume.education',[
+            'index' => $index,
+            'item' => $request->education
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully update education'
+            'message' => 'Successfully update education',
+            'html_render' => $html_render
         ]);
     }
 
@@ -365,9 +418,14 @@ class JobSeekerDashboardController extends Controller
         $data['work_experience'] = $work_experience;
 
         Auth::user()->jobseekerProfile()->update($data);
+        $html_render = view('partials.jobseeker_resume.work_experience',[
+            'index' => $index,
+            'item' => $request->work_experience
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully update work experience'
+            'message' => 'Successfully update work experience',
+            'html_render' => $html_render
         ]);
     }
 
@@ -379,9 +437,14 @@ class JobSeekerDashboardController extends Controller
         $data['skillset'] = $skillset;
 
         Auth::user()->jobseekerProfile()->update($data);
+        $html_render = view('partials.jobseeker_resume.skill',[
+            'index' => $index,
+            'item' => $request->skillset
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully update skillset'
+            'message' => 'Successfully update skillset',
+            'html_render' => $html_render
         ]);
     }
 
@@ -393,9 +456,14 @@ class JobSeekerDashboardController extends Controller
         $data['achievement'] = $achievement;
 
         Auth::user()->jobseekerProfile()->update($data);
+        $html_render = view('partials.jobseeker_resume.achievement',[
+            'index' => $index,
+            'item' => $request->achievement
+        ])->render();
         return response()->json([
             'code' => 200,
-            'message' => 'Successfully update achievement'
+            'message' => 'Successfully update achievement',
+            'html_render' => $html_render
         ]);
     }
 
@@ -501,6 +569,11 @@ class JobSeekerDashboardController extends Controller
         return view("Templates.CardTemplate", [
             "templates" => $existingTemplates
         ]);
+    }
+
+
+    private function getIndex($array){
+        return key(end($array));
     }
 }
 

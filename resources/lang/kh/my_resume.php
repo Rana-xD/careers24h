@@ -15,7 +15,7 @@ return [
     'school_name' => 'ឈ្មោះ​សាលា',
     'description' => 'ការពិពណ៌នា',
     'now' => 'បច្ចុប្បន្ន',
-    'comapany' => 'ក្រុមហ៊ុន',
+    'company' => 'ក្រុមហ៊ុន',
     'skill_heading' => 'ឈ្មោះជំនាញ',
     'percentage' => 'ភាគរយ',
     'add' => 'បន្ថែម',
