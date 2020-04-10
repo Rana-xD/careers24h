@@ -40,9 +40,11 @@
                     <a href="/company" title="">@lang('navbar.company')</a>
                     
                 </li>
-                <li>
-                    <a href="/candidates" title="">@lang('navbar.candidate')</a>
-                </li>
+                @if (Auth::user() && Auth::user()->isCompany())
+                    <li>
+                        <a href="/candidates" title="">@lang('navbar.candidate')</a>
+                    </li>
+                @endif
                 <li class="menu-item-has-children">
                     <a><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
                     <ul style="width:85px">
@@ -117,9 +119,11 @@
                         <a href="/company" title="">@lang('navbar.company')</a>
                         
                     </li>
+                    @if (Auth::user() && Auth::user()->isCompany())
                     <li>
                         <a href="/candidates" title="">@lang('navbar.candidate')</a>
                     </li>
+                    @endif
                     <li class="menu-item-has-children">
                         <a href="#" title=""><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
                         <ul style="width:85px">

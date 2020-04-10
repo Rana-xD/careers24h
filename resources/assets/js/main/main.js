@@ -421,6 +421,9 @@ if(!CAREER24H.main) CAREER24H.main = {};
         let industry = $("input[name='industry[]']:checked").map(function(_, el) {
             return $(el).val();
         }).get();
+        let experience = $("input[name='experience[]']:checked").map(function(_, el) {
+            return $(el).val();
+        }).get();
         let careerLevel = $("input[name='career_level[]']:checked").map(function(_, el) {
             return $(el).val();
         }).get();
@@ -432,6 +435,9 @@ if(!CAREER24H.main) CAREER24H.main = {};
             return $(el).val();
         }).get();
 
+        if(experience.length > 0){
+            filter = `${filter}experience=${experience}&`;
+        }
         if(careerLevel.length > 0){
             filter = `${filter}career_level=${careerLevel}&`;
         }
@@ -460,5 +466,4 @@ if(!CAREER24H.main) CAREER24H.main = {};
         let url = $(self).attr('data-id');
         window.open('https://'+url);
     }
-
 })(jQuery);

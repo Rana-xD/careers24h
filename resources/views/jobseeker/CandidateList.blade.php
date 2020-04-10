@@ -57,6 +57,16 @@
 								</div>
 							</div>
 						</div>
+						<div class="widget">
+							<h3 class="sb-title closed">@lang('candidate.experience')</h3>
+							<div class="specialism_widget">
+								<div class="simple-checkbox">
+									@foreach (config('global.years_of_experience') as $item)
+										<p><input type="checkbox" name="experience[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{$item}}</label></p>
+									@endforeach
+								</div>
+							</div>
+						</div>
 				 		<div class="widget">
 				 			<h3 class="sb-title closed">@lang('candidate.career_level')</h3>
 				 			<div class="specialism_widget">

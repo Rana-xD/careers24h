@@ -14,6 +14,11 @@ use App\Models\JobseekerProfile;
 class JobSeekerController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('company');
+    }
+
     public function showJobseekerInfo($uuid){
             $candidate = JobseekerProfile::where('uuid',$uuid)->firstOrFail();
             $candidate->increment('view_count');
@@ -38,6 +43,9 @@ class JobSeekerController extends Controller
         }
         if($request->has('city')){
             $jobseekers->whereIn('city', explode(',', $request->input('city')));
+        }
+        if($request->has('experience')){
+            $jobseekers->whereIn('experience', explode(',', $request->input('experience')));
         }
         if($request->has('career_level')){
             $jobseekers->whereIn('career_level', explode(',', $request->input('career_level')));

@@ -46,7 +46,7 @@
 										 <div class="col-lg-3">
 											<span class="pf-title">@lang('my_profile.gender')</span>
 											<div class="pf-field">
-											<select data-placeholder="Allow In Search" class="chosen" name="gender" id="gender" value="{{ $jobseeker_profile->gender }}">
+											<select data-placeholder="Allow In Search" class="chosen age" name="gender" id="gender" value="{{ $jobseeker_profile->gender }}">
 													<option value="MALE">@lang('my_profile.male')</option>
 													<option value="FEMALE">@lang('my_profile.female')</option>
 												</select>
@@ -58,16 +58,21 @@
 											   <input type="checkbox" checked id="isPrivate" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.public')" data-off="@lang('my_profile.private')" data-onstyle="primary" data-offstyle="danger">
 											</div>
 										</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 											<span class="pf-title">@lang('my_profile.experience')</span>
 											<div class="pf-field">
-											<input type="text" placeholder="2" name="experience" id="experience" value="{{ $jobseeker_profile->experience }}"/>
+												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="experience" id="experience">
+													   <option value=""></option>
+													   @foreach (config('global.years_of_experience') as $item)
+																<option value="{{ $item }}">{{ $item }}</option>
+														@endforeach
+												   </select>
 											</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.industry')</span>
 					 						<div class="pf-field">
-											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry" value="{{ $jobseeker_profile->industry }}">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry">
 													<option value=""></option>
 													@foreach ($industry as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -75,10 +80,10 @@
 												</select>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.education_level')</span>
 					 						<div class="pf-field">
-												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level" value="{{ $jobseeker_profile->education_level }}">
+												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level">
 													<option value=""></option>
 													 @foreach ($education_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -86,11 +91,11 @@
 												</select>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.career_levels')</span>					 						
 					 						<div class="pf-field">
 						 						<div class="pf-field">
-													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level" value="{{ $jobseeker_profile->career_level }}">
+													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level">
 														<option value=""></option>
 														@foreach ($career_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -115,42 +120,7 @@
 					 				</div>
 					 			</form>
 					 		</div>
-					 		<div class="social-edit">
-					 			<h3>@lang('my_profile.social_media')</h3>
-					 			<form>
-					 				<div class="row">
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Facebook</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="www.facebook.com/example" name="facebook" id="facebook"/>
-					 							<i class="fa fa-facebook"></i>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Instagram</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="www.instagram.com/example" id="instagram" name="instagram"/>
-					 							<i class="fa fa-instagram"></i>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Twitter</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="www.twitter.com/example" id="twitter" name="twitter"/>
-					 							<i class="la la-twitter"></i>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-6">
-					 						<span class="pf-title">Linkedin</span>
-					 						<div class="pf-field">
-					 							<input type="text" placeholder="www.Linkedin.com/TeraPlaner" name="linkedin" id="linkedin"/>
-					 							<i class="la la-linkedin"></i>
-					 						</div>
-					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit">
+					 		<div class="contact-edit" style="margin-bottom: 10px;">
 					 			<h3>@lang('my_profile.contact')</h3>
 					 			<form>
 					 				<div class="row">
@@ -177,12 +147,47 @@
 												</select>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-12">
-					 						<button type="button" id="jobseekerProfileUpdate">@lang('my_profile.update')</button>
-					 					</div>
 					 				</div>
 					 			</form>
-					 		</div>
+							 </div>
+							 <div class="contact-edit">
+								<h3>@lang('my_profile.social_media')</h3>
+								<form>
+									<div class="row">
+										<div class="col-lg-6">
+											<span class="pf-title">Facebook</span>
+											<div class="pf-field">
+												<input type="text" placeholder="www.facebook.com/example" name="facebook" id="facebook"/>
+												<i class="fa fa-facebook"></i>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<span class="pf-title">Instagram</span>
+											<div class="pf-field">
+												<input type="text" placeholder="www.instagram.com/example" id="instagram" name="instagram"/>
+												<i class="fa fa-instagram"></i>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<span class="pf-title">Twitter</span>
+											<div class="pf-field">
+												<input type="text" placeholder="www.twitter.com/example" id="twitter" name="twitter"/>
+												<i class="la la-twitter"></i>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<span class="pf-title">Linkedin</span>
+											<div class="pf-field">
+												<input type="text" placeholder="www.Linkedin.com/TeraPlaner" name="linkedin" id="linkedin"/>
+												<i class="la la-linkedin"></i>
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<button type="button" id="jobseekerProfileUpdate">@lang('my_profile.update')</button>
+										</div>
+									</div>
+								</form>
+							</div>
 					 	</div>
 					</div>
 				 </div>
@@ -220,6 +225,10 @@
 </body>
 <script>
 	jQuery(document).ready(function($){
+		$(".chosen").chosen({
+        	inherit_select_classes: true
+		});
+		  
 		let social_media = '<?php echo $jobseeker_profile->social_media ?>' ? JSON.parse('<?php echo $jobseeker_profile->social_media ?>') : '';
 		let industry = '<?php echo $jobseeker_profile->industry ?>';
 		let educationLevel = '<?php echo $jobseeker_profile->education_level ?>';
@@ -227,13 +236,14 @@
 		let gender = '<?php echo $jobseeker_profile->gender ?>';
 		let city = '<?php echo $jobseeker_profile->city ?>';
 		let isPrivate = '<?php echo $jobseeker_profile->is_private ?>';
+		let experience = '<?php echo $jobseeker_profile->experience ?>';
 		$('#openFileInput').on('click',()=>{
 			$('#JobseekerImage').click();
 		})
 
 		$('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
 		$('#jobseekerProfileUpdate').on('click',CAREER24H.jobseeker.updateJobseekerProfile);
-		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city,isPrivate);
+		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city,isPrivate,experience);
 	});
 </script>
 </html>

@@ -194,6 +194,11 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
       $('#isPrivate').prop('checked', false);
       $('#isPrivate').bootstrapToggle('off');
     }
+
+    if (arguments[7]) {
+      $('#experience').val(arguments[7]);
+      $('#experience').trigger("chosen:updated");
+    }
   }; // func.updateCoverLetter = function(){
   //     let coverLetter = $('#coverLetter').summernote('code')
   //     token = $("input[name='_token']").val();
