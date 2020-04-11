@@ -2689,6 +2689,8 @@ header.style2 nav {
     width: 100%;
     margin-top: -30px;
 }
+
+
 .pricetable {
     float: left;
     width: 100%;
@@ -2764,6 +2766,7 @@ header.style2 nav {
     width: 100%;
     font-family: Quicksand;
     font-size: 15px;
+    font-weight: bold;
     color: #888888;
     margin-top: 2px;
 }
@@ -2777,9 +2780,9 @@ header.style2 nav {
     float: left;
     width: 100%;
     font-family: Open Sans;
-    font-size: 13px;
+    font-size: 14px;
     color: #888888;
-    line-height: 40px;
+    line-height: 35px;
 }
 .pricetable > a {
     float: none;
@@ -2812,9 +2815,15 @@ header.style2 nav {
 }
 
 .pricetable > a:hover {
-    background: #d42525;
-    color: #FFF;
+    background: #fb236a;
+    color: #ffffff;
 }
+
+.pricetable.active>a:hover {
+    background: #fb236a;
+    color: #ffffff;
+  }
+  
 
 
 /* Subscription Sec */
@@ -6855,6 +6864,10 @@ aside .widget.border:first-child {
     color: #101010;
     line-height: 24px;
 }
+.pf-field > input:focus, .pf-field > textarea:focus { 
+    border: 2px solid #fb236a;
+}
+
 .pf-field > textarea {
     color: #888888;
     padding: 30px 30px;
@@ -7467,6 +7480,7 @@ aside .widget.border:first-child {
 .action-resume-view{
     position: relative;
     float: left;
+    margin-right: 30px;
 }
 
 .action-resume-view > span {

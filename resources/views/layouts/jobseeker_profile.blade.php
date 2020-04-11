@@ -54,13 +54,18 @@
 											   <input type="checkbox" checked id="isPrivate" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.public')" data-off="@lang('my_profile.private')" data-onstyle="primary" data-offstyle="danger">
 											</div>
 										</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 											<span class="pf-title">@lang('my_profile.experience')</span>
 											<div class="pf-field">
-											<input type="text" placeholder="2" name="experience" id="experience"/>
+												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="experience" id="experience">
+													   <option value=""></option>
+													   @foreach (config('global.years_of_experience') as $item)
+																<option value="{{ $item }}">{{ $item }}</option>
+														@endforeach
+												</select>
 											</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.industry')</span>
 					 						<div class="pf-field">
 											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry">
@@ -71,7 +76,7 @@
 												</select>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.education_level')</span>
 					 						<div class="pf-field">
 												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level">
@@ -82,7 +87,7 @@
 												</select>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.career_levels')</span>					 						
 					 						<div class="pf-field">
 						 						<div class="pf-field">
@@ -111,7 +116,38 @@
 					 				</div>
 					 			</form>
 					 		</div>
-					 		<div class="social-edit">
+					 		
+					 		<div class="contact-edit" style="margin-bottom: 10px;">
+					 			<h3>@lang('my_profile.contact')</h3>
+					 			<form>
+					 				<div class="row">
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('my_profile.phone_number')</span>
+					 						<div class="pf-field">
+											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{$phone_number}}"/>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('my_profile.email')</span>
+					 						<div class="pf-field">
+											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{$email}}"/>
+					 						</div>
+					 					</div>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('my_profile.city')</span>
+					 						<div class="pf-field">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city">
+													<option value=""></option>
+													@foreach (config('global.city') as $item)
+												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+													 @endforeach
+												</select>
+					 						</div>
+					 					</div>
+					 				</div>
+					 			</form>
+							 </div>
+							 <div class="contact-edit">
 					 			<h3>@lang('my_profile.social_media')</h3>
 					 			<form>
 					 				<div class="row">
@@ -142,44 +178,15 @@
 					 							<input type="text" placeholder="www.Linkedin.com/TeraPlaner" name="linkedin" id="linkedin"/>
 					 							<i class="la la-linkedin"></i>
 					 						</div>
-					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit">
-					 			<h3>@lang('my_profile.contact')</h3>
-					 			<form>
-					 				<div class="row">
-					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('my_profile.phone_number')</span>
-					 						<div class="pf-field">
-											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{$phone_number}}"/>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('my_profile.email')</span>
-					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{$email}}"/>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('my_profile.city')</span>
-					 						<div class="pf-field">
-											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city">
-													<option value=""></option>
-													@foreach (config('global.city') as $item)
-												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
-													 @endforeach
-												</select>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-12">
+										 </div>
+										 <div class="col-lg-12">
                                             {{-- <button type="button" id="skipProfile">Skip</button> --}}
                                             <button type="button" style="margin-right: 30px;" id="createJobseekerProfile">@lang('my_profile.create')</button>
 					 					</div>
 					 				</div>
 					 			</form>
-					 		</div>
+							 </div>
+							 
 					 	</div>
 					</div>
 				 </div>

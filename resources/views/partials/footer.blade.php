@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="bottom-line">
-        <span>© 2018 Jobhunt All rights reserved. Design by Creative Layers</span>
+        <span>© 2020 Careers24H All rights reserved.</span>
         <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
     </div>
 </footer>

@@ -29,6 +29,10 @@
         <div class="responsivemenu">
             <ul>
                 <li>
+                    <a href="/" title="">@lang('navbar.home')</a>
+                    
+                </li>
+                <li>
                     <a href="/jobs" title="">@lang('navbar.job')</a>
                     
                 </li>
@@ -36,9 +40,11 @@
                     <a href="/company" title="">@lang('navbar.company')</a>
                     
                 </li>
-                <li>
-                    <a href="/candidates" title="">@lang('navbar.candidate')</a>
-                </li>
+                @if (Auth::user() && Auth::user()->isCompany())
+                    <li>
+                        <a href="/candidates" title="">@lang('navbar.candidate')</a>
+                    </li>
+                @endif
                 <li class="menu-item-has-children">
                     <a><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
                     <ul style="width:85px">
@@ -83,11 +89,11 @@
                         <li><a href="/jobseeker/resume" title=""><i class="la la-briefcase"></i>@lang('jobseeker_menu.my_resume')</a></li>
                         {{-- <li><a href="/jobseeker/add-resume" title=""><i class="la la-briefcase"></i>Add Resume</a></li> --}}
                         <li><a href="/jobseeker/template/list" title=""><i class="la la-briefcase"></i>@lang('jobseeker_menu.cv_template')</a></li>
-                        <li><a href="/jobseeker/shortlist" title=""><i class="la la-money"></i>@lang('jobseeker_menu.shortlisted_job')</a></li>
+                        {{-- <li><a href="/jobseeker/shortlist" title=""><i class="la la-money"></i>@lang('jobseeker_menu.shortlisted_job')</a></li> --}}
                         <li><a href="/jobseeker/applied-job" title=""><i class="la la-paper-plane"></i>@lang('jobseeker_menu.applied_job')</a></li>
                         <li><a href="/jobseeker/interview-room" title=""><i class="la la-video-camera"></i>@lang('jobseeker_menu.interview_room')</a></li>
                         {{-- <li><a href="/jobseeker/job-alert" title=""><i class="la la-user"></i>Job Alerts</a></li> --}}
-                        <li><a href="/jobseeker/cover-letter" title=""><i class="la la-file-text"></i>@lang('jobseeker_menu.cover_letter')</a></li>
+                        <li><a href="/jobseeker/cover-letter" title=""><i class="la la-file-text"></i>@lang('jobseeker_menu.video_cv')</a></li>
                         <li><a href="/jobseeker/account-setting" title=""><i class="la la-lock"></i>@lang('jobseeker_menu.account_setting')</a></li>
                         <li><a href="/logout" title=""><i class="la la-unlink"></i>@lang('jobseeker_menu.logout')</a></li>
 					</ul>
@@ -102,6 +108,10 @@
             <nav>
                 <ul>
                     <li>
+                        <a href="/" title="">@lang('navbar.home')</a>
+                        
+                    </li>
+                    <li>
                         <a href="/jobs" title="">@lang('navbar.job')</a>
                         
                     </li>
@@ -109,9 +119,11 @@
                         <a href="/company" title="">@lang('navbar.company')</a>
                         
                     </li>
+                    @if (Auth::user() && Auth::user()->isCompany())
                     <li>
                         <a href="/candidates" title="">@lang('navbar.candidate')</a>
                     </li>
+                    @endif
                     <li class="menu-item-has-children">
                         <a href="#" title=""><img src="{{ session('locale','en') === 'en' ? asset('/images/united-states-of-america-flag.png') : asset('/images/cambodia-flag.png') }}" width="35" height="23"/></a>
                         <ul style="width:85px">

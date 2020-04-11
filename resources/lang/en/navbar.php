@@ -7,5 +7,6 @@ return [
     'login' => 'Login',
     'singup' => 'Sign Up',
     'menu' => 'Menu',
-    'close' => 'Close'
+    'close' => 'Close',
+    'home' => 'Home'
 ];

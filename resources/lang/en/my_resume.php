@@ -15,7 +15,7 @@ return [
     'school_name' => 'School Name',
     'description' => 'Description',
     'now' => 'Now',
-    'comapany' => 'Company',
+    'company' => 'Company',
     'skill_heading' => 'Skill Heading',
     'percentage' => 'Percentage',
     'add' => 'Add',

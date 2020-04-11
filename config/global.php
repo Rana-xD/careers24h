@@ -118,6 +118,18 @@ return  [
         'Freelance',
         'Temporary',
         'Volunteer'
+    ],
+    'years_of_experience' => [
+        '1 year <',
+        '1-2 years',
+        '2-3 years',
+        '3-4 years',
+        '4-5 years',
+        '5-7 years',
+        '7-9 years',
+        '9-12 year',
+        '12-15 year',
+        '15+ years'
     ]
 ]
 ?>

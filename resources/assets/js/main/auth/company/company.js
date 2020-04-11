@@ -531,39 +531,39 @@ if(!CAREER24H.company) CAREER24H.company = {};
 	    $('.application').text(applicants)
     }
 
-    func.showCoverLetterModal = function(e){
-        let self = e.target;
-        let profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
-        let url = '/company/get-cover-letter';
-        let formData = {
-            'profileId' : profileId
-        }
-        CAREER24H.utils.activateSpinner();
-        let promise = CAREER24H.main.getRequestPromise(url,formData)
-        promise.then((response)=>{
-            if(response.code == 200){
-                let htmlRender = $.parseHTML(response.html_render)
-                $('.modal-contents').html(htmlRender);
-                $('#coverLetterModal').modal('show');
-            }
-            else{
-                swal.fire({
-                    title : 'Opps',
-                    icon: 'warning',
-                    text: response.message,
-                    timer: 2500,
-                    showCancelButton: false,
-                    showConfirmButton: false
-                })
-            }
-        }, function (error) {
-            console.log(error)
-            CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
-        }).catch(function (error) {
-            CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
-        });
+    // func.showCoverLetterModal = function(e){
+    //     let self = e.target;
+    //     let profileId = $(self).parents('.emply-resume-list').find('.applicant-id').val();
+    //     let url = '/company/get-cover-letter';
+    //     let formData = {
+    //         'profileId' : profileId
+    //     }
+    //     CAREER24H.utils.activateSpinner();
+    //     let promise = CAREER24H.main.getRequestPromise(url,formData)
+    //     promise.then((response)=>{
+    //         if(response.code == 200){
+    //             let htmlRender = $.parseHTML(response.html_render)
+    //             $('.modal-contents').html(htmlRender);
+    //             $('#coverLetterModal').modal('show');
+    //         }
+    //         else{
+    //             swal.fire({
+    //                 title : 'Opps',
+    //                 icon: 'warning',
+    //                 text: response.message,
+    //                 timer: 2500,
+    //                 showCancelButton: false,
+    //                 showConfirmButton: false
+    //             })
+    //         }
+    //     }, function (error) {
+    //         console.log(error)
+    //         CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpectedd error occured, please retry.');
+    //     }).catch(function (error) {
+    //         CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+    //     });
 
-    }
+    // }
 
     func.showVideoCVModal = function(e){
         let self = e.target;

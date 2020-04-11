@@ -470,6 +470,9 @@ if (!CAREER24H.main) CAREER24H.main = {};
     var industry = $("input[name='industry[]']:checked").map(function (_, el) {
       return $(el).val();
     }).get();
+    var experience = $("input[name='experience[]']:checked").map(function (_, el) {
+      return $(el).val();
+    }).get();
     var careerLevel = $("input[name='career_level[]']:checked").map(function (_, el) {
       return $(el).val();
     }).get();
@@ -480,6 +483,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
     var city = $("input[name='city[]']:checked").map(function (_, el) {
       return $(el).val();
     }).get();
+
+    if (experience.length > 0) {
+      filter = "".concat(filter, "experience=").concat(experience, "&");
+    }
 
     if (careerLevel.length > 0) {
       filter = "".concat(filter, "career_level=").concat(careerLevel, "&");
