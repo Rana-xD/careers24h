@@ -2,6 +2,11 @@
 <html>
 <head>
 	@include('partials.header')
+	<style>
+		.pf-field > input, .pf-field > textarea {
+			margin-bottom: 0;
+		}
+	</style>
 </head>
 <body>
 <div class="theme-layout" id="scrollup">
@@ -27,19 +32,19 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-										<div class="col-lg-5">
+										<div class="col-lg-3">
 											<span class="pf-title">@lang('company_profile.company_name')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="@lang('company_profile.company_name')" name="name" id="name"/>
 					 						</div>
 										</div>
-					 					<div class="col-lg-2">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('company_profile.since')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="1991" name="start_year" id="start_year"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-5">
+					 					<div class="col-lg-3">
 											<span class="pf-title">@lang('company_profile.team_size')</span>
 											<div class="pf-field">
 											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size">
@@ -73,31 +78,31 @@
 					 			</form>
 					 		</div>
 					 		<div class="social-edit"  id="sn">
-					 			<h3>@lang('company_profile.social_media')</h3>
+					 			{{-- <h3>@lang('company_profile.social_media')</h3> --}}
 					 			<form>
 					 				<div class="row">
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">Facebook</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.facebook.com/example" name="facebook" id="facebook"/>
 					 							<i class="fa fa-facebook"></i>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">Instagram</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.instagram.com/example" name="instragram" id="instagram"/>
 					 							<i class="fa fa-instagram"></i>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">Twitter</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.twitter.com/example" name="twitter" id="twitter"/>
 					 							<i class="la la-twitter"></i>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-6">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">Linkedin</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.Linkedin.com/example" name="linkedin" id="linkedin"/>
@@ -108,22 +113,22 @@
 					 			</form>
 					 		</div>
 					 		<div class="contact-edit" id="ci">
-					 			<h3>@lang('company_profile.contact')</h3>
+					 			{{-- <h3>@lang('company_profile.contact')</h3> --}}
 					 			<form>
 					 				<div class="row">
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('company_profile.phone_number')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="@lang('company_profile.phone_number')" name="phone_number" id="phone_number" value="{{$phone_number}}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('company_profile.email')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="@lang('company_profile.email')" name="email" id="email" value="{{$email}}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('company_profile.website')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website"/>
@@ -140,7 +145,7 @@
 												</select>
 					 						</div>
 										 </div>
-										 <div class="col-lg-4">
+										 <div class="col-lg-3">
 											<span class="pf-title">@lang('company_profile.industry')</span>
 											<div class="pf-field">
 											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry">
@@ -151,7 +156,7 @@
 											   </select>
 											</div>
 										</div>
-					 					<div class="col-lg-5">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('company_profile.address')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address"/>
