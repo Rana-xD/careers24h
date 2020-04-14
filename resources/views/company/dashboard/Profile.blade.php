@@ -2,6 +2,11 @@
 <html>
 <head>
 	@include('partials.header')
+	<style>
+		.pf-field > input, .pf-field > textarea {
+			margin-bottom: 0;
+		}
+	</style>
 </head>
 <body>
 <div class="theme-layout" id="scrollup">
@@ -31,19 +36,19 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-										<div class="col-lg-5">
+										<div class="col-lg-4">
 											<span class="pf-title">@lang('company_profile.company_name')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="Company Name" name="name" id="name" value="{{ $company_profile->name }}"/>
 					 						</div>
 										</div>
-					 					<div class="col-lg-2">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.since')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="1991" name="start_year" id="start_year" value="{{ $company_profile->start_year }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-5">
+					 					<div class="col-lg-4">
 											<span class="pf-title">@lang('company_profile.team_size')</span>
 											<div class="pf-field">
 											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size" value="{{ $company_profile->team_size }}">
@@ -133,7 +138,7 @@
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website" value="{{ $company_profile->website }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.city')</span>
 					 						<div class="pf-field">
 											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city">
@@ -155,7 +160,7 @@
 											   </select>
 											</div>
 										</div>
-					 					<div class="col-lg-5">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.address')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address" value="{{ $company_profile->address }}"/>

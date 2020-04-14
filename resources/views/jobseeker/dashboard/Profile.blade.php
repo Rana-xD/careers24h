@@ -2,6 +2,11 @@
 <html>
 <head>
 	@include('partials.header')
+	<style>
+		.pf-field > input, .pf-field > textarea {
+			margin-bottom: 0;
+		}
+	</style>
 </head>
 <body>
 
@@ -31,7 +36,7 @@
 					 			<form>
 									 @csrf
 					 				<div class="row">
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.fullname')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="Ali TUFAN" name="full_name" id="full_name" value="{{ $jobseeker_profile->full_name }}"/>
@@ -52,7 +57,7 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-lg-2">
+										<div class="col-lg-3">
 											<span class="pf-title">@lang('my_profile.visibility')</span>
 											<div>
 											   <input type="checkbox" checked id="isPrivate" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.public')" data-off="@lang('my_profile.private')" data-onstyle="primary" data-offstyle="danger">
@@ -124,19 +129,19 @@
 					 			<h3>@lang('my_profile.contact')</h3>
 					 			<form>
 					 				<div class="row">
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.phone_number')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{ $jobseeker_profile->phone_number }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.email')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{  $jobseeker_profile->email }}"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.city')</span>
 					 						<div class="pf-field">
 											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}">
