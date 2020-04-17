@@ -103,9 +103,6 @@
 			</div>
 		</div>
 	</section>
-
-	@include('partials.footer')
-
 </div>
 
 
@@ -126,15 +123,18 @@
 			let self = e.target;
 			if(self.checked){
 				$('.edit-work-to-date-div').css('display','none');
+				$('#work_to_date_edit').removeAttr('required');
 				return;
 			}
 			$('.edit-work-to-date-div').css('display','block');
+			$('#work_to_date_edit').prop('required',true);
 		})
 
 		$('#work_present').on('change',(e)=>{
 			let self = e.target;
 			if(self.checked){
 				$('.work-to-date-div').css('display','none');
+				$('#work_to_date').removeAttr('required');
 				return;
 			}
 			$('.work-to-date-div').css('display','block');
@@ -145,10 +145,10 @@
 		$('#createSkillset').on('click',CAREER24H.jobseeker.showAddSkillsetModal);
 		$('#createAchievement').on('click',CAREER24H.jobseeker.showAddAchievementModal);
 
-		$('#addEducation').on('click',CAREER24H.jobseeker.handleNewEducationSubmit);
-		$('#addWorkExperience').on('click',CAREER24H.jobseeker.handleNewWorkSubmit);
-		$('#addSkillset').on('click',CAREER24H.jobseeker.handleNewSkillSubmit);
-		$('#addAchievement').on('click',CAREER24H.jobseeker.handleNewAchievementSubmit);
+		$('#addEducation').on('submit',CAREER24H.jobseeker.handleNewEducationSubmit);
+		$('#addWorkExperience').on('submit',CAREER24H.jobseeker.handleNewWorkSubmit);
+		$('#addSkillset').on('submit',CAREER24H.jobseeker.handleNewSkillSubmit);
+		$('#addAchievement').on('submit',CAREER24H.jobseeker.handleNewAchievementSubmit);
 
 		$('#education').on('click','.removeEducation',CAREER24H.jobseeker.deleteEducation);
 		$('#work_experience').on('click','.removeWorkExperience',CAREER24H.jobseeker.deleteWorkExperience);
@@ -156,13 +156,13 @@
 		$('#achievement').on('click','.removeAchievement',CAREER24H.jobseeker.deleteAchievement);
 
 		$('#education').on('click','.editEducation',CAREER24H.jobseeker.showEditEducationModal);
-		$('#updateEducation').on('click',CAREER24H.jobseeker.handleEditEducationSubmit);
+		$('#updateEducation').on('submit',CAREER24H.jobseeker.handleEditEducationSubmit);
 		$('#work_experience').on('click','.editWorkExperience',CAREER24H.jobseeker.showEditWorkExperienceModal);
-		$('#updateWorkExperience').on('click',CAREER24H.jobseeker.handleEditWorkExperienceSubmit);
+		$('#updateWorkExperience').on('submit',CAREER24H.jobseeker.handleEditWorkExperienceSubmit);
 		$('#skill').on('click','.editSkillset',CAREER24H.jobseeker.showEditSkillsetModal);
-		$('#updateSkillset').on('click',CAREER24H.jobseeker.handleEditSkillsetSubmit);
+		$('#updateSkillset').on('submit',CAREER24H.jobseeker.handleEditSkillsetSubmit);
 		$('#achievement').on('click','.editAchievement',CAREER24H.jobseeker.showEditAchievementModal);
-		$('#updateAchievement').on('click',CAREER24H.jobseeker.handleEditAchievementSubmit);
+		$('#updateAchievement').on('submit',CAREER24H.jobseeker.handleEditAchievementSubmit);
 		
 	});
 

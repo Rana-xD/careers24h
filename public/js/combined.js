@@ -167,6 +167,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
   };
 
   func.createCompanyProfile = function (e) {
+    e.preventDefault();
     var name = $("#name").val(),
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
@@ -237,6 +238,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
   };
 
   func.createJobseekerProfile = function (e) {
+    e.preventDefault();
     var fullName = $('#full_name').val(),
         age = $('#age').val(),
         gender = $('#gender').val(),
@@ -278,30 +280,6 @@ if (!CAREER24H.main) CAREER24H.main = {};
     if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
       var file = fileInput[0];
       formData.append('file', file);
-    }
-
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var pair = _step.value;
-        console.log(pair[0] + ', ' + pair[1]);
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-          _iterator["return"]();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
     }
 
     CAREER24H.utils.activateSpinner();

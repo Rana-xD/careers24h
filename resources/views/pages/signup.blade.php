@@ -20,55 +20,30 @@
 									<span>Company</span>
 									<span>Job Seeker</span>
 								</div> --}}
-								<form action="/signup" method="POST">
+								<form action="/signup" method="POST" id="signup_form">
 									@csrf
 									<div class="cfield">
-										<input type="text" placeholder="@lang('signup.username')" name="username" value="{{ old('username') }}"/>
+										<input type="text" placeholder="@lang('signup.username')" name="username" value="{{ old('username') }}" required/>
 										<i class="la la-user"></i>
-									</div>
-									@if($errors->has('email'))
-											<span>
-												{{ $errors->first('username') }}
-											</span>
-									@endif			
+									</div>		
 									<div class="cfield">
-										<input type="password" placeholder="@lang('signup.password')" name="password" value="{{ old('password') }}"/>
+										<input type="password" placeholder="@lang('signup.password')" name="password" value="{{ old('password') }}" required/>
 										<i class="la la-key"></i>
 									</div>
-									@if($errors->has('password'))
-										<span>
-											{{ $errors->first('password') }}
-										</span>
-									@endif
 									<div class="cfield">
-										<input type="text" placeholder="@lang('signup.email')" name="email" value="{{ old('email') }}"/>
+										<input type="email" placeholder="@lang('signup.email')" name="email" value="{{ old('email') }}" required/>
 										<i class="la la-envelope-o"></i>
 									</div>
-									@if($errors->has('email'))
-										<span>
-											{{ $errors->first('email') }}
-										</span>
-									@endif
 									<div class="cfield">
-										<input type="text" placeholder="@lang('signup.phone_number')" name="phone_number" value="{{ old('phonenumber') }}"/>
+										<input type="text" placeholder="@lang('signup.phone_number')" name="phone_number" value="{{ old('phonenumber') }}" required/>
 										<i class="la la-phone"></i>
 									</div>
-									@if($errors->has('phone_number'))
-										<span>
-											{{ $errors->first('phone_number') }}
-										</span>
-									@endif
 									<div class="dropdown-field">
-										<select data-placeholder="Please Select Account Type" class="chosen" name="role">
+										<select data-placeholder="Please Select Account Type" class="chosen" name="role" required>
 											<option value="COMPANY">@lang('signup.company')</option>
 											<option value="JOBSEEKER">@lang('signup.jobseeker')</option>
 										</select>
 									</div>
-									@if($errors->has('role'))
-										<span>
-											{{ $errors->first('role') }}
-										</span>
-									@endif
 									<button type="submit">@lang('signup.sign_up')</button>
 								</form>
 								{{-- <div class="extra-login">
@@ -89,5 +64,6 @@
 @include('partials.footer_script')
 
 </body>
+
 </html>
 

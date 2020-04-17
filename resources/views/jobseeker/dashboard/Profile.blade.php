@@ -6,6 +6,9 @@
 		.pf-field > input, .pf-field > textarea {
 			margin-bottom: 0;
 		}
+		.profile-form-edit > form {
+			margin-bottom: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -33,19 +36,19 @@
 					 			</div>
 					 		</div>
 					 		<div class="profile-form-edit">
-					 			<form>
+					 			<form action="" method="POST" id="jobseekerProfileUpdate">
 									 @csrf
 					 				<div class="row">
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.fullname')</span>
+					 						<span class="pf-title">@lang('my_profile.fullname') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="Ali TUFAN" name="full_name" id="full_name" value="{{ $jobseeker_profile->full_name }}"/>
+											 <input type="text" placeholder="Ali TUFAN" name="full_name" id="full_name" value="{{ $jobseeker_profile->full_name }}" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.age')</span>
+					 						<span class="pf-title">@lang('my_profile.age') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="21" name="age" id="age" value="{{  $jobseeker_profile->age }}"/>
+											 <input type="text" placeholder="21" name="age" id="age" value="{{  $jobseeker_profile->age }}" required/>
 					 						</div>
 										 </div>
 										 <div class="col-lg-3">
@@ -64,9 +67,9 @@
 											</div>
 										</div>
 					 					<div class="col-lg-3">
-											<span class="pf-title">@lang('my_profile.experience')</span>
+											<span class="pf-title">@lang('my_profile.experience') <span class="required">*</span></span>
 											<div class="pf-field">
-												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="experience" id="experience">
+												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="experience" id="experience" required>
 													   <option value=""></option>
 													   @foreach (config('global.years_of_experience') as $item)
 																<option value="{{ $item }}">{{ $item }}</option>
@@ -75,20 +78,20 @@
 											</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.industry')</span>
+					 						<span class="pf-title">@lang('my_profile.industry') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="industry" id="industry" required>
 													<option value=""></option>
-													@foreach ($industry as $item)
+													@foreach (config('global.industry') as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
 													 @endforeach
 												</select>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.education_level')</span>
+					 						<span class="pf-title">@lang('my_profile.education_level') <span class="required">*</span></span>
 					 						<div class="pf-field">
-												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level">
+												 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="education_level" id="education_level" required>
 													<option value=""></option>
 													 @foreach ($education_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -97,10 +100,10 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.career_levels')</span>					 						
+					 						<span class="pf-title">@lang('my_profile.career_levels') <span class="required">*</span></span>					 						
 					 						<div class="pf-field">
 						 						<div class="pf-field">
-													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level">
+													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level" required>
 														<option value=""></option>
 														@foreach ($career_level as $item)
 												 			<option value="{{ $item }}">{{ $item }}</option>
@@ -122,29 +125,28 @@
 												</ul>
 											</div>
 					 					</div> --}}
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit" style="margin-bottom: 10px;">
-					 			<h3>@lang('my_profile.contact')</h3>
-					 			<form>
-					 				<div class="row">
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.phone_number')</span>
+					 						<span class="pf-title">@lang('my_profile.phone_number') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{ $jobseeker_profile->phone_number }}"/>
+											 <input type="text" placeholder="+90 538 963 58 96" id="phone_number" name="phone_number" value="{{ $jobseeker_profile->phone_number }}" required/>
+					 						</div>
+										 </div>
+										 <div class="col-lg-3">
+											<span class="pf-title">Secondary Phone Number</span>
+											<div class="pf-field">
+											<input type="text" placeholder="093450450" id="secondary_phone_number" name="secondary_phone_number"/>
+											</div>
+										</div>
+					 					<div class="col-lg-3">
+					 						<span class="pf-title">@lang('my_profile.email') <span class="required">*</span></span>
+					 						<div class="pf-field">
+											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{  $jobseeker_profile->email }}" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.email')</span>
+					 						<span class="pf-title">@lang('my_profile.city') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" id="email" name="email" value="{{  $jobseeker_profile->email }}"/>
-					 						</div>
-					 					</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.city')</span>
-					 						<div class="pf-field">
-											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}">
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}" required>
 													<option value=""></option>
 													@foreach ($city as $item)
 												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
@@ -152,13 +154,6 @@
 												</select>
 					 						</div>
 					 					</div>
-					 				</div>
-					 			</form>
-							 </div>
-							 <div class="contact-edit">
-								<h3>@lang('my_profile.social_media')</h3>
-								<form>
-									<div class="row">
 										<div class="col-lg-6">
 											<span class="pf-title">Facebook</span>
 											<div class="pf-field">
@@ -187,8 +182,8 @@
 												<i class="la la-linkedin"></i>
 											</div>
 										</div>
-										<div class="col-lg-12">
-											<button type="button" id="jobseekerProfileUpdate">@lang('my_profile.update')</button>
+										<div class="col-lg-12" style="margin-top: 10px;">
+											<button type="submit">@lang('my_profile.update')</button>
 										</div>
 									</div>
 								</form>
@@ -200,31 +195,6 @@
 		</div>
 	</section>
 </div>
-
-<div class="profile-sidebar">
-	<span class="close-profile"><i class="la la-close"></i></span>
-	<div class="can-detail-s">
-		<div class="cst"><img src="http://placehold.it/145x145" alt="" /></div>
-		<h3>David CARLOS</h3>
-		<span><i>UX / UI Designer</i> at Atract Solutions</span>
-		<p>creativelayers088@gmail.com</p>
-		<p>Member Since, 2017</p>
-		<p><i class="la la-map-marker"></i>Istanbul / Turkey</p>
-	</div>
-	<div class="tree_widget-sec">
-		<ul>
-				 					<li><a href="candidates_profile.html" title=""><i class="la la-file-text"></i>My Profile</a></li>
-									<li><a href="candidates_my_resume.html" title=""><i class="la la-briefcase"></i>My Resume</a></li>
-									<li><a href="candidates_shortlist.html" title=""><i class="la la-money"></i>Shorlisted Job</a></li>
-									<li><a href="candidates_applied_jobs.html" title=""><i class="la la-paper-plane"></i>Applied Job</a></li>
-									<li><a href="candidates_job_alert.html" title=""><i class="la la-user"></i>Job Alerts</a></li>
-									<li><a href="candidates_cv_cover_letter.html" title=""><i class="la la-file-text"></i>Cv & Cover Letter</a></li>
-									<li><a href="candidates_change_password.html" title=""><i class="la la-flash"></i>Change Password</a></li>
-									<li><a href="#" title=""><i class="la la-unlink"></i>Logout</a></li>
-				 				</ul>
-	</div>
-</div><!-- Profile Sidebar -->
-
 
 @include('partials.footer_script')
 </body>
@@ -245,10 +215,38 @@
 		$('#openFileInput').on('click',()=>{
 			$('#JobseekerImage').click();
 		})
-
 		$('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
-		$('#jobseekerProfileUpdate').on('click',CAREER24H.jobseeker.updateJobseekerProfile);
+		$('#jobseekerProfileUpdate').on('submit',CAREER24H.jobseeker.updateJobseekerProfile);
 		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city,isPrivate,experience);
+
+		var form = $('#jobseekerProfileUpdate');
+		var navbar = $('header');
+		form.find(':input').on('invalid', function (event) {
+   			 var input = $(this)
+
+    		// the first invalid element in the form
+    		var first = form.find(':invalid').first()
+
+    		// only handle if this is the first invalid input
+    		if (input[0] === first[0]) {
+        		// height of the nav bar plus some padding
+        		var navbarHeight = navbar.height() + 50
+
+        		// the position to scroll to (accounting for the navbar)
+        		var elementOffset = input.offset().top - navbarHeight
+
+        		// the current scroll position (accounting for the navbar)
+        		var pageOffset = window.pageYOffset - navbarHeight
+
+        		// don't scroll if the element is already in view
+        		if (elementOffset > pageOffset && elementOffset < pageOffset + window.innerHeight) {
+            		return true
+        		}
+
+        		// note: avoid using animate, as it prevents the validation message displaying correctly
+        		$('html,body').scrollTop(elementOffset)
+    		}
+		});
 	});
 </script>
 </html>

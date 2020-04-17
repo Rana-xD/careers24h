@@ -2,6 +2,11 @@
 <html>
 <head>
 	@include('partials.header')
+	<style>
+		.profile-form-edit > form{
+			margin-bottom: 40px;
+		} 
+	</style>
 </head>
 <body>
 
@@ -23,11 +28,11 @@
 					 			<h3>@lang('new_job.post_new_job')</h3>
 					 		</div>
 					 		<div class="profile-form-edit">
-					 			<form>
+					 			<form action="" method="POST" id="createJob">
 									 @csrf
 					 				<div class="row">
 					 					<div class="col-lg-12">
-					 						<span class="pf-title">@lang('new_job.job_title')</span>
+					 						<span class="pf-title">@lang('new_job.job_title') <span class="required">*</span></span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Designer" name="job_title" id="job_title" required/>
 					 						</div>
@@ -40,9 +45,9 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('new_job.job_type')</span>
+					 						<span class="pf-title">@lang('new_job.job_type') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="job_type" id="job_type">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="job_type" id="job_type" required>
 													<option value=""></option>
 													@foreach ($job_types as $item)
 												 		<option value="{{ $item }}">{{ __('job_type.'.$item) }}</option>
@@ -51,9 +56,9 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('new_job.categories')</span>
+					 						<span class="pf-title">@lang('new_job.categories') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="category" id="category">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="category" id="category" required>
 													<option value=""></option>
 													@foreach ($categories as $item)
 												 		<option value="{{ $item }}">{{ $item }}</option>
@@ -62,9 +67,9 @@
 					 						</div>
 										 </div>
 										 <div class="col-lg-4">
-											<span class="pf-title">@lang('new_job.qualification')</span>
+											<span class="pf-title">@lang('new_job.qualification') <span class="required">*</span></span>
 											<div class="pf-field">
-												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="qualification" id="qualification">
+												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="qualification" id="qualification" required>
 												   <option value=""></option>
 												   @foreach ($qualification as $item)
 															<option value="{{ $item }}">{{ $item }}</option>
@@ -73,9 +78,9 @@
 											</div>
 										</div>
 										<div class="col-lg-4">
-											<span class="pf-title">@lang('new_job.career_level')</span>
+											<span class="pf-title">@lang('new_job.career_level') <span class="required">*</span></span>
 											<div class="pf-field">
-												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="career_level" id="career_level">
+												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="career_level" id="career_level" required>
 												   <option value=""></option>
 												   @foreach ($career_level as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -84,21 +89,26 @@
 											</div>
 										</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">@lang('new_job.years_of_experience')</span>
+											<span class="pf-title">@lang('new_job.years_of_experience') <span class="required">*</span></span>
 											<div class="pf-field">
-												<input type="number" name="years_of_experience" id="years_of_experience"/>
+												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="years_of_experience" id="years_of_experience" required>
+													<option value=""></option>
+													@foreach (config('global.years_of_experience') as $item)
+															 <option value="{{ $item }}">{{ $item }}</option>
+													 @endforeach
+											 </select>
 											</div>
 					 					</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">@lang('new_job.pax')</span>
+											<span class="pf-title">@lang('new_job.pax') <span class="required">*</span></span>
 											<div class="pf-field">
-												<input type="number" name="pax" id="pax"/>
+												<input type="number" name="pax" id="pax" required/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">@lang('new_job.offer_salary')</span>
+											<span class="pf-title">@lang('new_job.offer_salary') <span class="required">*</span></span>
 											<div class="pf-field">
-												<input type="text" name="offer_salary" id="offer_salary"/>
+												<input type="text" name="offer_salary" id="offer_salary" required/>
 											</div>
 					 					</div>
 					 					<div class="col-lg-2">
@@ -123,15 +133,15 @@
 											</div>
 										</div> 
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">@lang('new_job.deadline')</span>
+					 						<span class="pf-title">@lang('new_job.deadline') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<input type="text" class="datepicker" name="deadline" id="deadline"/>
+					 							<input type="text" class="datepicker" name="deadline" id="deadline" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-6">
-					 						<span class="pf-title">@lang('new_job.city')</span>
+					 						<span class="pf-title">@lang('new_job.city') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="city" id="city">
+					 							<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="city" id="city" required>
 													<option value=""></option>
 													@foreach ($city as $item)
 														<option value="{{$item}}">{{__('city.'.$item)}}</option>
@@ -140,9 +150,9 @@
 					 						</div>
 										 </div> 
 										<div class="col-lg-3">
-											<span class="pf-title">@lang('new_job.work_day')</span>
+											<span class="pf-title">@lang('new_job.work_day') <span class="required">*</span></span>
 												<div class="pf-field">
-												<select data-placeholder="From" class="chosen" name="work_day_from" id="work_day_from">
+												<select data-placeholder="From" class="chosen" name="work_day_from" id="work_day_from" required>
 													<option value=""></option>
 													<option value="Mon">Monday</option>
 													<option value="Tue">Tuesday</option>
@@ -159,7 +169,7 @@
 										<div class="col-lg-3">
 											<span class="pf-title" style="text-indent: 100%;white-space: nowrap;overflow: hidden;">Workday </span>
 												<div class="pf-field">
-												<select data-placeholder="To" class="chosen" name="work_day_to" id="work_day_to">
+												<select data-placeholder="To" class="chosen" name="work_day_to" id="work_day_to" required>
 													<option value=""></option>
 													<option value="Mon">Monday</option>
 													<option value="Tue">Tuesday</option>
@@ -173,10 +183,10 @@
 											
 										</div>
 										<div class="col-lg-3">
-											<span class="pf-title">@lang('new_job.work_time')</span>
+											<span class="pf-title">@lang('new_job.work_time') <span class="required">*</span></span>
 											<div class="pf-field">
 												<div class="pf-field">
-													<input type="text" placeholder="From" name="work_time_from" id="work_time_from"/>
+													<input type="text" placeholder="From" name="work_time_from" id="work_time_from" required/>
 												</div>
 											</div>
 										</div>
@@ -184,16 +194,10 @@
 											<span class="pf-title" style="text-indent: 100%;white-space: nowrap;overflow: hidden;">Work Time</span>
 											<div class="pf-field">
 												<div class="pf-field">
-													<input type="text" placeholder="To" name="work_time_to" id="work_time_to"/>
+													<input type="text" placeholder="To" name="work_time_to" id="work_time_to" required/>
 												</div>
 											</div>
 										</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit">
-					 			<form>
-					 				<div class="row">
 										<div class="col-lg-12">
 											<span class="pf-title">@lang('new_job.responsibility')</span>
 											<div class="pf-field">
@@ -213,7 +217,7 @@
 											</div>
 										</div>
 					 					<div class="col-lg-12">
-					 						<button id="createJob" type="button">@lang('new_job.create')</button>
+					 						<button type="submit">@lang('new_job.create')</button>
 					 					</div>
 					 				</div>
 					 			</form>
@@ -224,9 +228,6 @@
 			</div>
 		</div>
 	</section>
-
-	@include('partials.footer')
-
 </div>
 
 
@@ -265,7 +266,36 @@
             });
 		
 		$('#specificGender').on('change',CAREER24H.company.toggleSpecificGender);
-		$('#createJob').on('click',CAREER24H.company.createJob);
+		$('#createJob').on('submit',CAREER24H.company.createJob);
+		var form = $('#createJob');
+		var navbar = $('header');
+		form.find(':input').on('invalid', function (event) {
+   			 var input = $(this)
+
+    		// the first invalid element in the form
+    		var first = form.find(':invalid').first()
+
+    		// only handle if this is the first invalid input
+    		if (input[0] === first[0]) {
+        		// height of the nav bar plus some padding
+        		var navbarHeight = navbar.height() + 50
+
+        		// the position to scroll to (accounting for the navbar)
+        		var elementOffset = input.offset().top - navbarHeight
+
+        		// the current scroll position (accounting for the navbar)
+        		var pageOffset = window.pageYOffset - navbarHeight
+
+        		// don't scroll if the element is already in view
+        		if (elementOffset > pageOffset && elementOffset < pageOffset + window.innerHeight) {
+            		return true
+        		}
+
+        		// note: avoid using animate, as it prevents the validation message displaying correctly
+        		$('html,body').scrollTop(elementOffset)
+    		}
+	});
+
 	});
 </script>
 

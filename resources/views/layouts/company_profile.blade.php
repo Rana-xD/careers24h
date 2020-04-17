@@ -6,6 +6,9 @@
 		.pf-field > input, .pf-field > textarea {
 			margin-bottom: 0;
 		}
+		.profile-form-edit > form {
+			margin-bottom: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -29,25 +32,25 @@
 					 			</div>
 					 		</div>
 					 		<div class="profile-form-edit">
-					 			<form>
+					 			<form method="POST" action="" id="createCompanyProfile"> 
 									 @csrf
 					 				<div class="row">
-										<div class="col-lg-3">
-											<span class="pf-title">@lang('company_profile.company_name')</span>
+										<div class="col-lg-4">
+											<span class="pf-title">@lang('company_profile.company_name') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="@lang('company_profile.company_name')" name="name" id="name"/>
+											 <input type="text" placeholder="@lang('company_profile.company_name')" name="name" id="name" required/>
 					 						</div>
 										</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('company_profile.since')</span>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('company_profile.since') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="1991" name="start_year" id="start_year"/>
+					 							<input type="text" placeholder="1991" name="start_year" id="start_year" required/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
-											<span class="pf-title">@lang('company_profile.team_size')</span>
+					 					<div class="col-lg-4">
+											<span class="pf-title">@lang('company_profile.team_size') <span class="required">*</span></span>
 											<div class="pf-field">
-											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size" required>
 												   <option value=""></option>
 												   @foreach (config('global.team_size') as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -74,13 +77,6 @@
 					 							<textarea name="info" id="info"></textarea>
 					 						</div>
 					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="social-edit"  id="sn">
-					 			{{-- <h3>@lang('company_profile.social_media')</h3> --}}
-					 			<form>
-					 				<div class="row">
 					 					<div class="col-lg-3">
 					 						<span class="pf-title">Facebook</span>
 					 						<div class="pf-field">
@@ -109,35 +105,28 @@
 					 							<i class="la la-linkedin"></i>
 					 						</div>
 					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit" id="ci">
-					 			{{-- <h3>@lang('company_profile.contact')</h3> --}}
-					 			<form>
-					 				<div class="row">
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('company_profile.phone_number')</span>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('company_profile.phone_number') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="@lang('company_profile.phone_number')" name="phone_number" id="phone_number" value="{{$phone_number}}"/>
+											 <input type="text" placeholder="@lang('company_profile.phone_number')" name="phone_number" id="phone_number" value="{{$phone_number}}" required/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('company_profile.email')</span>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('company_profile.email') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="@lang('company_profile.email')" name="email" id="email" value="{{$email}}"/>
+											 <input type="text" placeholder="@lang('company_profile.email')" name="email" id="email" value="{{$email}}" required/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.website')</span>
 					 						<div class="pf-field">
 											 <input type="text" placeholder="www.jobhun.com" name="website" id="website"/>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('company_profile.city')</span>
+					 					<div class="col-lg-4">
+					 						<span class="pf-title">@lang('company_profile.city') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city">
+											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city" required>
 													<option value=""></option> 
 													@foreach (config('global.city') as $item)
 														<option value="{{ $item }}">{{__('city.'.$item)}}</option>
@@ -145,10 +134,10 @@
 												</select>
 					 						</div>
 										 </div>
-										 <div class="col-lg-3">
-											<span class="pf-title">@lang('company_profile.industry')</span>
+										 <div class="col-lg-4">
+											<span class="pf-title">@lang('company_profile.industry') <span class="required">*</span></span>
 											<div class="pf-field">
-											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry" required>
 												   <option value=""></option> 
 												   @foreach (config('global.industry') as $item)
 													   <option value="{{ $item }}">{{ $item }}</option>
@@ -156,7 +145,7 @@
 											   </select>
 											</div>
 										</div>
-					 					<div class="col-lg-3">
+					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.address')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address"/>
@@ -164,7 +153,7 @@
                                      </div>
                                      <div class="col-lg-12">
                                         {{-- <button type="button" id="skipProfile">Skip</button> --}}
-                                        <button type="button" style="margin-right: 30px;" id="createCompanyProfile">@lang('company_profile.create')</button>
+                                        <button type="submit" style="margin-right: 30px;">@lang('company_profile.create')</button>
                                     </div>
 					 			</form>
 					 		</div>
@@ -192,7 +181,7 @@
 		})
 		$('#CompanyLogo').on('change',CAREER24H.main.chooseCompanyLogo);
 		$('#skipProfile').on('click',CAREER24H.main.skipProfileSetting);
-		$('#createCompanyProfile').on('click',CAREER24H.main.createCompanyProfile);
+		$('#createCompanyProfile').on('submit',CAREER24H.main.createCompanyProfile);
 
 		
 		

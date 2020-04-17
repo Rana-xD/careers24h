@@ -139,6 +139,19 @@ a:focus{
     outline:none;
 }
 input:hover,input:focus{outline:none}
+select:invalid {
+    height: 0px !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    display: flex !important;
+    z-index: -1;
+}
+  
+select:invalid[multiple] {
+    margin-top: 15px !important;
+    z-index: -1;
+}
+
 html.no-scoll {
     overflow: hidden;
 }
@@ -169,6 +182,9 @@ header {
     -ms-box-shadow:0 0 6px #747474;
     -o-box-shadow:0 0 6px #747474;
     box-shadow:0 0 6px #747474;
+}
+.required {
+    color: red;
 }
 .block {
     float: left;
@@ -6827,6 +6843,8 @@ aside .widget.border:first-child {
     width: 100%;
     padding-left: 30px;
 }
+
+
 .pf-title {
     float: left;
     width: 100%;

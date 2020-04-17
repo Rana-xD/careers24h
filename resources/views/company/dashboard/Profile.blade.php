@@ -6,6 +6,9 @@
 		.pf-field > input, .pf-field > textarea {
 			margin-bottom: 0;
 		}
+		.profile-form-edit > form {
+			margin-bottom: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -33,25 +36,25 @@
 					 			</div>
 					 		</div>
 					 		<div class="profile-form-edit">
-					 			<form>
+					 			<form action="" method="POST" id="updateProfile">
 									 @csrf
 					 				<div class="row">
 										<div class="col-lg-4">
-											<span class="pf-title">@lang('company_profile.company_name')</span>
+											<span class="pf-title">@lang('company_profile.company_name') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="Company Name" name="name" id="name" value="{{ $company_profile->name }}"/>
+											 <input type="text" placeholder="Company Name" name="name" id="name" value="{{ $company_profile->name }}" required/>
 					 						</div>
 										</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('company_profile.since')</span>
+					 						<span class="pf-title">@lang('company_profile.since') <span class="required">*</span></span>
 					 						<div class="pf-field">
-					 							<input type="text" placeholder="1991" name="start_year" id="start_year" value="{{ $company_profile->start_year }}"/>
+					 							<input type="text" placeholder="1991" name="start_year" id="start_year" value="{{ $company_profile->start_year }}" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-											<span class="pf-title">@lang('company_profile.team_size')</span>
+											<span class="pf-title">@lang('company_profile.team_size') <span class="required">*</span></span>
 											<div class="pf-field">
-											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size" value="{{ $company_profile->team_size }}">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="team_size" id="team_size" value="{{ $company_profile->team_size }}" required>
 												   <option value=""></option>
 												   @foreach ($team_size as $item)
 														<option value="{{ $item }}">{{ $item }}</option>
@@ -78,13 +81,6 @@
 					 							<textarea name="info" id="info"></textarea>
 					 						</div>
 					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="social-edit"  id="sn">
-					 			<h3>@lang('company_profile.social_media')</h3>
-					 			<form>
-					 				<div class="row">
 					 					<div class="col-lg-6">
 					 						<span class="pf-title">Facebook</span>
 					 						<div class="pf-field">
@@ -113,23 +109,16 @@
 					 							<i class="la la-linkedin"></i>
 					 						</div>
 					 					</div>
-					 				</div>
-					 			</form>
-					 		</div>
-					 		<div class="contact-edit" id="ci">
-					 			<h3>@lang('company_profile.contact')</h3>
-					 			<form>
-					 				<div class="row">
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('company_profile.phone_number')</span>
+					 						<span class="pf-title">@lang('company_profile.phone_number') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="093456101" name="phone_number" id="phone_number" value="{{ $company_profile->phone_number }}"/>
+											 <input type="text" placeholder="093456101" name="phone_number" id="phone_number" value="{{ $company_profile->phone_number }}" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('company_profile.email')</span>
+					 						<span class="pf-title">@lang('company_profile.email') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <input type="text" placeholder="demo@jobhunt.com" name="email" id="email" value="{{  $company_profile->email }}"/>
+											 <input type="text" placeholder="demo@jobhunt.com" name="email" id="email" value="{{  $company_profile->email }}" required/>
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
@@ -139,9 +128,9 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-4">
-					 						<span class="pf-title">@lang('company_profile.city')</span>
+					 						<span class="pf-title">@lang('company_profile.city') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city">
+											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city" required>
 													<option value=""></option> 
 													@foreach ($city as $item)
 														<option value="{{ $item }}">{{__('city.'.$item)}}</option>
@@ -150,9 +139,9 @@
 					 						</div>
 										 </div>
 										 <div class="col-lg-4">
-											<span class="pf-title">@lang('company_profile.industry')</span>
+											<span class="pf-title">@lang('company_profile.industry') <span class="required">*</span></span>
 											<div class="pf-field">
-											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry">
+											<select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="industry" id="industry" required>
 												   <option value=""></option> 
 												   @foreach ($industry as $item)
 													   <option value="{{ $item }}">{{ $item }}</option>
@@ -164,9 +153,10 @@
 					 						<span class="pf-title">@lang('company_profile.address')</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="Sangkat Vil Vong, Khan 7 Makara" name="address" id="address" value="{{ $company_profile->address }}"/>
-					 						</div>
-					 					<div class="col-lg-12">
-					 						<button type="button" id="updateProfile">@lang('company_profile.update')</button>
+											 </div>
+										</div>
+					 					<div class="col-lg-12" style="margin-top: 10px;">
+					 						<button type="submit">@lang('company_profile.update')</button>
 					 					</div>
 					 				</div>
 					 			</form>
@@ -193,10 +183,37 @@
 			$('#CompanyLogo').click();
 		})
 
-		$('#updateProfile').on('click',CAREER24H.company.updateCompanyProfile);
+		$('#updateProfile').on('submit',CAREER24H.company.updateCompanyProfile);
 		$('#CompanyLogo').on("change",CAREER24H.company.chooseCompanyLogo);
 
-		
+		var form = $('#updateProfile');
+		var navbar = $('header');
+		form.find(':input').on('invalid', function (event) {
+   			 var input = $(this)
+
+    		// the first invalid element in the form
+    		var first = form.find(':invalid').first()
+
+    		// only handle if this is the first invalid input
+    		if (input[0] === first[0]) {
+        		// height of the nav bar plus some padding
+        		var navbarHeight = navbar.height() + 50
+
+        		// the position to scroll to (accounting for the navbar)
+        		var elementOffset = input.offset().top - navbarHeight
+
+        		// the current scroll position (accounting for the navbar)
+        		var pageOffset = window.pageYOffset - navbarHeight
+
+        		// don't scroll if the element is already in view
+        		if (elementOffset > pageOffset && elementOffset < pageOffset + window.innerHeight) {
+            		return true
+        		}
+
+        		// note: avoid using animate, as it prevents the validation message displaying correctly
+        		$('html,body').scrollTop(elementOffset)
+    		}
+		});
 		
 	});
 </script>

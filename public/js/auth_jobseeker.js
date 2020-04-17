@@ -91,6 +91,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.updateJobseekerProfile = function (e) {
+    e.preventDefault();
     var fullName = $('#full_name').val(),
         age = $('#age').val(),
         gender = $('#gender').val(),
@@ -237,6 +238,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleNewEducationSubmit = function (e) {
+    e.preventDefault();
     var title = $('#eduction_title').val(),
         fromDate = $('#education_from_date').val(),
         toDate = $('#education_to_date').val(),
@@ -269,6 +271,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleNewWorkSubmit = function (e) {
+    e.preventDefault();
     var title = $('#work_title').val(),
         fromDate = $('#work_from_date').val(),
         toDate = $('#work_present')[0].checked ? 'Now' : $('#work_to_date').val(),
@@ -301,6 +304,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleNewSkillSubmit = function (e) {
+    e.preventDefault();
     var skillName = $('#skill_name').val(),
         percentage = $('#skill_percentage').val();
     var data = {
@@ -327,6 +331,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleNewAchievementSubmit = function (e) {
+    e.preventDefault();
     var title = $('#achievement_title').val(),
         fromDate = $('#achievement_from_date').val(),
         toDate = $('#achievement_to_date').val(),
@@ -505,7 +510,8 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     $('#editEducationModal').modal('show');
   };
 
-  func.handleEditEducationSubmit = function () {
+  func.handleEditEducationSubmit = function (e) {
+    e.preventDefault();
     var title = $('#eduction_title_edit').val(),
         fromDate = $('#education_from_date_edit').val(),
         toDate = $('#education_to_date_edit').val(),
@@ -560,6 +566,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleEditWorkExperienceSubmit = function (e) {
+    e.preventDefault();
     var title = $('#work_title_edit').val(),
         fromDate = $('#work_from_date_edit').val(),
         toDate = $('#work_present_edit')[0].checked ? 'Now' : $('#work_to_date_edit').val(),
@@ -602,7 +609,8 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     $('#editSkillsetModal').modal('show');
   };
 
-  func.handleEditSkillsetSubmit = function () {
+  func.handleEditSkillsetSubmit = function (e) {
+    e.preventDefault();
     var skillName = $('#skill_name_edit').val(),
         percentage = $('#skill_percentage_edit').val(),
         index = $('#skillsetIndex').val();
@@ -642,6 +650,7 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
   };
 
   func.handleEditAchievementSubmit = function (e) {
+    e.preventDefault();
     var title = $('#achievement_title_edit').val(),
         fromDate = $('#achievement_from_date_edit').val(),
         toDate = $('#achievement_to_date_edit').val(),

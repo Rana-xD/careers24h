@@ -121,6 +121,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
           }) 
     }
     func.createCompanyProfile = function(e){
+        e.preventDefault();
         let name = $("#name").val(),
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
@@ -198,6 +199,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
     }
 
     func.createJobseekerProfile = function(e){
+        e.preventDefault();
         let fullName = $('#full_name').val(),
             age = $('#age').val(),
             gender = $('#gender').val(),
@@ -241,10 +243,6 @@ if(!CAREER24H.main) CAREER24H.main = {};
             if(fileInput[0] && CAREER24H.constant.isCompanyLogoChange){
                 let file = fileInput[0];
                 formData.append('file',file);
-            }
-
-            for (var pair of formData.entries()) {
-                console.log(pair[0]+ ', ' + pair[1]); 
             }
 
         CAREER24H.utils.activateSpinner();

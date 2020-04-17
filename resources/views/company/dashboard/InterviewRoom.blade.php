@@ -81,6 +81,8 @@
 		</div>
 	</section>
 </div>
+<div class="modal-contents">	
+</div>
 @include('partials.footer_script')
 </body>
 <script>

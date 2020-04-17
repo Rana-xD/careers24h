@@ -93,6 +93,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
     }
 
     func.updateCompanyProfile = function(e){
+        e.preventDefault();
         let name = $("#name").val(),
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
@@ -204,6 +205,8 @@ if(!CAREER24H.company) CAREER24H.company = {};
     }
     
     func.createJob = function(e){
+        e.preventDefault();
+        let self = $(e.target);
         let jobTitle = $('#job_title').val(),
             description = $('#description').summernote('code'),
             jobType = $('#job_type').val(),
@@ -259,9 +262,10 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('work_day',JSON.stringify(workDay));
             formData.append('work_time',JSON.stringify(workTime));
 
-            // for (var pair of formData.entries()) {
-            //     console.log(pair[0]+ ', ' + pair[1]); 
-            // }
+
+            for (var pair of formData.entries()) {
+                console.log(pair[0]+ ', ' + pair[1]); 
+            }
             let url = '/company/create-job';
             CAREER24H.utils.activateSpinner();
             let promise = CAREER24H.main.formSubmitPromise(url,formData);
@@ -272,7 +276,21 @@ if(!CAREER24H.company) CAREER24H.company = {};
                         icon: 'success',
                         text: response.message ? response.message : 'Profile successfully updated.',
                     }).then(()=>{
-                        location.reload(true);
+                        self[0].reset();
+                        $('.chosen').not('.except_reset').val('').trigger('chosen:updated');
+                        $('#description').summernote('reset');
+                        $('#responsibility').summernote('reset');
+                        $('#required_skill').summernote('reset');
+                        $('#benefit').summernote('reset');
+                        $('#work_day_from').val('Mon').trigger('chosen:updated');
+                        $('#work_day_to').val('Fri').trigger('chosen:updated');
+                        $('#work_time_from').val('8:00 AM');
+                        $('#work_time_to').val('5:00 PM');
+                        $('#negotiable').prop('checked', true).bootstrapToggle('on');
+                        $('#specificGender').prop('checked', false).bootstrapToggle('off');
+                        if(!$('#specificGender')[0].checked){
+                            $('.gender').css("display","none");
+                        }
                     });
                 } else {
                     swal.fire({
@@ -345,9 +363,15 @@ if(!CAREER24H.company) CAREER24H.company = {};
             $('#work_time_from').val(arguments[14].from);
             $('#work_time_to').val(arguments[14].to)
         }
+
+        if (arguments[15]) {
+            $('#years_of_experience').val(arguments[15]);
+            $('#years_of_experience').trigger("chosen:updated");
+        }
     }
 
-    func.updateJob = function(){
+    func.updateJob = function(e){
+        e.preventDefault();
         let jobTitle = $('#job_title').val()
             isActive = $('#isActive')[0].checked ? 1 : 0,
             description = $('#description').summernote('code'),

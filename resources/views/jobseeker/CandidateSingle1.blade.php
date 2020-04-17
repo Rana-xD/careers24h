@@ -73,8 +73,8 @@
 				 			<div class="row">
 				 				<div class="col-lg-9 column">
 				 					<div class="cand-details">
-				 						<h2 id="about">@lang('candidate.cover_letter')</h2>
-				 						{!! $candidate->cover_letter  !!}
+				 						{{-- <h2 id="about">@lang('candidate.cover_letter')</h2>
+				 						{!! $candidate->cover_letter  !!} --}}
 				 						<div class="edu-history-sec" id="education">
 				 							<h2>@lang('candidate.education')</h2>
 				 							@if (!empty($candidate->education))

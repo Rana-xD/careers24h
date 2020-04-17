@@ -90,6 +90,7 @@ if (!CAREER24H.company) CAREER24H.company = {};
   };
 
   func.updateCompanyProfile = function (e) {
+    e.preventDefault();
     var name = $("#name").val(),
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
@@ -200,6 +201,8 @@ if (!CAREER24H.company) CAREER24H.company = {};
   };
 
   func.createJob = function (e) {
+    e.preventDefault();
+    var self = $(e.target);
     var jobTitle = $('#job_title').val(),
         description = $('#description').summernote('code'),
         jobType = $('#job_type').val(),
@@ -250,9 +253,30 @@ if (!CAREER24H.company) CAREER24H.company = {};
     formData.append('benefit', benefit);
     formData.append('city', city);
     formData.append('work_day', JSON.stringify(workDay));
-    formData.append('work_time', JSON.stringify(workTime)); // for (var pair of formData.entries()) {
-    //     console.log(pair[0]+ ', ' + pair[1]); 
-    // }
+    formData.append('work_time', JSON.stringify(workTime));
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = formData.entries()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var pair = _step.value;
+        console.log(pair[0] + ', ' + pair[1]);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
 
     var url = '/company/create-job';
     CAREER24H.utils.activateSpinner();
@@ -264,7 +288,22 @@ if (!CAREER24H.company) CAREER24H.company = {};
           icon: 'success',
           text: response.message ? response.message : 'Profile successfully updated.'
         }).then(function () {
-          location.reload(true);
+          self[0].reset();
+          $('.chosen').not('.except_reset').val('').trigger('chosen:updated');
+          $('#description').summernote('reset');
+          $('#responsibility').summernote('reset');
+          $('#required_skill').summernote('reset');
+          $('#benefit').summernote('reset');
+          $('#work_day_from').val('Mon').trigger('chosen:updated');
+          $('#work_day_to').val('Fri').trigger('chosen:updated');
+          $('#work_time_from').val('8:00 AM');
+          $('#work_time_to').val('5:00 PM');
+          $('#negotiable').prop('checked', true).bootstrapToggle('on');
+          $('#specificGender').prop('checked', false).bootstrapToggle('off');
+
+          if (!$('#specificGender')[0].checked) {
+            $('.gender').css("display", "none");
+          }
         });
       } else {
         swal.fire({
@@ -341,9 +380,15 @@ if (!CAREER24H.company) CAREER24H.company = {};
       $('#work_time_from').val(arguments[14].from);
       $('#work_time_to').val(arguments[14].to);
     }
+
+    if (arguments[15]) {
+      $('#years_of_experience').val(arguments[15]);
+      $('#years_of_experience').trigger("chosen:updated");
+    }
   };
 
-  func.updateJob = function () {
+  func.updateJob = function (e) {
+    e.preventDefault();
     var jobTitle = $('#job_title').val();
     isActive = $('#isActive')[0].checked ? 1 : 0, description = $('#description').summernote('code'), jobType = $('#job_type').val(), category = $('#category').val(), qualification = $('#qualification').val(), career_level = $('#career_level').val(), yearsOfExperience = $('#years_of_experience').val(), pax = $('#pax').val(), offerSalary = $('#offer_salary').val(), isNegotiable = $('#negotiable')[0].checked ? 1 : 0, specificGener = $('#specificGender')[0].checked ? 1 : 0, gender = specificGener ? $('#gender').val() : '', deadline = $('#deadline').val(), city = $('#city').val(), responsibility = $('#responsibility').summernote('code'), requiredSkill = $('#required_skill').summernote('code'), benefit = $('#benefit').summernote('code'), workDayFrom = $('#work_day_from').val(), workDayTo = $('#work_day_to').val(), workTimeFrom = $('#work_time_from').val(), workTimeTo = $('#work_time_to').val(), token = $("input[name='_token']").val();
     id = $("#jobID").val();
