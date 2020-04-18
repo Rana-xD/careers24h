@@ -36,7 +36,7 @@
 				 				<div class="row">
 				 					<div class="col-lg-10">
 				 						<div class="job-single-head3 emplye">
-										 	<div class="job-thumb"> <img src="{{ $company->company_logo }}" width="124" height="128" alt="" /></div>
+										 	<div class="job-thumb"> <img src="{{ $company->company_logo }}" width="160" height="150" alt="" /></div>
 							 				<div class="job-single-info3">
 							 					<h3>{{ $company->name }}</h3>
 							 					<span><i class="la la-link"></i>{{ $company->website }}</span>

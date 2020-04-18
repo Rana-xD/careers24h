@@ -77,7 +77,7 @@
 								<div class="job-listings-sec no-border">
 								   <div class="job-listing wtabs">
 									   <div class="job-title-sec">
-										   <div class="c-logo"> <img src="{{$item->companyProfile->company_logo}}" width="98" height="51" alt="" /> </div>
+										   <div class="c-logo"> <img src="{{$item->companyProfile->company_logo}}" width="100" height="90" alt="" /> </div>
 									   	   <h3><a href="/job/{{ $item->uuid }}" title="">{{ $item->job_title }}</a></h3>
 										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$item->city) }}, @lang('city.Cambodia')</div>
 									   </div>
@@ -94,7 +94,7 @@
 				 	</div>
 				 	<div class="col-lg-4 column">
 				 		<div class="job-single-head style2">
-						 	<div class="job-thumb"> <a href="/company/{{$job->companyProfile->uuid}}"><img src="{{ $job->companyProfile->company_logo  }}"  width="124" height="128" alt="" /></a> </div>
+						 	<div> <a href="/company/{{$job->companyProfile->uuid}}"><img class="company-logo" src="{{ $job->companyProfile->company_logo  }}"  width="160" height="150" alt="" /></a> </div>
 			 				<div class="job-head-info">
 							 	<h4><a href="/company/{{$job->companyProfile->uuid}}">{{ $job->companyName()  }}</a></h4>
 			 					<span>{{ $job->companyAddress() }}</span>

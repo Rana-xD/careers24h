@@ -126,12 +126,14 @@ if (!CAREER24H.company) CAREER24H.company = {};
     formData.append('city', city);
     formData.append('industry', industry);
     formData.append('address', address);
-    var fileInput = $('#CompanyLogo').prop('files');
+    var fileInput = $('#crop_image').val();
 
-    if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
-      var file = fileInput[0];
-      formData.append('file', file);
-    }
+    if (fileInput && CAREER24H.constant.isCompanyLogoChange) {
+      formData.append('image', fileInput);
+    } // for (var pair of formData.entries()) {
+    //     console.log(pair[0]+ ', ' + pair[1]); 
+    // }
+
 
     var url = '/company/update-profile';
     CAREER24H.utils.activateSpinner();

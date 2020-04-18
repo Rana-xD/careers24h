@@ -132,7 +132,7 @@
 								@foreach ($jobs as $job)
 								<div class="job-listing wtabs">
 									<div class="job-title-sec">
-										<div class="c-logo"> <img src="{{ $job->companyLogo() }}" alt=""  width="98" height="55"/> </div>
+										<div class="c-logo"> <img src="{{ $job->companyLogo() }}" alt=""  width="100" height="90"/> </div>
 										<h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title}}</a></h3>
 										<span>{{$job->companyName()}}</span>
 										<div class="job-lctn"><i class="la la-map-marker"></i>{{__('city.'.$job->city)}}, @lang('city.Cambodia')</div>

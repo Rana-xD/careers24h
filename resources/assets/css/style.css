@@ -186,6 +186,25 @@ header {
 .required {
     color: red;
 }
+.preview {
+    overflow: hidden;
+    width: 160px; 
+    height: 150px;
+    margin: 10px;
+    box-shadow: 6px 4px 20px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 4px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 4px 20px 0px rgba(0,0,0,0.75);
+}
+.company-logo{
+    -webkit-box-shadow: 2px 5px 12px 0px rgba(0,0,0,0.20);
+    -moz-box-shadow: 2px 5px 12px 0px rgba(0,0,0,0.20);
+    box-shadow: 2px 5px 12px 0px rgba(0,0,0,0.20);
+}
+.preview-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .block {
     float: left;
     padding: 60px 0;

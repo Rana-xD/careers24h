@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" integrity="sha256-jKV9n9bkk/CTP8zbtEtnKaKf+ehRovOYeKoyfthwbC8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js" integrity="sha256-CgvH7sz3tHhkiVKh05kSUgG97YtzYNnWt6OXcmYzqHY=" crossorigin="anonymous"></script>
 	@include('partials.header')
 	<style>
 		.pf-field > input, .pf-field > textarea {
@@ -8,6 +10,13 @@
 		}
 		.profile-form-edit > form {
 			margin-bottom: 40px;
+		}
+		img {
+  			display: block;
+  			max-width: 100%;
+		}
+		.modal-lg{
+ 			 max-width: 1000px !important;
 		}
 	</style>
 </head>
@@ -31,6 +40,7 @@
 					 				<div class="upload-info">
 										 <a id="openFileInput">@lang('company_profile.browse')</a>
 										 <input type="file" name="logo" id="CompanyLogo" style="display:none">
+										 <input type="hidden" name="crop_image" id="crop_image">
 					 					<span>@lang('company_profile.profile_image')</span>
 					 				</div>
 					 			</div>
@@ -167,7 +177,7 @@
 			</div>
 		</div>
 	</section>
-
+	@include('layouts.crop_image_modal');
 </div>
 @include('partials.footer_script')
 </body>
@@ -214,6 +224,67 @@
         		$('html,body').scrollTop(elementOffset)
     		}
 		});
+		var $modal = $('#modal');
+		var image = document.getElementById('image');
+		var cropper;
+		$("body").on("change", "#CompanyLogo", function(e){
+    		var files = e.target.files;
+    		var done = function (url) {
+     		 image.src = url;
+      		$modal.modal('show');
+    		};
+    		var reader;
+    		var file;
+    		var url;
+
+    		if (files && files.length > 0) {
+      			file = files[0];
+
+      		if (URL) {
+        		done(URL.createObjectURL(file));
+      		} else if (FileReader) {
+        		reader = new FileReader();
+        		reader.onload = function (e) {
+          		done(reader.result);
+        	};
+        	reader.readAsDataURL(file);
+      	}
+    	}
+		});
+		$modal.on('shown.bs.modal', function () {
+    		cropper = new Cropper(image, {
+			initialAspectRatio: 1,
+			aspectRatio: 1,
+			viewMode: 3,
+	  		preview: '.preview'
+    	});
+		}).on('hidden.bs.modal', function () {
+   			cropper.destroy();
+        	cropper = null;
+   		});
+		$("#crop").click(function(){
+    		canvas = cropper.getCroppedCanvas({
+					minWidth: 160,
+					minHeight: 150,
+					maxWidth: 3072,
+        			maxHeight: 3072,
+					imageSmoothingEnabled: true,
+					imageSmoothingQuality: 'high'
+      		});
+			  
+    		canvas.toBlob(function(blob) {
+				CAREER24H.constant.isCompanyLogoChange = true;
+       			 url = URL.createObjectURL(blob);
+       			 var reader = new FileReader();
+         		reader.readAsDataURL(blob); 
+         		reader.onloadend = function() {
+					    $('#crop_image').val(reader.result);
+						$('#logoImage').attr('src', reader.result);
+				 }
+				 $modal.modal('hide');
+    		}, 'image/png', 1);
+		});
+
 		
 	});
 </script>

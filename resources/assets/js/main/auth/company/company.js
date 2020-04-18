@@ -136,11 +136,15 @@ if(!CAREER24H.company) CAREER24H.company = {};
         formData.append('address',address);
 
 
-        let fileInput = $('#CompanyLogo').prop('files');
-        if(fileInput[0] && CAREER24H.constant.isCompanyLogoChange){
-            let file = fileInput[0];
-            formData.append('file',file);
+        let fileInput = $('#crop_image').val();
+        if(fileInput && CAREER24H.constant.isCompanyLogoChange){
+            formData.append('image',fileInput);
         }
+
+        // for (var pair of formData.entries()) {
+        //     console.log(pair[0]+ ', ' + pair[1]); 
+        // }
+
         let url = '/company/update-profile';
         CAREER24H.utils.activateSpinner();
         let promise = CAREER24H.main.formSubmitPromise(url,formData);

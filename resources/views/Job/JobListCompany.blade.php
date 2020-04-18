@@ -45,7 +45,7 @@
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="job-grid border">
 										<div class="job-title-sec">
-											<div class="c-logo"> <img src="{{$job->companyLogo()}}" alt="" width="235" height="115"/> </div>
+											<div class="c-logo"> <img src="{{$job->companyLogo()}}" alt="" width="160" height="150"/> </div>
 											<h3><a href="/job/{{ $job->uuid }}" title="">{{$job->job_title}}</a></h3>
 											<span>{{ $job->offer_salary }}</span>
 											<span  style="float: right;color: {{$job->getColorCode()}}">{{ __('job_type.'.$job->working_term) }}</span>

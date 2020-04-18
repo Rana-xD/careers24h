@@ -89,7 +89,7 @@
 								 	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 										<div class="emply-list box">
 											<div class="emply-list-thumb">
-												<a href="/company/{{$company->uuid}}" title=""><img src="{{$company->company_logo}}" width="90" height="90" alt="" /></a>
+												<a href="/company/{{$company->uuid}}" title=""><img src="{{$company->company_logo}}" width="120" height="110" alt="" /></a>
 											</div>
 											<div class="emply-list-info">
 												<div class="emply-pstn">{{count($company->activeJobs)}} @lang('company.job')</div>

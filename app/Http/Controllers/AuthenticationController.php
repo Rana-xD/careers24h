@@ -69,47 +69,43 @@ class AuthenticationController extends Controller
         
     }
 
-    public function signupWithoutProfile(){
-        $user = session('user',0);
-        session()->forget('user');
-        $user = User::create($user);
-        if($user->role == "COMPANY"){
-            $company_profile = new CompanyProfile;
-            $company_profile->user_id = $user->id;
-            $company_profile->uuid =  Str::random(8);
-            $company_profile->save();
-        }else{
-            $company_profile = new JobseekerProfile;
-            $company_profile->user_id = $user->id;
-            $company_profile->uuid =  Str::random(8);
-            $company_profile->save();
-        }
-        Auth::login($user);
-        $url = env('APP_URL');
-        return response()->json([
-            'code' => 200,
-            'message' => 'Successfully create user',
-            'url' => $url
-        ]);
-    }
+    // public function signupWithoutProfile(){
+    //     $user = session('user',0);
+    //     session()->forget('user');
+    //     $user = User::create($user);
+    //     if($user->role == "COMPANY"){
+    //         $company_profile = new CompanyProfile;
+    //         $company_profile->user_id = $user->id;
+    //         $company_profile->uuid =  Str::random(8);
+    //         $company_profile->save();
+    //     }else{
+    //         $company_profile = new JobseekerProfile;
+    //         $company_profile->user_id = $user->id;
+    //         $company_profile->uuid =  Str::random(8);
+    //         $company_profile->save();
+    //     }
+    //     Auth::login($user);
+    //     $url = env('APP_URL');
+    //     return response()->json([
+    //         'code' => 200,
+    //         'message' => 'Successfully create user',
+    //         'url' => $url
+    //     ]);
+    // }
 
     public function signupWithProfile(Request $request){
 
-        $data = $request->except(['_token','file']);
+        $data = $request->except(['_token','image']);
         $session_user = session('user',0);
 
         if($session_user['role'] == "COMPANY"){
-            if($request->hasFile('file')){
-                $rules = array('file' => 'file|image|mimes:jpeg,png,webp,svg|max:1000');
-                $validator = Validator::make( $request->file(), $rules);
-                if($validator->fails()){
-                    return response()->json([
-                        'code' => 505,
-                        'message' => json_encode($validator->getMessageBag()->toArray())
-                    ]);
-                }
-                $path = Storage::disk('s3')->put('Companylogo', $request->file('file'));
-                $url = Storage::disk('s3')->url($path);
+            if($request->has('image')){
+                $image = $request->image;  // your base64 encoded
+                $image = str_replace('data:image/png;base64,', '', $image);
+                $image = str_replace(' ', '+', $image);
+                $imageName = Str::random(32) . '.png';
+                $path = Storage::disk('s3')->put('Companylogo/'.$imageName, base64_decode($image));
+                $url = Storage::disk('s3')->url('Companylogo/'.$imageName);
                 $data['company_logo'] = $url;
             }
             $user = User::create($session_user);
