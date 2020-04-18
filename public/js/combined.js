@@ -274,11 +274,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
     formData.append('phone_number', phone_number);
     formData.append('city', city);
     formData.append('is_private', isPrivate);
-    var fileInput = $('#JobseekerImage').prop('files');
+    var fileInput = $('#crop_image').val();
 
-    if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
-      var file = fileInput[0];
-      formData.append('file', file);
+    if (fileInput && CAREER24H.constant.isCompanyLogoChange) {
+      formData.append('image', fileInput);
     }
 
     CAREER24H.utils.activateSpinner();

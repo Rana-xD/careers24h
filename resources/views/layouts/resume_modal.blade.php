@@ -10,7 +10,7 @@
 		<div class="modal-body">
             <div class="cand-single-user">
                  <div class="can-detail-s">
-                    <img src="{{ $applicant->user_profile }}" alt="" width="145" height="145"/>
+                    <img src="{{ $applicant->user_profile }}" alt="" width="135" height="135" style="margin-bottom:15px;"/>
                      <h3>{{ $applicant->full_name  }}</h3>
                      <p>{{ $applicant->age }} years old, {{ $applicant->gender }}</p>
                      <p><i class="la la-graduation-cap"></i> {{ $applicant->education_level }}, <i class="la la-certificate"></i> {{ $applicant->career_level }}</p>

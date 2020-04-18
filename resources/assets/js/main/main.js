@@ -239,10 +239,9 @@ if(!CAREER24H.main) CAREER24H.main = {};
             formData.append('city',city);
             formData.append('is_private',isPrivate);
 
-            let fileInput = $('#JobseekerImage').prop('files');
-            if(fileInput[0] && CAREER24H.constant.isCompanyLogoChange){
-                let file = fileInput[0];
-                formData.append('file',file);
+            let fileInput = $('#crop_image').val();
+            if(fileInput && CAREER24H.constant.isCompanyLogoChange){
+                formData.append('image',fileInput);
             }
 
         CAREER24H.utils.activateSpinner();

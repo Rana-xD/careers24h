@@ -114,17 +114,13 @@ class AuthenticationController extends Controller
             CompanyProfile::create($data);
             $url ='/company/profile';
         }else{
-            if($request->hasFile('file')){
-                $rules = array('file' => 'file|image|mimes:jpeg,png,webp,svg|max:1000');
-                $validator = Validator::make( $request->file(), $rules);
-                if($validator->fails()){
-                    return response()->json([
-                        'code' => 505,
-                        'message' => json_encode($validator->getMessageBag()->toArray())
-                    ]);
-                }
-                $path = Storage::disk('s3')->put('jobseekerProfile', $request->file('file'));
-                $url = Storage::disk('s3')->url($path);
+            if($request->has('image')){
+                $image = $request->image;  // your base64 encoded
+                $image = str_replace('data:image/png;base64,', '', $image);
+                $image = str_replace(' ', '+', $image);
+                $imageName = Str::random(32) . '.png';
+                $path = Storage::disk('s3')->put('jobseekerProfile/'.$imageName, base64_decode($image));
+                $url = Storage::disk('s3')->url('jobseekerProfile/'.$imageName);
                 $data['user_profile'] = $url;
             }
             $user = User::create($session_user);

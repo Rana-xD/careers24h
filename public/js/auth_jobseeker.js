@@ -128,11 +128,10 @@ if (!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
     formData.append('phone_number', phone_number);
     formData.append('city', city);
     formData.append('is_private', isPrivate);
-    var fileInput = $('#JobseekerImage').prop('files');
+    var fileInput = $('#crop_image').val();
 
-    if (fileInput[0] && CAREER24H.constant.isCompanyLogoChange) {
-      var file = fileInput[0];
-      formData.append('file', file);
+    if (fileInput && CAREER24H.constant.isCompanyLogoChange) {
+      formData.append('image', fileInput);
     }
 
     var url = '/jobseeker/update-profile';

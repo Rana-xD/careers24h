@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" integrity="sha256-jKV9n9bkk/CTP8zbtEtnKaKf+ehRovOYeKoyfthwbC8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js" integrity="sha256-CgvH7sz3tHhkiVKh05kSUgG97YtzYNnWt6OXcmYzqHY=" crossorigin="anonymous"></script>
 	@include('partials.header')
 	<style>
 		.pf-field > input, .pf-field > textarea {
@@ -8,6 +10,20 @@
 		}
 		.profile-form-edit > form {
 			margin-bottom: 40px;
+		}
+		img {
+  			display: block;
+  			max-width: 100%;
+		}
+		.modal-lg{
+ 			 max-width: 1000px !important;
+		}
+		.cropper-view-box,
+    	.cropper-face {
+      		border-radius: 50%;
+		}
+		.preview {
+			border-radius: 50%;
 		}
 	</style>
 </head>
@@ -27,6 +43,7 @@
 					 				<div class="upload-info">
 										 <a id="openFileInput">@lang('my_profile.browse')</a>
 										 <input type="file" name="logo" id="JobseekerImage" style="display:none">
+										 <input type="hidden" name="crop_image" id="crop_image">
 					 					<span>Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png</span>
 					 				</div>
 					 			</div>
@@ -192,6 +209,7 @@
 			</div>
 		</div>
 	</section>
+	@include('layouts.crop_image_modal');
 </div>
 @include('partials.footer_script')
 </body>
@@ -200,10 +218,88 @@
         $('#openFileInput').on('click',()=>{
 			$('#JobseekerImage').click();
 		})
-		$('#JobseekerImage').on('change',CAREER24H.main.chooseProfilePicture);
-        $('#skipProfile').on('click',CAREER24H.main.skipProfileSetting);
+		// $('#JobseekerImage').on('change',CAREER24H.main.chooseProfilePicture);
+        // $('#skipProfile').on('click',CAREER24H.main.skipProfileSetting);
         $('#createJobseekerProfile').on('submit',CAREER24H.main.createJobseekerProfile);
 	});
+
+	var $modal = $('#modal');
+		var image = document.getElementById('image');
+		var cropper;
+		$("body").on("change", "#JobseekerImage", function(e){
+    		var files = e.target.files;
+    		var done = function (url) {
+     		 image.src = url;
+      		$modal.modal('show');
+    		};
+    		var reader;
+    		var file;
+    		var url;
+
+    		if (files && files.length > 0) {
+      			file = files[0];
+
+      		if (URL) {
+        		done(URL.createObjectURL(file));
+      		} else if (FileReader) {
+        		reader = new FileReader();
+        		reader.onload = function (e) {
+          		done(reader.result);
+        	};
+        	reader.readAsDataURL(file);
+      	}
+    	}
+		});
+		$modal.on('shown.bs.modal', function () {
+    		cropper = new Cropper(image, {
+			initialAspectRatio: 1,
+			aspectRatio: 1,
+			viewMode: 3,
+	  		preview: '.preview'
+    	});
+		}).on('hidden.bs.modal', function () {
+   			cropper.destroy();
+        	cropper = null;
+   		});
+		$("#crop").click(function(){
+    		croppedCanvas = cropper.getCroppedCanvas({
+					minWidth: 160,
+					minHeight: 150,
+					maxWidth: 3072,
+        			maxHeight: 3072,
+					imageSmoothingEnabled: true,
+					imageSmoothingQuality: 'high'
+      		});
+			canvas = getRoundedCanvas(croppedCanvas);
+    		canvas.toBlob(function(blob) {
+				CAREER24H.constant.isCompanyLogoChange = true;
+       			 url = URL.createObjectURL(blob);
+       			 var reader = new FileReader();
+         		reader.readAsDataURL(blob); 
+         		reader.onloadend = function() {
+					    $('#crop_image').val(reader.result);
+						$('#ProfileImage').attr('src', reader.result);
+				 }
+				 $modal.modal('hide');
+    		}, 'image/png', 1);
+		});
+
+		function getRoundedCanvas(sourceCanvas) {
+      			var canvas = document.createElement('canvas');
+      			var context = canvas.getContext('2d');
+      			var width = sourceCanvas.width;
+      			var height = sourceCanvas.height;
+
+      			canvas.width = width;
+      			canvas.height = height;
+      			context.imageSmoothingEnabled = true;
+      			context.drawImage(sourceCanvas, 0, 0, width, height);
+      			context.globalCompositeOperation = 'destination-in';
+      			context.beginPath();
+      			context.arc(width / 2, height / 2, Math.min(width, height) / 2, 0, 2 * Math.PI, true);
+      			context.fill();
+      			return canvas;
+    	}
 </script>
 </html>
 

@@ -52,7 +52,7 @@
 						   		@endif	 
 				 			</div>
 				 			<div class="can-detail-s">
-								 <div class="cst"><img src="{{ $candidate->user_profile }}" alt="" /></div>
+								 <div class="cst"><img src="{{ $candidate->user_profile }}" alt=""/></div>
 								 <h3>{{ $candidate->full_name  }}</h3>
 								 <p>{{ $candidate->age }} years old, {{ $candidate->gender }}</p>
 								 <p><i class="la la-phone"></i>{{ $candidate->phone_number  }}</p>
