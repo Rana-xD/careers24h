@@ -191,7 +191,7 @@
 								<div class="job-listings-sec">
 									<div class="job-listing">
 										<div class="job-title-sec">
-											<div class="c-logo"> <img src="{{ $job->companyProfile->company_logo }}" alt="" width="98" height="51"/> </div>
+											<div class="c-logo"> <img src="{{ $job->companyProfile->company_logo }}" alt="" width="100" height="90"/> </div>
 											<h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title  }}</a></h3>
 											<span>{{ $job->companyProfile->name }}</span>
 										</div>

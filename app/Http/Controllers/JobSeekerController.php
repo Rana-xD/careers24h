@@ -30,7 +30,7 @@ class JobSeekerController extends Controller
     }
 
     public function showAllJobseekerInfo(JobseekerProfile $jobseekers){
-        $jobseekers = $jobseekers->orderBy('created_at','desc')->paginate(15);
+        $jobseekers = $jobseekers->orderBy('created_at','desc')->where('is_private',false)->paginate(15);
         return view('jobseeker.CandidateList',[
             'jobseekers' => $jobseekers
         ]);
@@ -59,7 +59,7 @@ class JobSeekerController extends Controller
         if($request->has('industry')){
             $jobseekers->whereIn('industry', explode(',', $request->input('industry')));
         }
-        $jobseekers = $jobseekers->orderBy('created_at','desc')->paginate(15);
+        $jobseekers = $jobseekers->orderBy('created_at','desc')->where('is_private',false)->paginate(15);
         return view('jobseeker.CandidateList',[
             'jobseekers' => $jobseekers
         ]);
