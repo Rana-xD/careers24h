@@ -374,6 +374,22 @@ if(!CAREER24H.main) CAREER24H.main = {};
         // swal.fire(filter);
     }
 
+    func.handleFilterJobInHomePage = function(e){
+        e.preventDefault();
+        let filter = '/jobs/filter?'
+        let jobTitle = $('#job_title').val();
+        let city = $('.chosen-city').val();
+
+        if(jobTitle != ''){
+            filter = `${filter}job_title=${jobTitle}&`;
+        }
+        if(city !=''){
+            filter = `${filter}city=${city}&`;
+        }
+
+        window.location = filter.replace(/ /g, '%20');
+    }
+
     func.handleFilterCompany = function(e){
         let filter = '/company/filter?';
         let companyName = $('#company_name').val();

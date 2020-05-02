@@ -402,6 +402,23 @@ if (!CAREER24H.main) CAREER24H.main = {};
     window.location = filter.replace(/ /g, '%20'); // swal.fire(filter);
   };
 
+  func.handleFilterJobInHomePage = function (e) {
+    e.preventDefault();
+    var filter = '/jobs/filter?';
+    var jobTitle = $('#job_title').val();
+    var city = $('.chosen-city').val();
+
+    if (jobTitle != '') {
+      filter = "".concat(filter, "job_title=").concat(jobTitle, "&");
+    }
+
+    if (city != '') {
+      filter = "".concat(filter, "city=").concat(city, "&");
+    }
+
+    window.location = filter.replace(/ /g, '%20');
+  };
+
   func.handleFilterCompany = function (e) {
     var filter = '/company/filter?';
     var companyName = $('#company_name').val();

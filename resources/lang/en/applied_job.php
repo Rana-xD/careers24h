@@ -9,6 +9,6 @@ return [
     'Accept' => 'Accpet',
     'Reject' => 'Reject',
     'Pending' => 'Pending',
-    'online' => 'Offline',
+    'online' => 'Online',
     'offline' => 'Offline',
 ];
