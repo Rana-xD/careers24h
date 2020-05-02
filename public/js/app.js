@@ -19287,8 +19287,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/Projects/career24h/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/Projects/career24h/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

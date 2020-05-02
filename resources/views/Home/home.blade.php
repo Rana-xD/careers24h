@@ -22,21 +22,21 @@
 									<div class="job-search">
 										<h3>The Easiest Way to Get Your New Job</h3>
 										<span>Find Jobs, Employment & Career Opportunities</span>
-										<form>
+										<form action="" method="GET" id="filterInHomePage">
 											<div class="row">
 												<div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
 													<div class="job-field">
-														<input type="text" placeholder="Job title, keywords or company name" />
+														<input type="text" placeholder="Jobs, Employment & Career Opportunities title" name="job_title" id="job_title"/>
 														<i class="la la-keyboard-o"></i>
 													</div>
 												</div>
 												<div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
 													<div class="job-field">
-														<select data-placeholder="City, province or region" class="chosen-city">
-															<option>New York </option>
-															<option>Istanbul</option>
-															<option>London</option>
-															<option>Russia</option>
+														<select data-placeholder="City, province or region" class="chosen-city" name="city" id="city">
+															<option value=""></option>
+															@foreach (config('global.city') as $item)
+												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+													 		@endforeach
 														</select>
 														<i class="la la-map-marker"></i>
 													</div>
@@ -46,10 +46,10 @@
 												</div>
 											</div>
 										</form>
-										<div class="or-browser">
+										{{-- <div class="or-browser">
 											<span>Browse job offers by</span>
 											<a href="#" title="">Category</a>
-										</div>
+										</div> --}}
 									</div>
 								</div>
 								<div class="scroll-to">
@@ -154,7 +154,7 @@
 						</div>
 						<div class="col-lg-12">
 							<div class="browse-all-cat">
-								<a href="#" title="">Browse All Categories</a>
+								<a href="/jobs" title="">Browse All Categories</a>
 							</div>
 						</div>
 					</div>
@@ -360,4 +360,9 @@
 	
 	</div>
 	</body>
+	<script>
+		jQuery(document).ready(function($){
+			$('#filterInHomePage').on('submit',CAREER24H.main.handleFilterJobInHomePage);
+		});
+	</script>
 </html>
