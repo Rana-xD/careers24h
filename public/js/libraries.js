@@ -3152,7 +3152,7 @@ var swal = window.swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/career24h/resources/assets/js/libraries.js */"./resources/assets/js/libraries.js");
+module.exports = __webpack_require__(/*! /Users/rana/Desktop/Rana/Personal/Projects/career24h/resources/assets/js/libraries.js */"./resources/assets/js/libraries.js");
 
 
 /***/ })
