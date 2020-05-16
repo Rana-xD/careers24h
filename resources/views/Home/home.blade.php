@@ -171,7 +171,7 @@
 							<div class="simple-text-block">
 								<h3>Make a Difference with Your Online Resume!</h3>
 								<span>Your resume in minutes with JobHunt resume assistant is ready!</span>
-								<a href="#" title="">Create an Account</a>
+								<a href="/signup" title="">Create an Account</a>
 							</div>
 						</div>
 					</div>
@@ -205,7 +205,7 @@
 						</div>
 						<div class="col-lg-12">
 							<div class="browse-all-cat">
-								<a href="#" title="">Load more listings</a>
+								<a href="/jobs" title="">Load more listings</a>
 							</div>
 						</div>
 					</div>

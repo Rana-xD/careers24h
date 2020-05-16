@@ -33,15 +33,14 @@ class InterviewRoomController extends Controller
     }
 
     public function joinRoom($room_name){
-        $identity = Auth::user()->id;
+        $identity = Auth::user()->isCompany() ? Auth::user()->CompanyProfile->name : Auth::user()->jobseekerProfile->full_name;
         // \Log::debug("joined with identity: $identity");
         $token = new AccessToken($this->sid, $this->key, $this->secret, 3600, $identity);
-
+        $role = Auth::user()->isCompany() ? 'Company' : 'Jobseeker';
         $videoGrant = new VideoGrant();
         $videoGrant->setRoom($room_name);
 
         $token->addGrant($videoGrant);
-
-   return view('pages.room', [ 'accessToken' => $token->toJWT(), 'roomName' => $room_name ]);
+        return view('pages.room', [ 'accessToken' => $token->toJWT(), 'roomName' => $room_name, 'role' =>  $role]);
     }
 }

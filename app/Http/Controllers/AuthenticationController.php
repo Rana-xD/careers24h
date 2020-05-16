@@ -30,7 +30,29 @@ class AuthenticationController extends Controller
         session(['user' => $validated]);
         return redirect('/profile');
     }
+    public function ValidateExistingAccount(Request $request){
+        $username = $request->username;
+        $email = $request->email;
 
+        $exist = User::where('username',$username)->get();
+        if(count($exist)){
+            return response()->json([
+                'code' => 505,
+                'message' => "That username is already taken"
+            ]);
+        }
+        $exist = User::where('email',$email)->get();
+            if(count($exist)){
+                return response()->json([
+                    'code' => 505,
+                    'message' => "That email is already taken"
+                ]);
+        }
+        return response()->json([
+            'code' => 200
+        ]);
+
+    }
     public function showloginForm(Request $request){
         return view('pages.login');
     }

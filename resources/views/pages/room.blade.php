@@ -10,14 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-content" aria-controls="collapsible-content" aria-expanded="false" aria-label="Toggle Navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsible-content">
-        <button class="btn btn-outline-primary" id="leave-room">Leave Room</button>
-      </div>
-    </nav>
+
+    <input type="hidden" id="role" value="{{ $role }}">
     <div class="container-fluid">
       <div class="row" id="room">
         <div id="participants" class="col-xs-12 col-sm-3 col-md-2" style="text-align: center"></div>
@@ -29,14 +23,14 @@
       </div>
       <div id="modals">
         <div class="modal fade" id="select-mic" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="select-mic-label" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="select-mic-label">Microphone</h5>
               </div>
               <div class="modal-body" style="text-align: center">
                 <select style="width: 100%"></select>
-                <svg focusable="false" viewBox="0 0 100 100" aria-hidden="true" height="100" width="100" style="margin: 10px 0">
+                <svg focusable="false" viewBox="0 0 100 100" aria-hidden="true" height="100" width="100" style="margin: 20px 0 0 0">
                   <defs>
                     <clipPath id="level-indicator">
                       <rect x="0" y="100" width="100" height="100" />
@@ -55,14 +49,14 @@
           </div>
         </div>
         <div class="modal fade" id="select-camera" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="select-camera-label" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="select-camera-label">Camera</h5>
               </div>
               <div class="modal-body" style="text-align: center">
                 <select style="width: 100%"></select>
-                <video autoplay muted playsInline style="margin: 10px 0; width: 60%"></video>
+                <video autoplay muted playsInline style="margin: 20px 0 0 0; width: 100%"></video>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Apply</button>
@@ -70,51 +64,19 @@
             </div>
           </div>
         </div>
-        <div class="modal fade" id="join-room" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="join-room-label" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="join-room-label">Video Chat</h5>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label id="room-name-label" for="room-name">Room Name</label>
-                  <input id="room-name" class="form-control" type="text" />
-                </div>
-                <div class="form-group">
-                  <label id="screen-name-label" for="screen-name">User Name</label>
-                  <input id="screen-name" class="form-control" type="text" />
-                </div>
-                <div class="alert alert-warning" role="alert">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-dark">Change Microphone and Camera</button>
-                <button type="button" class="btn btn-primary">Join</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="show-error" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="show-error-label" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="show-error-label">Error</h5>
-              </div>
-              <div class="modal-body">
-                <div class="alert alert-warning" role="alert">
-                </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="bg-primary site-footer">
+        <button class="btn" id="leave-room"><img src="{{ asset('/images/end-call-button.png') }}" width="50" height="50"/></button>
+    </div>
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> --}}
   </body>
 @include('partials.footer_script')
 <script src="{{ asset('js/twilio.js')  }}"></script>
 <script>
-    window.addEventListener('load', CAREER24H.twilio.joinRoom('{{ $accessToken }})'));
+  window.addEventListener('load', twilioVideo.isSupported ? selectCamera('{{ $accessToken }}','{{ $roomName }}') :  () => {
+        showError($showErrorModal, new Error('This browser is not supported.'));
+  });
 </script>
 </html>

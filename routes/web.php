@@ -23,6 +23,7 @@ Route::get('/signup','AuthenticationController@showSignUpForm');
 Route::get('/login','AuthenticationController@showLoginForm')->name('login');
 Route::post('/login', 'AuthenticationController@login');
 Route::post('/signup', 'AuthenticationController@signUp');
+Route::post('/validate-email-and-username', 'AuthenticationController@ValidateExistingAccount');
 Route::get('/logout','AuthenticationController@logout');
 Route::get('/profile','AuthenticationController@showProfile');
 Route::get('/signup_without_profile','AuthenticationController@signupWithoutProfile');
