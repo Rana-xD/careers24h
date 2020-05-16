@@ -175,7 +175,6 @@ class CompanyDashboardController extends Controller
             if (empty($exists)) {
                 $client->video->rooms->create([
                     'uniqueName' => $room_name,
-                    'type' => 'group',
                     'recordParticipantsOnConnect' => false
                 ]);
                 $data['room_name'] = $room_name;

@@ -2,7 +2,7 @@
     <div class="block">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 column">
+                <div class="col-lg-4 column">
                     <div class="widget">
                         <div class="about_widget">
                             <div class="logo">
@@ -21,12 +21,12 @@
                         </div><!-- About Widget -->
                     </div>
                 </div>
-                <div class="col-lg-4 column">
+                <div class="col-lg-8 column">
                     <div class="widget">
                         <h3 class="footer-title">Frequently Asked Questions</h3>
                         <div class="link_widgets">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <a href="#" title="">Privacy & Seurty </a>
                                     <a href="#" title="">Terms of Serice</a>
                                     <a href="#" title="">Communications </a>
@@ -34,7 +34,7 @@
                                     <a href="#" title="">Lending Licnses </a>
                                     <a href="#" title="">Disclaimers </a>	
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-8">
                                     <a href="#" title="">Support </a>
                                     <a href="#" title="">How It Works </a>
                                     <a href="#" title="">For Employers </a>
@@ -42,31 +42,6 @@
                                     <a href="#" title="">Contact Us</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 column">
-                    <div class="widget">
-                        <h3 class="footer-title">Find Jobs</h3>
-                        <div class="link_widgets">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a href="#" title="">US Jobs</a>	
-                                    <a href="#" title="">Canada Jobs</a>	
-                                    <a href="#" title="">UK Jobs</a>	
-                                    <a href="#" title="">Emplois en Fnce</a>	
-                                    <a href="#" title="">Jobs in Deuts</a>	
-                                    <a href="#" title="">Vacatures China</a>	
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 column">
-                    <div class="widget">
-                        <div class="download_widget">
-                            <a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
-                            <a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
                         </div>
                     </div>
                 </div>

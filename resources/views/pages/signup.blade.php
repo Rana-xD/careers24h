@@ -23,7 +23,7 @@
 								<form action="/signup" method="POST" id="signup_form">
 									@csrf
 									<div class="cfield">
-										<input type="text" placeholder="@lang('signup.username')" name="username" value="{{ old('username') }}" required/>
+										<input type="text" placeholder="@lang('signup.username')" name="username" id="username" value="{{ old('username') }}" required/>
 										<i class="la la-user"></i>
 									</div>		
 									<div class="cfield">
@@ -31,7 +31,7 @@
 										<i class="la la-key"></i>
 									</div>
 									<div class="cfield">
-										<input type="email" placeholder="@lang('signup.email')" name="email" value="{{ old('email') }}" required/>
+										<input type="email" placeholder="@lang('signup.email')" name="email" id="email" value="{{ old('email') }}" required/>
 										<i class="la la-envelope-o"></i>
 									</div>
 									<div class="cfield">
@@ -62,7 +62,45 @@
 	</section>
 </div>
 @include('partials.footer_script')
+<script>
+	jQuery(document).ready(function($){
+		$('#signup_form').on('submit',(e)=>{
+			e.preventDefault();
+			let username = $('#username').val(),
+			email = $('#email').val(),
+			token = $("input[name='_token']").val(),
+			formData = new FormData();
+			formData.append('username',username);
+			formData.append('email',email);
+			formData.append('_token',token);
 
+			let url = '/validate-email-and-username';
+			CAREER24H.utils.activateSpinner();
+			let promise = CAREER24H.main.formSubmitPromise(url,formData);
+			promise.then((response)=>{
+                if (response.code == 200) {
+					$('#signup_form').off();
+					$('#signup_form').submit();
+                } else {
+                    swal.fire({
+                        title: 'Warning',
+                        icon: 'warning',
+                        text: response.message ? response.message : 'Unexpected error occured, please reload page.',
+                        button: false
+                    }).then(()=>{
+                        
+                    });
+                }
+            }, function (error) {
+				console.log(error);
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            }).catch(function (error) {
+				console.log(error);
+                CAREER24H.utils.handleFormSubmitionError(self, error, 'Unexpected error occured, please retry.');
+            });
+		})
+	});
+</script>
 </body>
 
 </html>

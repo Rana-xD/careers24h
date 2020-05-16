@@ -11,6 +11,23 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.webpackConfig({
+   module: {
+       rules: [
+           {
+               test: /\.jsx?$/,
+               exclude: /(node_modules\/(?!(dom7|swiper)\/).*|bower_components)/,
+               use: [
+                   {
+                       loader: 'babel-loader',
+                       options: Config.babel()
+                   }
+               ]
+           }
+       ]
+   }
+});
+
 mix.js('resources/assets/js/app.js', 'js')
    .js('resources/assets/js/libraries.js','js')
    .babel('resources/assets/js/bootstrap-datepicker.js','public/js/bootstrap-datepicker.js')
@@ -33,7 +50,7 @@ mix.js('resources/assets/js/app.js', 'js')
    .babel('resources/assets/js/tag.js','public/js/tag.js')
    .babel('resources/assets/js/wow.min.js','public/js/wow.min.js')
    .babel('resources/assets/js/script.js','public/js/script.js')
-   .babel('resources/assets/js/main/twilio.js','public/js/twilio.js')
+   .js('resources/assets/js/main/twilio.js','public/js/twilio.js')  
    .sass('resources/assets/sass/app.scss','css')
    .styles('resources/assets/css/colors/colors.css','public/css/colors/colors.css')
    .styles('resources/assets/css/animate.min.css','public/css/animate.min.css')
@@ -44,6 +61,7 @@ mix.js('resources/assets/js/app.js', 'js')
    .styles('resources/assets/css/icons.css','public/css/icons.css')
    .styles('resources/assets/css/responsive.css','public/css/responsive.css')
    .styles('resources/assets/css/style.css','public/css/style.css')
+   .styles('resources/assets/css/index.css','public/css/index.css')
    .babel([
       'resources/assets/js/main/constant.js',
       'resources/assets/js/main/utils.js',
