@@ -50,7 +50,7 @@
 									<li><i class="la la-users"></i><h3>@lang('job.pax')</h3><span>{{ $job->pax }}</span></li>
 									<li><i class="la la-mars-double"></i><h3>@lang('job.gender')</h3><span>{{ $job->is_specific_gender ? $job->gender : 'Both' }}</span></li>
 									<li><i class="la la-thumb-tack"></i><h3>@lang('job.career_level')</h3><span>{{ $job->career_level }}</span></li>
-									<li><i class="la la-puzzle-piece"></i><h3>@lang('job.category')</h3><span>{{ $job->category }}</span></li>
+									<li><i class="la la-puzzle-piece"></i><h3>@lang('job.category')</h3><span>{{ $job->sourceOfCategory->name }}</span></li>
 									<li><i class="la la-shield"></i><h3>@lang('job.experience')</h3><span>{{ $job->years_of_experience }} Years</span></li>
 								<li><i class="la la-line-chart "></i><h3>@lang('job.qualification')</h3><span>{{ $job->qualification  }}</span></li>
 								</ul>
