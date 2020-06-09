@@ -75,8 +75,8 @@
 				 			<h3 class="sb-title open">@lang('job.category')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox scrollbar">
-									@foreach (config('global.categories') as $item)
-										<p class="categories-label"><input type="checkbox" name="categories[]" class="categories" id="{{$item}}" value="{{$item}}"><label  class="labels" for="{{$item}}">{{$item}}</label></p>
+									@foreach ($categories as $item)
+										<p class="categories-label"><input type="checkbox" name="categories[]" class="categories" id="{{$item->id}}" value="{{$item->id}}"><label  class="labels" for="{{$item->id}}">{{$item->name}}</label></p>
 									@endforeach
 				 				</div>
 				 			</div>

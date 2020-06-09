@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Job;
 use App\Models\JobUser;
 use App\Models\CompanyProfile;
+use App\Models\Category;
 
 class JobController extends Controller
 {
@@ -19,7 +20,7 @@ class JobController extends Controller
     public function __construct()
     {
         $this->job_types = config('global.job_type');
-        $this->categories = config('global.categories');
+        $this->categories = Category::all();
         $this->qualification = config('global.education_level');
         $this->career_level = config('global.career_level');
         $this->city = config('global.city');
@@ -27,7 +28,8 @@ class JobController extends Controller
     public function showJobs(Job $job){
         $jobs = $job->where('is_active',1)->orderBy('created_at','desc')->paginate(15);
         return view('Job.JobList',[
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'categories' => $this->categories,
         ]);
     }
 
@@ -57,7 +59,8 @@ class JobController extends Controller
 
         $jobs = $job->where('is_active',1)->orderBy('created_at','desc')->paginate(15);
         return view('Job.JobList',[
-            'jobs' => $jobs
+            'jobs' => $jobs,
+            'categories' => $this->categories,
         ]);
 
     }

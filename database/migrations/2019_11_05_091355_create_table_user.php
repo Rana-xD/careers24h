@@ -22,7 +22,7 @@ class CreateTableUser extends Migration
                 $table->string('email');
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
-                $table->enum('role',['COMPANY','JOBSEEKER']);
+                $table->enum('role',['COMPANY','JOBSEEKER','ADMIN']);
                 $table->rememberToken();
                 $table->timestamps();
 

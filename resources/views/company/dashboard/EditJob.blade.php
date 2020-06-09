@@ -67,7 +67,7 @@
 					 							<select data-placeholder="Please Select Categories" class="chosen" name="category" id="category" required>
 													<option value=""></option>
 													@foreach ($categories as $item)
-												 		<option value="{{ $item }}">{{ $item }}</option>
+												 		<option value="{{ $item->id }}">{{ $item->name }}</option>
 													@endforeach
 												</select>
 					 						</div>
