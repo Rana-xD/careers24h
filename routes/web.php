@@ -14,7 +14,7 @@ use App\Models\Category;
 
 Route::get('/', function () {
     $jobs = Job::where('is_active',1)->get();
-    $categories = Category::select('name')->withCount('popular')->orderBy('popular_count','desc')->take(8)->get();
+    $categories = Category::select('id','name')->withCount('popular')->orderBy('popular_count','desc')->take(8)->get();
     return view('Home.home',[
         'jobs' => $jobs,
         'categories' => $categories

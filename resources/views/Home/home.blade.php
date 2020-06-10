@@ -76,7 +76,7 @@
 									@foreach ($categories as $category)
 									<div class="col-lg-3 col-md-3 col-sm-6">
 										<div class="p-category">
-											<a href="javascript:void(0);" title="">
+											<a href="/jobs/filter?categories={{$category->id}}&" title="">
 												{{-- <i class="la la-bullhorn"></i> --}}
 												<span>{{$category->name}}</span>
 												<p>({{$category->popular_count}} open positions)</p>
