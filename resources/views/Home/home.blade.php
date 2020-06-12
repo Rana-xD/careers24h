@@ -261,8 +261,8 @@
 												<li>Private Account</li>
 												<li>Multiple Video CV</li>
 												<li>Unlimited CV Templates</li>
-												<li>Job Alert</li>
-												<li>Follow Company</li>
+												{{-- <li>Job Alert</li>
+												<li>Follow Company</li> --}}
 											</ul>
 											<a href="/signup" title="">SUBSCRIBE NOW</a>
 										</div>
