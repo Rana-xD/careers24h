@@ -47,9 +47,6 @@ class JobSeekerController extends Controller
         if($request->has('experience')){
             $jobseekers->whereIn('experience', explode(',', $request->input('experience')));
         }
-        if($request->has('career_level')){
-            $jobseekers->whereIn('career_level', explode(',', $request->input('career_level')));
-        }
         if($request->has('gender') && $request->input('gender') != 'Both'){
             $jobseekers->where('gender', $request->input('gender'));
         }

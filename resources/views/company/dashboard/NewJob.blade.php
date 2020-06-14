@@ -77,7 +77,7 @@
 											   </select>
 											</div>
 										</div>
-										<div class="col-lg-4">
+										{{-- <div class="col-lg-4">
 											<span class="pf-title">@lang('new_job.career_level') <span class="required">*</span></span>
 											<div class="pf-field">
 												<select data-placeholder="@lang('new_job.please_select_option')" class="chosen" name="career_level" id="career_level" required>
@@ -87,8 +87,8 @@
 												   @endforeach
 											   </select>
 											</div>
-										</div>
-					 					<div class="col-lg-4">
+										</div> --}}
+					 					<div class="col-lg-6">
 											<span class="pf-title">@lang('new_job.years_of_experience') <span class="required">*</span></span>
 											<div class="pf-field">
 												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="years_of_experience" id="years_of_experience" required>
@@ -99,7 +99,7 @@
 											 </select>
 											</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-6">
 											<span class="pf-title">@lang('new_job.pax') <span class="required">*</span></span>
 											<div class="pf-field">
 												<input type="number" name="pax" id="pax" required/>

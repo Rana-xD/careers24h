@@ -19,7 +19,6 @@ class JobseekerProfile extends Model
         'age',
         'gender',
         'experience',
-        'career_level',
         'education_level',
         'industry',
         'social_media',
@@ -32,7 +31,8 @@ class JobseekerProfile extends Model
         'work_experience',
         'user_id',
         'uuid',
-        'is_private'
+        'is_private',
+        'is_single'
     ];
 
     public function user(){

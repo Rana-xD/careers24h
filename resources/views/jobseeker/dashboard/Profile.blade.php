@@ -117,18 +117,11 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.career_levels') <span class="required">*</span></span>					 						
-					 						<div class="pf-field">
-						 						<div class="pf-field">
-													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level" required>
-														<option value=""></option>
-														@foreach ($career_level as $item)
-												 			<option value="{{ $item }}">{{ $item }}</option>
-													 @endforeach
-													</select>
-						 						</div>
+											<span class="pf-title">@lang('my_profile.marital_status')</span>
+											<div>
+											   <input type="checkbox" checked id="isSingle" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.single')" data-off="@lang('my_profile.married')" data-onstyle="primary" data-offstyle="danger">
 											</div>
-					 					</div>
+										</div>
 					 					{{-- <div class="col-lg-12">
 					 						<span class="pf-title">Categories</span>					 						
 					 						<div class="pf-field no-margin">
@@ -225,7 +218,7 @@
 		let social_media = '<?php echo $jobseeker_profile->social_media ?>' ? JSON.parse('<?php echo $jobseeker_profile->social_media ?>') : '';
 		let industry = '<?php echo $jobseeker_profile->industry ?>';
 		let educationLevel = '<?php echo $jobseeker_profile->education_level ?>';
-		let careerLevel = '<?php echo $jobseeker_profile->career_level ?>';
+		let isSingle = '<?php echo $jobseeker_profile->is_single ?>';
 		let gender = '<?php echo $jobseeker_profile->gender ?>';
 		let city = '<?php echo $jobseeker_profile->city ?>';
 		let isPrivate = '<?php echo $jobseeker_profile->is_private ?>';
@@ -235,7 +228,7 @@
 		})
 		// $('#JobseekerImage').on('change',CAREER24H.jobseeker.chooseProfilePicture);
 		$('#jobseekerProfileUpdate').on('submit',CAREER24H.jobseeker.updateJobseekerProfile);
-		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,careerLevel,gender,city,isPrivate,experience);
+		CAREER24H.jobseeker.loadDataForJobseekerProfile(social_media,industry,educationLevel,isSingle,gender,city,isPrivate,experience);
 
 		var form = $('#jobseekerProfileUpdate');
 		var navbar = $('header');

@@ -81,7 +81,7 @@
 				 				</div>
 				 			</div>
 				 		</div>
-				 		<div class="widget border">
+				 		{{-- <div class="widget border">
 				 			<h3 class="sb-title closed">@lang('job.career_level')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
@@ -90,7 +90,7 @@
 									@endforeach
 				 				</div>
 				 			</div>
-				 		</div>
+				 		</div> --}}
 				 		<div class="widget border">
 				 			<h3 class="sb-title closed">@lang('job.gender')</h3>
 				 			<div class="specialism_widget">

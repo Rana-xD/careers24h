@@ -24,7 +24,6 @@ class JobSeekerDashboardController extends Controller
     {
         $this->industry = config('global.categories');
         $this->education_level = config('global.education_level');
-        $this->career_level = config('global.career_level');
         $this->city = config('global.city');
     }
 
@@ -33,13 +32,11 @@ class JobSeekerDashboardController extends Controller
         $jobseeker = Auth::user()->JobseekerProfile;
 
         $education_level = config('global.education_level');
-        $career_level = config('global.career_level');
         $city = config('global.city');
         $industry = config('global.industry');
         
         return view('jobseeker.dashboard.Profile',[
             'education_level' => $this->education_level,
-            'career_level' => $this->career_level,
             'city' => $this->city,
             'industry' => $this->industry,
             'jobseeker_profile' => $jobseeker

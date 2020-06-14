@@ -23,5 +23,10 @@ return [
     'update' => 'Update',
     'create' => 'Create',
     'please_select_option' => 'Please Select Options',
-    'profile_image' => 'Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png'
+    'profile_image' => 'Max file size is 1MB, Minimum dimension: 270x210 And Suitable files are .jpg & .png',
+    'yes' => 'Yes',
+    'no' => 'No',
+    'marital_status' => 'Marital Status',
+    'single' => 'Single',
+    'married' => 'Married'
 ];

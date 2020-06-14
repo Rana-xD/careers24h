@@ -43,7 +43,7 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title">
-					 			<h3>@lang('my_profile.my_profile')</h3>
+					 			{{-- <h3>@lang('my_profile.my_profile')</h3> --}}
 					 			<div class="upload-img-bar">
 								 <span class="round"><img src="{{  $profile }}" alt="" id="ProfileImage"/></span>
 					 				<div class="upload-info">
@@ -119,18 +119,11 @@
 					 						</div>
 					 					</div>
 					 					<div class="col-lg-3">
-					 						<span class="pf-title">@lang('my_profile.career_levels') <span class="required">*</span></span>					 						
-					 						<div class="pf-field">
-						 						<div class="pf-field">
-													 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="career_level" id="career_level" required>
-														<option value=""></option>
-														@foreach (config('global.career_level') as $item)
-												 			<option value="{{ $item }}">{{ $item }}</option>
-													 @endforeach
-													</select>
-						 						</div>
+											<span class="pf-title">@lang('my_profile.marital_status')</span>
+											<div>
+											   <input type="checkbox" checked id="isSingle" data-toggle="toggle" data-size="normal" data-on="@lang('my_profile.single')" data-off="@lang('my_profile.married')" data-onstyle="primary" data-offstyle="danger">
 											</div>
-					 					</div>
+										</div>
 					 					{{-- <div class="col-lg-12">
 					 						<span class="pf-title">Categories</span>					 						
 					 						<div class="pf-field no-margin">

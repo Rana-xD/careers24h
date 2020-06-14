@@ -16,7 +16,6 @@ class Job extends Model
             'working_term',
             'pax',
             'qualification',
-            'career_level',
             'years_of_experience',
             'deadline',
             'offer_salary',

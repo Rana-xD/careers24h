@@ -83,7 +83,7 @@
 											   </select>
 											</div>
 										</div>
-										<div class="col-lg-4">
+										{{-- <div class="col-lg-4">
 											<span class="pf-title">@lang('new_job.career_level') <span class="required">*</span></span>
 											<div class="pf-field">
 												<select data-placeholder="Please Select Career Level" class="chosen" name="career_level" id="career_level" required>
@@ -93,8 +93,8 @@
 												   @endforeach
 											   </select>
 											</div>
-										</div>
-					 					<div class="col-lg-4">
+										</div> --}}
+					 					<div class="col-lg-6">
 											<span class="pf-title">@lang('new_job.years_of_experience') <span class="required">*</span></span>
 											<div class="pf-field">
 												<select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="years_of_experience" id="years_of_experience" required>
@@ -105,7 +105,7 @@
 											 	</select>
 											</div>
 					 					</div>
-					 					<div class="col-lg-4">
+					 					<div class="col-lg-6">
 											<span class="pf-title">@lang('new_job.pax') <span class="required">*</span></span>
 											<div class="pf-field">
 												<input type="number" name="pax" id="pax" value="{{ $job->pax }}"/>
@@ -251,7 +251,7 @@
         let jobType = `<?php echo $job->working_term ?>`;
         let category = `<?php echo $job->category ?>`;
         let qualification = `<?php echo $job->qualification ?>`;
-        let careerLevel = `<?php echo $job->career_level ?>`;
+        // let careerLevel = `<?php echo $job->career_level ?>`;
         let city = `<?php echo $job->city ?>`;
         let description = `<?php echo $job->description ?>`;
         let responsibility = `<?php echo $job->responsibility ?>`;
@@ -266,7 +266,7 @@
 		let yearOfExperience = '<?php echo $job->years_of_experience ?>';
 
 		
-        CAREER24H.company.loadDataForEditForm(jobType,category,qualification,careerLevel,city,description,responsibility,requiredSkill,benefit,negotiable,specificGener,gender,active,workDay,workTime,yearOfExperience);
+        CAREER24H.company.loadDataForEditForm(jobType,category,qualification,city,description,responsibility,requiredSkill,benefit,negotiable,specificGener,gender,active,workDay,workTime,yearOfExperience);
 		$('.datepicker').datepicker({
 			format: 'dd-mm-yyyy',
 			startDate: 'today'

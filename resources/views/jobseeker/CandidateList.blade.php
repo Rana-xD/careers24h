@@ -67,7 +67,7 @@
 								</div>
 							</div>
 						</div>
-				 		<div class="widget">
+				 		{{-- <div class="widget">
 				 			<h3 class="sb-title closed">@lang('candidate.career_level')</h3>
 				 			<div class="specialism_widget">
 				 				<div class="simple-checkbox">
@@ -76,7 +76,7 @@
 									 @endforeach
 				 				</div>
 				 			</div>
-				 		</div>
+				 		</div> --}}
 				 		<div class="widget">
 				 			<h3 class="sb-title closed">@lang('candidate.qualification')</h3>
 				 			<div class="specialism_widget">

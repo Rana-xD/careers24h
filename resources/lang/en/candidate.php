@@ -19,5 +19,6 @@ return [
     'candidate_overview' => 'Jobseeker Overview',
     'male' => 'Male',
     'female' => 'Female',
-    'both' => 'Both'
+    'both' => 'Both',
+    'marital_status' => 'Marital Status',
 ];

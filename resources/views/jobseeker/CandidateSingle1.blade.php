@@ -138,9 +138,9 @@
 						 			<div class="job-overview">
 							 			<h3>@lang('candidate.candidate_overview')</h3>
 							 			<ul>
-							 				<li><i class="la la-thumb-tack"></i><h3>@lang('candidate.career_level')</h3><span>{{ $candidate->career_level }}</span></li>
+							 				<li><i class="la la-thumb-tack"></i><h3>@lang('candidate.marital_status')</h3><span>{{ $candidate->is_single ? 'Single' : 'Married' }}</span></li>
 										 	<li><i class="la la-puzzle-piece"></i><h3>@lang('candidate.industry')</h3><span>{{ $candidate->industry }}</span></li>
-							 				<li><i class="la la-shield"></i><h3>@lang('candidate.experience')</h3><span>{{ $candidate->experience }} Years</span></li>
+							 				<li><i class="la la-shield"></i><h3>@lang('candidate.experience')</h3><span>{{ $candidate->experience }} </span></li>
 											 <li><i class="la la-line-chart "></i><h3>@lang('candidate.education_level')</h3><span>{{ $candidate->education_level }}</span></li>
 											 <li><i class="la la-eye"></i><h3>@lang('candidate.view')</h3><span>{{$candidate->view_count}}</span></li>
 							 			</ul>

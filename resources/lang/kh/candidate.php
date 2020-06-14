@@ -19,5 +19,6 @@ return [
     'candidate_overview' => 'ព័ត៌មានបេក្ខជន',
     'male' => 'ប្រុស',
     'female' => 'ស្រី',
-    'both' => 'ទាំងពីរ'
+    'both' => 'ទាំងពីរ',
+    'marital_status' => 'ស្ថានភាពអាពាហ៍ពិពាហ៍',
 ];

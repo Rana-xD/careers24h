@@ -216,7 +216,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
             jobType = $('#job_type').val(),
             category = $('#category').val(),
             qualification = $('#qualification').val(),
-            career_level = $('#career_level').val(),
+            // career_level = $('#career_level').val(),
             yearsOfExperience = $('#years_of_experience').val(),
             pax = $('#pax').val(),
             offerSalary = $('#offer_salary').val(),
@@ -251,7 +251,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('category',category);
             formData.append('working_term',jobType);
             formData.append('qualification',qualification);
-            formData.append('career_level',career_level);
+            // formData.append('career_level',career_level);
             formData.append('years_of_experience',yearsOfExperience);
             formData.append('pax',pax);
             formData.append('offer_salary',offerSalary);
@@ -325,51 +325,51 @@ if(!CAREER24H.company) CAREER24H.company = {};
             $('#qualification').val(arguments[2]);
             $('#qualification').trigger("chosen:updated");
         }
+        // if (arguments[3]) {
+        //     $('#career_level').val(arguments[3]);
+        //     $('#career_level').trigger("chosen:updated");
+        // }
         if (arguments[3]) {
-            $('#career_level').val(arguments[3]);
-            $('#career_level').trigger("chosen:updated");
-        }
-        if (arguments[4]) {
-            $('#city').val(arguments[4]);
+            $('#city').val(arguments[3]);
             $('#city').trigger("chosen:updated");
         }
-        if(arguments[5]) $('#description').summernote('code', arguments[5]);
-        if(arguments[6]) $('#responsibility').summernote('code', arguments[6]);
-        if(arguments[7]) $('#required_skill').summernote('code', arguments[7]);
-        if(arguments[8]) $('#benefit').summernote('code', arguments[8]);
+        if(arguments[4]) $('#description').summernote('code', arguments[4]);
+        if(arguments[5]) $('#responsibility').summernote('code', arguments[5]);
+        if(arguments[6]) $('#required_skill').summernote('code', arguments[6]);
+        if(arguments[7]) $('#benefit').summernote('code', arguments[7]);
 
-        if(!parseInt(arguments[9])){
+        if(!parseInt(arguments[8])){
             $('#negotiable').prop('checked', false);
             $('#negotiable').bootstrapToggle('off');
         }
 
-        if(parseInt(arguments[10])){
+        if(parseInt(arguments[9])){
             $('#specificGender').prop('checked', true);
             $('#specificGender').bootstrapToggle('on');
             $('.gender').css("display","block");
-            $('.gender').val(arguments[11]);
+            $('.gender').val(arguments[10]);
             $('.gender').trigger("chosen:updated");
         }
 
-        if(!parseInt(arguments[12])){
+        if(!parseInt(arguments[11])){
             $('#isActive').prop('checked', false);
             $('#isActive').bootstrapToggle('off')
         }
 
-        if (arguments[13]) {
-            $('#work_day_from').val(arguments[13].from);
+        if (arguments[12]) {
+            $('#work_day_from').val(arguments[12].from);
             $('#work_day_from').trigger("chosen:updated");
-            $('#work_day_to').val(arguments[13].to);
+            $('#work_day_to').val(arguments[12].to);
             $('#work_day_to').trigger("chosen:updated");
         }
 
-        if (arguments[14]) {
-            $('#work_time_from').val(arguments[14].from);
-            $('#work_time_to').val(arguments[14].to)
+        if (arguments[13]) {
+            $('#work_time_from').val(arguments[13].from);
+            $('#work_time_to').val(arguments[13].to)
         }
 
-        if (arguments[15]) {
-            $('#years_of_experience').val(arguments[15]);
+        if (arguments[14]) {
+            $('#years_of_experience').val(arguments[14]);
             $('#years_of_experience').trigger("chosen:updated");
         }
     }
@@ -382,7 +382,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
             jobType = $('#job_type').val(),
             category = $('#category').val(),
             qualification = $('#qualification').val(),
-            career_level = $('#career_level').val(),
+            // career_level = $('#career_level').val(),
             yearsOfExperience = $('#years_of_experience').val(),
             pax = $('#pax').val(),
             offerSalary = $('#offer_salary').val(),
@@ -419,7 +419,7 @@ if(!CAREER24H.company) CAREER24H.company = {};
             formData.append('category',category);
             formData.append('working_term',jobType);
             formData.append('qualification',qualification);
-            formData.append('career_level',career_level);
+            // formData.append('career_level',career_level);
             formData.append('years_of_experience',yearsOfExperience);
             formData.append('pax',pax);
             formData.append('offer_salary',offerSalary);

@@ -22,7 +22,6 @@ class JobController extends Controller
         $this->job_types = config('global.job_type');
         $this->categories = Category::all();
         $this->qualification = config('global.education_level');
-        $this->career_level = config('global.career_level');
         $this->city = config('global.city');
     }
     public function showJobs(Job $job){
@@ -47,9 +46,6 @@ class JobController extends Controller
         if($request->has('categories')){
             $job->whereIn('category', explode(',', $request->input('categories')));
         }
-        if($request->has('career_level')){
-            $job->whereIn('career_level', explode(',', $request->input('career_level')));
-        }
         if($request->has('gender') && $request->input('gender') != 'Both'){
             $job->where('gender', $request->input('gender'));
         }
@@ -71,7 +67,6 @@ class JobController extends Controller
             'job_types' => $this->job_types,
             'categories' => $this->categories,
             'qualification' => $this->qualification,
-            'career_level' => $this->career_level,
             'city' => $this->city
         ]);
     }
@@ -95,7 +90,6 @@ class JobController extends Controller
             'job_types' => $this->job_types,
             'categories' => $this->categories,
             'qualification' => $this->qualification,
-            'career_level' => $this->career_level,
             'city' => $this->city
         ]);
     }

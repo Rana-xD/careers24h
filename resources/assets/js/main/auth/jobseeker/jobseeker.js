@@ -101,7 +101,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             experience = $('#experience').val(),
             industry = $('#industry').val(),
             education_level = $('#education_level').val(),
-            career_level = $('#career_level').val(),
+            // career_level = $('#career_level').val(),
             facebook = $('#facebook').val(),
             instagram = $('#instagram').val(),
             twitter = $('#twitter').val(),
@@ -127,7 +127,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             formData.append('experience',experience);
             formData.append('industry',industry);
             formData.append('education_level',education_level);
-            formData.append('career_level',career_level);
+            // formData.append('career_level',career_level);
             formData.append('social_media',JSON.stringify(social_media));
             formData.append('email',email);
             formData.append('phone_number',phone_number);
@@ -181,8 +181,8 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
             $('#education_level').trigger("chosen:updated");
         }
         if(arguments[3]) {
-            $('#career_level').val(arguments[3]);
-            $('#career_level').trigger("chosen:updated");
+            $('#isSingle').prop('checked', false);
+            $('#isSingle').bootstrapToggle('off');
         }
         if(arguments[4]) {
             $('#gender').val(arguments[4]);
@@ -195,7 +195,7 @@ if(!CAREER24H.jobseeker) CAREER24H.jobseeker = {};
 
         if(parseInt(arguments[6])) {
             $('#isPrivate').prop('checked', false);
-            $('#isPrivate').bootstrapToggle('off')
+            $('#isPrivate').bootstrapToggle('off');
         }
         if(arguments[7]) {
             $('#experience').val(arguments[7]);

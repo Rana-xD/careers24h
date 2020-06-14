@@ -5,7 +5,7 @@ return [
     'job_title' => 'Job Title',
     'job_description' => 'Job Description',
     'job_type' => 'Job Type',
-    'categories' => 'Categories',
+    'categories' => 'Job Categories',
     'qualification' => 'Qualification',
     'career_level' => 'Career Level',
     'years_of_experience' => 'Years of Experience',

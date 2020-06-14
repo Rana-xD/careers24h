@@ -172,31 +172,31 @@ if (!CAREER24H.main) CAREER24H.main = {};
         startYear = $("#start_year").val(),
         teamSize = $('#team_size').val(),
         info = $('#info').summernote('code'),
-        facebook = $('#facebook').val(),
-        instagram = $('#instagram').val(),
-        twitter = $('#twitter').val(),
-        linkedin = $('#linkedin').val(),
-        phoneNumber = $('#phone_number').val(),
+        // facebook= $('#facebook').val(),
+    // instagram = $('#instagram').val(),
+    // twitter = $('#twitter').val(),
+    // linkedin = $('#linkedin').val(),
+    phoneNumber = $('#phone_number').val(),
         email = $('#email').val(),
         website = $('#website').val(),
         city = $('#city').val(),
         industry = $('#industry').val(),
         address = $('#address').val(),
-        token = $("input[name='_token']").val();
-    var social_media = {
-      "facebook": facebook,
-      "instagram": instagram,
-      "twitter": twitter,
-      "linkedin": linkedin
-    };
-    social_media = JSON.stringify(social_media);
+        token = $("input[name='_token']").val(); // let social_media = {
+    //     "facebook" : facebook,
+    //     "instagram" : instagram,
+    //     "twitter" : twitter,
+    //     "linkedin" : linkedin
+    // }
+    // social_media = JSON.stringify(social_media);
+
     formData = new FormData();
     formData.append('_token', token);
     formData.append('name', name);
     formData.append('start_year', startYear);
     formData.append('team_size', teamSize);
-    formData.append('info', info);
-    formData.append('social_media', social_media);
+    formData.append('info', info); // formData.append('social_media',social_media);
+
     formData.append('phone_number', phoneNumber);
     formData.append('email', email);
     formData.append('website', website);
@@ -244,8 +244,8 @@ if (!CAREER24H.main) CAREER24H.main = {};
         experience = $('#experience').val(),
         industry = $('#industry').val(),
         education_level = $('#education_level').val(),
-        career_level = $('#career_level').val(),
-        facebook = $('#facebook').val(),
+        // career_level = $('#career_level').val(),
+    facebook = $('#facebook').val(),
         instagram = $('#instagram').val(),
         twitter = $('#twitter').val(),
         linkedin = $('#linkedin').val(),
@@ -253,6 +253,7 @@ if (!CAREER24H.main) CAREER24H.main = {};
         phone_number = $('#phone_number').val(),
         city = $('#city').val(),
         isPrivate = $('#isPrivate')[0].checked ? 0 : 1,
+        isSingle = $('#isSingle')[0].checked ? 1 : 0,
         token = $("input[name='_token']").val();
     var social_media = {
       "facebook": facebook,
@@ -268,7 +269,8 @@ if (!CAREER24H.main) CAREER24H.main = {};
     formData.append('experience', experience);
     formData.append('industry', industry);
     formData.append('education_level', education_level);
-    formData.append('career_level', career_level);
+    formData.append('is_single', isSingle); // formData.append('career_level',career_level);
+
     formData.append('social_media', JSON.stringify(social_media));
     formData.append('email', email);
     formData.append('phone_number', phone_number);
@@ -362,10 +364,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
     }).get();
     var categories = $("input[name='categories[]']:checked").map(function (_, el) {
       return $(el).val();
-    }).get();
-    var careerLevel = $("input[name='career_level[]']:checked").map(function (_, el) {
-      return $(el).val();
-    }).get();
+    }).get(); // let careerLevel = $("input[name='career_level[]']:checked").map(function(_, el) {
+    //     return $(el).val();
+    // }).get();
+
     var educationLevel = $("input[name='qualification[]']:checked").map(function (_, el) {
       return $(el).val();
     }).get();
@@ -385,11 +387,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
 
     if (categories.length > 0) {
       filter = "".concat(filter, "categories=").concat(categories, "&");
-    }
+    } // if(careerLevel.length > 0){
+    //     filter = `${filter}career_level=${careerLevel}&`;
+    // }
 
-    if (careerLevel.length > 0) {
-      filter = "".concat(filter, "career_level=").concat(careerLevel, "&");
-    }
 
     if (gender != undefined) {
       filter = "".concat(filter, "gender=").concat(gender, "&");
@@ -465,10 +466,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
     }).get();
     var experience = $("input[name='experience[]']:checked").map(function (_, el) {
       return $(el).val();
-    }).get();
-    var careerLevel = $("input[name='career_level[]']:checked").map(function (_, el) {
-      return $(el).val();
-    }).get();
+    }).get(); // let careerLevel = $("input[name='career_level[]']:checked").map(function(_, el) {
+    //     return $(el).val();
+    // }).get();
+
     var educationLevel = $("input[name='qualification[]']:checked").map(function (_, el) {
       return $(el).val();
     }).get();
@@ -479,11 +480,10 @@ if (!CAREER24H.main) CAREER24H.main = {};
 
     if (experience.length > 0) {
       filter = "".concat(filter, "experience=").concat(experience, "&");
-    }
+    } // if(careerLevel.length > 0){
+    //     filter = `${filter}career_level=${careerLevel}&`;
+    // }
 
-    if (careerLevel.length > 0) {
-      filter = "".concat(filter, "career_level=").concat(careerLevel, "&");
-    }
 
     if (gender != undefined) {
       filter = "".concat(filter, "gender=").concat(gender, "&");

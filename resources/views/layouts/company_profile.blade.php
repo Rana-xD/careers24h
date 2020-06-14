@@ -37,7 +37,7 @@
 				 	<div class="col-lg-12 column">
 				 		<div class="padding-left">
 					 		<div class="profile-title" id="mp">
-					 			<h3>@lang('company_profile.company_profile')</h3>
+					 			{{-- <h3>@lang('company_profile.company_profile')</h3> --}}
 					 			<div class="upload-img-bar">
 								 <span><img src="{{ $profile }}" alt="" width="160" height="138" id="logoImage"/></span>
 					 				<div class="upload-info">
@@ -94,7 +94,7 @@
 					 							<textarea name="info" id="info"></textarea>
 					 						</div>
 					 					</div>
-					 					<div class="col-lg-3">
+					 					{{-- <div class="col-lg-3">
 					 						<span class="pf-title">Facebook</span>
 					 						<div class="pf-field">
 					 							<input type="text" placeholder="www.facebook.com/example" name="facebook" id="facebook"/>
@@ -121,7 +121,7 @@
 					 							<input type="text" placeholder="www.Linkedin.com/example" name="linkedin" id="linkedin"/>
 					 							<i class="la la-linkedin"></i>
 					 						</div>
-					 					</div>
+					 					</div> --}}
 					 					<div class="col-lg-4">
 					 						<span class="pf-title">@lang('company_profile.phone_number') <span class="required">*</span></span>
 					 						<div class="pf-field">
@@ -197,7 +197,7 @@
 			$('#CompanyLogo').click();
 		})
 		// $('#CompanyLogo').on('change',CAREER24H.main.chooseCompanyLogo);
-		$('#skipProfile').on('click',CAREER24H.main.skipProfileSetting);
+		// $('#skipProfile').on('click',CAREER24H.main.skipProfileSetting);
 		$('#createCompanyProfile').on('submit',CAREER24H.main.createCompanyProfile);
 
 		var $modal = $('#modal');

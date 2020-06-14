@@ -13,7 +13,7 @@
                     <img src="{{ $applicant->user_profile }}" alt="" width="135" height="135" style="margin-bottom:15px;"/>
                      <h3>{{ $applicant->full_name  }}</h3>
                      <p>{{ $applicant->age }} years old, {{ $applicant->gender }}</p>
-                     <p><i class="la la-graduation-cap"></i> {{ $applicant->education_level }}, <i class="la la-certificate"></i> {{ $applicant->career_level }}</p>
+                     <p><i class="la la-graduation-cap"></i> {{ $applicant->education_level }}</p>
                      <p><i class="la la-envelope"></i>{{ $applicant->email  }}</p>
                      <p><i class="la la-map-marker"></i>{{ __('city.'.$applicant->city) }} / @lang('city.Cambodia')</p>
                  </div>
