@@ -95,7 +95,7 @@
     </div>
 </div>
 
-<header class="stick-top forsticky">
+<header class="stick-top forsticky new-header">
     <div class="menu-sec">
         <div class="container">
             <div class="logo">

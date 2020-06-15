@@ -8,7 +8,39 @@
 	<div class="theme-layout" id="scrollup">
 		
 		@include('partials.navbar')
-	
+		<section>
+			<div class="block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="heading">
+								<h2>How It Works</h2>
+								{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day.
+								</span> --}}
+							</div><!-- Heading -->
+							<div class="how-to-sec">
+								
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-user"></i></span>
+									<h3>Register an account</h3>
+									<p>Post a job to tell us about your specialist. We'll quickly match you with the right job and company.</p>
+								</div>
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-film"></i></span>
+									<h3>Upload Video CV</h3>
+									<p>Create Vieod CV in order to attract more attention from candidate hunter and company </p>
+								</div>
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-video-camera"></i></span>
+									<h3>Online Interview</h3>
+									<p>convenient way for job interview during pandemic</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section>
 			<div class="block no-padding">
 				<div class="container fluid">
@@ -61,7 +93,7 @@
 				</div>
 			</div>
 		</section>
-	
+		
 		<section id="scroll-here">
 			<div class="block">
 				<div class="container">
@@ -98,7 +130,7 @@
 			</div>
 		</section>
 	
-		<section>
+		{{-- <section>
 			<div class="block double-gap-top double-gap-bottom">
 				<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color"></div><!-- PARALLAX BACKGROUND IMAGE -->
 				<div class="container">
@@ -113,7 +145,7 @@
 					</div>
 				</div>	
 			</div>
-		</section>
+		</section> --}}
 		<section>
 			<div class="block">
 				<div class="container">
@@ -149,7 +181,7 @@
 			</div>
 		</section>
 	
-		<section>
+		{{-- <section>
 			<div class="block" style="background: #8b91dd;">
 				<div class="container">
 					<div class="row">
@@ -179,7 +211,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 	
 		<section>
 			<div class="block">
@@ -275,7 +307,7 @@
 			</div>
 		</section>
 	
-		<section>
+		{{-- <section>
 			<div class="block no-padding">
 				<div class="container fluid">
 					<div class="row">
@@ -288,7 +320,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section> --}}
 	
 	
 		@include('partials.footer')
