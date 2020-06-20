@@ -17,7 +17,7 @@
 					@include('partials.company_sidebar')
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
-							<div class="emply-resume-sec">
+							{{-- <div class="emply-resume-sec">
 								<h3>@lang('interview_room.online')</h3>
                             <div class="job-grid-sec">
                                 <div class="row">
@@ -45,7 +45,7 @@
                                 </div>
 							</div>
 							
-							</div>
+							</div> --}}
 
 							<div class="emply-resume-sec">
 								<h3>@lang('interview_room.offline')</h3>

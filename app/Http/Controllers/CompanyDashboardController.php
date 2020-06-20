@@ -167,21 +167,21 @@ class CompanyDashboardController extends Controller
     public function setInterviewDate(Request $request){
         $data = $request->except('id');
         $room = JobUser::find($request->id);
-        if($data['is_online'] && empty($room->room_name)){
-            $room_name = Str::random(8);
-            $client = new Client($this->sid, $this->token);
-            $exists = $client->video->rooms->read([ 'uniqueName' => $room_name]);
+        // if($data['is_online'] && empty($room->room_name)){
+        //     $room_name = Str::random(8);
+        //     $client = new Client($this->sid, $this->token);
+        //     $exists = $client->video->rooms->read([ 'uniqueName' => $room_name]);
             
-            if (empty($exists)) {
-                $client->video->rooms->create([
-                    'uniqueName' => $room_name,
-                    'recordParticipantsOnConnect' => false
-                ]);
-                $data['room_name'] = $room_name;
-             }
+        //     if (empty($exists)) {
+        //         $client->video->rooms->create([
+        //             'uniqueName' => $room_name,
+        //             'recordParticipantsOnConnect' => false
+        //         ]);
+        //         $data['room_name'] = $room_name;
+        //      }
             
             
-        }
+        // }
         JobUser::find($request->id)->update($data);
         return response()->json([
             'code' => 200,

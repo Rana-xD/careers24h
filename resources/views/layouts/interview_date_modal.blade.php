@@ -16,13 +16,13 @@
                         <input type="hidden" id="datepicker_date" name="datepicker_date">
                     </div>
                     <div class="col-lg-12">
-                        <span class="pf-title">@lang('applicant.online_interview')</span>
-						<div>
+                        {{-- <span class="pf-title">@lang('applicant.online_interview')</span> --}}
+						{{-- <div>
 						  <input type="checkbox" id="online-interview" data-toggle="toggle" data-size="normal" data-on=" " data-off=" " data-onstyle="primary" data-offstyle="danger">
 					   </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="modal-footer">
             <button type="button" id="setInterviewDate" class="btn btn-primary">@lang('applicant.add')</button>

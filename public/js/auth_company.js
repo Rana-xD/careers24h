@@ -679,11 +679,11 @@ if (!CAREER24H.company) CAREER24H.company = {};
 
   func.handleSetInterviewDate = function (e) {
     var interviewDate = $('#datepicker_date').val(),
-        isOnline = $('#online-interview')[0].checked ? 1 : 0,
-        pivotId = $('#pivot-id-modal').val();
+        // isOnline = $('#online-interview')[0].checked ? 1 : 0,
+    pivotId = $('#pivot-id-modal').val();
     var formData = {
       'id': pivotId,
-      'is_online': isOnline,
+      // 'is_online' : isOnline,
       'interview_date': interviewDate
     };
     var url = '/company/set-interview-date';
