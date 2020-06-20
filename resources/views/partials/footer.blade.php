@@ -6,7 +6,7 @@
                     <div class="widget">
                         <div class="about_widget">
                             <div class="logo">
-                                <a href="#" title=""><img src="http://placehold.it/178x40" alt="" /></a>
+                                <a href="#" title=""><img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/logo.png" alt="" /></a>
                             </div>
                             <span>7 Makara, Phnom Penh, Cambodia</span>
                             <span>+855 93 860 146</span>

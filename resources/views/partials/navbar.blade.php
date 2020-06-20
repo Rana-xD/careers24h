@@ -8,7 +8,7 @@
 </div>
 <div class="responsive-header">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="/" title=""><img src="http://placehold.it/178x40" alt="" /></a></div>
+        <div class="res-logo"><a href="/" title=""><img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/logo.png"  alt="" /></a></div>
         <div class="menu-resaction">
             <div class="res-openmenu">
                 <img src="images/icon.png" alt="" /> @lang('navbar.menu')
@@ -99,7 +99,7 @@
     <div class="menu-sec">
         <div class="container">
             <div class="logo">
-                <a href="/" title=""><img class="hidesticky" src="http://placehold.it/178x40" alt="" /><img class="showsticky" src="http://placehold.it/178x40" alt="" /></a>
+                <a href="/" title=""><img class="hidesticky" src="https://careers24h.s3-ap-southeast-1.amazonaws.com/logo.png" alt="" /><img class="showsticky" src="https://careers24h.s3-ap-southeast-1.amazonaws.com/logo.png" alt="" /></a>
             </div><!-- Logo -->
             <div class="btn-extars">
                 @if (Auth::user() && Auth::user()->isCompany())

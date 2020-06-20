@@ -683,6 +683,7 @@ input[type=number] {
     float: left;
     margin: 3px 0;
     position: relative;
+    margin-top: 10px;
 }
 .logo a {
     float: left;
