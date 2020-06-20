@@ -7,7 +7,7 @@
 
 	<div class="theme-layout" id="scrollup">
 		
-		@include('partials.navbar')
+		@include('partials.new_navbar')
 		<section>
 			<div class="block">
 				<div class="container">
@@ -152,7 +152,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="heading">
-								<h2>Featured Jobs</h2>
+								<h2>Top Search Jobs</h2>
 								<span>Leading Employers already using job and talent.</span>
 							</div><!-- Heading -->
 							@foreach ($jobs as $job)
@@ -234,8 +234,8 @@
 												<li>0 featured job</li>
 												<li>Job displayed for 20 days</li>
 												<li>Resume Search</li>
-												<li>Online Interview 5 hours/week</li>
-												<li>5 online appointments</li>
+												{{-- <li>Online Interview 5 hours/week</li>
+												<li>5 online appointments</li> --}}
 											</ul>
 											<a href="/signup" title="">REGISTER NOW</a>
 										</div>
@@ -253,8 +253,8 @@
 												<li>Job displayed for 30 days</li>
 												<li>Resume Search</li>
 												<li>Candidate Hunting</li>
-												<li>Online Interview 20 hours/week</li>
-												<li>unlimited online appointments</li>
+												{{-- <li>Online Interview 20 hours/week</li>
+												<li>unlimited online appointments</li> --}}
 											</ul>
 											<a href="/signup" title="">SUBSCRIBE NOW</a>
 										</div>

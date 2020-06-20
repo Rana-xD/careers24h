@@ -141,13 +141,13 @@ if(!CAREER24H.main) CAREER24H.main = {};
        
         
 
-        // let social_media = {
-        //     "facebook" : facebook,
-        //     "instagram" : instagram,
-        //     "twitter" : twitter,
-        //     "linkedin" : linkedin
-        // }
-        // social_media = JSON.stringify(social_media);
+        let social_media = {
+            "facebook" : "",
+            "instagram" : "",
+            "twitter" : "",
+            "linkedin" : ""
+        }
+        social_media = JSON.stringify(social_media);
         formData = new FormData();
 
         formData.append('_token',token);
@@ -155,7 +155,7 @@ if(!CAREER24H.main) CAREER24H.main = {};
         formData.append('start_year',startYear);
         formData.append('team_size',teamSize);
         formData.append('info',info);
-        // formData.append('social_media',social_media);
+        formData.append('social_media',social_media);
         formData.append('phone_number',phoneNumber);
         formData.append('email',email);
         formData.append('website',website)

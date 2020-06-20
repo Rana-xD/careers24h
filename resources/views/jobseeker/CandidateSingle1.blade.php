@@ -11,7 +11,7 @@
 
 	<section class="overlape">
 		<div class="block no-padding">
-			<div data-velocity="-.1" style="background: url(http://placehold.it/1600x800) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+			<div data-velocity="-.1" style="background: url(https://careers24h.s3-ap-southeast-1.amazonaws.com/imageSlider/Webp.net-compress-image-2.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
 			<div class="container fluid">
 				<div class="row">
 					<div class="col-lg-12">
@@ -60,7 +60,7 @@
                      			<p><i class="la la-map-marker"></i>{{ __('city.'.$candidate->city) }} / @lang('city.Cambodia')</p>
 				 			</div>
 				 			<div class="download-cv">
-				 				<a href="#" title="">Download CV <i class="la la-download"></i></a>
+				 				{{-- <a href="#" title="">Download CV <i class="la la-download"></i></a> --}}
 				 			</div>
 				 		</div>
 				 		<ul class="cand-extralink">
@@ -160,9 +160,10 @@
 
 
 
-@include('partials.footer_script')
+
 
 </body>
+@include('partials.footer_script')
 <script>
 	jQuery(document).ready(function($){
 		$('.social-media').on('click',CAREER24H.main.handleOpenSocailMediaLinkInNewTab);

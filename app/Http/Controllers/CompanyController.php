@@ -18,7 +18,7 @@ class CompanyController extends Controller
         $company = CompanyProfile::where('uuid',$uuid)->firstOrFail();
         $company->increment('view_count');
         $social_media = json_decode($company->social_media);
-        
+        // return $social_media;
         return view('company.CompanySingle',[
             'company' =>  $company,
             'social_media' => $social_media

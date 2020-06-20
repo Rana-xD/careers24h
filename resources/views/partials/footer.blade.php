@@ -8,21 +8,21 @@
                             <div class="logo">
                                 <a href="#" title=""><img src="http://placehold.it/178x40" alt="" /></a>
                             </div>
-                            <span>Collin Street West, Victor 8007, Australia.</span>
-                            <span>+1 246-345-0695</span>
-                            <span>info@jobhunt.com</span>
-                            <div class="social">
+                            <span>7 Makara, Phnom Penh, Cambodia</span>
+                            <span>+855 93 860 146</span>
+                            <span>info@careers24h.com</span>
+                            {{-- <div class="social">
                                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
                                 <a href="#" title=""><i class="fa fa-twitter"></i></a>
                                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
                                 <a href="#" title=""><i class="fa fa-pinterest"></i></a>
                                 <a href="#" title=""><i class="fa fa-behance"></i></a>
-                            </div>
+                            </div> --}}
                         </div><!-- About Widget -->
                     </div>
                 </div>
                 <div class="col-lg-8 column">
-                    <div class="widget">
+                    {{-- <div class="widget">
                         <h3 class="footer-title">Frequently Asked Questions</h3>
                         <div class="link_widgets">
                             <div class="row">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
