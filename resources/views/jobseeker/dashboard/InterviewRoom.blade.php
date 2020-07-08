@@ -30,7 +30,7 @@
 													<p style="color: #232323">{{ $job->job_title }}</p>
 													<p>{{ $job->pivot->interview_date }}</p>
 												</div>
-												<a  href="/interview_room/{{$job->pivot->room_name}}" target="_blank">Join Room</a>
+												<a  href="{{$job->pivot->room_name}}" target="_blank">Join Room</a>
 											</div><!-- JOB Grid -->
 										</div>										
 									@endforeach

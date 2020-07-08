@@ -17,7 +17,7 @@
 					@include('partials.company_sidebar')
 				 	<div class="col-lg-9 column">
 				 		<div class="padding-left">
-							{{-- <div class="emply-resume-sec">
+							<div class="emply-resume-sec">
 								<h3>@lang('interview_room.online')</h3>
                             <div class="job-grid-sec">
                                 <div class="row">
@@ -35,7 +35,7 @@
 													<span style="float: right"><a class="video__CV">@lang('interview_room.video_cv')</a></span>
 													
 												</div>
-												<a  href="/interview_room/{{$item->pivot->room_name}}" target="_blank">@lang('interview_room.join_room')</a>
+												<a  href="{{$item->pivot->room_name}}" target="_blank">@lang('interview_room.join_room')</a>
 											</div><!-- JOB Grid -->
 										</div>
 										@endforeach
@@ -45,7 +45,7 @@
                                 </div>
 							</div>
 							
-							</div> --}}
+							</div>
 
 							<div class="emply-resume-sec">
 								<h3>@lang('interview_room.offline')</h3>

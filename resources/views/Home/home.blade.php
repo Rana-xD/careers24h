@@ -100,7 +100,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="heading">
-								<h2>Popular Categories</h2>
+								<h2>Popular Job Categories</h2>
 								{{-- <span>37 jobs live - 0 added today.</span> --}}
 							</div><!-- Heading -->
 							<div class="cat-sec">
