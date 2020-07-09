@@ -1,5 +1,5 @@
 <footer>
-    <div class="block">
+    {{-- <div class="block">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 column">
@@ -11,18 +11,18 @@
                             <span>7 Makara, Phnom Penh, Cambodia</span>
                             <span>+855 93 860 146</span>
                             <span>info@careers24h.com</span>
-                            {{-- <div class="social">
+                            <div class="social">
                                 <a href="#" title=""><i class="fa fa-facebook"></i></a>
                                 <a href="#" title=""><i class="fa fa-twitter"></i></a>
                                 <a href="#" title=""><i class="fa fa-linkedin"></i></a>
                                 <a href="#" title=""><i class="fa fa-pinterest"></i></a>
                                 <a href="#" title=""><i class="fa fa-behance"></i></a>
-                            </div> --}}
+                            </div>
                         </div><!-- About Widget -->
                     </div>
                 </div>
                 <div class="col-lg-8 column">
-                    {{-- <div class="widget">
+                    <div class="widget">
                         <h3 class="footer-title">Frequently Asked Questions</h3>
                         <div class="link_widgets">
                             <div class="row">
@@ -43,13 +43,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="bottom-line">
         <span>© 2020 Careers24H All rights reserved.</span>
-        <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a>
+        {{-- <a href="#scrollup" class="scrollup" title=""><i class="la la-arrow-up"></i></a> --}}
     </div>
 </footer>

@@ -1132,6 +1132,7 @@ input[type=number] {
     margin-top: 0px;
 }
 .main-featured-sec {
+    
     float: left;
     width: 100%;
     z-index: 1;
@@ -1146,7 +1147,7 @@ input[type=number] {
     float: left;
     width: 100%;
     font-family: Quicksand;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: normal;
     color: #ffffff;
     letter-spacing: 0px;
@@ -2177,13 +2178,13 @@ footer {
     float: left;
     width: 100%;
     text-align: center;
-    background: #1d293e;
+    background: #8b91dd;
     padding: 24px 0;
 }
 .bottom-line span {
     font-family: Open Sans;
     font-size: 13px;
-    color: #6a7d9b;
+    color: #fff;
     line-height: 24px;
 }
 
@@ -11759,7 +11760,7 @@ footer.ft .scrollup {
 /* add new 21.03.2019 */ 
 
 .new-slide{
-    height: 700px;
+    height: 350px;
     overflow: hidden;
     position: relative;
     background: rgb(20,31,114);

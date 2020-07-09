@@ -7,40 +7,7 @@
 
 	<div class="theme-layout" id="scrollup">
 		
-		@include('partials.new_navbar')
-		<section>
-			<div class="block">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="heading">
-								<h2>How It Works</h2>
-								{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day.
-								</span> --}}
-							</div><!-- Heading -->
-							<div class="how-to-sec">
-								
-								<div class="how-to">
-									<span class="how-icon"><i class="la la-user"></i></span>
-									<h3>Register an account</h3>
-									<p>Post a job to tell us about your specialist. We'll quickly match you with the right job and company.</p>
-								</div>
-								<div class="how-to">
-									<span class="how-icon"><i class="la la-film"></i></span>
-									<h3>Upload Video CV</h3>
-									<p>Create Vieod CV in order to attract more attention from candidate hunter and company </p>
-								</div>
-								<div class="how-to">
-									<span class="how-icon"><i class="la la-video-camera"></i></span>
-									<h3>Online Interview</h3>
-									<p>convenient way for job interview during pandemic</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		@include('partials.navbar')
 		<section>
 			<div class="block no-padding">
 				<div class="container fluid">
@@ -93,7 +60,39 @@
 				</div>
 			</div>
 		</section>
-		
+		<section>
+			<div class="block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="heading">
+								<h2>How It Works</h2>
+								{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day.
+								</span> --}}
+							</div><!-- Heading -->
+							<div class="how-to-sec">
+								
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-user"></i></span>
+									<h3>Register an account</h3>
+									<p>Post a job to tell us about your specialist. We'll quickly match you with the right job and company.</p>
+								</div>
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-film"></i></span>
+									<h3>Upload Video CV</h3>
+									<p>Create Vieod CV in order to attract more attention from candidate hunter and company </p>
+								</div>
+								<div class="how-to">
+									<span class="how-icon"><i class="la la-video-camera"></i></span>
+									<h3>Online Interview</h3>
+									<p>convenient way for job interview during pandemic</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section id="scroll-here">
 			<div class="block">
 				<div class="container">
