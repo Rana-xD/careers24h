@@ -19,7 +19,7 @@
 				 			<div class="job-single-head2">
 							 <div class="job-title2"><h3>{{  $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span></div>
 				 				<ul class="tags-jobs">
-									<li><i class="la la-map-marker"></i> {{ __('city.'.$job->city) }}, @lang('city.Cambodia')</li>
+									<li><i class="la la-map-marker"></i> {{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</li>
 									<li><i class="la la-money"></i> Monthly Salary : <span>{{ $job->offer_salary }}</span></li>
 									<li><i class="la la-calendar-times-o"></i> Deadline: {{ date('M d, Y', strtotime($job->deadline))  }}</li>
 									<li><i class="la la-eye"></i> Views: {{$job->view_count}}</li> 

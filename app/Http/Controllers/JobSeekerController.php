@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\CompanyProfile;
 use App\Models\JobseekerProfile;
+use App\Models\City;
 
 class JobSeekerController extends Controller
 {
@@ -17,6 +18,7 @@ class JobSeekerController extends Controller
     public function __construct(){
         $this->middleware('auth');
         $this->middleware('company');
+        $this->city = City::all();
     }
 
     public function showJobseekerInfo($uuid){
@@ -32,6 +34,7 @@ class JobSeekerController extends Controller
     public function showAllJobseekerInfo(JobseekerProfile $jobseekers){
         $jobseekers = $jobseekers->orderBy('created_at','desc')->where('is_private',false)->paginate(15);
         return view('jobseeker.CandidateList',[
+            'city' => $this->city,
             'jobseekers' => $jobseekers
         ]);
     }
@@ -58,6 +61,7 @@ class JobSeekerController extends Controller
         }
         $jobseekers = $jobseekers->orderBy('created_at','desc')->where('is_private',false)->paginate(15);
         return view('jobseeker.CandidateList',[
+            'city' => $this->city,
             'jobseekers' => $jobseekers
         ]);
 

@@ -15,7 +15,7 @@
                      <p>{{ $applicant->age }} years old, {{ $applicant->gender }}</p>
                      <p><i class="la la-graduation-cap"></i> {{ $applicant->education_level }}</p>
                      <p><i class="la la-envelope"></i>{{ $applicant->email  }}</p>
-                     <p><i class="la la-map-marker"></i>{{ __('city.'.$applicant->city) }} / @lang('city.Cambodia')</p>
+                     <p><i class="la la-map-marker"></i>{{ __('city.'.$applicant->sourceOfCity->name) }} / @lang('city.Cambodia')</p>
                  </div>
                  
              </div>

@@ -40,7 +40,7 @@
 											<td>
 												<div class="table-list-title">
 													<h3><a href="/company/preview-job/{{ $job->uuid }}">{{ $job->job_title }}</a></h3>
-													<span><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
+													<span><i class="la la-map-marker"></i>{{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</span>
 												</div>
 											</td>
 											<td>

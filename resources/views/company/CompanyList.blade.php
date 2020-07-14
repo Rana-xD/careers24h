@@ -52,8 +52,8 @@
 							<h3 class="sb-title open">@lang('company.city')</h3>
 							<div class="specialism_widget">
 								<div class="simple-checkbox scrollbar">
-									@foreach(config('global.city') as $item)
-										<p><input type="checkbox" name="city[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{__('city.'.$item)}}</label></p>
+									@foreach($city as $item)
+										<p><input type="checkbox" name="city[]" id="{{$item->name}}" value="{{$item->id}}"><label class="labels" for="{{$item->name}}">{{__('city.'.$item->name)}}</label></p>
 									@endforeach
 								</div>
 							</div>
@@ -95,7 +95,7 @@
 												<div class="emply-pstn">{{count($company->activeJobs)}} @lang('company.job')</div>
 													<h3><a href="/company/{{$company->uuid}}" title="">{{$company->name}}</a></h3>
 													<span>{{ $company->industry  }}</span>
-													<h6><i class="la la-map-marker"></i> {{__('city.'.$company->city)}}, @lang('city.Cambodia')</h6>
+													<h6><i class="la la-map-marker"></i> {{__('city.'.$company->sourceOfCity->name)}}, @lang('city.Cambodia')</h6>
 											</div>
 										</div><!-- Employe List -->
 									</div>

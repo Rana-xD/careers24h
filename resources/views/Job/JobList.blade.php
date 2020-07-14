@@ -34,8 +34,8 @@
 												<div class="job-field">
 													<select data-placeholder="@lang('job.city')" class="chosen-city">
 														<option value=""></option>
-														@foreach (config('global.city') as $item)
-															<option value="{{$item}}">{{__('city.'.$item)}}</option>
+														@foreach ($city as $item)
+															<option value="{{$item->id}}">{{__('city.'.$item->name)}}</option>
 														@endforeach
 													</select>
 													<i class="la la-map-marker"></i>
@@ -135,7 +135,7 @@
 										<div class="c-logo"> <img src="{{ $job->companyLogo() }}" alt=""  width="100" height="90"/> </div>
 										<h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title}}</a></h3>
 										<span>{{$job->companyName()}}</span>
-										<div class="job-lctn"><i class="la la-map-marker"></i>{{__('city.'.$job->city)}}, @lang('city.Cambodia')</div>
+										<div class="job-lctn"><i class="la la-map-marker"></i>{{__('city.'.$job->sourceOfCity->name)}}, @lang('city.Cambodia')</div>
 									</div>
 									<div class="job-style-bx">
 										<span>{{$job->offer_salary}}</span>

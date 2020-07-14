@@ -14,7 +14,7 @@ use App\Http\Requests\signUpRequest;
 use App\Models\User;
 use App\Models\CompanyProfile;
 use App\Models\JobseekerProfile;
-
+use App\Models\City;
 
 class AuthenticationController extends Controller
 {
@@ -84,7 +84,8 @@ class AuthenticationController extends Controller
                 'profile' => $profile,
                 'role' => $user['role'],
                 'phone_number' => $user['phone_number'],
-                'email' => $user['email']
+                'email' => $user['email'],
+                'city' => City::all()
             ]);
         }
         return redirect('/signup');

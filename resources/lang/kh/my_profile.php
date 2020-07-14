@@ -8,7 +8,7 @@ return [
     'gender' => 'ភេទ',
     'male' => 'ប្រុស',
     'female' => 'ស្រី',
-    'visibility' => 'ការមើលឃើញ',
+    'visibility' => 'ឯកជនភាពគណនី',
     'experience' => 'បទពិសោធន៍',
     'industry' => 'ឧស្សាហកម្ម',
     'education_level' => 'កំរិតអប់រំ',

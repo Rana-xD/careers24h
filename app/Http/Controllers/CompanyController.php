@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CompanyProfile;
+use App\Models\City;
 
 class CompanyController extends Controller
 {
     public function showAllCompany(CompanyProfile $companies){
         $companies = $companies->orderBy('created_at','desc')->paginate(15);
         return view('company.CompanyList',[
+            'city' => City::all(),
             'companies' =>  $companies
         ]);
     }
@@ -41,6 +43,7 @@ class CompanyController extends Controller
         }
         $companies = $companies->orderBy('created_at','desc')->paginate(15);
         return view('company.CompanyList',[
+            'city' => City::all(),
             'companies' =>  $companies
         ]);
     }

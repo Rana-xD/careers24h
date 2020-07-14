@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\City;
 class CompanyProfile extends Model
 {
      
@@ -29,7 +29,9 @@ class CompanyProfile extends Model
    public function user(){
     return $this->belongsTo('App\Models\User');
    }
-
+   public function sourceOfCity(){
+        return $this->belongsTo(City::class,'city');
+   }
    public function jobs(){
        return $this->hasMany('App\Models\Job','company_id');
    }

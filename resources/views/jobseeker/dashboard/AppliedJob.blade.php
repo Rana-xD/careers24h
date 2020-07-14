@@ -34,7 +34,7 @@
 												<td>
 													<div class="table-list-title">
 														<i>{{$job->companyName()}}</i><br />
-														<span><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
+														<span><i class="la la-map-marker"></i>{{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</span>
 													</div>
 												</td>
 												<td>

@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\City;
 class JobseekerProfile extends Model
 {
     
@@ -38,7 +38,9 @@ class JobseekerProfile extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
-
+    public function sourceOfCity(){
+        return $this->belongsTo(City::class,'city');
+    }
     public function video(){
         return $this->hasOne('App\Models\Video','jobseeker_id');
     }

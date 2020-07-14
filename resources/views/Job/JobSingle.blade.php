@@ -34,7 +34,7 @@
 							 	<input type="hidden" name="jobId" id="jobId" value="{{ $job->id }}">
 							 	<div class="job-title2"><h3>{{ $job->job_title }}</h3><span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span></div>
 				 				<ul class="tags-jobs">
-									 <li><i class="la la-map-marker"></i> {{ __('city.'.$job->city) }}, @lang('city.Cambodia')</li>
+									 <li><i class="la la-map-marker"></i> {{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</li>
 									 <li><i class="la la-money"></i> @lang('job.offer_salary') : <span>{{ $job->offer_salary }}</span></li>
 									 <li><i class="la la-calendar-times-o"></i> @lang('job.deadline'): {{ date('M d, Y', strtotime($job->deadline))  }}</li>
 									 <li><i class="la la-eye"></i> @lang('job.view'): {{$job->view_count}}</li> 
@@ -79,7 +79,7 @@
 									   <div class="job-title-sec">
 										   <div class="c-logo"> <img src="{{$item->companyProfile->company_logo}}" width="100" height="90" alt="" /> </div>
 									   	   <h3><a href="/job/{{ $item->uuid }}" title="">{{ $item->job_title }}</a></h3>
-										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$item->city) }}, @lang('city.Cambodia')</div>
+										   <div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$item->sourceOfCity->name) }}, @lang('city.Cambodia')</div>
 									   </div>
 									   <div class="job-style-bx">
 											<span>{{$item->offer_salary}}</span>

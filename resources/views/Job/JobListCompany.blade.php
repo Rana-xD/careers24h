@@ -50,7 +50,7 @@
 											<span>{{ $job->offer_salary }}</span>
 											<span  style="float: right;color: {{$job->getColorCode()}}">{{ __('job_type.'.$job->working_term) }}</span>
 										</div>
-										<span class="job-lctn">{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
+										<span class="job-lctn">{{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</span>
 									</div><!-- JOB Grid -->
 								</div>
 								@endforeach

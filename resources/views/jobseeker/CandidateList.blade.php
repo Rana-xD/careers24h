@@ -101,8 +101,8 @@
 							<h3 class="sb-title closed">@lang('candidate.city')</h3>
 							<div class="specialism_widget">
 								<div class="simple-checkbox">
-									@foreach (config('global.city') as $item)
-										<p><input type="checkbox" name="city[]" id="{{$item}}" value="{{$item}}"><label class="labels" for="{{$item}}">{{__('city.'.$item)}}</label></p>
+									@foreach ($city as $item)
+										<p><input type="checkbox" name="city[]" id="{{$item->name}}" value="{{$item->id}}"><label class="labels" for="{{$item->name}}">{{__('city.'.$item->name)}}</label></p>
 									@endforeach
 								</div>
 							</div>
@@ -118,7 +118,7 @@
 										</div>
 										<div class="emply-resume-info">
 											<h3><a href="/candidate/profile/{{$jobseeker->uuid}}" title="">{{$jobseeker->full_name}}</a></h3>
-											<p><i class="la la-map-marker"></i>{{__('city.'.$jobseeker->city)}} / @lang('city.Cambodia')</p>
+											<p><i class="la la-map-marker"></i>{{__('city.'.$jobseeker->sourceOfCity->name)}} / @lang('city.Cambodia')</p>
 										</div>
 										<div class="shortlists">
 											{{-- <a href="#" title="">Shortlist <i class="la la-plus"></i></a> --}}

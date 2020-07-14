@@ -57,7 +57,7 @@
 								 <p>{{ $candidate->age }} years old, {{ $candidate->gender }}</p>
 								 <p><i class="la la-phone"></i>{{ $candidate->phone_number  }}</p>
                      			<p><i class="la la-envelope"></i>{{ $candidate->email  }}</p>
-                     			<p><i class="la la-map-marker"></i>{{ __('city.'.$candidate->city) }} / @lang('city.Cambodia')</p>
+                     			<p><i class="la la-map-marker"></i>{{ __('city.'.$candidate->sourceOfCity->name) }} / @lang('city.Cambodia')</p>
 				 			</div>
 				 			<div class="download-cv">
 				 				{{-- <a href="#" title="">Download CV <i class="la la-download"></i></a> --}}

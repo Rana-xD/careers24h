@@ -85,7 +85,7 @@
 															<div class="job-title-sec">
 																<div class="c-logo"> <img src="http://placehold.it/98x51" alt="" /> </div>
 																   <h3><a href="/job/{{ $job->uuid }}" title="">{{ $job->job_title }}</a></h3>
-																<div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</div>
+																<div class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</div>
 															</div>
 															<div class="job-style-bx">
 																 	<span>{{$job->offer_salary}}</span>
@@ -103,7 +103,7 @@
 								 			<h3>@lang('company.company_information')</h3>
 								 			<ul>
 												 <li><i class="la la-file-text"></i><h3>@lang('company.post_job')</h3><span>{{count($company->activeJobs)}}</span></li>
-											 	<li><i class="la la-map"></i><h3>@lang('company.location')</h3><span>{{__('city.'.$company->city)}}, @lang('city.Cambodia')</span></li>
+											 	<li><i class="la la-map"></i><h3>@lang('company.location')</h3><span>{{__('city.'.$company->sourceOfCity->name)}}, @lang('city.Cambodia')</span></li>
 											 	<li><i class="la la-bars"></i><h3>@lang('company.industry')</h3><span>{{$company->industry}}</span></li>
 								 				<li><i class="la la-clock-o"></i><h3>@lang('company.since')</h3><span>{{$company->start_year}}</span></li>
 												 <li><i class="la la-users"></i><h3>@lang('company.team_size')</h3><span>{{$company->team_size}}</span></li>

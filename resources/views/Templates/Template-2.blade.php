@@ -14,7 +14,7 @@
 <div class="resume" style="padding-top: 5px">
 	<div class="resume_left">
 	  <div class="resume_profile">
-		<img src="{{$profileImageUrl}}" alt="Avatar">
+		<img src="{{$profileImageUrl}}" alt="Avatar" width="200" height="200">
 	  </div>
 	  <div class="resume_content">
 		<div class="resume_item resume_info">

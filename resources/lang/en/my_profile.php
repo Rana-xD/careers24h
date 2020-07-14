@@ -8,7 +8,7 @@ return [
     'gender' => 'Gender',
     'male' => 'Male',
     'female' => 'Female',
-    'visibility' => 'Visibility',
+    'visibility' => 'Account Privacy',
     'experience' => 'Experience',
     'industry' => 'Industry',
     'education_level' => 'Education Levels',

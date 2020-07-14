@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\City;
 
 class Job extends Model
 {
@@ -92,6 +93,9 @@ class Job extends Model
         return $this->belongsTo('App\Models\Category','category');
     }
 
+    public function sourceOfCity(){
+        return $this->belongsTo(City::class,'city');
+    }
     public function companyName(){
         return $this->companyProfile->name;
     }

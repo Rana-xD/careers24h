@@ -33,8 +33,8 @@
 													<div class="job-field">
 														<select data-placeholder="City, province or region" class="chosen-city" name="city" id="city">
 															<option value=""></option>
-															@foreach (config('global.city') as $item)
-												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+															@foreach ($city as $item)
+												 			<option value="{{ $item->id }}">{{__('city.'.$item->name)}}</option>
 													 		@endforeach
 														</select>
 														<i class="la la-map-marker"></i>
@@ -128,7 +128,41 @@
 				</div>
 			</div>
 		</section>
-	
+		<section id="scroll-here">
+			<div class="block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="heading">
+								<h2>Top 4 Locations</h2>
+								{{-- <span>37 jobs live - 0 added today.</span> --}}
+							</div><!-- Heading -->
+							<div class="cat-sec">
+								<div class="row no-gape">
+									@foreach ($locations as $location)
+									<div class="col-lg-3 col-md-3 col-sm-6">
+										<div class="p-category">
+											<a href="/jobs/filter?city={{$location->id}}&" title="">
+												{{-- <i class="la la-bullhorn"></i> --}}
+												<span>{{$location->name}}</span>
+												<p>({{$location->popular_count}} open positions)</p>
+											</a>
+										</div>
+									</div>
+									@endforeach
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-lg-12">
+							<div class="browse-all-cat">
+								<a href="/jobs" title="">Browse All Categories</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		{{-- <section>
 			<div class="block double-gap-top double-gap-bottom">
 				<div data-velocity="-.1" style="background: url(http://placehold.it/1920x1000) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible layer color"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -163,7 +197,7 @@
 											<span>{{ $job->companyProfile->name }}</span>
 										</div>
 										{{-- <span class="job-lctn">{{$job->offer_salary}}</span> --}}
-										<span class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$job->city) }}, @lang('city.Cambodia')</span>
+										<span class="job-lctn"><i class="la la-map-marker"></i>{{ __('city.'.$job->sourceOfCity->name) }}, @lang('city.Cambodia')</span>
 										<span class="job-lctn salary">{{ $job->offer_salary }}</span>
 										<span class="job-is {{ $job->getJobTypeCSSClass() }}">{{ __('job_type.'.$job->working_term) }}</span>
 									</div><!-- Job -->

@@ -15,6 +15,8 @@ use App\Models\JobUser;
 use Twilio\Rest\Client;
 use Twilio\Jwt\AccessToken;
 use Twilio\Jwt\Grants\VideoGrant;
+use App\Models\City;
+
 
 class CompanyDashboardController extends Controller
 {
@@ -28,7 +30,7 @@ class CompanyDashboardController extends Controller
     public function __construct()
     {
         $this->team_size = config('global.team_size');
-        $this->city = config('global.city');
+        $this->city = City::all();
         $this->industry = config('global.industry');
         $this->sid = config('services.twilio.sid');
         $this->token = config('services.twilio.token');

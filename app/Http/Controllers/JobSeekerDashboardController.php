@@ -14,6 +14,7 @@ use App\Models\JobUser;
 use App\Models\Video;
 use FFMpeg;
 use App\Models\Templates;
+use App\Models\City;
 
 class JobSeekerDashboardController extends Controller
 {
@@ -24,7 +25,7 @@ class JobSeekerDashboardController extends Controller
     {
         $this->industry = config('global.categories');
         $this->education_level = config('global.education_level');
-        $this->city = config('global.city');
+        $this->city = City::all();
     }
 
     public function showProfile(){
@@ -32,7 +33,6 @@ class JobSeekerDashboardController extends Controller
         $jobseeker = Auth::user()->JobseekerProfile;
 
         $education_level = config('global.education_level');
-        $city = config('global.city');
         $industry = config('global.industry');
         
         return view('jobseeker.dashboard.Profile',[

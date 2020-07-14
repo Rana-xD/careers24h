@@ -145,8 +145,8 @@
 					 						<div class="pf-field">
 											 <select data-placeholder="@lang('company_profile.please_select_option')" class="chosen" name="city" id="city" required>
 													<option value=""></option> 
-													@foreach (config('global.city') as $item)
-														<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+													@foreach ($city as $item)
+														<option value="{{ $item->id }}">{{__('city.'.$item->name)}}</option>
 												   @endforeach
 												</select>
 					 						</div>

@@ -156,10 +156,10 @@
 					 					<div class="col-lg-3">
 					 						<span class="pf-title">@lang('my_profile.city') <span class="required">*</span></span>
 					 						<div class="pf-field">
-											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->city }}" required>
+											 <select data-placeholder="@lang('my_profile.please_select_option')" class="chosen" name="city" id="city" value="{{ $jobseeker_profile->sourceOfCity->name }}" required>
 													<option value=""></option>
 													@foreach ($city as $item)
-												 			<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+												 			<option value="{{ $item->id }}">{{__('city.'.$item->name)}}</option>
 													 @endforeach
 												</select>
 					 						</div>

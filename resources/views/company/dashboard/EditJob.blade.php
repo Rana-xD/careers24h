@@ -150,7 +150,7 @@
 					 							<select data-placeholder="Please Select Options" class="chosen" name="city" id="city" required>
 													<option value=""></option>
 													@foreach ($city as $item)
-												 		<option value="{{ $item }}">{{__('city.'.$item)}}</option>
+												 		<option value="{{ $item->id }}">{{__('city.'.$item->name)}}</option>
 													@endforeach
 												</select>
 					 						</div>

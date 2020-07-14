@@ -1,6 +1,7 @@
 <?php
 use App\Models\Job;
 use App\Models\Category;
+use App\Models\City;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +15,13 @@ use App\Models\Category;
 
 Route::get('/', function () {
     $jobs = Job::where('is_active',1)->get();
+    $city = City::all();
     $categories = Category::select('id','name')->withCount('popular')->orderBy('popular_count','desc')->take(16)->get();
+    $locations = City::select('id','name')->withCount('popular')->orderBy('popular_count','desc')->take(4)->get();
+    
     return view('Home.home',[
+        'city' => $city,
+        'locations' => $locations,
         'jobs' => $jobs,
         'categories' => $categories
     ]);
