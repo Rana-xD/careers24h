@@ -61,7 +61,7 @@
 			</div>
 		</section>
 		<section>
-			<div class="block">
+			<div class="block" >
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12">
@@ -70,7 +70,7 @@
 								{{-- <span>Each month, more than 7 million Jobhunt turn to website in their search for work, making over <br />160,000 applications every day.
 								</span> --}}
 							</div><!-- Heading -->
-							<div class="how-to-sec">
+							{{-- <div class="how-to-sec">
 								
 								<div class="how-to">
 									<span class="how-icon"><i class="la la-user"></i></span>
@@ -87,6 +87,15 @@
 									<h3>Online Interview</h3>
 									<p>convenient way for job interview during pandemic</p>
 								</div>
+							</div> --}}
+							<div class="content-diagram">
+								@if (Auth::user() && Auth::user()->isCompany())
+									<img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/Company_diagram.png" alt="">
+								@elseif (Auth::user() && Auth::user()->isJobSeeker())
+									<img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/Jobseeker_Diagram.png" alt="">
+								@else
+									<img src="https://careers24h.s3-ap-southeast-1.amazonaws.com/Overall_diagram.png" alt="">
+								@endif
 							</div>
 						</div>
 					</div>
